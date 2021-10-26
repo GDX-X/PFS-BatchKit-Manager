@@ -52,8 +52,8 @@ cls
 :start
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -96,8 +96,8 @@ if "%choice%"=="12" (goto About)
 :About
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 echo.------------------------------------------
@@ -143,8 +143,8 @@ if "%choice%"=="100" (goto GDX-X)
 :AdvancedMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -185,8 +185,8 @@ if "%choice%"=="11" exit
 :ConversionMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -230,8 +230,8 @@ if "%choice%"=="12" exit
 :DownloadsMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -270,8 +270,8 @@ if "%choice%"=="12" exit
 :DownloadARTMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -316,8 +316,8 @@ if "%choice%"=="12" exit
 :DownloadCheatsMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -355,8 +355,8 @@ if "%choice%"=="12" exit
 :UtilityMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -396,8 +396,8 @@ if "%choice%"=="12" exit
 :HDDOSDMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -437,8 +437,8 @@ if "%choice%"=="12" exit
 :PS2OnlineMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -478,8 +478,8 @@ if "%choice%"=="12" exit
 :HDDManagementMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.0 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.0 By GDX 
+title PFS BatchKit Manager v1.0.1 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -6278,16 +6278,16 @@ cls
 cd "%~dp0POPS"
 
 if exist rmdir /s /q temp >nul 2>&1
-if exist *.zip %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.zip
-if exist *.rar %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.rar
-if exist *.7z  %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.7z
+if exist *.zip "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.zip"
+if exist *.rar "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.rar"
+if exist *.7z  "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.7z"
 if not exist *.cue (goto failmultibin)
 md temp >nul 2>&1
 md Original >nul 2>&1
 
-for %%f in (*.cue) do %~dp0BAT\binmerge "%%f" "temp\%%~nf"
-move *.bin %~dp0POPS\Original >nul 2>&1
-move *.cue %~dp0POPS\Original >nul 2>&1
+for %%f in (*.cue) do "%~dp0BAT\binmerge" "%%f" "temp\%%~nf"
+move *.bin "%~dp0POPS\Original" >nul 2>&1
+move *.cue "%~dp0POPS\Original" >nul 2>&1
 
 cd "%~dp0POPS\temp"
 "%~dp0BAT\busybox" find . -type f -name "*.cue" -exec sed -i "s:temp\\::g" {} + >nul 2>&1
@@ -6295,7 +6295,7 @@ move *.bin "%~dp0POPS" >nul 2>&1
 move *.cue "%~dp0POPS" >nul 2>&1
 cd "%~dp0POPS"
 
-for %%f in (*.cue) do %~dp0BAT\CUE2POPS_2_3 "%%f"
+for %%f in (*.cue) do "%~dp0BAT\CUE2POPS_2_3" "%%f"
 move *.bin "%~dp0POPS\temp" >nul 2>&1
 move *.cue "%~dp0POPS\temp" >nul 2>&1
 
@@ -6310,14 +6310,14 @@ cls
 cd "%~dp0POPS"
 
 if exist rmdir /s /q temp >nul 2>&1
-if exist *.zip %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.zip
-if exist *.rar %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.rar
-if exist *.7z  %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.7z
+if exist *.zip "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.zip"
+if exist *.rar "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.rar"
+if exist *.7z  "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.7z"
 if not exist *.vcd (goto failVCD)
 md temp >nul 2>&1
 md Original >nul 2>&1
 
-for %%f in (*.vcd) do %~dp0BAT\POPS2CUE.EXE "%%f"
+for %%f in (*.vcd) do "%~dp0BAT\POPS2CUE.EXE" "%%f"
 move *.vcd "%~dp0POPS\Original" >nul 2>&1
 
 REM ZIP Multiple Tracks
@@ -6345,9 +6345,9 @@ pause & (goto ConversionMenu)
 REM #########################################################################################################################################################
 :ECM2BIN
 cd "%~dp0POPS"
-if exist *.zip %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.zip
-if exist *.rar %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.rar
-if exist *.7z  %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.7z
+if exist *.zip "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.zip"
+if exist *.rar "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.rar"
+if exist *.7z  "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.7z"
 if not exist *.ecm (goto failECM)
 md temp >nul 2>&1
 md Original >nul 2>&1
@@ -6356,12 +6356,12 @@ move *.ecm temp >nul 2>&1
 move *.cue temp >nul 2>&1
 cd temp >nul 2>&1
 
-for %%f in (*.ecm) do %~dp0BAT\unecm.exe "%%f" "%%~nf"
+for %%f in (*.ecm) do "%~dp0BAT\unecm.exe" "%%f" "%%~nf"
 if not exist "%%~nf.cue" call "%~dp0BAT\cuemaker.bat"
 
-move *.bin %~dp0POPS >nul 2>&1
-move *.cue %~dp0POPS >nul 2>&1
-move *.ecm %~dp0POPS\Original >nul 2>&1
+move *.bin "%~dp0POPS" >nul 2>&1
+move *.cue "%~dp0POPS" >nul 2>&1
+move *.ecm "%~dp0POPS\Original" >nul 2>&1
 cd "%~dp0POPS"
 
 rmdir /s /q temp >nul 2>&1
@@ -6383,15 +6383,15 @@ pause & (goto ConversionMenu)
 REM ##########################################################################################################################################################
 :BIN2CHD
 cd "%~dp0POPS"
-if exist *.zip %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.zip
-if exist *.rar %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.rar
-if exist *.7z  %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.7z
+if exist *.zip "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.zip"
+if exist *.rar "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.rar"
+if exist *.7z  "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.7z"
 if not exist *.cue (goto failbin2CHD)
 md Original >nul 2>&1
 
-for %%i in (*.cue) do %~dp0BAT\chdman.exe createcd -i "%%i" -o "%%~ni.chd" 
-move *.bin %~dp0POPS\Original >nul 2>&1
-move *.cue %~dp0POPS\Original >nul 2>&1
+for %%i in (*.cue) do "%~dp0BAT\chdman.exe" createcd -i "%%i" -o "%%~ni.chd" 
+move *.bin "%~dp0POPS\Original" >nul 2>&1
+move *.cue "%~dp0POPS\Original" >nul 2>&1
 
 echo.
 
@@ -6410,14 +6410,14 @@ pause & (goto ConversionMenu)
 REM ##########################################################################################################################################################
 :CHD2BIN
 cd "%~dp0POPS"
-if exist *.zip %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.zip
-if exist *.rar %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.rar
-if exist *.7z  %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.7z
+if exist *.zip "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.zip"
+if exist *.rar "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.rar"
+if exist *.7z  "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.7z"
 if not exist *.chd (goto failCHD2bin)
 md Original >nul 2>&1
 
-for %%h in (*.chd) do %~dp0BAT\chdman.exe extractcd -i "%%h" -o "%%~nh.cue"
-move *.CHD %~dp0POPS\Original >nul 2>&1
+for %%h in (*.chd) do "%~dp0BAT\chdman.exe" extractcd -i "%%h" -o "%%~nh.cue"
+move *.CHD "%~dp0POPS\Original" >nul 2>&1
 
 echo.
 
@@ -6439,16 +6439,16 @@ cls
 cd "%~dp0POPS"
 
 if exist rmdir /s /q temp >nul 2>&1
-if exist *.zip %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.zip
-if exist *.rar %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.rar
-if exist *.7z  %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.7z
+if exist *.zip "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.zip"
+if exist *.rar "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.rar"
+if exist *.7z  "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.7z"
 if not exist *.cue (goto failmultibin)
 md temp >nul 2>&1
 md Original >nul 2>&1
 
-for %%f in (*.cue) do %~dp0BAT\binmerge "%%f" "temp\%%~nf"
-move *.bin %~dp0POPS\Original >nul 2>&1
-move *.cue %~dp0POPS\Original >nul 2>&1
+for %%f in (*.cue) do "%~dp0BAT\binmerge" "%%f" "temp\%%~nf"
+move *.bin "%~dp0POPS\Original" >nul 2>&1
+move *.cue "%~dp0POPS\Original" >nul 2>&1
 
 cd "%~dp0POPS\temp"
 "%~dp0BAT\busybox" find . -type f -name "*.cue" -exec sed -i "s:temp\\::g" {} + >nul 2>&1
@@ -6479,16 +6479,16 @@ cls
 cd "%~dp0POPS"
 
 if exist rmdir /s /q temp >nul 2>&1
-if exist *.zip %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.zip
-if exist *.rar %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.rar
-if exist *.7z  %~dp0BAT\7z.exe x -bso0 %~dp0POPS\*.7z
+if exist *.zip "%~dp0BAT\7z.exe" x -bso0 %~dp0POPS\*.zip"
+if exist *.rar "%~dp0BAT\7z.exe" x -bso0 %~dp0POPS\*.rar"
+if exist *.7z  "%~dp0BAT\7z.exe" x -bso0 %~dp0POPS\*.7z"
 if not exist *.cue (goto failbinsplit)
 md temp >nul 2>&1
 md Original >nul 2>&1
 
 for %%f in (*.cue) do "%~dp0BAT\binmerge" -s "%%f" "temp\%%~nf"
-move *.bin %~dp0POPS\Original >nul 2>&1
-move *.cue %~dp0POPS\Original >nul 2>&1
+move *.bin "%~dp0POPS\Original" >nul 2>&1
+move *.cue "%~dp0POPS\Original" >nul 2>&1
 
 cd "%~dp0POPS\temp"
 "%~dp0BAT\busybox" find . -type f -name "*.cue" -exec sed -i "s:temp\\::g" {} + >nul 2>&1
