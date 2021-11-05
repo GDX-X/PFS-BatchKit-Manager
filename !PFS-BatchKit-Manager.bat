@@ -44,16 +44,16 @@ IF NOT EXIST "%~dp0POPS\" MD "%~dp0POPS"
 IF NOT EXIST "%~dp0THM\"  MD "%~dp0THM"
 IF NOT EXIST "%~dp0VMC\"  MD "%~dp0VMC"
 
-IF NOT EXIST "%~dp0POPS-Binaries\"    MD "%~dp0POPS-Binaries\"
+IF NOT EXIST "%~dp0POPS-Binaries\" MD POPS-Binaries
 IF NOT EXIST "%~dp0HDD-OSD\__sysconf" MD "%~dp0HDD-OSD\__sysconf"
-IF NOT EXIST "%~dp0HDD-OSD\__system"  MD "%~dp0"HDD-OSD\__system"
+IF NOT EXIST "%~dp0HDD-OSD\__system" MD "%~dp0"HDD-OSD\__system"
 cls
 
 :start
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -96,8 +96,8 @@ if "%choice%"=="12" (goto About)
 :About
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 echo.------------------------------------------
@@ -143,8 +143,8 @@ if "%choice%"=="100" (goto GDX-X)
 :AdvancedMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -185,8 +185,8 @@ if "%choice%"=="11" exit
 :ConversionMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -230,8 +230,8 @@ if "%choice%"=="12" exit
 :DownloadsMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -242,7 +242,7 @@ ECHO.
 REM ECHO 1. Download APPS
 ECHO 1.
 ECHO 2. Download Artworks
-REM ECHO 3. Download Config
+ECHO 3. Download Config
 REM ECHO 4. Download Cheat
 ECHO 5.
 ECHO 6.
@@ -258,7 +258,7 @@ echo.------------------------------------------
 set /p choice=Select Option:
 
 if "%choice%"=="2" (goto DownloadARTMenu)
-
+if "%choice%"=="3" (goto DownloadCFG)
 REM if "%choice%"=="4" (goto DownloadCheatsMenu)
 
 if "%choice%"=="10" (goto AdvancedMenu)
@@ -270,8 +270,8 @@ if "%choice%"=="12" exit
 :DownloadARTMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -307,7 +307,7 @@ set /p choice=Select Option:
 
 if "%choice%"=="9" (goto DownloadART)
 
-if "%choice%"=="10" (goto AdvancedMenu)
+if "%choice%"=="10" (goto DownloadsMenu)
 if "%choice%"=="11" (goto start)
 if "%choice%"=="12" exit
 
@@ -316,8 +316,8 @@ if "%choice%"=="12" exit
 :DownloadCheatsMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -355,8 +355,8 @@ if "%choice%"=="12" exit
 :UtilityMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -396,8 +396,8 @@ if "%choice%"=="12" exit
 :HDDOSDMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -437,8 +437,8 @@ if "%choice%"=="12" exit
 :PS2OnlineMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -478,8 +478,8 @@ if "%choice%"=="12" exit
 :HDDManagementMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.1 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.1 By GDX 
+title PFS BatchKit Manager v1.0.2 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -1113,7 +1113,7 @@ echo ----------------------------------------------------
 echo\
 
 IF /I EXIST "%~dp0APPS\*" (
-	cd "%~dp0APPS
+	cd "%~dp0APPS"
 	echo         Creating Que
 
 	REM MOUNT OPL
@@ -1133,10 +1133,10 @@ IF /I EXIST "%~dp0APPS\*" (
 	REM APPS 1 DIR (OPL\APPS\APP)
 
 	for /D %%a in (*) do (
-	echo mkdir "%%~na" >> "%~dp0TMP\pfs-apps.txt"
-	echo lcd "%%~na" >> "%~dp0TMP\pfs-apps.txt"
- 	echo cd "%%~na" >> "%~dp0TMP\pfs-apps.txt"
- 	cd "%%~na"
+	echo mkdir "%%a" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%a" >> "%~dp0TMP\pfs-apps.txt"
+ 	echo cd "%%a" >> "%~dp0TMP\pfs-apps.txt"
+ 	cd "%%a"
 
 	REM APPS FILES (OPL\APPS\APP\files.xxx)
 
@@ -1145,10 +1145,10 @@ IF /I EXIST "%~dp0APPS\*" (
 	REM APPS 2 SUBDIR (OPL\APPS\APP\SUBDIR)
 
 	for /D %%b in (*) do (
-	echo mkdir "%%~nb" >> "%~dp0TMP\pfs-apps.txt"
-	echo lcd "%%~nb" >> "%~dp0TMP\pfs-apps.txt"
-	echo cd "%%~nb" >> "%~dp0TMP\pfs-apps.txt"
-	cd "%%~nb"
+	echo mkdir "%%b" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%b" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%b" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%b"
 
 	REM APPS SUBDIR FILES (OPL\APPS\APP\SUBDIR\files.xxx)
 
@@ -1157,10 +1157,10 @@ IF /I EXIST "%~dp0APPS\*" (
 	REM APPS 3 SUBDIR (OPL\APPS\APP\SUBDIR\SUBDIR)
 
 	for /D %%c in (*) do (
-	echo mkdir "%%~nc" >> "%~dp0TMP\pfs-apps.txt"
-	echo lcd "%%~nc" >> "%~dp0TMP\pfs-apps.txt"
-	echo cd "%%~nc" >> "%~dp0TMP\pfs-apps.txt"
-	cd "%%~nc"
+	echo mkdir "%%c" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%c" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%c" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%c"
 	
 	REM APPS SUBDIR FILES (OPL\APPS\APP\SUBDIR\SUBDIR\files.xxx)
 	
@@ -1169,10 +1169,10 @@ IF /I EXIST "%~dp0APPS\*" (
     REM APPS 4 SUBDIR (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR)
 
 	for /D %%e in (*) do (
-	echo mkdir "%%~ne" >> "%~dp0TMP\pfs-apps.txt"
-	echo lcd "%%~ne" >> "%~dp0TMP\pfs-apps.txt"
-	echo cd "%%~ne" >> "%~dp0TMP\pfs-apps.txt"
-	cd "%%~ne"
+	echo mkdir "%%e" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%e" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%e" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%e"
 	
 	REM APPS SUBDIR FILES (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -1181,10 +1181,10 @@ IF /I EXIST "%~dp0APPS\*" (
 	REM APPS 5 SUBDIR (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%f in (*) do (
-	echo mkdir "%%~nf" >> "%~dp0TMP\pfs-apps.txt"
-	echo lcd "%%~nf" >> "%~dp0TMP\pfs-apps.txt"
-	echo cd "%%~nf" >> "%~dp0TMP\pfs-apps.txt"
-	cd "%%~nf"
+	echo mkdir "%%f" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%f" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%f" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%f"
 	
 	REM APPS SUBDIR FILES (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -1193,10 +1193,10 @@ IF /I EXIST "%~dp0APPS\*" (
 	REM APPS 6 SUBDIR (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%g in (*) do (
-	echo mkdir "%%~ng" >> "%~dp0TMP\pfs-apps.txt"
-	echo lcd "%%~ng" >> "%~dp0TMP\pfs-apps.txt"
-	echo cd "%%~ng" >> "%~dp0TMP\pfs-apps.txt"
-	cd "%%~ng"
+	echo mkdir "%%g" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%g" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%g" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%g"
 	
 	REM APPS SUBDIR FILES (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -1205,10 +1205,10 @@ IF /I EXIST "%~dp0APPS\*" (
 	REM APPS 7 SUBDIR (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%h in (*) do (
-	echo mkdir "%%~nh" >> "%~dp0TMP\pfs-apps.txt"
-	echo lcd "%%~nh" >> "%~dp0TMP\pfs-apps.txt"
-	echo cd "%%~nh" >> "%~dp0TMP\pfs-apps.txt"
-	cd "%%~nh"
+	echo mkdir "%%h" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%h" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%h" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%h"
 	
 	REM APPS SUBDIR FILES (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -1217,10 +1217,10 @@ IF /I EXIST "%~dp0APPS\*" (
 	REM APPS 8 SUBDIR (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%i in (*) do (
-	echo mkdir "%%~ni" >> "%~dp0TMP\pfs-apps.txt"
-	echo lcd "%%~ni" >> "%~dp0TMP\pfs-apps.txt"
-	echo cd "%%~ni" >> "%~dp0TMP\pfs-apps.txt"
-	cd "%%~ni"
+	echo mkdir "%%i" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%i" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%i" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%i"
 	
 	REM APPS SUBDIR FILES (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -1229,10 +1229,10 @@ IF /I EXIST "%~dp0APPS\*" (
 	REM APPS 9 SUBDIR (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%j in (*) do (
-	echo mkdir "%%~nj" >> "%~dp0TMP\pfs-apps.txt"
-	echo lcd "%%~nj" >> "%~dp0TMP\pfs-apps.txt"
-	echo cd "%%~nj" >> "%~dp0TMP\pfs-apps.txt"
-	cd "%%~nj"
+	echo mkdir "%%j" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%j" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%j" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%j"
 	
 	REM APPS SUBDIR FILES (OPL\APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -1504,10 +1504,10 @@ IF /I EXIST "%~dp0THM\*" (
 	REM THEME DIR (OPL\THM\THEME)
 
 	for /D %%x in (*) do (
-	echo mkdir "%%~nx" >> "%~dp0TMP\pfs-thm.txt"
-	echo lcd "%%~nx" >> "%~dp0TMP\pfs-thm.txt"
- 	echo cd "%%~nx" >> "%~dp0TMP\pfs-thm.txt"
- 	cd "%%~nx"
+	echo mkdir "%%x" >> "%~dp0TMP\pfs-thm.txt"
+	echo lcd "%%x" >> "%~dp0TMP\pfs-thm.txt"
+ 	echo cd "%%x" >> "%~dp0TMP\pfs-thm.txt"
+ 	cd "%%x"
 
 	REM THEME FILES (OPL\THM\THEME\files.xxx)
 
@@ -1516,10 +1516,10 @@ IF /I EXIST "%~dp0THM\*" (
 	REM THEME SUBDIR (OPL\THM\THEME\SUBDIR)
 
 	for /D %%y in (*) do (
-	echo mkdir "%%~ny" >> "%~dp0TMP\pfs-thm.txt"
-	echo lcd "%%~ny" >> "%~dp0TMP\pfs-thm.txt"
-	echo cd "%%~ny" >> "%~dp0TMP\pfs-thm.txt"
-	cd "%%~ny"
+	echo mkdir "%%y" >> "%~dp0TMP\pfs-thm.txt"
+	echo lcd "%%y" >> "%~dp0TMP\pfs-thm.txt"
+	echo cd "%%y" >> "%~dp0TMP\pfs-thm.txt"
+	cd "%%y"
 
 	REM THEME SUBDIR FILES (OPL\THM\THEME\SUBDIR\files.xxx)
 
@@ -3567,9 +3567,6 @@ REM ############################################################################
 
 cd "%~dp0"
 
-IF NOT EXIST "%~dp0HDD-OSD\__sysconf" MD "%~dp0HDD-OSD\__sysconf"
-IF NOT EXIST "%~dp0HDD-OSD\__system" MD "%~dp0"HDD-OSD\__system"
-
 cls
 echo\
 echo\
@@ -4863,10 +4860,10 @@ IF /I EXIST "%~dp0HDD-OSD\__sysconf\*" (
 	REM HDDOSD 1 DIR (__sysconf\FOLDER)
 
 	for /D %%a in (*) do (
-	echo mkdir "%%~na" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~na" >> "%~dp0TMP\pfs-hddosd.txt"
- 	echo cd "%%~na" >> "%~dp0TMP\pfs-hddosd.txt"
- 	cd "%%~na"
+	echo mkdir "%%a" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%a" >> "%~dp0TMP\pfs-hddosd.txt"
+ 	echo cd "%%a" >> "%~dp0TMP\pfs-hddosd.txt"
+ 	cd "%%a"
 
 	REM HDD-OSD FILES (__sysconf\FOLDER\files.xxx)
 
@@ -4875,10 +4872,10 @@ IF /I EXIST "%~dp0HDD-OSD\__sysconf\*" (
 	REM HDDOSD 2 SUBDIR (__sysconf\FOLDER\SUBDIR)
 
 	for /D %%b in (*) do (
-	echo mkdir "%%~nb" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nb" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nb" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nb"
+	echo mkdir "%%b" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%b" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%b" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%b"
 
 	REM HDDOSD SUBDIR FILES (__sysconf\FOLDER\SUBDIR\files.xxx)
 
@@ -4887,10 +4884,10 @@ IF /I EXIST "%~dp0HDD-OSD\__sysconf\*" (
 	REM HDDOSD 3 SUBDIR (__sysconf\FOLDER\SUBDIR\SUBDIR)
 
 	for /D %%c in (*) do (
-	echo mkdir "%%~nc" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nc" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nc" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nc"
+	echo mkdir "%%c" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%c" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%c" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%c"
 	
 	REM HDDOSD SUBDIR FILES (__sysconf\FOLDER\SUBDIR\SUBDIR\files.xxx)
 	
@@ -4899,10 +4896,10 @@ IF /I EXIST "%~dp0HDD-OSD\__sysconf\*" (
     REM HDDOSD 4 SUBDIR (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR)
 
 	for /D %%e in (*) do (
-	echo mkdir "%%~ne" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~ne" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~ne" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~ne"
+	echo mkdir "%%e" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%e" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%e" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%e"
 	
 	REM HDDOSD SUBDIR FILES (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -4911,10 +4908,10 @@ IF /I EXIST "%~dp0HDD-OSD\__sysconf\*" (
 	REM HDDOSD 5 SUBDIR (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%f in (*) do (
-	echo mkdir "%%~nf" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nf" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nf" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nf"
+	echo mkdir "%%f" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%f" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%f" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%f"
 	
 	REM HDDOSD SUBDIR FILES (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -4923,10 +4920,10 @@ IF /I EXIST "%~dp0HDD-OSD\__sysconf\*" (
 	REM HDDOSD 6 SUBDIR (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%g in (*) do (
-	echo mkdir "%%~ng" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~ng" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~ng" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~ng"
+	echo mkdir "%%g" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%g" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%g" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%g"
 	
 	REM HDDOSD SUBDIR FILES (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -4935,10 +4932,10 @@ IF /I EXIST "%~dp0HDD-OSD\__sysconf\*" (
 	REM HDDOSD 7 SUBDIR (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%h in (*) do (
-	echo mkdir "%%~nh" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nh" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nh" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nh"
+	echo mkdir "%%h" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%h" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%h" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%h"
 	
 	REM HDDOSD SUBDIR FILES (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -4947,10 +4944,10 @@ IF /I EXIST "%~dp0HDD-OSD\__sysconf\*" (
 	REM HDDOSD 8 SUBDIR (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%i in (*) do (
-	echo mkdir "%%~ni" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~ni" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~ni" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~ni"
+	echo mkdir "%%i" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%i" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%i" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%i"
 	
 	REM HDDOSD SUBDIR FILES (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -4959,10 +4956,10 @@ IF /I EXIST "%~dp0HDD-OSD\__sysconf\*" (
 	REM HDDOSD 9 SUBDIR (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%j in (*) do (
-	echo mkdir "%%~nj" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nj" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nj" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nj"
+	echo mkdir "%%j" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%j" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%j" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%j"
 	
 	REM HDDOSD SUBDIR FILES (__sysconf\FOLDER\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -5051,10 +5048,10 @@ REM __SYSTEM
 	REM HDDOSD 1 DIR (__system\APP)
 
 	for /D %%a in (*) do (
-	echo mkdir "%%~na" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~na" >> "%~dp0TMP\pfs-hddosd.txt"
- 	echo cd "%%~na" >> "%~dp0TMP\pfs-hddosd.txt"
- 	cd "%%~na"
+	echo mkdir "%%a" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%a" >> "%~dp0TMP\pfs-hddosd.txt"
+ 	echo cd "%%a" >> "%~dp0TMP\pfs-hddosd.txt"
+ 	cd "%%a"
 
 	REM HDDOSD FILES (__system\APP\files.xxx)
 
@@ -5063,10 +5060,10 @@ REM __SYSTEM
 	REM HDDOSD 2 SUBDIR (__system\APP\SUBDIR)
 
 	for /D %%b in (*) do (
-	echo mkdir "%%~nb" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nb" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nb" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nb"
+	echo mkdir "%%b" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%b" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%b" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%b"
 
 	REM HDDOSD SUBDIR FILES (__system\APP\SUBDIR\files.xxx)
 
@@ -5075,10 +5072,10 @@ REM __SYSTEM
 	REM HDDOSD 3 SUBDIR (__system\APP\SUBDIR\SUBDIR)
 
 	for /D %%c in (*) do (
-	echo mkdir "%%~nc" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nc" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nc" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nc"
+	echo mkdir "%%c" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%c" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%c" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%c"
 	
 	REM HDDOSD SUBDIR FILES (__system\APP\SUBDIR\SUBDIR\files.xxx)
 	
@@ -5087,10 +5084,10 @@ REM __SYSTEM
     REM HDDOSD 4 SUBDIR (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR)
 
 	for /D %%e in (*) do (
-	echo mkdir "%%~ne" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~ne" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~ne" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~ne"
+	echo mkdir "%%e" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%e" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%e" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%e"
 	
 	REM HDDOSD SUBDIR FILES (__system\APP\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -5099,10 +5096,10 @@ REM __SYSTEM
 	REM HDDOSD 5 SUBDIR (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%f in (*) do (
-	echo mkdir "%%~nf" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nf" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nf" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nf"
+	echo mkdir "%%f" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%f" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%f" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%f"
 	
 	REM HDDOSD SUBDIR FILES (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -5111,10 +5108,10 @@ REM __SYSTEM
 	REM HDDOSD 6 SUBDIR (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%g in (*) do (
-	echo mkdir "%%~ng" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~ng" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~ng" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~ng"
+	echo mkdir "%%g" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%g" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%g" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%g"
 	
 	REM HDDOSD SUBDIR FILES (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -5123,10 +5120,10 @@ REM __SYSTEM
 	REM HDDOSD 7 SUBDIR (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%h in (*) do (
-	echo mkdir "%%~nh" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nh" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nh" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nh"
+	echo mkdir "%%h" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%h" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%h" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%h"
 	
 	REM HDDOSD SUBDIR FILES (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -5135,10 +5132,10 @@ REM __SYSTEM
 	REM HDDOSD 8 SUBDIR (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%i in (*) do (
-	echo mkdir "%%~ni" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~ni" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~ni" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~ni"
+	echo mkdir "%%i" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%i" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%i" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%i"
 	
 	REM HDDOSD SUBDIR FILES (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -5147,10 +5144,10 @@ REM __SYSTEM
 	REM HDDOSD 9 SUBDIR (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
 
 	for /D %%j in (*) do (
-	echo mkdir "%%~nj" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo lcd "%%~nj" >> "%~dp0TMP\pfs-hddosd.txt"
-	echo cd "%%~nj" >> "%~dp0TMP\pfs-hddosd.txt"
-	cd "%%~nj"
+	echo mkdir "%%j" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo lcd "%%j" >> "%~dp0TMP\pfs-hddosd.txt"
+	echo cd "%%j" >> "%~dp0TMP\pfs-hddosd.txt"
+	cd "%%j"
 	
 	REM HDDOSD SUBDIR FILES (__system\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
 	
@@ -6049,6 +6046,102 @@ echo.
 
 pause & (goto DownloadARTMenu) 
 
+REM ################################################################################################################################################################################
+:DownloadCFG
+
+@echo off
+mkdir "%~dp0ART" >nul 2>&1
+mkdir "%~dp0TMP" >nul 2>&1
+
+cls
+cd /d "%~dp0TMP"
+
+"%~dp0BAT\Diagbox" gd 0e
+
+echo\
+echo\
+echo Scanning for Playstation 2 HDDs:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 03
+"%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD"
+"%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" cut -c2-6 > "%~dp0TMP\hdl-hdd.txt"
+
+set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
+::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+IF "!@hdl_path!"=="" ( 
+"%~dp0BAT\Diagbox" gd 0c
+		echo         Playstation 2 HDD Not Detected
+		echo         Drive Must Be Formatted First
+		echo\
+		echo\
+"%~dp0BAT\Diagbox" gd 07
+		rmdir /Q/S "%~dp0TMP" >nul 2>&1
+		del info.sys >nul 2>&1 
+		pause & (goto DownloadsMenu)
+	)
+
+"%~dp0BAT\Diagbox" gd 0f
+echo\
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+echo Download CFG for the Game installed ?
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo         1) %YES%
+"%~dp0BAT\Diagbox" gd 0c
+echo         2) %NO%
+"%~dp0BAT\Diagbox" gd 07
+echo\
+CHOICE /C 12 /M "Select Option:"
+
+IF ERRORLEVEL 2 (goto DownloadsMenu)
+
+echo\
+echo\
+echo Choice your languages of your CFG
+echo 1 English 
+echo 2 French
+echo\
+CHOICE /C 12 /M "Select Option:"
+IF ERRORLEVEL 1 set language=CFG_en
+IF ERRORLEVEL 2 set language=CFG_fr
+
+
+"%~dp0BAT\Diagbox" gd 0e
+cls
+echo\
+echo\
+echo List Games
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 03
+setlocal DisableDelayedExpansion
+
+"%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > .PARTITION_GAMES.txt
+
+more +1 .PARTITION_GAMES.txt > file.txt
+move /y file.txt PARTITION_GAMES_NEW.txt >nul
+
+"%~dp0BAT\busybox" sed -i -e "$ d" PARTITION_GAMES_NEW.txt
+type PARTITION_GAMES_NEW.txt
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 03
+echo Download...
+
+REM Cov
+For %%Z in (PARTITION_GAMES_NEW.txt) do (
+ (for /f "tokens=2,5*" %%A in (%%Z) do echo "%~dp0BAT\wget" -q --show-progress "https://ia601402.us.archive.org/view_archive.php?archive=/2/items/ps-2-opl-cfg-database-1.1-tb/PS2-OPL-CFG-Database-1.1-tb.zip&file=PS2-OPL-CFG-Database-1.1-tb%%%%2F%language%%%%%2F%%B.cfg" -O "%~dp0CFG\%%B.cfg") > PARTITION_GAMES_CFG.bat)
+
+call PARTITION_GAMES_CFG.bat
+
+cd "%~dp0"
+for %%F in ("%~dp0CFG\*") do if %%~zF==0 del "%%F"
+
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
+echo.
+
+pause & (goto DownloadsMenu) 
+
 REM ####################################################################################################################################################
 :DumpCDDVD
 @echo off
@@ -6479,9 +6572,9 @@ cls
 cd "%~dp0POPS"
 
 if exist rmdir /s /q temp >nul 2>&1
-if exist *.zip "%~dp0BAT\7z.exe" x -bso0 %~dp0POPS\*.zip"
-if exist *.rar "%~dp0BAT\7z.exe" x -bso0 %~dp0POPS\*.rar"
-if exist *.7z  "%~dp0BAT\7z.exe" x -bso0 %~dp0POPS\*.7z"
+if exist *.zip "%~dp0BAT\7z.exe x -bso0 "%~dp0POPS\*.zip"
+if exist *.rar "%~dp0BAT\7z.exe x -bso0 "%~dp0POPS\*.rar"
+if exist *.7z  "%~dp0BAT\7z.exe x -bso0 "%~dp0POPS\*.7z"
 if not exist *.cue (goto failbinsplit)
 md temp >nul 2>&1
 md Original >nul 2>&1
