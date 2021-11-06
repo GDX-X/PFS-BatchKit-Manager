@@ -1,0 +1,26 @@
+name: Update widescreen cheats
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [update_widescreen]
+  schedule:
+    - cron: "0 15 * * 5"
+
+jobs:
+  update_widescreen:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Update Widescreen Hacks Package
+      run: |
+        cd BAT
+        rm -f WIDE.ZIP
+        wget https://github.com/PS2-Widescreen/OPL-Widescreen-Cheats/releases/download/Latest/widescreen_hacks.zip -O $PWD/WIDE.ZIP
+        
+    - uses: EndBug/add-and-commit@v7
+      with:
+        default_author: github_actions
+        message: 'Update widescreen cheats'
