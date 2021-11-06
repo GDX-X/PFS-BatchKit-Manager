@@ -16,8 +16,6 @@ jobs:
 
     - name: Update Widescreen Hacks Package
       run: |
-        cd HDD_PFS_Batch_Kit_Manager
-        cd hdl_hdd
         cd BAT
         rm -f WIDE.ZIP
         wget https://github.com/PS2-Widescreen/OPL-Widescreen-Cheats/releases/download/Latest/widescreen_hacks.zip -O $PWD/WIDE.ZIP
