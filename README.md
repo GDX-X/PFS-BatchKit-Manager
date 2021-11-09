@@ -2,7 +2,7 @@
 
 
 
-# How to install Games ?
+# How to install PS2 Games ?
 Copy your .BIN/CUE in CD Folder
 
 Copy your .ISO in DVD Folder
