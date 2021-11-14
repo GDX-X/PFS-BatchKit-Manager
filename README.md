@@ -15,10 +15,8 @@ Copy your .ISO in DVD Folder
 
 3) Create `+OPL` Partition
 
-4) Install HDD-OSD
+4) Install HDD-OSD (In HDD-OSD Menu)
 
 5) Install your game
 
 6) Inject the boot.KELF (In HDD-OSD Menu)
-
-7) Launch OPL once then put the hard drive in auto start and save
