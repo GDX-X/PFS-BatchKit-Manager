@@ -2,12 +2,12 @@
 
 
 
-# How to install PS2 Games ?
+# How to install PS2 Games
 Copy your .BIN/CUE in CD Folder
 
 Copy your .ISO in DVD Folder
 
-# How to install PS1 Games ?
+# How to install PS1 Games
 Copy your .BIN/CUE in POPS Folder
 
 1) Transfer POPS-Binaries
