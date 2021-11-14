@@ -10,8 +10,8 @@ Copy your .ISO in DVD Folder
 # How to install PS1 Games ?
 Copy your .BIN/CUE in POPS Folder
 
-1)Transfer POPS-Binaries
-2) Go to the Conversion menu 
+1) Transfer POPS-Binaries
+2) Go to the Conversion menu
 3) Choose Convert .BIN/CUE To .VCD
 4) Create `__.POPS` Partition
 5) Transfer your .VCD
