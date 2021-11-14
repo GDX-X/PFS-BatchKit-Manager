@@ -7,6 +7,10 @@ Copy your .BIN/CUE in CD Folder
 
 Copy your .ISO in DVD Folder
 
+# How to install PS1 Games ?
+Copy your .BIN/CUE in POPS Folder
+1) Go to the Conversion menu 
+2) Choose Convert .BIN/CUE To .VCD
 
 # How to Setup HDD-OSD
 1) Format the hard drive with wLaunchELF
