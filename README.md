@@ -9,18 +9,17 @@ Copy your .ISO in DVD Folder
 
 # How to install PS1 Games ?
 Copy your .BIN/CUE in POPS Folder
-1) Go to the Conversion menu 
-2) Choose Convert .BIN/CUE To .VCD
+
+1)Transfer POPS-Binaries
+2) Go to the Conversion menu 
+3) Choose Convert .BIN/CUE To .VCD
+4) Create `__.POPS` Partition
+5) Transfer your .VCD
+
 
 # How to Setup HDD-OSD
-1) Format the hard drive with wLaunchELF
-
-2) Install FreeHDBoot (From HDD)
-
-3) Create `+OPL` Partition
-
-4) Install HDD-OSD (In HDD-OSD Menu)
-
-5) Install your game
-
-6) Inject the boot.KELF (In HDD-OSD Menu)
+1) Install FreeHDBoot (From HDD)
+2) Create `+OPL` Partition
+3) Install HDD-OSD
+4) Install your game
+5) Inject the boot.KELF
