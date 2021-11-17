@@ -1,5 +1,6 @@
 # PFS-BatchKit-Manager
-
+Is a batch script that allows you to easily manage your PS2 hard drive
+Other features will be added
 
 
 # How to install PS2 Games
@@ -23,3 +24,9 @@ Copy your .BIN/CUE in POPS Folder
 3) Install HDD-OSD
 4) Install your game
 5) Inject the boot.KELF
+
+
+
+
+# FAQ
+What is `TROJAN_7.BIN` Is a batch script that allows you to easily manage your PS2 hard driveIt's a patch for PS1 games that fixes some bug you can find it here https://www.psx-place.com/threads/popstarter.19139/page-8#post-298564
