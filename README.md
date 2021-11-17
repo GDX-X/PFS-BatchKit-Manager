@@ -29,4 +29,4 @@ Copy your .BIN/CUE in POPS Folder
 
 
 # FAQ
-What is `TROJAN_7.BIN` Is a batch script that allows you to easily manage your PS2 hard driveIt's a patch for PS1 games that fixes some bug you can find it here https://www.psx-place.com/threads/popstarter.19139/page-8#post-298564
+What is `TROJAN_7.BIN` It's a patch for PS1 games that fixes some bug you can find it here https://www.psx-place.com/threads/popstarter.19139/page-8#post-298564
