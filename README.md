@@ -1,6 +1,5 @@
 # PFS-BatchKit-Manager
 Is a batch script that allows you to easily manage your PS2 hard drive
-Other features will be added
 
 # How to hack your PS2 hard drive
 1) Go to Advanced menu > HDD Management
