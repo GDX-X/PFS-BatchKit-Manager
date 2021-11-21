@@ -1459,8 +1459,8 @@ SLUS_207.25 Call of Duty : Finest Hour
 SCES_527.84 Call of Duty : Finest Hour
 SLES_527.82 Call of Duty : Finest Hour
 SLES_527.84 Call of Duty : Finest Hour
-SCES_527.83 Call of Duty : Le Jour de Glorie
-SLES_527.83 Call of Duty : Le Jour de Glorie
+SCES_527.83 Call of Duty : Le Jour de Gloire
+SLES_527.83 Call of Duty : Le Jour de Gloire
 SLES_553.69 Call of Duty : World at War : Final Fronts
 SLES_553.67 Call of Duty : World at War : Final Fronts
 SLUS_217.46 Call of Duty : World at War : Final Fronts
