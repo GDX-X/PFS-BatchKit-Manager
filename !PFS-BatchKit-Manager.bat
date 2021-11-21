@@ -1,6 +1,6 @@
 @echo off
 
-:-------------------------------------
+:--------------------------------------
 REM  --> Check for permissions
 >nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
 
@@ -21,7 +21,7 @@ if '%errorlevel%' NEQ '0' (
 :gotAdmin
     pushd "%CD%"
     CD /D "%~dp0"
-:--------------------------------------Z
+:--------------------------------------
 cls
 chcp 1252
 
@@ -44,6 +44,7 @@ IF NOT EXIST "%~dp0POPS\" MD "%~dp0POPS"
 IF NOT EXIST "%~dp0THM\"  MD "%~dp0THM"
 IF NOT EXIST "%~dp0VMC\"  MD "%~dp0VMC"
 
+IF NOT EXIST "%~dp0POPS\VMC" MD "%~dp0POPS\VMC"
 IF NOT EXIST "%~dp0POPS-Binaries\" MD POPS-Binaries
 IF NOT EXIST "%~dp0HDD-OSD\__sysconf" MD "%~dp0HDD-OSD\__sysconf"
 IF NOT EXIST "%~dp0HDD-OSD\__system" MD "%~dp0"HDD-OSD\__system"
@@ -52,8 +53,8 @@ cls
 :start
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -62,13 +63,13 @@ echo.------------------------------------------
 echo.
 ECHO 1. Transfer PS1 Games
 ECHO 2. Transfer PS2 Games
-ECHO 3. Transfer APPS,ART,CFG,CHT,VMC,THM
+ECHO 3. Transfer APPS,ART,CFG,CHT,VMC,THM,POPS-VMC
 ECHO 4. Transfer POPS Binaries
 ECHO.
 ECHO.
 ECHO.7. Backup PS1 Games
 ECHO 8. Backup PS2 Games
-ECHO 9. Backup ART,CFG,CHT,VMC
+ECHO 9. Backup ART,CFG,CHT,VMC,POPS-VMC
 ECHO.
 ECHO 10. Advanced Menu
 ECHO.
@@ -96,8 +97,8 @@ if "%choice%"=="12" (goto About)
 :About
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 echo.------------------------------------------
@@ -143,8 +144,8 @@ if "%choice%"=="100" (goto GDX-X)
 :AdvancedMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -185,8 +186,8 @@ if "%choice%"=="11" exit
 :ConversionMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -230,8 +231,8 @@ if "%choice%"=="12" exit
 :DownloadsMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -239,11 +240,10 @@ setlocal EnableExtensions
 echo.------------------------------------------
 ECHO Downloads Menu 
 ECHO.
-REM ECHO 1. Download APPS
 ECHO 1.
 ECHO 2. Download Artworks
 ECHO 3. Download Config
-REM ECHO 4. Download Cheat
+ECHO 4.
 ECHO 5.
 ECHO 6.
 ECHO 7.
@@ -259,7 +259,6 @@ set /p choice=Select Option:
 
 if "%choice%"=="2" (goto DownloadARTMenu)
 if "%choice%"=="3" (goto DownloadCFG)
-REM if "%choice%"=="4" (goto DownloadCheatsMenu)
 
 if "%choice%"=="10" (goto AdvancedMenu)
 if "%choice%"=="11" (goto start)
@@ -270,8 +269,8 @@ if "%choice%"=="12" exit
 :DownloadARTMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -316,8 +315,8 @@ if "%choice%"=="12" exit
 :DownloadCheatsMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -355,8 +354,8 @@ if "%choice%"=="12" exit
 :UtilityMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -396,8 +395,8 @@ if "%choice%"=="12" exit
 :HDDOSDMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -437,8 +436,8 @@ if "%choice%"=="12" exit
 :PS2OnlineMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -478,8 +477,8 @@ if "%choice%"=="12" exit
 :HDDManagementMenu
 "%~dp0BAT\Diagbox" gd 0f
 cls
-title PFS BatchKit Manager v1.0.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.2 By GDX
+title PFS BatchKit Manager v1.0.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -593,7 +592,7 @@ mkdir "%~dp0CD-DVD" >nul 2>&1
 cd /d "%~dp0CD-DVD"
 
 del gameid.txt
-copy "%~dp0BAT\boot.kelf" "%~dp0CD-DVD" >nul 2>&1
+REM copy "%~dp0BAT\boot.kelf" "%~dp0CD-DVD" >nul 2>&1
 copy "%~dp0BAT\hdl_svr_093.elf" "%~dp0CD-DVD" >nul 2>&1
 copy "%~dp0BAT\DB\gameidENG.txt" "%~dp0CD-DVD" >nul 2>&1
 copy "%~dp0BAT\hdl_dump.exe" "%~dp0CD-DVD" >nul 2>&1
@@ -646,6 +645,7 @@ echo ----------------------------------------------------
 		if errorlevel 4 set hdlhdd=hdd4:
 		if errorlevel 5 set hdlhdd=hdd5:
 		if errorlevel 6 set hdlhdd=hdd6:
+		REM IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
 	)
 )
 
@@ -838,7 +838,7 @@ IF "!@hdl_path!"=="" (
 "%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
-echo %Transfer% %Applications%
+echo %Transfer% Applications: [APPS]
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
 echo         1) %YES%
@@ -858,7 +858,7 @@ IF ERRORLEVEL 3 set @pfs_apps=yes & call "%~dp0BAT\make_title_cfg.BAT" & cd /d "
 
 echo\
 echo\
-echo %Transfer% %Artwork%
+echo %Transfer% Artworks: [ART]
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
 echo         1) %YES%
@@ -875,7 +875,7 @@ IF ERRORLEVEL 2 set @pfs_art=no
 "%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
-echo %Transfer% %Configs%
+echo %Transfer% Configs: [CFG]
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
 echo         1) %YES%
@@ -892,7 +892,7 @@ IF ERRORLEVEL 2 set @pfs_cfg=no
 "%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
-echo %Transfer% %Cheats%
+echo %Transfer% Cheats: [CHT]
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
 echo         1) %YES%
@@ -937,7 +937,7 @@ IF ERRORLEVEL 3 (
 "%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
-echo %Transfer% VMCs:
+echo %Transfer% Virtual Memory Cards: [VMC]
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
 echo         1) %YES%
@@ -953,7 +953,7 @@ IF ERRORLEVEL 2 set @pfs_vmc=no
 "%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
-echo %Transfer% %Themes%
+echo %Transfer% Themes: [THM]
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
 echo         1) %YES%
@@ -966,6 +966,23 @@ CHOICE /C 12 /M %BASIC_CHOICE%
 IF ERRORLEVEL 1 set @pfs_thm=yes
 IF ERRORLEVEL 2 set @pfs_thm=no
 
+"%~dp0BAT\Diagbox" gd 0f
+echo\
+echo\
+echo %Transfer% POPS Virtual Memory Cards:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo         1) %YES%
+"%~dp0BAT\Diagbox" gd 0c
+echo         2) %NO%
+"%~dp0BAT\Diagbox" gd 07
+echo\
+CHOICE /C 12 /M %BASIC_CHOICE%
+
+IF ERRORLEVEL 1 set @pfs_popvmc=yes
+IF ERRORLEVEL 2 set @pfs_popvmc=no
+
+"%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
 echo %EST_FILE_SIZE%
@@ -1108,7 +1125,7 @@ IF %@pfs_apps%==yes (
 
 echo\
 echo\
-echo %INSTALLING% %Applications%
+echo %INSTALLING% Applications [APPS]
 echo ----------------------------------------------------
 echo\
 
@@ -1310,7 +1327,7 @@ IF /I EXIST "%~dp0APPS\*" (
 	echo exit >> "%~dp0TMP\pfs-log.txt"
 	type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-tmp.log"
 	mkdir "%~dp0LOG" >nul 2>&1
-	"%~dp0BAT\busybox" grep -i -e "apps_" "%~dp0TMP\pfs-tmp.log" > "%~dp0LOG\PFS-APPS.log"
+	"%~dp0BAT\busybox" grep -i -e "drwx" "%~dp0TMP\pfs-tmp.log" | "%~dp0BAT\busybox" sed -e "1,2d" > "%~dp0LOG\PFS-APPS.log"
 	del "%~dp0TMP\pfs-log.txt" "%~dp0TMP\pfs-tmp.log" >nul 2>&1
 	echo         APPS %COMPLETED%	
 	cd "%~dp0"
@@ -1324,7 +1341,7 @@ IF %@pfs_art%==yes (
 
 echo\
 echo\
-echo %INSTALLING% %Artwork%
+echo %INSTALLING% Artworks [ART]
 echo ----------------------------------------------------
 echo\
 
@@ -1364,7 +1381,7 @@ IF %@pfs_cfg%==yes (
 
 echo\
 echo\
-echo %INSTALLING% %Configs%
+echo %INSTALLING% Configs [CFG]
 echo ----------------------------------------------------
 echo\
 
@@ -1403,7 +1420,7 @@ IF %@pfs_cht%==yes (
 
 echo\
 echo\
-echo %INSTALLING% %Cheats%
+echo %INSTALLING% Cheats: [CHT]
 echo ----------------------------------------------------
 echo\
 
@@ -1443,7 +1460,7 @@ IF %@pfs_vmc%==yes (
 
 echo\
 echo\
-echo %INSTALLING% VirtualMC:
+echo %INSTALLING% Virtual Memory Card: [VMC]
 echo ----------------------------------------------------
 echo\
 
@@ -1483,7 +1500,7 @@ IF %@pfs_thm%==yes (
 
 echo\
 echo\
-echo %INSTALLING% %Themes:%
+echo %INSTALLING% Themes: [THM]
 echo ----------------------------------------------------
 echo\
 
@@ -1555,16 +1572,79 @@ IF /I EXIST "%~dp0THM\*" (
 	echo exit >> "%~dp0TMP\pfs-log.txt"
 	type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-tmp.log"
 	mkdir "%~dp0LOG" >nul 2>&1
-	"%~dp0BAT\busybox" grep -i -e "thm_" "%~dp0TMP\pfs-tmp.log" > "%~dp0LOG\PFS-THM.log"
+	"%~dp0BAT\busybox" grep -i -e "drwx" "%~dp0TMP\pfs-tmp.log" | "%~dp0BAT\busybox" sed -e "1,2d" > "%~dp0LOG\PFS-THM.log"
 	del "%~dp0TMP\pfs-log.txt" "%~dp0TMP\pfs-tmp.log" >nul 2>&1
 	echo         THM %COMPLETED%	
 	cd "%~dp0"
 	) else ( echo         THM - %IS_EMPTY% )
 )
 
+IF %@pfs_popvmc%==yes (
+
+echo\
+echo\
+echo %INSTALLING% POPS-VMC:
+echo ----------------------------------------------------
+echo\
+
+IF /I EXIST "%~dp0POPS\VMC\*" (
+	cd "%~dp0POPS\VMC"
+	echo         Creating Que
+
+	REM MOUNT __common
+
+	echo device !@hdl_path! > "%~dp0TMP\pfs-popsmvc.txt"
+	echo mount __common >> "%~dp0TMP\pfs-popsmvc.txt"
+
+	REM PARENT DIR (__common\POPS)
+
+	echo mkdir POPS >> "%~dp0TMP\pfs-popsmvc.txt"
+	echo cd POPS >> "%~dp0TMP\pfs-popsmvc.txt"
+
+	REM POPS DIR (__common\POPS\SCES_XXX.XX)
+
+	for /D %%x in (*) do (
+	echo mkdir "%%x" >> "%~dp0TMP\pfs-popsmvc.txt"
+	echo lcd "%%x" >> "%~dp0TMP\pfs-popsmvc.txt"
+ 	echo cd "%%x" >> "%~dp0TMP\pfs-popsmvc.txt"
+ 	cd "%%x"
+
+	REM THEME FILES (__common\POPS\SCES_XXX.XX\Files.xxx)
+
+ 	for %%f in (*) do (echo put "%%f") >> "%~dp0TMP\pfs-popsmvc.txt"
+	
+	echo lcd .. >> "%~dp0TMP\pfs-popsmvc.txt"
+	echo cd .. >> "%~dp0TMP\pfs-popsmvc.txt"
+ 	cd ..
+
+    )
+   
+	echo umount >> "%~dp0TMP\pfs-popsmvc.txt"
+	echo exit >> "%~dp0TMP\pfs-popsmvc.txt"
+
+	echo         %INSTALLING% Que
+	type "%~dp0TMP\pfs-popsmvc.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
+	del "%~dp0TMP\pfs-popsmvc.txt" >nul 2>&1
+	echo         %CREAT_LOG%
+	echo device !@hdl_path! > "%~dp0TMP\pfs-log.txt"
+	echo mount __common >> "%~dp0TMP\pfs-log.txt"
+	echo cd POPS >> "%~dp0TMP\pfs-log.txt"
+	echo ls >> "%~dp0TMP\pfs-log.txt"
+	echo umount >> "%~dp0TMP\pfs-log.txt"
+	echo exit >> "%~dp0TMP\pfs-log.txt"
+	type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-tmp.log"
+	mkdir "%~dp0LOG" >nul 2>&1
+	"%~dp0BAT\busybox" grep -i -e "drwx" "%~dp0TMP\pfs-tmp.log" | "%~dp0BAT\busybox" sed -e "1,2d" > "%~dp0LOG\PFS-POPS-VMC.log"
+	del "%~dp0TMP\pfs-log.txt" "%~dp0TMP\pfs-tmp.log" >nul 2>&1
+	echo         POPS-VMC %COMPLETED%	
+	cd "%~dp0"
+	) else ( echo         POPS-VMC - %IS_EMPTY% )
+)
+
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
 del info.sys >nul 2>&1
 
+echo\
 echo\
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
@@ -1757,30 +1837,8 @@ set choice=
 set /p choice=Select Option:
 IF "!choice!"=="" set @pfs_pop=yes & (goto popspartinstalldefault)
 
-IF "!choice!"=="0" set popspartinstall=__.POPS0
-IF "!choice!"=="1" set popspartinstall=__.POPS1
-IF "!choice!"=="2" set popspartinstall=__.POPS2
-IF "!choice!"=="3" set popspartinstall=__.POPS3
-IF "!choice!"=="4" set popspartinstall=__.POPS4
-IF "!choice!"=="5" set popspartinstall=__.POPS5
-IF "!choice!"=="6" set popspartinstall=__.POPS6
-IF "!choice!"=="7" set popspartinstall=__.POPS7
-IF "!choice!"=="8" set popspartinstall=__.POPS8
-IF "!choice!"=="9" set popspartinstall=__.POPS9
 IF "!choice!"=="!choice!" set popspartinstall=__.POPS!choice!
 IF "!choice!"=="10" set @pfs_pop=yes & (goto popspartinstalldefault)
-
-IF "!choice!"=="__.POPS0" set popspartinstall=__.POPS0
-IF "!choice!"=="__.POPS1" set popspartinstall=__.POPS1
-IF "!choice!"=="__.POPS2" set popspartinstall=__.POPS2
-IF "!choice!"=="__.POPS3" set popspartinstall=__.POPS3
-IF "!choice!"=="__.POPS4" set popspartinstall=__.POPS4
-IF "!choice!"=="__.POPS5" set popspartinstall=__.POPS5
-IF "!choice!"=="__.POPS6" set popspartinstall=__.POPS6
-IF "!choice!"=="__.POPS7" set popspartinstall=__.POPS7
-IF "!choice!"=="__.POPS8" set popspartinstall=__.POPS8
-IF "!choice!"=="__.POPS9" set popspartinstall=__.POPS9
-IF "!choice!"=="__.POPS" set @pfs_pop=yes & (goto popspartinstalldefault)
 
 )
 
@@ -1791,7 +1849,7 @@ echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 07
 IF /I EXIST "%~dp0POPS\*.VCD" (
 	dir /s /a "%~dp0POPS\*.VCD" | "%~dp0BAT\busybox" grep "File(s)" | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed "s/ File(s).*//" | "%~dp0BAT\busybox" tr -d " " > "%~dp0TMP\popsfiles.txt"
-	dir /s /a %~dp0POPS\*.VCD | "%~dp0BAT\busybox" grep "File(s)" | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed "s/.*File(s)//" | "%~dp0BAT\busybox" sed "s/bytes//" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" tr -d "," > "%~dp0TMP\popssize.txt"
+	dir /s /a "%~dp0POPS\*.VCD" | "%~dp0BAT\busybox" grep "File(s)" | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed "s/.*File(s)//" | "%~dp0BAT\busybox" sed "s/bytes//" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" tr -d "," > "%~dp0TMP\popssize.txt"
 	"%~dp0BAT\busybox" cat "%~dp0TMP\popssize.txt" | "%~dp0BAT\busybox" awk "{ foo = $1 / 1024 / 1024 ; print foo }" | "%~dp0BAT\busybox" sed "s/\..*$//"  > "%~dp0TMP\popssizeMB.txt"
 	REM "%~dp0BAT\busybox" cat "%~dp0TMP\popsize.txt" | "%~dp0BAT\busybox" awk "{ bar = $1 / 1024 / 1024 / 1024 ; print bar }" | "%~dp0BAT\busybox" sed -re "s/([0-9]+\.[0-9]{2})[0-9]+/\1/g" > "%~dp0TMP\popsizeGB.txt"
 	set /P @pop_file=<"%~dp0TMP\popsfiles.txt"
@@ -1816,11 +1874,11 @@ REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-pr
 
 IF "!@hdd_avl!"=="%popspartinstall%" (
 "%~dp0BAT\Diagbox" gd 0a
-	echo          POPS - Partition Detected
+	echo          __.POPS!choice! - Partition Detected
 	"%~dp0BAT\Diagbox" gd 07
 	) else (
 	"%~dp0BAT\Diagbox" gd 0c
-	echo           POPS - Partition NOT Detected
+	echo           __.POPS!choice! - Partition NOT Detected
 	echo        Partition Must Be Formatted Or Created
 	echo\
 	echo\
@@ -1886,7 +1944,9 @@ REM ############################################################################
 cd "%~dp0"
 cls
 
-mkdir "%~dp0TMP" >nul 2>&1
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
+MD "%~dp0TMP" >nul 2>&1
+
 "%~dp0BAT\Diagbox" gd 0e
 echo\
 echo\
@@ -1958,7 +2018,7 @@ IF ERRORLEVEL 2 set @pfs_cht=no
 
 echo\
 echo\
-echo Extract VMCs:
+echo Extract OPL VMCs:
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
 echo         1) %YES%
@@ -1970,6 +2030,21 @@ CHOICE /C 12 /M "Select Option:"
 
 IF ERRORLEVEL 1 set @pfs_vmc=yes
 IF ERRORLEVEL 2 set @pfs_vmc=no
+
+echo\
+echo\
+echo Extract POPS VMCs:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo         1) Yes
+"%~dp0BAT\Diagbox" gd 0c
+echo         2) No
+echo\
+"%~dp0BAT\Diagbox" gd 07
+CHOICE /C 12 /M "Select Option:"
+
+IF ERRORLEVEL 1 set @pfs_popvmc=yes
+IF ERRORLEVEL 2 set @pfs_popvmc=no
 
 "%~dp0BAT\Diagbox" gd 0e
 echo\
@@ -2003,19 +2078,49 @@ echo ----------------------------------------------------
 		)
 	)
 
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Detecting __common Partition:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 07
+
+    echo device !@hdl_path! > "%~dp0TMP\pfs-prt.txt"
+    echo ls >> "%~dp0TMP\pfs-prt.txt"
+    echo exit >> "%~dp0TMP\pfs-prt.txt"
+    type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__common" | "%~dp0BAT\busybox" sed "s/.*__common/__common/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+    set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
+    REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
+    IF "!@hdd_avl!"=="__common" (
+    "%~dp0BAT\Diagbox" gd 0a
+	echo         __common - Partition Detected
+	"%~dp0BAT\Diagbox" gd 07
+	) else (
+	"%~dp0BAT\Diagbox" gd 0c
+	echo         __common - Partition NOT Detected
+	echo         Partition Must Be Formatted Or Created
+	echo\
+	echo\
+	"%~dp0BAT\Diagbox" gd 07
+	rmdir /Q/S "%~dp0TMP" >nul 2>&1
+	del info.sys >nul 2>&1
+	
+	pause & (goto start)
+	
+	)
+)
+
 echo\
 echo\
 pause
-
 cls
-
-REM OPL ARTWORK
 
 IF %@pfs_art%==yes (
 
 echo\
 echo\
-echo Extract Artwork:
+echo Extraction Artwork:
 echo ----------------------------------------------------
 echo\
 
@@ -2042,10 +2147,8 @@ echo\
 	echo umount >> "%~dp0TMP\pfs-art.txt"
 	echo exit >> "%~dp0TMP\pfs-art.txt"
 	type "%~dp0TMP\pfs-art.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
-	
-	) else ( echo         ART - Source Not Detected... )
-
-REM OPL CONFIGS
+	echo         Completed...
+)
 
 IF %@pfs_cfg%==yes (
 
@@ -2078,8 +2181,9 @@ echo\
 	echo umount >> "%~dp0TMP\pfs-cfg.txt"
 	echo exit >> "%~dp0TMP\pfs-cfg.txt"
 	type "%~dp0TMP\pfs-cfg.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
-	
-	) else ( echo         CFG - Source Not Detected... )
+	echo         Completed...
+
+)
 
 IF %@pfs_cht%==yes (
 
@@ -2112,16 +2216,14 @@ echo\
 	echo umount >> "%~dp0TMP\pfs-cht.txt"
 	echo exit >> "%~dp0TMP\pfs-cht.txt"
 	type "%~dp0TMP\pfs-cht.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
-	
-	) else ( echo         CHT - Source Not Detected... )
-
-REM OPL VMC
+	echo         Completed...
+)
 
 IF %@pfs_vmc%==yes (
 
 echo\
 echo\
-echo Extraction VirtualMC Files:
+echo Extraction OPL VirtualMC Files:
 echo ----------------------------------------------------
 echo\
 
@@ -2148,12 +2250,75 @@ echo\
 	echo umount >> "%~dp0TMP\pfs-vmc.txt"
 	echo exit >> "%~dp0TMP\pfs-vmc.txt"
 	type "%~dp0TMP\pfs-vmc.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
+	echo         Completed...
 	cd "%~dp0"
+)
+
+IF %@pfs_popvmc%==yes (
+
+echo\
+echo\
+echo Extraction POPS VirtualMC Files:
+echo ----------------------------------------------------
+echo\
+
+    IF NOT EXIST "%~dp0POPS\VMC" MD "%~dp0POPS\VMC"
 	
-	) else ( echo         VMC - Source Not Detected... )
+	cd "%~dp0POPS\VMC"
+	echo         Files scan...
+	echo device !@hdl_path! > "%~dp0TMP\pfs-popsvmc.txt"
+	echo mount __common >> "%~dp0TMP\pfs-popsvmc.txt"
+	echo cd POPS >> "%~dp0TMP\pfs-popsvmc.txt"
+	echo ls >> "%~dp0TMP\pfs-popsvmc.txt"
+	echo umount >> "%~dp0TMP\pfs-popsvmc.txt"
+	echo exit >> "%~dp0TMP\pfs-popsvmc.txt"
+	type "%~dp0TMP\pfs-popsvmc.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-tmp.log"
+
+	REM Scan POPS Folder
+	"%~dp0BAT\busybox" grep -i -e "drwx" "%~dp0TMP\pfs-tmp.log" | "%~dp0BAT\busybox" sed -e "1,2d" > "%~dp0TMP\pfs-tmp2.log"
+    "%~dp0BAT\busybox" cut -c40-500 "%~dp0TMP\pfs-tmp2.log" > "%~dp0TMP\pfs-tmp3.log"
+	"%~dp0BAT\busybox" sed -i -e "s/^/\"/g; s/\r*$/\"/" "%~dp0TMP\pfs-tmp3.log"
 	
-rmdir /Q/S "%~dp0TMP" >nul 2>&1
-del info.sys >nul 2>&1
+	REM Create Folder
+	copy "%~dp0TMP\pfs-tmp3.log" "%~dp0POPS\VMC\pfs-tmp3.bat" >nul 2>&1
+	"%~dp0BAT\busybox" sed -i -e "s/^/md /" "%~dp0POPS\VMC\pfs-tmp3.bat"
+	call pfs-tmp3.bat
+	
+    echo         Extraction...
+    echo device !@hdl_path! > "%~dp0TMP\pfs-popsvmc.txt"
+    echo mount __common >> "%~dp0TMP\pfs-popsvmc.txt"
+    echo cd POPS >> "%~dp0TMP\pfs-popsvmc.txt"
+	"%~dp0BAT\busybox" sed -i -e "s/^/lcd /" "%~dp0TMP\pfs-tmp3.log"
+	"%~dp0BAT\busybox" cut -c40-500 "%~dp0TMP\pfs-tmp2.log" > "%~dp0TMP\pfs-tmpVMC.log"
+	"%~dp0BAT\busybox" sed -i -e "s/^/\"/g; s/\r*$/\"/" "%~dp0TMP\pfs-tmpVMC.log"
+	"%~dp0BAT\busybox" sed -i -e "s/^/cd /" "%~dp0TMP\pfs-tmpVMC.log"
+	"%~dp0BAT\busybox" paste -d "\n" "%~dp0TMP\pfs-tmpVMC.log" "%~dp0TMP\pfs-tmp3.log" > "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/lcd /a get SLOT0.VMC" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/lcd /a get SLOT1.VMC" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/lcd /a rename CHEATS.txt CHEATS.TXT" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get CHEATS.TXT" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get PATCH_1.BIN" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get PATCH_2.BIN" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get PATCH_3.BIN" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get PATCH_4.BIN" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get PATCH_5.BIN" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get PATCH_6.BIN" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get PATCH_7.BIN" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get DISCS.TXT" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/rename /a get VMCDIR.TXT" "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/SLOT0/a lcd .." "%~dp0TMP\pfs-tmp4.log"
+	"%~dp0BAT\busybox" sed -i "/SLOT0/a cd .." "%~dp0TMP\pfs-tmp4.log"
+    type "%~dp0TMP\pfs-tmp4.log" >> "%~dp0TMP\pfs-popsvmc.txt"
+    echo umount >> "%~dp0TMP\pfs-popsvmc.txt"
+    echo exit >> "%~dp0TMP\pfs-popsvmc.txt"
+    type "%~dp0TMP\pfs-popsvmc.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-tmp.log"
+	echo         Completed...
+    cd "%~dp0"
+  )
+
+REM rmdir /Q/S "%~dp0TMP" >nul 2>&1
+REM del info.sys >nul 2>&1
+REM del "%~dp0POPS\VMC\pfs-tmp3.bat" >nul 2>&1
 
 "%~dp0BAT\Diagbox" gd 0f
 echo\
@@ -2219,6 +2384,7 @@ IF ERRORLEVEL 3 set @pfs_pop=yesmanually
 IF ERRORLEVEL 3 (goto extractpartpopsname)
 
 :popspartextractdefault
+"%~dp0BAT\Diagbox" gd 0e
 echo\
 echo\
 echo Detecting POPS Partition:
@@ -2284,6 +2450,7 @@ echo\
 	del "%~dp0POPS\PFS-POPS-NEW.txt" >nul 2>&1
 	del "%~dp0POPS\PFS-POPS-NEW.bat" >nul 2>&1
 	type "%~dp0TMP\pfs-popS.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
+	echo         Completed...
 	cd "%~dp0"
 
 	) else ( echo         POPS - Source Not Detected... )
@@ -2325,33 +2492,12 @@ set choice=
 set /p choice=Select Option:
 IF "!choice!"=="" set @pfs_pop=yes & (goto popspartextractdefault)
 
-IF "!choice!"=="0" set popspartextract=__.POPS0
-IF "!choice!"=="1" set popspartextract=__.POPS1
-IF "!choice!"=="2" set popspartextract=__.POPS2
-IF "!choice!"=="3" set popspartextract=__.POPS3
-IF "!choice!"=="4" set popspartextract=__.POPS4
-IF "!choice!"=="5" set popspartextract=__.POPS5
-IF "!choice!"=="6" set popspartextract=__.POPS6
-IF "!choice!"=="7" set popspartextract=__.POPS7
-IF "!choice!"=="8" set popspartextract=__.POPS8
-IF "!choice!"=="9" set popspartextract=__.POPS9
-IF "!choice!"=="!choice!" set popspartinstall=__.POPS!choice!
+IF "!choice!"=="!choice!" set popspartextract=__.POPS!choice!
 IF "!choice!"=="10" set @pfs_pop=yes & (goto popspartextractdefault)
-
-IF "!choice!"=="__.POPS0" set popspartextract=__.POPS0
-IF "!choice!"=="__.POPS1" set popspartextract=__.POPS1
-IF "!choice!"=="__.POPS2" set popspartextract=__.POPS2
-IF "!choice!"=="__.POPS3" set popspartextract=__.POPS3
-IF "!choice!"=="__.POPS4" set popspartextract=__.POPS4
-IF "!choice!"=="__.POPS5" set popspartextract=__.POPS5
-IF "!choice!"=="__.POPS6" set popspartextract=__.POPS6
-IF "!choice!"=="__.POPS7" set popspartextract=__.POPS7
-IF "!choice!"=="__.POPS8" set popspartextract=__.POPS8
-IF "!choice!"=="__.POPS9" set popspartextract=__.POPS9
-IF "!choice!"=="__.POPS" set @pfs_pop=yes & (goto popspartextractdefault)
 
 )
 
+"%~dp0BAT\Diagbox" gd 0e
 echo\
 echo\
 echo Detecting POPS Partition:
@@ -2367,11 +2513,11 @@ echo ----------------------------------------------------
 
 IF "!@hdd_avl!"=="%popspartextract%" (
 "%~dp0BAT\Diagbox" gd 0a
-	echo         POPS - Partition Detected
+	echo       __.POPS!choice! - Partition Detected
 	"%~dp0BAT\Diagbox" gd 07
 	) else (
 	"%~dp0BAT\Diagbox" gd 0c
-	echo           POPS - Partition NOT Detected
+	echo       __.POPS!choice! - Partition NOT Detected
 	echo        Partition Must Be Formatted Or Created
 	echo\
 	echo\
@@ -2415,6 +2561,7 @@ echo\
 	del "%~dp0POPS\PFS-POPS-NEW.txt" >nul 2>&1
 	del "%~dp0POPS\PFS-POPS-NEW.bat" >nul 2>&1
 	type "%~dp0TMP\pfs-pops.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
+    echo         Completed...
 	cd "%~dp0"
 
 	) else ( echo         POPS - Source Not Detected... )
@@ -2598,7 +2745,7 @@ IF /I EXIST "%~dp0POPS-Binaries\*" (
 	echo mount __common >> "%~dp0TMP\pfs-pops-binaries.txt"
 	echo mkdir POPS >> "%~dp0TMP\pfs-pops-binaries.txt"
 	echo cd POPS >> "%~dp0TMP\pfs-pops-binaries.txt"
-	for %%f in (POPS.ELF IOPRP252.IMG POPSTARTER.ELF TROJAN_7.BIN *.TM2) do (echo put "%%f") >> "%~dp0TMP\pfs-pops-binaries.txt"
+	for %%f in (POPS.ELF IOPRP252.IMG POPSTARTER.ELF TROJAN_7.BIN BIOS.BIN OSD.BIN *.TM2) do (echo put "%%f") >> "%~dp0TMP\pfs-pops-binaries.txt"
 	echo umount >> "%~dp0TMP\pfs-pops-binaries.txt"
 	echo exit >> "%~dp0TMP\pfs-pops-binaries.txt"
 	
@@ -2765,10 +2912,10 @@ echo ----------------------------------------------------
 
 For %%Z in (PARTITION_GAMES_NEW.txt) do (
  (for /f "tokens=2,5*" %%A in (%%Z) do echo hdl_dump.exe extract %hdlhdd% "%%C" %%B.iso) > PARTITION_GAMES_NEW.bat)
- 
-echo on & call PARTITION_GAMES_NEW.bat
 
+echo on & call PARTITION_GAMES_NEW.bat
 @echo off
+
 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0CD-DVD\PARTITION_GAMES_NEW.txt"
 
 For %%Z in (PARTITION_GAMES_NEW.txt) do (
@@ -2801,7 +2948,6 @@ call RenameISO.bat
 del gameid.txt >nul 2>&1
 del hdl_dump.exe >nul 2>&1
 del hdl_svr_093.elf >nul 2>&1
-del boot.kelf >nul 2>&1
 del PARTITION_GAMES_NEW.txt >nul 2>&1
 del PARTITION_GAMES_NEW.bat >nul 2>&1
 del Rename.txt >nul 2>&1
@@ -4104,7 +4250,7 @@ echo\
 pause & (goto  HDDOSDMenu)
  )
  
-REM __sysconf\FONT\SYSTEMSPA.INI
+REM __sysconf\FONT\S22I646.GF
 if not exist "%~dp0HDD-OSD\__sysconf\FONT\S22I646.GF" (
 "%~dp0BAT\Diagbox" gd 0c
 echo Files "__sysconf\FONT\S22I646.GF" 
@@ -4785,7 +4931,7 @@ echo ----------------------------------------------------
 
 	IF "!@hdd_avl!"=="__sysconf" (
 	"%~dp0BAT\Diagbox" gd 0a
-		echo         __system - Partition Detected
+		echo         __sysconf - Partition Detected
 		) else (
 		"%~dp0BAT\Diagbox" gd 0c
 		echo         __sysconf - Partition NOT Detected
@@ -4797,9 +4943,7 @@ echo ----------------------------------------------------
 		pause & (goto HDDOSDMenu)
 		)
 	)
-"%~dp0BAT\Diagbox" gd 0f
-echo\
-echo\
+
 "%~dp0BAT\Diagbox" gd 0e
 echo\
 echo\
@@ -4829,6 +4973,37 @@ echo ----------------------------------------------------
 	    pause & (goto HDDOSDMenu)
 		)
 	)
+	
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Detecting +OPL Partition:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
+
+	echo device !@hdl_path! > "%~dp0TMP\pfs-prt.txt"
+	echo ls >> "%~dp0TMP\pfs-prt.txt"
+	echo exit >> "%~dp0TMP\pfs-prt.txt"
+	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "+OPL" | "%~dp0BAT\busybox" sed "s/.*+OPL/+OPL/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
+	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
+
+	IF "!@hdd_avl!"=="+OPL" (
+	"%~dp0BAT\Diagbox" gd 0a
+		echo         +OPL - Partition Detected
+		) else (
+		"%~dp0BAT\Diagbox" gd 0c
+		echo         +OPL - Partition NOT Detected
+		echo         Partition Must Be Formatted Or Created
+		echo\
+		echo\
+		rmdir /Q/S "%~dp0TMP" >nul 2>&1
+		del info.sys >nul 2>&1
+		pause & (goto HDDOSDMenu)
+		)
+	)
+
 "%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
@@ -5950,13 +6125,13 @@ echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
 setlocal DisableDelayedExpansion
 
-"%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > .PARTITION_GAMES.txt
+"%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > PARTITION_GAMES_NEW.txt
 
-more +1 .PARTITION_GAMES.txt > file.txt
-move /y file.txt PARTITION_GAMES_NEW.txt >nul
-
+"%~dp0BAT\busybox" sed -i "1d" PARTITION_GAMES_NEW.txt 
 "%~dp0BAT\busybox" sed -i -e "$ d" PARTITION_GAMES_NEW.txt
-type PARTITION_GAMES_NEW.txt
+"%~dp0BAT\busybox" cut -c35-500 PARTITION_GAMES_NEW.txt > PARTITION_GAMES_NEW2.txt
+
+type PARTITION_GAMES_NEW2.txt
 "%~dp0BAT\Diagbox" gd 0e
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
@@ -6090,10 +6265,14 @@ echo ----------------------------------------------------
 echo         1) %YES%
 "%~dp0BAT\Diagbox" gd 0c
 echo         2) %NO%
+"%~dp0BAT\Diagbox" gd 0e
+echo         3) %YES% (Manually choose the game)
+echo\
 "%~dp0BAT\Diagbox" gd 07
 echo\
-CHOICE /C 12 /M "Select Option:"
+CHOICE /C 123 /M "Select Option:"
 
+IF ERRORLEVEL 3 set @cfg_manually=yesmanually & (goto DownloadCFGManually)
 IF ERRORLEVEL 2 (goto DownloadsMenu)
 
 echo\
@@ -6116,22 +6295,79 @@ echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
 setlocal DisableDelayedExpansion
 
-"%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > .PARTITION_GAMES.txt
+"%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > PARTITION_GAMES_NEW.txt
 
-more +1 .PARTITION_GAMES.txt > file.txt
-move /y file.txt PARTITION_GAMES_NEW.txt >nul
-
+"%~dp0BAT\busybox" sed -i "1d" PARTITION_GAMES_NEW.txt 
 "%~dp0BAT\busybox" sed -i -e "$ d" PARTITION_GAMES_NEW.txt
-type PARTITION_GAMES_NEW.txt
+"%~dp0BAT\busybox" cut -c35-500 PARTITION_GAMES_NEW.txt > PARTITION_GAMES_NEW2.txt
+
+type PARTITION_GAMES_NEW2.txt
 "%~dp0BAT\Diagbox" gd 0e
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
 echo Download...
 
-REM Cov
+REM CFG
 For %%Z in (PARTITION_GAMES_NEW.txt) do (
  (for /f "tokens=2,5*" %%A in (%%Z) do echo "%~dp0BAT\wget" -q --show-progress "https://ia601402.us.archive.org/view_archive.php?archive=/2/items/ps-2-opl-cfg-database-1.1-tb/PS2-OPL-CFG-Database-1.1-tb.zip&file=PS2-OPL-CFG-Database-1.1-tb%%%%2F%language%%%%%2F%%B.cfg" -O "%~dp0CFG\%%B.cfg") > PARTITION_GAMES_CFG.bat)
 
+call PARTITION_GAMES_CFG.bat
+
+cd "%~dp0"
+for %%F in ("%~dp0CFG\*") do if %%~zF==0 del "%%F"
+
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
+echo.
+
+pause & (goto DownloadsMenu) 
+
+:DownloadCFGManually
+
+IF %@cfg_manually%==yesmanually (
+echo\
+echo\
+echo List Games
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 03
+setlocal DisableDelayedExpansion
+
+"%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > PARTITION_GAMES_NEW.txt
+
+"%~dp0BAT\busybox" sed -i "1d" PARTITION_GAMES_NEW.txt 
+"%~dp0BAT\busybox" sed -i -e "$ d" PARTITION_GAMES_NEW.txt
+"%~dp0BAT\busybox" cut -c35-500 PARTITION_GAMES_NEW.txt > PARTITION_GAMES_NEW2.txt
+
+type PARTITION_GAMES_NEW2.txt
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 03
+echo.
+set /p gameid=Enter the GAMEID:
+
+)
+
+"%~dp0BAT\Diagbox" gd 0f
+echo\
+echo\
+echo Choice your languages of your CFG
+echo 1 English 
+echo 2 French
+echo\
+CHOICE /C 12 /M "Select Option:"
+IF ERRORLEVEL 1 set language=CFG_en
+IF ERRORLEVEL 2 set language=CFG_fr
+
+"%~dp0BAT\Diagbox" gd 03
+cls
+echo\
+echo Download...
+
+REM CFG Manually
+cd /d "%~dp0TMP"
+echo test > "%~dp0TMP\CFG.txt"
+For %%Z in (CFG.txt) do (
+ (for /f %%A in (%%Z) do echo "%~dp0BAT\wget" -q --show-progress "https://ia601402.us.archive.org/view_archive.php?archive=/2/items/ps-2-opl-cfg-database-1.1-tb/PS2-OPL-CFG-Database-1.1-tb.zip&file=PS2-OPL-CFG-Database-1.1-tb%%%%2F%language%%%%%2F%gameid%.cfg" -O "%~dp0CFG\%gameid%.cfg") > PARTITION_GAMES_CFG.bat)
+ 
 call PARTITION_GAMES_CFG.bat
 
 cd "%~dp0"
@@ -6180,7 +6416,7 @@ echo ----------------------------------------------------
 	echo 	6. CD6:
 	echo 	7. Quit Program
     set choice=
-    set /p choice="Choice the number of your Optical Drives.:"
+    set /p choice="Choose your optical drives:"
         
 		IF "!choice!"=="0" set hdlcddvd=cd!choice!:
 		IF "!choice!"=="1" set hdlcddvd=cd!choice!:
