@@ -724,17 +724,17 @@ for %%f in (*.iso *.cue *.nrg *.gi *.iml) do (
 	set filename=%%f
 	for /f "tokens=1,2,3,4,5*" %%i in ('hdl_dump cdvd_info2 ".\%%f"') do (
 
-		set fname=%%f
+		set fname=%%~nf
 
 		setlocal enabledelayedexpansion
-		set fnheader=%%f
+		set fnheader=!fname:~0,11!
 
 		if "!fnheader!"==%%l (
-			set title=%%f
+			set title=!fname:~12!
 		) else (
-			if "!fnheader!"==%%m ( set title=%%f) else ( set title=%%f)
+			if "!fnheader!"==%%m ( set title=!fname:~12!) else ( set title=!fname!)
 		)
-		
+
 		set disctype=unknown
 		if "%%i"=="CD" ( set disctype=inject_cd && set gameid=%%l)
 		if "%%i"=="DVD" ( set disctype=inject_dvd && set gameid=%%l)
@@ -745,14 +745,14 @@ for %%f in (*.iso *.cue *.nrg *.gi *.iml) do (
 			
 		"%~dp0BAT\Diagbox" gd 07
 		) else (
-                
-			    if "!usedb!"=="yes" (
-				
+
+			if "!usedb!"=="yes" (
+
 				set "dbtitle="
 				for /f "tokens=1*" %%A in ( 'findstr !gameid! gameid.txt' ) do (
 					if not defined dbtitle set dbtitle=%%B
 				)
-                
+
 				if defined dbtitle (
 
 					if "!dbtitle:~-1,1!"==" " (
@@ -763,15 +763,18 @@ for %%f in (*.iso *.cue *.nrg *.gi *.iml) do (
 
 				)
 			)
+
 			echo 	Install type: !disctype!	ID: !gameid!
 			echo 	Title: !title!
 			"%~dp0BAT\Diagbox" gd 0d
-			if "%TEST%"=="NO" hdl_dump !disctype! !hdlhdd! "!title!" "!filename!" *u4
+			if "%TEST%"=="NO" hdl_dump !disctype! !hdlhdd! "!title!" "!filename!" !gameid! *u4
 			"%~dp0BAT\Diagbox" gd 07
 		)
 		endlocal
+		
 	)
 	endlocal
+	
 )
 endlocal
 echo\
@@ -2316,9 +2319,9 @@ echo\
     cd "%~dp0"
   )
 
-REM rmdir /Q/S "%~dp0TMP" >nul 2>&1
-REM del info.sys >nul 2>&1
-REM del "%~dp0POPS\VMC\pfs-tmp3.bat" >nul 2>&1
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
+del info.sys >nul 2>&1
+del "%~dp0POPS\VMC\pfs-tmp3.bat" >nul 2>&1
 
 "%~dp0BAT\Diagbox" gd 0f
 echo\
