@@ -8,10 +8,6 @@ jobs:
   Repack_and_Release:
     runs-on: ubuntu-latest
     steps:
-    
-    - name: Install dependencies
-      run: |
-        apk add git p7zip
 
     - name: checkout code for release
       uses: actions/checkout@v2
