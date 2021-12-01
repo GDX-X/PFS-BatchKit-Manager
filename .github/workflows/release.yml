@@ -1,0 +1,61 @@
+name: Release PFS-BatchKit-Manager
+on:
+  workflow_dispatch:
+  repository_dispatch:
+  push:
+  
+jobs:
+  Repack_and_Release:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: checkout code for release
+      uses: actions/checkout@v2
+      
+    - name: Get short SHA
+      id: slug
+      run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+      
+    - name: zip Folder For Release
+      run: |
+        SCH=${GITHUB_SHA::7}
+        DATEE=`date '+[%Y-%m-%d]'`
+        cd PFS-BatchKit-Manager
+        cd BAT
+        echo "----PFS-BatchKit-Manager----">hash.txt
+        echo Commit $SCH>>hash.txt
+        cd ..
+        cd ..
+        mv PFS-BatchKit-Manager PFS-BatchKit-Manager-$DATEE
+        7z a -t7z -r PFS-BatchKit-Manager.7z PFS-BatchKit-Manager*/*
+    
+    - name: Upload artifacts
+      if: ${{ success() }}
+      uses: actions/upload-artifact@v2
+      with:
+        name: PFS-BatchKit-Manager-${{ steps.slug.outputs.sha8 }}
+        path: |
+             PFS-BatchKit-Manager.7z
+    
+    - name: delete previous tag/release
+      if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+      uses: dev-drprasad/delete-tag-and-release@v0.2.0
+      with:
+        delete_release: true
+        tag_name: Latest
+      env:
+       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Deploy pre-release
+      uses: softprops/action-gh-release@v1
+      if: (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
+      with:
+        token: "${{ secrets.GITHUB_TOKEN }}"
+        fail_on_unmatched_files: true
+        files: |
+             PFS-BatchKit-Manager.7z
+        name: "Latest PFS-BatchKit-Manager"
+        tag_name: "Latest"
+#        body_path: 'latest_changes.log'  # DM me about the changelog system, i can help you to re-adapt the one i'm using for HDLBinst
+        prerelease: true
+    
