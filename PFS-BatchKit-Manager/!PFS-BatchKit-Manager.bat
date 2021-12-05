@@ -5054,7 +5054,6 @@ echo ----------------------------------------------------
 	echo ls >> "%~dp0TMP\pfs-prt.txt"
 	echo exit >> "%~dp0TMP\pfs-prt.txt"
 	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-	PAUSE
 	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__sysconf" | "%~dp0BAT\busybox" sed "s/.*__sysconf/__sysconf/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
 	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
