@@ -54,7 +54,7 @@ Copy your .BIN/CUE in POPS Folder
 2) Create `+OPL` Partition
 3) Install HDD-OSD
 4) Install your game
-5) Inject the `BOOT.KELF` (For games you want to run from HDD-OSD)
+5) Inject the `MiniOPL` (For games you want to run from HDD-OSD)
 
   ------
    </p>
