@@ -241,7 +241,7 @@ echo.------------------------------------------
 ECHO Dump Tools
 ECHO.
 ECHO 1. Dump your CD-DVD
-ECHO 2. Check your .ISO with the redump database
+ECHO 2. Check MD5 Hash your .ISO/.BIN with the redump database
 ECHO 3.
 ECHO 4.
 ECHO 5.
