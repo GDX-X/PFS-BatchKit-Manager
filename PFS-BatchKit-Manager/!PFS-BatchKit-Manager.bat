@@ -7303,7 +7303,7 @@ move *.bin "%~dp0POPS\Original" >nul 2>&1
 move *.cue "%~dp0POPS\Original" >nul 2>&1
 
 cd "%~dp0POPS\temp"
-"%~dp0BAT\busybox" find . -type f -name "*.cue" -exec sed -i "s:temp\\::g" {} + >nul 2>&1
+"%~dp0BAT\busybox" sed -i "s/temp\\//g" "*.cue"
 move *.bin "%~dp0POPS" >nul 2>&1
 move *.cue "%~dp0POPS" >nul 2>&1
 cd "%~dp0POPS"
@@ -7464,7 +7464,7 @@ move *.bin "%~dp0POPS\Original" >nul 2>&1
 move *.cue "%~dp0POPS\Original" >nul 2>&1
 
 cd "%~dp0POPS\temp"
-"%~dp0BAT\busybox" find . -type f -name "*.cue" -exec sed -i "s:temp\\::g" {} + >nul 2>&1
+"%~dp0BAT\busybox" sed -i "s/temp\\//g" "*.cue"
 move *.bin "%~dp0POPS" >nul 2>&1
 move *.cue "%~dp0POPS" >nul 2>&1
 cd "%~dp0POPS"
@@ -7504,7 +7504,7 @@ move *.bin "%~dp0POPS\Original" >nul 2>&1
 move *.cue "%~dp0POPS\Original" >nul 2>&1
 
 cd "%~dp0POPS\temp"
-"%~dp0BAT\busybox" find . -type f -name "*.cue" -exec sed -i "s:temp\\::g" {} + >nul 2>&1
+"%~dp0BAT\busybox" sed -i "s/temp\\//g" "*.cue"
 move *.bin "%~dp0POPS" >nul 2>&1
 move *.cue "%~dp0POPS" >nul 2>&1
 cd "%~dp0POPS"
