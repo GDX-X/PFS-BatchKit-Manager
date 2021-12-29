@@ -1,0 +1,27 @@
+name: Update Configs Database
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [update_configs]
+  schedule:
+    - cron: "0 15 * * 5"
+
+jobs:
+  update_widescreen:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Update PS2-OPL-CFG-Database
+      run: |
+        cd PFS-BatchKit-Manager/BAT
+        rm -f PS2-OPL-CFG-Database.7z
+        wget https://codeload.github.com/Tom-Bruise/PS2-OPL-CFG-Database/zip/refs/heads/master -O $PWD/PS2-OPL-CFG-Database.zip
+        7z a -t7z -r PS2-OPL-CFG-Database.7z PS2-OPL-CFG-Database*/*
+        
+    - uses: EndBug/add-and-commit@v7
+      with:
+        default_author: github_actions
+        message: 'Update Configs Database'
