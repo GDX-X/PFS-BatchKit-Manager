@@ -305,6 +305,7 @@ set /p choice=Select Option:
 
 if "%choice%"=="2" (goto DownloadARTMenu)
 if "%choice%"=="3" (goto DownloadCFG)
+if "%choice%"=="4" (goto DownloadCheatsMenu)
 
 if "%choice%"=="10" (goto AdvancedMenu)
 if "%choice%"=="11" (goto start)
@@ -6694,20 +6695,21 @@ echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
 echo Download...
 
-cd /d "%~dp0CFG"
-for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > %%fBACKUP)
+cd /d "%~dp0CFG" & md %language%
+for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > "%~dp0CFG\%language%\%%fBACKUP")
 REM CFG
 cd /d "%~dp0TMP"
 For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo "%~dp0BAT\wget" -q --show-progress "https://raw.githubusercontent.com/Tom-Bruise/PS2-OPL-CFG-Database/master/%language%/%%B.cfg" -O "%~dp0CFG\%%B.cfg" ) > PARTITION_GAMES_CFG.bat)
+ (for /f "tokens=2,5*" %%A in (%%Z) do echo "%~dp0BAT\wget" -q --show-progress "https://raw.githubusercontent.com/Tom-Bruise/PS2-OPL-CFG-Database/master/%language%/%%B.cfg" -O "%~dp0CFG\%language%\%%B.cfg" ) > PARTITION_GAMES_CFG.bat)
 
 mkdir "%~dp0CFG" >nul 2>&1
 call PARTITION_GAMES_CFG.bat
 
-cd /d "%~dp0CFG"
-for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> %%f & del %%fBACKUP) >nul 2>&1
+cd /d "%~dp0CFG\%language%"
+for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> %%f & move %%f "%~dp0CFG" ) >nul 2>&1
 
 cd "%~dp0" & for %%F in ( "%~dp0CFG\*" ) do if %%~zF==0 del "%%F"
+rmdir /Q/S "%~dp0CFG\%language%" >nul 2>&1
   )
  )
 
@@ -6754,10 +6756,7 @@ echo\
 
 
 if errorlevel 2 (
-"%~dp0BAT\Diagbox" gd 0c
-    echo.
-	echo Unable to connect to internet Or Website
-	 
+
 REM Offline Installation
 "%~dp0BAT\Diagbox" gd 0e
 cls
@@ -6869,22 +6868,24 @@ echo\
 echo\
 echo Download...
 
-cd /d "%~dp0CFG"
-for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > %%fBACKUP)
+cd /d "%~dp0CFG" & md %language%
+for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > "%~dp0CFG\%language%\%%fBACKUP")
 
 REM CFG Manually
 cd /d "%~dp0TMP"
 echo test > "%~dp0TMP\CFG.txt"
 For %%Z in (CFG.txt) do (
- (for /f %%A in (%%Z) do echo "%~dp0BAT\wget" -q --show-progress "https://raw.githubusercontent.com/Tom-Bruise/PS2-OPL-CFG-Database/master/!language!/!gameid!.cfg" -O "%~dp0CFG\!gameid!.cfg" ) > PARTITION_GAMES_CFG.bat)
+ (for /f %%A in (%%Z) do echo "%~dp0BAT\wget" -q --show-progress "https://raw.githubusercontent.com/Tom-Bruise/PS2-OPL-CFG-Database/master/!language!/!gameid!.cfg" -O "%~dp0CFG\%language%\!gameid!.cfg" ) > PARTITION_GAMES_CFG.bat)
 
 mkdir "%~dp0CFG" >nul 2>&1
 call PARTITION_GAMES_CFG.bat
 
-cd /d "%~dp0CFG"
-for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> %%f & del %%fBACKUP) >nul 2>&1
+cd /d "%~dp0CFG\%language%"
+for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> %%f & move %%f "%~dp0CFG" ) >nul 2>&1
 
 cd "%~dp0" & for %%F in ( "%~dp0CFG\*" ) do if %%~zF==0 del "%%F"
+rmdir /Q/S "%~dp0CFG\%language%" >nul 2>&1
+
   ) 
  )
 )
