@@ -8306,10 +8306,10 @@ if errorlevel 2 (
 echo >nul 2>&1
 
 ) else (
+setlocal EnableDelayedExpansion
 
 For %%P in ( "*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" >> VCDID.txt
 set "filename=%%P"
-setlocal EnableDelayedExpansion
 
 for /f %%i in (VCDID.txt) do (
 set gameid=%%i
@@ -8336,8 +8336,8 @@ move "!filename!" "temp\!dbtitle!.VCD" >nul 2>&1
 )
 move "%~dp0POPS\temp\*.VCD" "%~dp0POPS" >nul 2>&1
 
+endlocal
 rmdir /s /q temp >nul 2>&1
-
 echo\
 pause & (goto GamesManagement)
 
@@ -8385,10 +8385,10 @@ if errorlevel 2 (
 echo >nul 2>&1
 
 ) else (
+setlocal EnableDelayedExpansion
 
 For %%P in ( "*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" >> VCDID.txt
 set "filename=%%P"
-setlocal EnableDelayedExpansion
 
 for /f %%i in (VCDID.txt) do (
 set gameid=%%i
