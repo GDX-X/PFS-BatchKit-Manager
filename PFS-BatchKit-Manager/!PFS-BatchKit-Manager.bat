@@ -305,7 +305,6 @@ set /p choice=Select Option:
 
 if "%choice%"=="2" (goto DownloadARTMenu)
 if "%choice%"=="3" (goto DownloadCFG)
-if "%choice%"=="4" (goto DownloadCheatsMenu)
 
 if "%choice%"=="10" (goto AdvancedMenu)
 if "%choice%"=="11" (goto start)
@@ -718,8 +717,8 @@ echo\
 echo Choose the titles language of the games list
 echo\
 echo Some games have their own title in several languages for example:
-echo English = Call of Duty: Finest Hour
-echo French  = Call of Duty : Le Jour de gloire
+echo English = The Simpsons Game
+echo French  = Les Simpson le jeu
 "%~dp0BAT\Diagbox" gd 06
 echo NOTE: Some titles are not translated
 "%~dp0BAT\Diagbox" gd 07
@@ -8281,6 +8280,8 @@ pause & (goto GamesManagement)
 REM ####################################################################################################################
 
 :RenameVCDDB
+endlocal
+endlocal
 
 if not exist "%~dp0POPS\*.VCD" (
 cls
@@ -8308,6 +8309,7 @@ echo >nul 2>&1
 
 For %%P in ( "*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" >> VCDID.txt
 set "filename=%%P"
+setlocal EnableDelayedExpansion
 
 for /f %%i in (VCDID.txt) do (
 set gameid=%%i
@@ -8342,6 +8344,10 @@ pause & (goto GamesManagement)
 REM ####################################################################################################################################################
 :BIN2VCD
 cls
+
+endlocal
+endlocal
+
 cd "%~dp0POPS"
 
 if exist rmdir /s /q temp >nul 2>&1
@@ -8362,16 +8368,17 @@ cd "%~dp0POPS\temp"
 for %%f in (*.cue) do "%~dp0BAT\CUE2POPS_2_3" "%%f"
 move *.VCD "%~dp0POPS" >nul 2>&1
 
-cd "%~dp0POPS"
+cd /d "%~dp0POPS
 rmdir /s /q temp >nul 2>&1
+endlocal
 echo.
 
-echo\ 
+
+echo\
 echo\
 echo Do you want rename your .VCDs from database?
 choice /c YN /m "Use titles from database? "
 echo\
-
 
 if errorlevel 2 (
 
@@ -8381,6 +8388,7 @@ echo >nul 2>&1
 
 For %%P in ( "*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" >> VCDID.txt
 set "filename=%%P"
+setlocal EnableDelayedExpansion
 
 for /f %%i in (VCDID.txt) do (
 set gameid=%%i
@@ -8415,6 +8423,8 @@ pause & (goto ConversionMenu)
 REM ####################################################################################################################################################
 :VCD2BIN
 cls
+endlocal
+endlocal
 cd "%~dp0POPS"
 
 if exist rmdir /s /q temp >nul 2>&1
@@ -8452,6 +8462,9 @@ pause & (goto ConversionMenu)
 
 REM #########################################################################################################################################################
 :ECM2BIN
+endlocal
+endlocal
+
 cd "%~dp0POPS"
 if exist *.zip "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.zip"
 if exist *.rar "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.rar"
@@ -8490,6 +8503,9 @@ pause & (goto ConversionMenu)
 
 REM ##########################################################################################################################################################
 :BIN2CHD
+endlocal
+endlocal
+
 cd "%~dp0POPS"
 if exist *.zip "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.zip"
 if exist *.rar "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.rar"
@@ -8517,6 +8533,9 @@ pause & (goto ConversionMenu)
 
 REM ##########################################################################################################################################################
 :CHD2BIN
+endlocal
+endlocal
+
 cd "%~dp0POPS"
 if exist *.zip "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.zip"
 if exist *.rar "%~dp0BAT\7z.exe" x -bso0 "%~dp0POPS\*.rar"
@@ -8543,6 +8562,9 @@ pause & (goto ConversionMenu)
 
 REM ##########################################################################################################################################################
 :multibin2bin
+endlocal
+endlocal
+
 cls
 cd "%~dp0POPS"
 
@@ -8583,6 +8605,9 @@ pause & (goto ConversionMenu)
 
 REM ##########################################################################################################################################################
 :bin2split
+endlocal
+endlocal
+
 cls
 cd "%~dp0POPS"
 
@@ -8650,6 +8675,9 @@ REM )
 
 REM ###########################################################################################################################################################
 :BIN2ISO
+endlocal
+endlocal
+
 cd "%~dp0CD"
 if not exist *.bin (goto failBIN2ISO)
 md Original >nul 2>&1
