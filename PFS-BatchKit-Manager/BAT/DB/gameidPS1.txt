@@ -3285,6 +3285,7 @@ SLPM_870.07 Grand Theft Auto (Pokkiri 1400 Series)
 SLES_017.14 Grand Theft Auto - London 1969
 SLUS_008.46 Grand Theft Auto - Mission Pack #1 - London 1969
 SLES_033.89 Grand Theft Auto - Mission Pack #1 - London 1969
+SLES_024.53 Grand Theft Auto 2
 SLES_024.58 Grand Theft Auto 2
 SLES_014.04 Grand Theft Auto 2
 SLUS_007.89 Grand Theft Auto 2
