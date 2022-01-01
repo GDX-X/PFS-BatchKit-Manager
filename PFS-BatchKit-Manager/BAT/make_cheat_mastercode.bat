@@ -1,4 +1,4 @@
-REM Small script to create .CHT but What a mess NOT oPtiMIZed
+REM Small script to create .CHT but What a mess NOT oPtiMIZed but works!
 
 @echo off
 
@@ -31,18 +31,39 @@ for %%f in (*.iso) do (
 	"%~dp0BAT\busybox" sed -i -e "s/.iso//g" "%~dp0TMP\Name.txt"
 	set /p filename=<"%~dp0TMP\Name.txt" 
 	
-for /f "tokens=4" %%i in ('hdl_dump cdvd_info2 ".\%%f"') do ( 
+for /f "tokens=1,2,3,4,5*" %%i in ('hdl_dump cdvd_info2 ".\%%f"') do (
 
-echo %%i > "%~dp0TMP\gameidelf.txt" 
+if "%%i"=="CD" ( "%~dp0BAT\7z" x -bso0 "%~dp0CD-DVD\%%f" -o"%~dp0CD-DVD" %%l & echo %%l > "%~dp0TMP\gameidelf.txt"
 "%~dp0BAT\busybox" sed -i "s/ //g" "%~dp0TMP\gameidelf.txt" 
 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\gameidelf.txt" 
 "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\gameidelf.txt" 
-set /p gameidelf=<"%~dp0TMP\gameidelf.txt" 
+set /p gameidelf=<"%~dp0TMP\gameidelf.txt"
+setlocal Enabledelayedexpansion
+"%~dp0BAT\mastercode_finder_cmd" -v !gameidelf! > "%~dp0TMP\report.txt" 
+del !gameidelf! >nul 2>&1
+endlocal
+)
+if "%%i"=="DVD" ( "%~dp0BAT\7z" x -bso0 "%~dp0CD-DVD\%%f" -o"%~dp0CD-DVD" %%l & echo %%l > "%~dp0TMP\gameidelf.txt"
+"%~dp0BAT\busybox" sed -i "s/ //g" "%~dp0TMP\gameidelf.txt" 
+"%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\gameidelf.txt" 
+"%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\gameidelf.txt" 
+set /p gameidelf=<"%~dp0TMP\gameidelf.txt"
+setlocal Enabledelayedexpansion
+"%~dp0BAT\mastercode_finder_cmd" -v !gameidelf! > "%~dp0TMP\report.txt" 
+del !gameidelf! >nul 2>&1
+endlocal
+)
+if "%%i"=="dual-layer" ( "%~dp0BAT\7z" x -bso0 "%~dp0CD-DVD\%%f" -o"%~dp0CD-DVD" %%m & echo %%m > "%~dp0TMP\gameidelf.txt"
+"%~dp0BAT\busybox" sed -i "s/ //g" "%~dp0TMP\gameidelf.txt" 
+"%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\gameidelf.txt" 
+"%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\gameidelf.txt"
+set /p gameidelf=<"%~dp0TMP\gameidelf.txt"
+setlocal Enabledelayedexpansion
+"%~dp0BAT\mastercode_finder_cmd" -v !gameidelf! > "%~dp0TMP\report.txt" 
+del !gameidelf! >nul 2>&1
+endlocal
+)
 
-"%~dp0BAT\7z" x -bso0 "%~dp0CD-DVD\%%f" -o"%~dp0CD-DVD" %%i
-"%~dp0BAT\mastercode_finder_cmd" -v %%i > "%~dp0TMP\report.txt"
-
-del %%i >nul 2>&1
 del "%~dp0TMP\SYSTEM.CNF" >nul 2>&1
 del "%~dp0TMP\VER.txt" >nul 2>&1
 
@@ -67,7 +88,6 @@ Echo "!filename! /VER !GAMEVER! /ID !gameidelf!" > "%~dp0CHT\!gameidelf!.cht"
 Echo Mastercode >> "%~dp0CHT\!gameidelf!.cht"
 Echo !Mastercode! >> "%~dp0CHT\!gameidelf!.cht"
 "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0CHT\!gameidelf!.cht"
-
 ) else (
 
 "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0CHT\!gameidelf!.cht"
