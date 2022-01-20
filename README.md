@@ -14,12 +14,12 @@ IMPORTANT! If you have already Formatted and installed FreeHDBoot (From HDD), yo
 3) After the hacking put your HDD in your PS2 and format your hard drive with wLaunchELF
 In wLaunchELF `FileBrowser` > `MISC` > `HDDManager` > `Press R1` > `Format and confirm.`
      
-(4) Copy the contents of the COPY_TO_USB_ROOT folder to the root of your USB drive
+4) Copy the contents of the COPY_TO_USB_ROOT folder to the root of your USB drive
 
-(5) Install FreeHDBoot (From HDD).
+5) Install FreeHDBoot (From HDD).
 In wLaunchELF `FileBrowser` > `Mass` > `APPS` > `FreeMcBoot` > `FMCBInstaller.elf` Press Circle for Launch > `Press R1` > `Install FHDB` (From HDD)
 
-(6) Your hard drive will be properly formatted and hacked after that
+6) Your hard drive will be properly formatted and hacked after that
   ------
      
    </p>
