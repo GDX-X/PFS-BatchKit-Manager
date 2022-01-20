@@ -5,11 +5,21 @@ Is a batch script that allows you to easily manage your PS2 hard drive
   <summary> <h7> <b> How to hack your PS2 hard drive </b> </h7> </summary>
    <p>
      
-1) Go to Advanced menu > HDD Management
-2) Choose option 8 Hack your HDD To PS2 Format
-3) Connect your hard drive to the PS2 (If you have a memory card with FreeMcBoot unplug the memory card.)
-4) Format your hard drive in wLaunchELF (Press Circle > MISC > HDDManager > Press R1 > Format and confirm.)
-5) Install FreeHDBoot (From HDD)
+IMPORTANT! If you have already Formatted and installed FreeHDBoot (From HDD), you don't need to do this
+     
+1) In PFS BatchKit Manager Go to `Advanced menu` > `HDD Management`
+     
+2) Choose option 8 `Hack your HDD To PS2 Format`
+     
+3) After the hacking put your HDD in your PS2 and format your hard drive with wLaunchELF
+In wLaunchELF `FileBrowser` > `MISC` > `HDDManager` > `Press R1` > `Format and confirm.`
+     
+(4) Copy the contents of the COPY_TO_USB_ROOT folder to the root of your USB drive
+
+(5) Install FreeHDBoot (From HDD).
+In wLaunchELF `FileBrowser` > `Mass` > `APPS` > `FreeMcBoot` > `FMCBInstaller.elf` Press Circle for Launch > `Press R1` > `Install FHDB` (From HDD)
+
+(6) Your hard drive will be properly formatted and hacked after that
   ------
      
    </p>
