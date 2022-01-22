@@ -28,8 +28,7 @@ chcp 1252
 call "%~dp0BAT\LANG2.BAT"
 call "%~dp0BAT\CFG2.BAT"
 
-rmdir /Q/S "%~dp0TMP" >nul 2>&1
-del info.sys >nul 2>&1
+IF EXIST "%~dp0TMP" rmdir /Q/S "%~dp0TMP" >nul 2>&1
 
 attrib +h "BAT"
 
@@ -52,9 +51,10 @@ cls
 
 :start
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -78,7 +78,7 @@ ECHO.
 ECHO.
 ECHO 12. About
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="1" (goto TransferPS1Games)
 if "%choice%"=="2" (goto TransferPS2Games)
@@ -96,9 +96,10 @@ if "%choice%"=="12" (goto About)
 
 :About
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 echo.------------------------------------------
@@ -126,7 +127,7 @@ ECHO.
 ECHO 10. Back to main menu
 ECHO 11. Exit
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="1" (start https://twitter.com/GDX_SM)
 if "%choice%"=="3" (start https://www.youtube.com/user/GDXTV/videos)
@@ -143,9 +144,10 @@ if "%choice%"=="100" (goto GDX-X)
 
 :AdvancedMenu
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -167,7 +169,7 @@ ECHO 10. Back to main menu
 ECHO 11. Exit
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="1" (goto ConversionMenu)
 if "%choice%"=="2" (goto GamesManagement)
@@ -185,9 +187,10 @@ if "%choice%"=="11" exit
 
 :ConversionMenu
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -211,7 +214,7 @@ ECHO 12. Exit
 ECHO.
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="1" (goto BIN2VCD)
 if "%choice%"=="2" (goto VCD2BIN)
@@ -230,9 +233,10 @@ if "%choice%"=="12" exit
 
 :GamesManagement
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -245,10 +249,10 @@ ECHO 2. Check MD5 Hash of your PS2 .ISO/.BIN with the redump database
 ECHO 3. Create CHEATS.CHT With Mastercode
 ECHO 4. Assign titles database for your .VCDs
 ECHO 5.
-ECHO 6. Delete a games (Installed in HDD)
-ECHO 7. Rename a games (Installed in HDD)
-ECHO 8. Export PS1 game list (Installed in HDD)
-ECHO 9. Export PS2 game list (Installed in HDD)
+ECHO 6. 
+ECHO 7. Delete a games (Installed in HDD)
+ECHO 8. Rename a games (Installed in HDD)
+ECHO 9. Export game list (Installed in HDD)
 ECHO.
 ECHO 10. Back
 ECHO 11. Back to main menu
@@ -256,17 +260,16 @@ ECHO 12. Exit
 ECHO.
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="1" (goto DumpCDDVD)
 if "%choice%"=="2" (goto checkMD5HashPS2Games)
 if "%choice%"=="3" (copy "%~dp0BAT\make_cheat_mastercode.bat" >nul "%~dp0" & cls & call make_cheat_mastercode.bat & del make_cheat_mastercode.bat & pause)
 if "%choice%"=="4" (goto RenameVCDDB)
 
-if "%choice%"=="6" (goto DeleteChoiceGamesHDD)
-if "%choice%"=="7" (goto RenameChoiceGames)
-if "%choice%"=="8" (goto ExportPS1GamesList)
-if "%choice%"=="9" (goto ExportPS2GamesList)
+if "%choice%"=="7" (goto DeleteChoiceGamesHDD)
+if "%choice%"=="8" (goto RenameChoiceGames)
+if "%choice%"=="9" (goto ExportChoiceGamesListHDD)
 
 if "%choice%"=="10" (goto AdvancedMenu)
 if "%choice%"=="11" (goto start)
@@ -276,9 +279,10 @@ if "%choice%"=="12" exit
 
 :DownloadsMenu
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -286,10 +290,10 @@ setlocal EnableExtensions
 echo.------------------------------------------
 ECHO Downloads Menu 
 ECHO.
-ECHO 1.
+REM ECHO 1. Applications
 ECHO 2. Artworks
 ECHO 3. Configs
-ECHO 4.
+ECHO 4. Cheats
 ECHO 5.
 ECHO 6.
 ECHO 7.
@@ -301,10 +305,11 @@ ECHO 11. Back to main menu
 ECHO 12. Exit
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="2" (goto DownloadARTMenu)
 if "%choice%"=="3" (goto DownloadCFG)
+if "%choice%"=="4" (goto DownloadCheatsMenu)
 
 if "%choice%"=="10" (goto AdvancedMenu)
 if "%choice%"=="11" (goto start)
@@ -314,9 +319,10 @@ if "%choice%"=="12" exit
 
 :DownloadARTMenu
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -348,7 +354,7 @@ ECHO 11. Back to main menu
 ECHO 12. Exit
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="9" (goto DownloadARTPS2)
 if "%choice%"=="20" (goto DownloadARTPS1)
@@ -361,9 +367,10 @@ if "%choice%"=="12" exit
 
 :DownloadCheatsMenu
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -375,7 +382,7 @@ ECHO 1.
 ECHO 2.
 ECHO 3.
 ECHO 4.
-ECHO 5. Grand Theft Auto Uncensored blood (European version)
+REM ECHO 5. Grand Theft Auto Uncensored blood (European version)
 ECHO 6.
 ECHO 7.
 ECHO 8.
@@ -387,9 +394,9 @@ ECHO 11. Back to main menu
 ECHO 12. Exit
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
-if "%choice%"=="9" (goto DownloadART)
+if "%choice%"=="9" (goto DownloadWideScreenCheat)
 
 if "%choice%"=="10" (goto AdvancedMenu)
 if "%choice%"=="11" (goto start)
@@ -400,9 +407,10 @@ if "%choice%"=="12" exit
 
 :UtilityMenu
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -413,9 +421,9 @@ ECHO.
 ECHO 1. PS1 Save Utility
 ECHO 2. PS2 Save Utility
 ECHO 3. OPL Manager
-ECHO 4.
-ECHO 5. HDL Batch Installer
-ECHO 6.
+ECHO 4. HDL Batch Installer
+ECHO 5. 
+ECHO 6. PS2 Controller Remapper
 ECHO 7.
 ECHO 8.
 ECHO 9.
@@ -425,12 +433,13 @@ ECHO 11. Back to main menu
 ECHO 12. Exit
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="1" (start https://github.com/ShendoXT/memcardrex/releases)
 if "%choice%"=="2" (start https://www.psx-place.com/resources/mymc-dual-by-joack.675) 
 if "%choice%"=="3" (start https://oplmanager.com/site)
-if "%choice%"=="5" (start https://github.com/israpps/HDL-Batch-installer/releases)
+if "%choice%"=="4" (start https://github.com/israpps/HDL-Batch-installer/releases)
+if "%choice%"=="6" (start https://www.psx-place.com/resources/ps2-controller-remapper-by-pelvicthrustman.692/)
 
 
 if "%choice%"=="10" (goto AdvancedMenu)
@@ -441,9 +450,10 @@ if "%choice%"=="12" exit
 
 :HDDOSDMenu
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -465,11 +475,11 @@ ECHO 11. Back to main menu
 ECHO 12. Exit
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="1" (goto InstallHDDOSD)
 if "%choice%"=="2" (goto UnInstallHDDOSD)
-if "%choice%"=="3" (goto injectbootkelf)
+if "%choice%"=="3" (goto InjectMiniOPL)
 if "%choice%"=="4" (goto pphide)
 if "%choice%"=="5" (goto ppunhide)
 
@@ -482,9 +492,10 @@ if "%choice%"=="12" exit
 
 :PS2OnlineMenu
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -512,7 +523,7 @@ ECHO 11. Back to main menu
 ECHO 12. Exit
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="9" (start https://docs.google.com/spreadsheets/d/1bbxOGm4dPxZ4Vbzyu3XxBnZmuPx3Ue-cPqBeTxtnvkQ)
 if "%choice%"=="10" (goto AdvancedMenu)
@@ -523,9 +534,10 @@ if "%choice%"=="12" exit
 
 :HDDManagementMenu
 "%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.0.5 By GDX
-echo.Welcome in PFS BatchKit Manager v1.0.5 By GDX
+title PFS BatchKit Manager v1.0.6 By GDX
+echo.Welcome in PFS BatchKit Manager v1.0.6 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -551,7 +563,7 @@ ECHO 11. Back to main menu
 ECHO 12. Exit
 ECHO.
 echo.------------------------------------------
-set /p choice=Select Option:
+set /p choice="Select Option:"
 
 if "%choice%"=="1"  (goto CreatePART)
 if "%choice%"=="2"  (goto DeletePART)
@@ -636,6 +648,7 @@ rem * NOTHING TO EDIT BELOW THIS LINE
 
 cls
 mkdir "%~dp0CD-DVD" >nul 2>&1
+mkdir "%~dp0TMP" >nul 2>&1
 cd /d "%~dp0CD-DVD"
 
 del gameid.txt
@@ -654,13 +667,16 @@ echo\
 echo Scanning for Playstation 2 HDDs:
 echo ----------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\hdl_dump" query | findstr "Playstation"
+	"%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD"
+    "%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" cut -c2-6 > "%~dp0TMP\hdl-hdd.txt"
 	"%~dp0BAT\Diagbox" gd 07
     echo.
     echo ----------------------------------------------------
 	"%~dp0BAT\Diagbox" gd 06
 	echo NOTE: If no PS2 HDDs are found, quit and retry after disconnecting
 	echo all disk drives EXCEPT for your PC boot drive and the PS2 HDDs.
+	echo\
+	echo If you cannot choose your hard drive from the list, choose option 7.
 	"%~dp0BAT\Diagbox" gd 0f
 	echo. 
 	echo PLAYSTATION 2 HDD INSTALLATION
@@ -670,29 +686,45 @@ echo ----------------------------------------------------
 	echo 	4. hdd4:
 	echo 	5. hdd5:
 	echo 	6. hdd6:
-	echo 	7. Network
-	echo 	8. Quit Program
-	choice /c 12345678 /m "Select your PS2 HDD"
-
-	if errorlevel 8 (goto start)
-	if errorlevel 7 (
-		set /p "hdlhdd=Enter IP of the Playstation 2: "
-		ping -n 1 -w 2000 !hdlhdd!
-		if errorlevel 1 (
-		"%~dp0BAT\Diagbox" gd 0c
-			echo Unable to ping !hdlhdd! ... ending script.
-			"%~dp0BAT\Diagbox" gd 07
-            pause & goto TransferPS2Games)
-			
-	) else (
-		if errorlevel 1 set hdlhdd=hdd1:
-		if errorlevel 2 set hdlhdd=hdd2:
-		if errorlevel 3 set hdlhdd=hdd3:
-		if errorlevel 4 set hdlhdd=hdd4:
-		if errorlevel 5 set hdlhdd=hdd5:
-		if errorlevel 6 set hdlhdd=hdd6:
-		REM IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
-	)
+	echo 	7. Local HDD Auto Search
+	echo 	8. Network
+	echo 	9. Back to main menu
+	choice /c 123456789 /m "Select your PS2 HDD"
+	
+	if errorlevel 9 (goto start)
+	if errorlevel 1 set hdlhdd=hdd1:
+	if errorlevel 2 set hdlhdd=hdd2:
+	if errorlevel 3 set hdlhdd=hdd3:
+	if errorlevel 4 set hdlhdd=hdd4:
+	if errorlevel 5 set hdlhdd=hdd5:
+	if errorlevel 6 set hdlhdd=hdd6:
+	if errorlevel 7 set /P hdlhdd=<"%~dp0TMP\hdl-hdd.txt"
+	if errorlevel 8 set TransferPS2GamesNetwork=yes
+  
+    REM IF "!hdlhddm!"=="yes" (
+    REM 
+	REM echo What is the number of my hard drive? / The one next to the hdd#: in the scanned HDDs
+    REM echo Example if hdd2: type 2
+	REM 
+    REM set choice=
+    REM set /p choice=Enter number of the Playstation 2 HDD:
+    REM IF "!choice!"=="" (goto TransferPS2Games)
+    REM IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
+    REM 
+    REM )
+    
+    IF "!TransferPS2GamesNetwork!"=="yes" (
+    
+    set /p "hdlhdd=Enter IP of the Playstation 2: "
+    ping -n 1 -w 2000 !hdlhdd!
+    
+    if errorlevel 1 (
+    "%~dp0BAT\Diagbox" gd 0c
+    echo Unable to ping !hdlhdd! ... ending script.
+    "%~dp0BAT\Diagbox" gd 0f
+    pause & set "TransferPS2GamesNetwork=" & (goto TransferPS2Games)
+    )
+  )
 )
 
 cls
@@ -712,6 +744,7 @@ if exist gameid.txt (
 )
 
 IF %usedb%==yes (
+
 echo\
 echo\
 echo Choose the titles language of the games list
@@ -725,28 +758,45 @@ echo NOTE: Some titles are not translated
 echo\
 echo 1 English
 echo 2 French
-echo 3 Spanish
 echo\
-CHOICE /C 123 /M "Select Option:"
+CHOICE /C 12 /M "Select Option:"
 if errorlevel 1 set language=english
 if errorlevel 2 set language=french
-if errorlevel 3 set language=spanish
-
+REM if errorlevel 3 set language=spanish
 
 IF !language!==english (
 copy "%~dp0BAT\DB\gameidPS2ENG.txt" "%~dp0CD-DVD\gameid.txt" >nul 2>&1
 echo English Language selected
-   )
+  )
    
 IF !language!==french (
 copy "%~dp0BAT\DB\gameidPS2FRA.txt" "%~dp0CD-DVD\gameid.txt" >nul 2>&1
 echo French Language selected
-   )
-   
-IF !language!==spanish (
-copy "%~dp0BAT\DB\gameidPS2SPA.txt" "%~dp0CD-DVD\gameid.txt" >nul 2>&1
-echo Spanish Language selected
   )
+   
+REM IF !language!==spanish (
+REM setlocal DisableDelayedExpansion
+REM copy "%~dp0BAT\DB\gameidPS2SPA.txt" "%~dp0CD-DVD\gameid.txt" >nul 2>&1
+REM echo Spanish Language selected!
+REM endlocal
+REM   )
+)
+
+echo\
+echo\
+echo Create the cheat.CHT For your games with Mastercode?
+echo\
+echo It is recommended to create the cheat files now
+echo\
+CHOICE /C YN /M "Select Option:"
+if errorlevel 1 set CreateCHT=yes
+if errorlevel 2 set CreateCHT=no
+
+IF !CreateCHT!==yes (
+echo Creating .CHT Please wait...
+cd /d "%~dp0" & copy "%~dp0BAT\make_cheat_mastercode.bat" "%~dp0" >nul & "%~dp0BAT\busybox" sed -i "$aexit" "make_cheat_mastercode.bat" | START /wait /MIN CMD.EXE /C make_cheat_mastercode.bat & del make_cheat_mastercode.bat
+copy "%~dp0BAT\hdl_dump.exe" "%~dp0CD-DVD" >nul 2>&1
+echo Don't forget to transfer your .CHTs to the HDD
 )
 
 REM %~dp0BAT\7z.exe x -bso0 "%~dp0CD-DVD\*.zip"
@@ -834,6 +884,7 @@ move *.cue "%~dp0CD" >nul 2>&1
 move *.iso "%~dp0DVD" >nul 2>&1
 
 cd "%~dp0"
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
 rmdir /Q/S "%~dp0CD-DVD" >nul 2>&1
 
 pause & (goto start)
@@ -905,9 +956,9 @@ CHOICE /C 123 /M %BASIC_CHOICE%
 
 IF ERRORLEVEL 1 set @pfs_apps=yes
 IF ERRORLEVEL 2 set @pfs_apps=no
-IF ERRORLEVEL 3 set @pfs_apps=yes & copy "%~dp0BAT\make_title_cfg.bat" >nul "%~dp0" & call make_title_cfg.bat & del make_title_cfg.bat
-"%~dp0BAT\Diagbox" gd 0f
+IF ERRORLEVEL 3 set @pfs_apps=yes & copy "%~dp0BAT\make_title_cfg.bat" "%~dp0" >nul & call make_title_cfg.bat & del make_title_cfg.bat
 
+"%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
 echo %Transfer% Artworks: [ART]
@@ -950,92 +1001,14 @@ echo ----------------------------------------------------
 echo         1) %YES%
 "%~dp0BAT\Diagbox" gd 0c
 echo         2) %NO%
-"%~dp0BAT\Diagbox" gd 0e
-echo         3) Yes Install Widescreen cheats (For games Installed in HDD)
 "%~dp0BAT\Diagbox" gd 07
 echo\
-CHOICE /C 123 /M %BASIC_CHOICE%
+CHOICE /C 12 /M %BASIC_CHOICE%
 
 IF ERRORLEVEL 1 set @pfs_cht=yes
 IF ERRORLEVEL 2 set @pfs_cht=no
-IF ERRORLEVEL 3 (
-
-echo\
-echo %DOWNLOAD_CHEATS%
-echo\
-choice /c YN 
-echo NOTE: if you choose No, an offline installation will be performed.
-echo Or if you choose Yes, and there is a problem connecting to the website, an offline install will be performed.
-echo\
-
-if errorlevel 2 (
-
-    "%~dp0BAT\busybox" sed -i "s/\\\\.\\\PhysicalDrive/hdd/g" "%~dp0TMP\hdl-hdd.txt"
-    "%~dp0BAT\busybox" sed -i s/$/:/ "%~dp0TMP\hdl-hdd.txt"
-    set /P @hdl_path1=<"%~dp0TMP\hdl-hdd.txt"
-    "%~dp0BAT\hdl_dump" hdl_toc !@hdl_path1! > "%~dp0TMP\PARTITION_GAMES.txt"
-    "%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\PARTITION_GAMES.txt"
-    "%~dp0BAT\busybox" sed -i -e "$ d" "%~dp0TMP\PARTITION_GAMES.txt"
-	
-	"%~dp0BAT\Diagbox" gd 0e
-    echo %EXTRACTING_WIDE%
-	cd /d "%~dp0TMP"
-    for /f "tokens=5*" %%i in (PARTITION_GAMES.txt) do ( 
-	cd /d "%~dp0"
-	"%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CHT-Widescreen.zip" %%i.cht -r -y
-	set @pfs_cht=yes )
-)
-
-if errorlevel 1 (
-    echo.
-	echo Checking internet connection...
-	Ping www.github.com -n 1 -w 1000 >nul
-	
-if errorlevel 1 (
-"%~dp0BAT\Diagbox" gd 0c
-    echo.
-	echo Unable to connect to internet Or Website
-	
-	"%~dp0BAT\busybox" sed -i "s/\\\\.\\\PhysicalDrive/hdd/g" "%~dp0TMP\hdl-hdd.txt"
-    "%~dp0BAT\busybox" sed -i s/$/:/ "%~dp0TMP\hdl-hdd.txt"
-    set /P @hdl_path1=<"%~dp0TMP\hdl-hdd.txt"
-    "%~dp0BAT\hdl_dump" hdl_toc !@hdl_path1! > "%~dp0TMP\PARTITION_GAMES.txt"
-    "%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\PARTITION_GAMES.txt"
-    "%~dp0BAT\busybox" sed -i -e "$ d" "%~dp0TMP\PARTITION_GAMES.txt"
-	
-	"%~dp0BAT\Diagbox" gd 0e
-    echo %EXTRACTING_WIDE%
-	cd /d "%~dp0TMP"
-    for /f "tokens=5*" %%i in (PARTITION_GAMES.txt) do ( 
-	cd /d "%~dp0"
-	"%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CHT-Widescreen.zip" %%i.cht -r -y
-	set @pfs_cht=yes )
-	
-	) else (
-    "%~dp0BAT\Diagbox" gd 0d
-    "%~dp0BAT\wget" -q --show-progress https://github.com/PS2-Widescreen/OPL-Widescreen-Cheats/releases/download/Latest/widescreen_hacks.zip -O BAT\PS2-OPL-CHT-Widescreen.zip
-    "%~dp0BAT\Diagbox" gd 0e
 
 
-    "%~dp0BAT\busybox" sed -i "s/\\\\.\\\PhysicalDrive/hdd/g" "%~dp0TMP\hdl-hdd.txt"
-    "%~dp0BAT\busybox" sed -i s/$/:/ "%~dp0TMP\hdl-hdd.txt"
-    set /P @hdl_path1=<"%~dp0TMP\hdl-hdd.txt"
-    "%~dp0BAT\hdl_dump" hdl_toc !@hdl_path1! > "%~dp0TMP\PARTITION_GAMES.txt"
-    "%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\PARTITION_GAMES.txt"
-    "%~dp0BAT\busybox" sed -i -e "$ d" "%~dp0TMP\PARTITION_GAMES.txt"
-	
-    echo %EXTRACTING_WIDE%
-	timeout 2 >nul
-	cd /d "%~dp0TMP"
-    for /f "tokens=5*" %%i in (PARTITION_GAMES.txt) do ( 
-	cd /d "%~dp0"
-	"%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CHT-Widescreen.zip" %%i.cht -r -y
-	set @pfs_cht=yes )
-  )
- )
-)
-
-cd /d "%~dp0"
 "%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
@@ -1346,6 +1319,7 @@ echo\
 echo %INSTALLING% Artworks [ART]
 echo ----------------------------------------------------
 echo\
+
 IF /I EXIST "%~dp0ART\*.*" (
 
 	cd /d "%~dp0ART" & for %%F in ( "*.*" ) do if %%~zF==0 del "%%F"
@@ -1414,7 +1388,7 @@ IF /I EXIST "%~dp0CFG\*.*" (
 	echo exit >> "%~dp0TMP\pfs-log.txt"
 	type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-tmp.log"
 	mkdir "%~dp0LOG" >nul 2>&1
-	"%~dp0BAT\busybox" grep -i -e ".cfg" "%~dp0TMP\pfs-tmp.log" > "%~dp0LOG\PFS-CFG.log" | "%~dp0BAT\busybox" sed -i "/# +OPL:/d" "%~dp0LOG\PFS-CFG.log"
+	"%~dp0BAT\busybox" grep -i -e ".*\.cfg$" "%~dp0TMP\pfs-tmp.log" > "%~dp0LOG\PFS-CFG.log"
 	del "%~dp0TMP\pfs-log.txt" "%~dp0TMP\pfs-tmp.log" >nul 2>&1
 	echo         CFG %COMPLETED%	
 	cd "%~dp0"
@@ -1456,7 +1430,7 @@ IF /I EXIST "%~dp0CHT\*.*" (
 	echo exit >> "%~dp0TMP\pfs-log.txt"
 	type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-tmp.log"
 	mkdir "%~dp0LOG" >nul 2>&1
-	"%~dp0BAT\busybox" grep -i -e ".cht" "%~dp0TMP\pfs-tmp.log" > "%~dp0LOG\PFS-CHT.log" | "%~dp0BAT\busybox" sed -i "/# +OPL:/d" "%~dp0LOG\PFS-CHT.log"
+	"%~dp0BAT\busybox" grep -i -e ".*\.cht$" "%~dp0TMP\pfs-tmp.log" > "%~dp0LOG\PFS-CHT.log"
 	del "%~dp0TMP\pfs-log.txt" "%~dp0TMP\pfs-tmp.log" >nul 2>&1
 	echo         CHT %COMPLETED%	
 	cd "%~dp0"
@@ -1768,9 +1742,9 @@ echo\
 echo Installing VCD:
 echo ----------------------------------------------------
 echo\
+"%~dp0BAT\Diagbox" gd 07
 setlocal DisableDelayedExpansion
 
-"%~dp0BAT\Diagbox" gd 07
 IF /I EXIST "%~dp0POPS\*.VCD" (
 
 	cd "%~dp0POPS" & rename "*.vcd" "*.VCD"
@@ -1798,6 +1772,7 @@ IF /I EXIST "%~dp0POPS\*.VCD" (
 	echo         POPS %COMPLETED%	
 	cd "%~dp0"
 	) else ( echo         .VCD - %IS_EMPTY% )
+
 ) else ( echo             Canceled... )
 
 endlocal
@@ -1836,7 +1811,7 @@ echo 10. __.POPS
 echo.
 
 set choice=
-set /p choice=Select Option:
+set /p choice="Select Option:"
 IF "!choice!"=="" (goto TransferPS1Games)
 
 IF "!choice!"=="!choice!" set popspartinstall=__.POPS!choice!
@@ -2074,7 +2049,7 @@ echo\
 echo\
 pause
 cls
-
+setlocal DisableDelayedExpansion
 IF %@pfs_art%==yes (
 
 echo\
@@ -2086,7 +2061,7 @@ echo\
     IF NOT EXIST "%~dp0ART" MD "%~dp0ART"
 	cd "%~dp0ART"
     echo         Files scan...
-	echo device !@hdl_path! > "%~dp0TMP\pfs-log.txt"
+	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
 	echo cd ART >> "%~dp0TMP\pfs-log.txt"
 	echo ls >> "%~dp0TMP\pfs-log.txt"
@@ -2100,7 +2075,7 @@ echo\
 	"%~dp0BAT\busybox" sed -i -e "s/^/get /" "%~dp0TMP\pfs-art-new.txt"
 	
 	echo         Extraction...
-	echo device !@hdl_path! > "%~dp0TMP\pfs-art.txt"
+	echo device %@hdl_path% > "%~dp0TMP\pfs-art.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-art.txt"
 	echo cd ART >> "%~dp0TMP\pfs-art.txt"
 	type "%~dp0TMP\pfs-art-new.txt" >> "%~dp0TMP\pfs-art.txt"
@@ -2121,7 +2096,7 @@ echo\
     IF NOT EXIST "%~dp0CFG" MD "%~dp0CFG"
 	cd "%~dp0CFG"
     echo         Files scan...
-	echo device !@hdl_path! > "%~dp0TMP\pfs-log.txt"
+	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
 	echo cd CFG >> "%~dp0TMP\pfs-log.txt"
 	echo ls >> "%~dp0TMP\pfs-log.txt"
@@ -2135,7 +2110,7 @@ echo\
 	"%~dp0BAT\busybox" sed -i -e "s/^/get /" "%~dp0TMP\pfs-cfg-new.txt"
 	
 	echo         Extraction...
-	echo device !@hdl_path! > "%~dp0TMP\pfs-cfg.txt"
+	echo device %@hdl_path% > "%~dp0TMP\pfs-cfg.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-cfg.txt"
 	echo cd CFG >> "%~dp0TMP\pfs-cfg.txt"
 	type "%~dp0TMP\pfs-cfg-new.txt" >> "%~dp0TMP\pfs-cfg.txt"
@@ -2156,7 +2131,7 @@ echo\
 	IF NOT EXIST "%~dp0CHT" MD "%~dp0CHT"
 	cd "%~dp0CHT"
     echo         Files scan...
-	echo device !@hdl_path! > "%~dp0TMP\pfs-log.txt"
+	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
 	echo cd CHT >> "%~dp0TMP\pfs-log.txt"
 	echo ls >> "%~dp0TMP\pfs-log.txt"
@@ -2170,7 +2145,7 @@ echo\
 	"%~dp0BAT\busybox" sed -i -e "s/^/get /" "%~dp0TMP\pfs-CHT-new.txt"
 	
 	echo         Extraction...
-	echo device !@hdl_path! > "%~dp0TMP\pfs-cht.txt"
+	echo device %@hdl_path% > "%~dp0TMP\pfs-cht.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-cht.txt"
 	echo cd CHT >> "%~dp0TMP\pfs-cht.txt"
 	type "%~dp0TMP\pfs-cht-new.txt" >> "%~dp0TMP\pfs-cht.txt"
@@ -2191,7 +2166,7 @@ echo\
     IF NOT EXIST "%~dp0VMC" MD "%~dp0VMC"
 	cd "%~dp0VMC
     echo         Files scan...
-	echo device !@hdl_path! > "%~dp0TMP\pfs-log.txt"
+	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
 	echo cd VMC >> "%~dp0TMP\pfs-log.txt"
 	echo ls >> "%~dp0TMP\pfs-log.txt"
@@ -2205,7 +2180,7 @@ echo\
 	"%~dp0BAT\busybox" sed -i -e "s/^/get /" "%~dp0TMP\pfs-VMC-new.txt"
 	
 	echo         Extraction...
-	echo device !@hdl_path! > "%~dp0TMP\pfs-vmc.txt"
+	echo device %@hdl_path% > "%~dp0TMP\pfs-vmc.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-vmc.txt"
 	echo cd VMC >> "%~dp0TMP\pfs-vmc.txt"
 	type "%~dp0TMP\pfs-vmc-new.txt" >> "%~dp0TMP\pfs-vmc.txt"
@@ -2223,7 +2198,6 @@ echo\
 echo Extraction POPS VirtualMC Files:
 echo ----------------------------------------------------
 echo\
-setlocal DisableDelayedExpansion
 
     IF NOT EXIST "%~dp0POPS\VMC" MD "%~dp0POPS\VMC"
 	
@@ -2301,6 +2275,7 @@ echo\
 echo\
 "%~dp0BAT\Diagbox" gd 07
 
+endlocal
 pause & (goto start)
 
 REM ########################################################################################################################################################################
@@ -2463,7 +2438,7 @@ echo 10. __.POPS
 echo.
 
 set choice=
-set /p choice=Select Option:
+set /p choice="Select Option:"
 IF "!choice!"=="" (goto BackupPS1Games)
 
 IF "!choice!"=="!choice!" set popspartextract=__.POPS!choice!
@@ -2571,7 +2546,7 @@ echo 10. __.POPS
 echo.
 
 set choice=
-set /p choice=Select Option:
+set /p choice="Select Option:"
 IF "!choice!"=="" (goto BackupPS1Games)
 
 IF "!choice!"=="0" set POPSPART=__.POPS0
@@ -2900,6 +2875,7 @@ REM ############################################################################
 :BackupPS2Games
 
 mkdir "%~dp0CD-DVD" >nul 2>&1
+mkdir "%~dp0TMP" >nul 2>&1
 
 copy "%~dp0BAT\hdl_dump.exe" "%~dp0CD-DVD\hdl_dump.exe" >nul 2>&1
 copy "%~dp0BAT\hdl_svr_093.elf" "%~dp0CD-DVD" >nul 2>&1
@@ -2910,69 +2886,69 @@ cls
 "%~dp0BAT\Diagbox" gd 0e
 echo\
 echo\
-echo Scanning HDDs:
+echo Scanning for Playstation 2 HDDs:
 echo ----------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\hdl_dump" query | findstr "Playstation"
+	"%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD"
+    "%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" cut -c2-6 > "%~dp0TMP\hdl-hdd.txt"
 	"%~dp0BAT\Diagbox" gd 07
     echo.
     echo ----------------------------------------------------
-    "%~dp0BAT\Diagbox" gd 06
+	"%~dp0BAT\Diagbox" gd 06
 	echo NOTE: If no PS2 HDDs are found, quit and retry after disconnecting
 	echo all disk drives EXCEPT for your PC boot drive and the PS2 HDDs.
+    echo\
+	echo If you cannot choose your hard drive from the list, choose option 7.
 	"%~dp0BAT\Diagbox" gd 0f
-	echo.
 	echo. 
 	echo PLAYSTATION 2 HDD Extraction
-	echo 	1. hdd1: 
+	echo 	1. hdd1:
 	echo 	2. hdd2:
 	echo 	3. hdd3:
-	echo 	4. hdd4: 
+	echo 	4. hdd4:
 	echo 	5. hdd5:
 	echo 	6. hdd6:
-	echo 	7. Network
-	echo 	8. Quit Program
-	choice /c 12345678 /m "Choice the number of your PS2 HDD."	
-	    
-		if errorlevel 8 (goto start)
-		if errorlevel 1 set hdlhdd=hdd1:
-		if errorlevel 2 set hdlhdd=hdd2:
-		if errorlevel 3 set hdlhdd=hdd3:
-		if errorlevel 4 set hdlhdd=hdd4:
-		if errorlevel 5 set hdlhdd=hdd5:
-		if errorlevel 6 set hdlhdd=hdd6:
-		if errorlevel 7 (goto extractnetwork)
+	echo 	7. Local HDD Auto Search
+	echo 	8. Network
+	echo 	9. Back to main menu
+	choice /c 123456789 /m "Select your PS2 HDD"
+	
+	if errorlevel 9 (goto start)
+	if errorlevel 1 set hdlhdd=hdd1:
+	if errorlevel 2 set hdlhdd=hdd2:
+	if errorlevel 3 set hdlhdd=hdd3:
+	if errorlevel 4 set hdlhdd=hdd4:
+	if errorlevel 5 set hdlhdd=hdd5:
+	if errorlevel 6 set hdlhdd=hdd6:
+	if errorlevel 7 set /P hdlhdd=<"%~dp0TMP\hdl-hdd.txt"
+	if errorlevel 8 set BackupPS2GamesNetwork=yes
+  
+    REM IF "!hdlhddm!"=="yes" (
+    REM 
+	REM echo What is the number of my hard drive? / The one next to the hdd#: in the scanned HDDs
+    REM echo Example if hdd7: type 7
+	REM 
+    REM set choice=
+    REM set /p choice=Enter number of the Playstation 2 HDD:
+    REM IF "!choice!"=="" (goto BackupPS2Games)
+    REM IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
+    REM 
+    REM )
+    
+    IF "!BackupPS2GamesNetwork!"=="yes" (
+    
+    set /p "hdlhdd=Enter IP of the Playstation 2: "
+    ping -n 1 -w 2000 !hdlhdd!
+    
+    if errorlevel 1 (
+    "%~dp0BAT\Diagbox" gd 0c
+    echo Unable to ping !hdlhdd! ... ending script.
+    "%~dp0BAT\Diagbox" gd 0f
+    pause & set "BackupPS2GamesNetwork=" & (goto BackupPS2Games)
+    )
+)
 
 cls
-"%~dp0BAT\Diagbox" gd 0e
-echo\
-echo\
-echo Prepare HDD for extraction:
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-"%~dp0BAT\hdl_dump" query | findstr "%hdlhdd%"
-(goto extract)
-
-:extractnetwork
-cls
-"%~dp0BAT\Diagbox" gd 0e
-echo\
-echo\
-echo Prepare HDD Network for extraction:
-echo ----------------------------------------------------
-echo.
-     "%~dp0BAT\Diagbox" gd 0f
-     set /p "hdlhdd=Enter IP of the Playstation 2: "
-     ping -n 1 -w 2000 !hdlhdd!
-     if errorlevel 1 (
-     "%~dp0BAT\Diagbox" gd 0c
-     	echo Unable to ping !hdlhdd! ... ending script.
-     	"%~dp0BAT\Diagbox" gd 07
-		echo.
-		pause & (goto BackupPS2Games)
-     	)
-		
-:extract
 echo\
 echo\
 "%~dp0BAT\Diagbox" gd 0f
@@ -3030,6 +3006,7 @@ For %%Z in (PARTITION_GAMES.txt) do (
 ren *. *.iso >nul 2>&1
 call RenameISO.bat
 
+endlocal
 del gameid.txt >nul 2>&1
 del hdl_dump.exe >nul 2>&1
 del hdl_svr_093.elf >nul 2>&1
@@ -3039,6 +3016,7 @@ del PARTITION_GAMES_NEW2.txt >nul 2>&1
 del PARTITION_GAMES_NEW2.bat >nul 2>&1
 del Rename.txt >nul 2>&1
 del RenameISO.bat >nul 2>&1
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
 
 echo\
 echo\
@@ -3096,6 +3074,7 @@ For %%Z in (PARTITION_GAMES_NEW2.txt) do (
 ren *. *.iso >nul 2>&1
 call RenameISO.bat
 
+endlocal
 del gameid.txt >nul 2>&1
 del hdl_dump.exe >nul 2>&1
 del hdl_svr_093.elf >nul 2>&1
@@ -3105,6 +3084,7 @@ del PARTITION_GAMES_NEW2.txt >nul 2>&1
 del PARTITION_GAMES_NEW2.bat >nul 2>&1
 del Rename.txt >nul 2>&1
 del RenameISO.bat >nul 2>&1
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
 
 echo\
 echo\
@@ -3583,6 +3563,8 @@ pause & (goto HDDManagementMenu)
 REM ###########################################################################################################################################################################################
 :formatHDDtoPS2
 
+mkdir "%~dp0TMP" >nul 2>&1
+
 cls
 "%~dp0BAT\Diagbox" gd 0e
 echo\
@@ -3590,7 +3572,7 @@ echo\
 echo Scanning HDDs:
 echo ----------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\hdl_dump" query | findstr "hdd1: hdd2: hdd3: hdd4: hdd5: hdd6:"
+	"%~dp0BAT\hdl_dump" query | findstr hdd[1-9]
 	"%~dp0BAT\Diagbox" gd 07
     echo.
     echo ----------------------------------------------------
@@ -3603,17 +3585,22 @@ echo ----------------------------------------------------
 	echo.
 	"%~dp0BAT\Diagbox" gd 0c
 	echo Disclaimer: I can in no way be held responsible for improper use.
-	echo. 
+	"%~dp0BAT\Diagbox" gd 06
+	echo\
+	echo If you cannot choose your hard drive from the list, choose option 7.
 	"%~dp0BAT\Diagbox" gd 07
-	echo PLAYSTATION 2 HDD FORMAT
-	echo 	1. hdd1: 
+	echo. 
+	echo PLAYSTATION 2 HDD Extraction
+	echo 	1. hdd1:
 	echo 	2. hdd2:
 	echo 	3. hdd3:
-	echo 	4. hdd4: 
+	echo 	4. hdd4:
 	echo 	5. hdd5:
 	echo 	6. hdd6:
-	echo 	7. Quit Program
-	choice /c 1234567 /m "Select your HDD you want to format."	
+	echo 	7. Local HDD Manual search (More HDD)
+	echo 	9. Back to main menu
+	echo\
+	choice /c 123456789 /m "Select Option:"
 	
 	if errorlevel 1 set hdlhdd=hdd1:
 	if errorlevel 2 set hdlhdd=hdd2:
@@ -3621,23 +3608,37 @@ echo ----------------------------------------------------
 	if errorlevel 4 set hdlhdd=hdd4:
 	if errorlevel 5 set hdlhdd=hdd5:
 	if errorlevel 6 set hdlhdd=hdd6:
-	if errorlevel 7 (goto HDDManagementMenu)
+	if errorlevel 7 set hdlhddm=yes
+	if errorlevel 9 (goto HDDManagementMenu)
+  
+    IF "!hdlhddm!"=="yes" (
+    
+	echo\
+    echo What is the number of my hard drive? / The one next to the hdd#: in the scanned HDDs
+    echo Example If you want to format hdd7: type 7
+    echo\
+	
+    set choice=
+    set /p choice=Enter the number of the hard drive you want to format:
+    echo\
+    IF "!choice!"=="" (goto formatHDDtoPS2)
+    IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
+    IF "!choice!"=="Q" (goto  HDDManagementMenu)
+   
+   )
 
-mkdir "%~dp0TMP" >nul 2>&1
 "%~dp0BAT\Diagbox" gd 00
 echo\
 echo\
-echo Prepare HDD for formatting: >nul 2>&1
-echo ---------------------------------------------------- >nul 2>&1
+echo Prepare HDD for formatting:
+echo ----------------------------------------------------
 "%~dp0BAT\hdl_dump" query | findstr "%hdlhdd%"
 "%~dp0BAT\hdl_dump" query | findstr "%hdlhdd%" | "%~dp0BAT\busybox" cut -c2-6 > "%~dp0TMP\hdl-hdd.txt"
 "%~dp0BAT\busybox" sed -i "s/hdd/\\\\.\\\PhysicalDrive/g; s/://g" "%~dp0TMP\hdl-hdd.txt"
-
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
 
 copy "%~dp0TMP\hdl-hdd.txt" "%~dp0TMP\hdl-hddinfo.txt" >nul 2>&1
 "%~dp0BAT\busybox" sed -i "s/\\\\.\\\PhysicalDrive/PHYSICALDRIVE/g; s/://g" "%~dp0TMP\hdl-hddinfo.txt"
-
 set /P @hdl_pathinfo=<"%~dp0TMP\hdl-hddinfo.txt"
 
 REM del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
@@ -3653,7 +3654,9 @@ echo ----------------------------------------------------
 echo.
 
     wmic diskdrive get name,model,status > "%~dp0TMP\hdl-hddinfolog.txt"
-    type "%~dp0TMP\hdl-hddinfolog.txt" | findstr "Model %@hdl_pathinfo%"
+    type "%~dp0TMP\hdl-hddinfolog.txt" | findstr "Model %@hdl_pathinfo%" > "%~dp0TMP\hdl-hddinfotmp.txt"
+	"%~dp0BAT\busybox" sed -i "3,100d" "%~dp0TMP\hdl-hddinfotmp.txt"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\hdl-hddinfotmp.txt"
 	
 "%~dp0BAT\Diagbox" gd 0c	
 echo\
@@ -3670,13 +3673,12 @@ echo\
 CHOICE /C 12 /M "Select Option:"
 
 IF ERRORLEVEL 1 set @pfs_formathdd=yes
-IF ERRORLEVEL 2 set @pfs_formathdd=no
-IF ERRORLEVEL 2 (goto formatHDDtoPS2)
+IF ERRORLEVEL 2 set @pfs_formathdd=no & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto formatHDDtoPS2)
 
 echo.
 
 CHOICE /C YN /m "Confirm"
-IF ERRORLEVEL 2 (goto formatHDDtoPS2)
+IF ERRORLEVEL 2 set "hdlhdd=" & set "hdlhddm=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto formatHDDtoPS2)
 
 cls
 IF %@pfs_formathdd%==yes (
@@ -3739,6 +3741,8 @@ REM ############################################################################
 
 cd /d "%~dp0"
 
+mkdir "%~dp0TMP" >nul 2>&1
+
 cls
 "%~dp0BAT\Diagbox" gd 0e
 echo\
@@ -3746,7 +3750,7 @@ echo\
 echo Scanning HDDs:
 echo ----------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\hdl_dump" query | findstr "hdd1: hdd2: hdd3: hdd4: hdd5: hdd6:"
+	"%~dp0BAT\hdl_dump" query | findstr hdd[1-9]
 	"%~dp0BAT\Diagbox" gd 07
     echo.
     echo ----------------------------------------------------
@@ -3759,17 +3763,22 @@ echo ----------------------------------------------------
 	echo.
 	"%~dp0BAT\Diagbox" gd 0c
 	echo Disclaimer: I can in no way be held responsible for improper use.
-	echo. 
+	"%~dp0BAT\Diagbox" gd 06
+	echo\
+	echo If you cannot choose your hard drive from the list, choose option 7.
 	"%~dp0BAT\Diagbox" gd 07
-	echo PLAYSTATION 2 HDD
-	echo 	1. hdd1: 
+	echo. 
+	echo PLAYSTATION 2 HDD Extraction
+	echo 	1. hdd1:
 	echo 	2. hdd2:
 	echo 	3. hdd3:
-	echo 	4. hdd4: 
+	echo 	4. hdd4:
 	echo 	5. hdd5:
 	echo 	6. hdd6:
-	echo 	7. Quit Program
-	choice /c 1234567 /m "Select your HDD you want to hack."	
+	echo 	7. Local HDD Manual search (More HDD)
+	echo 	9. Back to main menu
+	echo\
+	choice /c 123456789 /m "Select Option:"
 	
 	if errorlevel 1 set hdlhdd=hdd1:
 	if errorlevel 2 set hdlhdd=hdd2:
@@ -3777,7 +3786,24 @@ echo ----------------------------------------------------
 	if errorlevel 4 set hdlhdd=hdd4:
 	if errorlevel 5 set hdlhdd=hdd5:
 	if errorlevel 6 set hdlhdd=hdd6:
-	if errorlevel 7 (goto HDDManagementMenu)
+	if errorlevel 7 set hdlhddm=yes
+	if errorlevel 9 (goto HDDManagementMenu)
+  
+    IF "!hdlhddm!"=="yes" (
+    
+	echo\
+    echo What is the number of my hard drive? / The one next to the hdd#: in the scanned HDDs
+    echo Example If you want to hack hdd7: type 7
+    echo\
+	
+    set choice=
+    set /p choice=Enter the number of the hard drive you want to Hack:
+    echo\
+    IF "!choice!"=="" (goto hackHDDtoPS2)
+    IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
+    IF "!choice!"=="Q" (goto  HDDManagementMenu)
+   
+   )
 
 mkdir "%~dp0TMP" >nul 2>&1
 "%~dp0BAT\Diagbox" gd 00
@@ -3788,12 +3814,10 @@ echo ---------------------------------------------------- >nul 2>&1
 "%~dp0BAT\hdl_dump" query | findstr "%hdlhdd%"
 "%~dp0BAT\hdl_dump" query | findstr "%hdlhdd%" | "%~dp0BAT\busybox" cut -c2-6 > "%~dp0TMP\hdl-hdd.txt"
 "%~dp0BAT\busybox" sed -i "s/hdd/\\\\.\\\PhysicalDrive/g; s/://g" "%~dp0TMP\hdl-hdd.txt"
-
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
 
 copy "%~dp0TMP\hdl-hdd.txt" "%~dp0TMP\hdl-hddinfo.txt" >nul 2>&1
 "%~dp0BAT\busybox" sed -i "s/\\\\.\\\PhysicalDrive/PHYSICALDRIVE/g; s/://g" "%~dp0TMP\hdl-hddinfo.txt"
-
 set /P @hdl_pathinfo=<"%~dp0TMP\hdl-hddinfo.txt"
 
 REM del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
@@ -3808,8 +3832,9 @@ echo ----------------------------------------------------
 echo.
 
     wmic diskdrive get name,model,status > "%~dp0TMP\hdl-hddinfolog.txt"
-    type "%~dp0TMP\hdl-hddinfolog.txt" | findstr "Model %@hdl_pathinfo%"
-
+    type "%~dp0TMP\hdl-hddinfolog.txt" | findstr "Model %@hdl_pathinfo%" > "%~dp0TMP\hdl-hddinfotmp.txt"
+	"%~dp0BAT\busybox" sed -i "3,100d" "%~dp0TMP\hdl-hddinfotmp.txt"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\hdl-hddinfotmp.txt"
 
 rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1
 md "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1
@@ -3823,12 +3848,12 @@ echo.
 echo If you have already installed FreeHDBoot (From HDD), you don't need to do this
 echo.
 echo (1) After the hacking put your HDD in your PS2 and format your hard drive with wLaunchELF
-echo In wLaunchELF Press Circle ^> MISC ^> HDDManager ^> Press R1 ^> Format and confirm.
+echo In wLaunchELF FileBrowser ^> MISC ^> HDDManager ^> Press R1 ^> Format and confirm.
 echo.
 echo (2) Copy the contents of the ^!COPY_TO_USB_ROOT folder to the root of your USB drive 
 echo.
 echo (3) Install FreeMcBoot (From Memory Card) or FreeHDBoot (From HDD) or both.
-echo In wLaunchELF Press Circle ^> Mass ^> APPS ^> FreeMcBoot ^> FMCBInstaller.elf Press Circle for Launch ^> Press R1 For Install FreeHDBoot (From HDD)
+echo In wLaunchELF FileBrowser ^> Mass ^> APPS ^> FreeMcBoot ^> FMCBInstaller.elf Press Circle for Launch ^> Press R1 ^> Install FHDB (From HDD)
 echo.
 echo (4) Your hard drive will be properly formatted and hacked after that
 echo.
@@ -3845,13 +3870,13 @@ echo\
 CHOICE /C 12 /M "Select Option:"
 
 IF ERRORLEVEL 1 set @pfs_hackhdd=yes
-IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1 & (goto hackHDDtoPS2)
+IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2)
 IF ERRORLEVEL 2 set @pfs_hackhdd=no
 
 echo.
 
 CHOICE /C YN /m "Confirm"
-IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1 & (goto hackHDDtoPS2)
+IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2) 
 
 
 cls
@@ -5887,7 +5912,7 @@ echo\
 pause & (goto HDDOSDMenu)
 
 REM ####################################################################################################################################################
-:injectbootkelf
+:InjectMiniOPL
 
 cls
 mkdir "%~dp0TMP" >nul 2>&1
@@ -5901,70 +5926,71 @@ copy "%~dp0BAT\hdl_dump.exe" "%~dp0CD-DVD" >nul 2>&1
 
 cls
 "%~dp0BAT\Diagbox" gd 0e
+
 echo\
 echo\
-echo Scanning HDDs:
+echo Scanning for Playstation 2 HDDs:
 echo ----------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\hdl_dump" query | findstr "Playstation"
+	"%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD"
+    "%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" cut -c2-6 > "%~dp0TMP\hdl-hdd.txt"
 	"%~dp0BAT\Diagbox" gd 07
     echo.
     echo ----------------------------------------------------
-    "%~dp0BAT\Diagbox" gd 06
+	"%~dp0BAT\Diagbox" gd 06
 	echo NOTE: If no PS2 HDDs are found, quit and retry after disconnecting
 	echo all disk drives EXCEPT for your PC boot drive and the PS2 HDDs.
+	echo\
+	echo If you cannot choose your hard drive from the list, choose option 7.
 	"%~dp0BAT\Diagbox" gd 0f
-	echo.
 	echo. 
-	echo PLAYSTATION 2 HDD
-	echo 	1. hdd1: 
+	echo PLAYSTATION 2 HDD INSTALLATION
+	echo 	1. hdd1:
 	echo 	2. hdd2:
 	echo 	3. hdd3:
-	echo 	4. hdd4: 
+	echo 	4. hdd4:
 	echo 	5. hdd5:
 	echo 	6. hdd6:
-	echo 	7. Network
-	echo 	8. Quit Program
-	choice /c 12345678 /m "Choice the number of your PS2 HDD."	
-	    
-		if errorlevel 8 (goto HDDOSDMenu)
-		if errorlevel 1 set hdlhdd=hdd1:
-		if errorlevel 2 set hdlhdd=hdd2:
-		if errorlevel 3 set hdlhdd=hdd3:
-		if errorlevel 4 set hdlhdd=hdd4:
-		if errorlevel 5 set hdlhdd=hdd5:
-		if errorlevel 6 set hdlhdd=hdd6:
-		if errorlevel 7 (goto injectkelfnetwork)
-
+	echo 	7. Local HDD Auto Search
+	echo 	8. Network
+	echo 	9. Back to main menu
+	choice /c 123456789 /m "Select your PS2 HDD"
+	
+	if errorlevel 9 (goto HDDOSDMenu)
+	if errorlevel 1 set hdlhdd=hdd1:
+	if errorlevel 2 set hdlhdd=hdd2:
+	if errorlevel 3 set hdlhdd=hdd3:
+	if errorlevel 4 set hdlhdd=hdd4:
+	if errorlevel 5 set hdlhdd=hdd5:
+	if errorlevel 6 set hdlhdd=hdd6:
+	if errorlevel 7 set /P hdlhdd=<"%~dp0TMP\hdl-hdd.txt"
+	if errorlevel 8 set InjectMiniOPLNetwork=yes
+  
+    REM IF "!hdlhddm!"=="yes" (
+    REM 
+	REM echo What is the number of my hard drive? / The one next to the hdd#: in the scanned HDDs
+    REM echo Example if hdd2: type 2
+	REM 
+    REM set choice=
+    REM set /p choice=Enter number of the Playstation 2 HDD:
+    REM IF "!choice!"=="" (goto TransferPS2Games)
+    REM IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
+    REM 
+    REM )
+    
+    IF "!InjectMiniOPLNetwork!"=="yes" (
+    
+    set /p "hdlhdd=Enter IP of the Playstation 2: "
+    ping -n 1 -w 2000 !hdlhdd!
+    
+    if errorlevel 1 (
+    "%~dp0BAT\Diagbox" gd 0c
+    echo Unable to ping !hdlhdd! ... ending script.
+    "%~dp0BAT\Diagbox" gd 0f
+    pause & set "InjectMiniOPLNetwork=" & (goto HDDOSDMenu)
+    )
+ )    
 cls
-"%~dp0BAT\Diagbox" gd 0e
-echo\
-echo\
-echo Prepare HDD for Inject KELF:
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-"%~dp0BAT\hdl_dump" query | findstr "%hdlhdd%"
-(goto injectkelf)
-
-:injectkelfnetwork
-cls
-"%~dp0BAT\Diagbox" gd 0e
-echo\
-echo\
-echo Prepare HDD Network for Inject KELF:
-echo ----------------------------------------------------
-echo.
-     "%~dp0BAT\Diagbox" gd 0f
-     set /p "hdlhdd=Enter IP of the Playstation 2: "
-     ping -n 1 -w 2000 !hdlhdd!
-     if errorlevel 1 (
-     "%~dp0BAT\Diagbox" gd 0c
-     	echo Unable to ping !hdlhdd! ... ending script.
-     	"%~dp0BAT\Diagbox" gd 07
-		echo.
-        pause & goto injectbootkelf)
-		
-:injectkelf
 echo\
 echo\
 "%~dp0BAT\Diagbox" gd 0f
@@ -5981,7 +6007,7 @@ echo\
 CHOICE /C 123 /M "Select Option:"
 
 IF ERRORLEVEL 3 set @pfs_ppinjectkelf=yes
-IF ERRORLEVEL 3 (goto injectbootkelfmanually)
+IF ERRORLEVEL 3 (goto InjectMiniOPLmanually)
 IF ERRORLEVEL 2 (goto HDDOSDMenu)
 
 
@@ -6029,7 +6055,7 @@ echo.
 pause & (goto HDDOSDMenu)
 
 
-:injectbootkelfmanually
+:InjectMiniOPLManually
 IF %@pfs_ppinjectkelf%==yes (
 "%~dp0BAT\Diagbox" gd 0e
 echo\
@@ -6037,6 +6063,7 @@ echo\
 echo Partition Games List:
 "%~dp0BAT\Diagbox" gd 0f
 echo ----------------------------------------------------
+REM "%~dp0BAT\hdl_dump" toc !hdlhdd! | "%~dp0BAT\busybox" grep "0x1337" | "%~dp0BAT\busybox" grep "PP." | "%~dp0BAT\busybox" cut -c30-250 > "%~dp0LOG\PARTITION_GAMES.log"
     "%~dp0BAT\hdl_dump" toc !hdlhdd! | "%~dp0BAT\busybox" grep "PP." | "%~dp0BAT\busybox" cut -c30-250 > "%~dp0LOG\PARTITION_GAMES.log"
 	type "%~dp0LOG\PARTITION_GAMES.log"
 echo ----------------------------------------------------	
@@ -6060,6 +6087,7 @@ echo ----------------------------------------------------
 echo\
 
     echo        Inject boot.kelf in partitions...
+	echo.
 	"%~dp0BAT\hdl_dump" modify_header !hdlhdd! "%ppinjectkelf%"
 	echo.
 	echo        Partition %ppinjectkelf% KELF Injected...
@@ -6356,88 +6384,46 @@ echo ----------------------------------------------------
 
 echo Download...
 
-REM Cov
-For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo if not exist "%~dp0ART\%%B_COV.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%%%2F%%B%%%%2F%%B_COV.jpg" -O "%~dp0ART\%%B_COV.jpg") > PARTITION_GAMES_COV.bat)
-
-call PARTITION_GAMES_COV.bat
-
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
+For /f "tokens=5*" %%A in (PARTITION_GAMES_NEW.txt) do (
+"%~dp0BAT\Diagbox" gd 0f
+echo\
+echo %%B
+echo %%A
 "%~dp0BAT\Diagbox" gd 03
-
-REM Front Cover
-For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo if not exist "%~dp0ART\%%B_COV2.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%%%2F%%B%%%%2F%%B_COV2.jpg" -O "%~dp0ART\%%B_COV2.jpg") > PARTITION_GAMES_COV2.bat)
- 
-call PARTITION_GAMES_COV2.bat
-
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-
+REM Cover
+if not exist "%~dp0ART\%%A_COV.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%2F%%A%%2F%%A_COV.jpg" -O "%~dp0ART\%%A_COV.jpg"
 REM Back Cover
-For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo if not exist "%~dp0ART\%%B_ICO.png" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%%%2F%%B%%%%2F%%B_ICO.png" -O "%~dp0ART\%%B_ICO.png") > PARTITION_GAMES_ICO.bat)
- 
-call PARTITION_GAMES_ICO.bat 
-
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-
+if not exist "%~dp0ART\%%A_COV2.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%2F%%A%%2F%%A_COV2.jpg" -O "%~dp0ART\%%A_COV2.jpg"
+REM ICO
+if not exist "%~dp0ART\%%A_ICO.png" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%2F%%A%%2F%%A_ICO.png" -O "%~dp0ART\%%A_ICO.png"
 REM LAB
-For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo if not exist "%~dp0ART\%%B_LAB.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%%%2F%%B%%%%2F%%B_LAB.jpg" -O "%~dp0ART\%%B_LAB.jpg") > PARTITION_GAMES_LAB.bat)
- 
-call PARTITION_GAMES_LAB.bat 
-
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-
-REM Logo
-For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo if not exist "%~dp0ART\%%B_LGO.png" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%%%2F%%B%%%%2F%%B_LGO.png" -O "%~dp0ART\%%B_LGO.png") > PARTITION_GAMES_LGO.bat)
- 
-call PARTITION_GAMES_LGO.bat 
-
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-
+if not exist "%~dp0ART\%%A_LAB.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%2F%%A%%2F%%A_LAB.jpg" -O "%~dp0ART\%%A_LAB.jpg"
+REM LOGO
+if not exist "%~dp0ART\%%A_LGO.png" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%2F%%A%%2F%%A_LGO.png" -O "%~dp0ART\%%A_LGO.png"
 REM Background
-For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo if not exist "%~dp0ART\%%B_BG.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%%%2F%%B%%%%2F%%B_BG_00.jpg" -O "%~dp0ART\%%B_BG.jpg") > PARTITION_GAMES_BG.bat)
- 
-call PARTITION_GAMES_BG.bat 
-
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-
+if not exist "%~dp0ART\%%A_BG.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%2F%%A%%2F%%A_BG_00.jpg" -O "%~dp0ART\%%A_BG.jpg"
+REM Screenshot 0
+if not exist "%~dp0ART\%%A_SCR.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%2F%%A%%2F%%A_SCR_00.jpg" -O "%~dp0ART\%%A_SCR.jpg"
 REM Screenshot 1
-For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo if not exist "%~dp0ART\%%B_SCR.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%%%2F%%B%%%%2F%%B_SCR_00.jpg" -O "%~dp0ART\%%B_SCR.jpg") > PARTITION_GAMES_SCR00.bat)
- 
-call PARTITION_GAMES_SCR00.bat 
+if not exist "%~dp0ART\%%A_SCR2.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%2F%%A%%2F%%A_SCR_01.jpg" -O "%~dp0ART\%%A_SCR2.jpg"
 
-"%~dp0BAT\Diagbox" gd 0e
+)
+
+cd /d "%~dp0" & for %%F in ( "%~dp0ART\*" ) do if %%~zF==0 del "%%F"
+
+echo\
+"%~dp0BAT\Diagbox" gd 0f
 echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-
-REM Screenshot 2
-For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo if not exist "%~dp0ART\%%B_SCR2.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS2%%%%2F%%B%%%%2F%%B_SCR_01.jpg" -O "%~dp0ART\%%B_SCR2.jpg") > PARTITION_GAMES_SCR01.bat)
- 
-call PARTITION_GAMES_SCR01.bat 
-
-cd "%~dp0"
-for %%F in ( "%~dp0ART\*" ) do if %%~zF==0 del "%%F"
+"%~dp0BAT\Diagbox" gd 0a
+echo Completed...
+echo\
+echo\
+"%~dp0BAT\Diagbox" gd 07
 
  )
 )
 
+endlocal
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
 echo.
 
@@ -6518,23 +6504,53 @@ echo ----------------------------------------------------
 echo.
 echo Download...
 
-REM Download PS1 Cov
-For %%Z in (VCDID.txt) do (
- (for /f "tokens=1*" %%A in (%%Z) do echo if not exist "%~dp0ART\%%A_COV.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia904600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS1%%%%2F%%A%%%%2F%%A_COV.jpg" -O "%~dp0ART\%%A_COV.jpg") > PS1Cov.bat)
+copy "%~dp0BAT\DB\gameidPS1.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
 
-call PS1Cov.bat
+For /f %%P in (VCDIDName.txt) do (
 
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
+	set "dbtitle="
+	for /f "tokens=1*" %%A in ( 'findstr %%P gameid.txt' ) do (if not defined dbtitle set dbtitle=%%B
+)
+
 "%~dp0BAT\Diagbox" gd 0f
+echo\
+echo !dbtitle!
+echo %%P
+"%~dp0BAT\Diagbox" gd 03
+REM Cover
+if not exist "%~dp0ART\%%P_COV.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS1%%2F%%P%%2F%%P_COV.jpg" -O "%~dp0ART\%%P_COV.jpg"
+REM Back Cover
+if not exist "%~dp0ART\%%P_COV2.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS1%%2F%%P%%2F%%P_COV2.jpg" -O "%~dp0ART\%%P_COV2.jpg"
+REM ICO
+if not exist "%~dp0ART\%%P_ICO.png" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS1%%2F%%P%%2F%%P_ICO.png" -O "%~dp0ART\%%P_ICO.png"
+REM LAB
+if not exist "%~dp0ART\%%P_LAB.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS1%%2F%%P%%2F%%P_LAB.jpg" -O "%~dp0ART\%%P_LAB.jpg"
+REM LOGO
+if not exist "%~dp0ART\%%P_LGO.png" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS1%%2F%%P%%2F%%P_LGO.png" -O "%~dp0ART\%%P_LGO.png"
+REM Background
+if not exist "%~dp0ART\%%P_BG.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS1%%2F%%P%%2F%%P_BG_00.jpg" -O "%~dp0ART\%%P_BG.jpg"
+REM Screenshot 0
+if not exist "%~dp0ART\%%P_SCR.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS1%%2F%%P%%2F%%P_SCR_00.jpg" -O "%~dp0ART\%%P_SCR.jpg"
+REM Screenshot 1
+if not exist "%~dp0ART\%%P_SCR2.jpg" "%~dp0BAT\wget" -q --show-progress "https://ia804600.us.archive.org/view_archive.php?archive=/29/items/OPLM_ART_2021_11/OPLM_ART_2021_09.zip&file=PS1%%2F%%P%%2F%%P_SCR_01.jpg" -O "%~dp0ART\%%P_SCR2.jpg"
+
+)
 
 cd "%~dp0" & for %%F in ( "%~dp0ART\*" ) do if %%~zF==0 del "%%F"
+
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo Completed...
+echo\
+echo\
+"%~dp0BAT\Diagbox" gd 07
 
   )
  )
 )
 
-cd /d "%~dp0"
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
 echo.
 
@@ -6613,66 +6629,29 @@ echo\
 choice /c YN 
 echo\
 
-if errorlevel 2 (
+if errorlevel 1 set DownloadDB=yes
+if errorlevel 2 set DownloadDB=no
 
-REM Offline Installation
-"%~dp0BAT\Diagbox" gd 0e
-cls
-echo\
-echo\
-echo List Games
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
 
-"%~dp0BAT\hdl_dump" hdl_toc !@hdl_path! > PARTITION_GAMES_NEW.txt
-
-"%~dp0BAT\busybox" sed -i "1d" PARTITION_GAMES_NEW.txt 
-"%~dp0BAT\busybox" sed -i -e "$ d" PARTITION_GAMES_NEW.txt
-"%~dp0BAT\busybox" cut -c35-500 PARTITION_GAMES_NEW.txt > PARTITION_GAMES_NEW2.txt
-
-type PARTITION_GAMES_NEW2.txt
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
-
-    echo Extraction...
-    for /f "tokens=5*" %%i in (PARTITION_GAMES_NEW.txt) do ("%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CFG-Database.7z" -o"%~dp0CFG" PS2-OPL-CFG-Database-master\!language!\%%i.cfg -r -y)
-	
-	cd /d "%~dp0CFG"
-	for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > %%fBACKUP)
-	for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\%%f" & del %%fBACKUP)
-	move "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\*.cfg" "%~dp0CFG" >nul 2>&1 & rmdir /Q/S PS2-OPL-CFG-Database-master >nul 2>&1
-	cd /d "%~dp0TMP"
-	"%~dp0BAT\Diagbox" gd 07
-)
-
-if errorlevel 1 (
-    echo.
-	echo Checking internet connection...
+    IF "!DownloadDB!"=="yes" (
+    echo Checking internet connection...
 	Ping www.github.com -n 1 -w 1000 >nul
 	
-	
-if errorlevel 1 (
-"%~dp0BAT\Diagbox" gd 0c
+	if errorlevel 1 (
+    "%~dp0BAT\Diagbox" gd 0c
     echo.
 	echo Unable to connect to internet Or Website
-	 
-    REM Offline Installation
-    "%~dp0BAT\hdl_dump" hdl_toc !@hdl_path! > "%~dp0TMP\PARTITION_GAMES.txt"
-    "%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\PARTITION_GAMES.txt"
-    "%~dp0BAT\busybox" sed -i -e "$ d" "%~dp0TMP\PARTITION_GAMES.txt"
+	echo\
+	echo You will switch to offline mode
+	echo\
+	set DownloadDB=no
+	"%~dp0BAT\Diagbox" gd 0f
+	pause
+	)
+)
 
-	"%~dp0BAT\Diagbox" gd 0e
-    echo Extraction...
-    for /f "tokens=5*" %%i in (PARTITION_GAMES.txt) do ("%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CFG-Database.7z" -o"%~dp0CFG" PS2-OPL-CFG-Database-master\!language!\%%i.cfg -r -y)
-	
-	cd /d "%~dp0CFG"
-	for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > %%fBACKUP)
-	for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\%%f" & del %%fBACKUP)
-	move "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\*.cfg" "%~dp0CFG" >nul 2>&1 & rmdir /Q/S PS2-OPL-CFG-Database-master >nul 2>&1
-	cd /d "%~dp0TMP"
-	"%~dp0BAT\Diagbox" gd 07
-	) else (
-	
+IF "!DownloadDB!"=="no" (
+
 "%~dp0BAT\Diagbox" gd 0e
 cls
 echo\
@@ -6680,7 +6659,6 @@ echo\
 echo List Games
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
-setlocal DisableDelayedExpansion
 
 "%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > PARTITION_GAMES_NEW.txt
 
@@ -6691,50 +6669,144 @@ setlocal DisableDelayedExpansion
 type PARTITION_GAMES_NEW2.txt
 "%~dp0BAT\Diagbox" gd 0e
 echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
+
+    REM Offline Installation
+	
+    if %language%==CFG_en copy "%~dp0BAT\DB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+    if %language%==CFG_fr copy "%~dp0BAT\DB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+	
+	for /f "tokens=5*" %%i in (PARTITION_GAMES_NEW.txt) do (
+	
+	set "dbtitle="
+	for /f "tokens=1*" %%A in ( 'findstr %%i gameid.txt' ) do (if not defined dbtitle set dbtitle=%%B
+    )
+	
+    echo\
+	"%~dp0BAT\Diagbox" gd 0f
+    echo !dbtitle!
+	echo %%i.cfg
+	"%~dp0BAT\Diagbox" gd 03
+    "%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CFG-Database.7z" -o"%~dp0CFG" PS2-OPL-CFG-Database-master\!language!\%%i.cfg -r -y
+	"%~dp0BAT\Diagbox" gd 0f
+	
+	cd /d "%~dp0CFG\PS2-OPL-CFG-Database-master\%language%" & for %%F in ( *.cfg ) do if %%~zF==0 del "%%F"
+    if not exist %%i.cfg (
+    "%~dp0BAT\Diagbox" gd 0c
+    echo Not found in database 
+    "%~dp0BAT\Diagbox" gd 0f
+    cd /d "%~dp0TMP"
+    
+    ) else (
+    
+    echo FOUND >nul 2>&1
+    cd /d "%~dp0TMP"
+	
+	   )
+	  )
+	
+	cd /d "%~dp0CFG" & for %%f in (*.cfg) do ("%~dp0BAT\busybox" grep -s -e "\$" -e "Modes=" %%f > "%~dp0CFG\PS2-OPL-CFG-Database-master\%language%\%%fBACKUP")
+	cd /d "%~dp0CFG\PS2-OPL-CFG-Database-master\%language%" & for %%f in (*.cfgBACKUP) do ("%~dp0BAT\busybox" sed -i "/Description=\|Title=/d" %%f)
+	for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> %%f) >nul 2>&1
+	move "*.cfg" "%~dp0CFG" >nul 2>&1 & cd "%~dp0" & rmdir /Q/S "%~dp0CFG\PS2-OPL-CFG-Database-master\" >nul 2>&1
+	"%~dp0BAT\Diagbox" gd 0f
+	
+	) else (
+	
+"%~dp0BAT\Diagbox" gd 0e
+cls
+echo\
+echo\
+echo List Games
+echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
-echo Download...
 
-cd /d "%~dp0CFG" & md %language%
-for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > "%~dp0CFG\%language%\%%fBACKUP")
-REM CFG
-cd /d "%~dp0TMP"
-For %%Z in (PARTITION_GAMES_NEW.txt) do (
- (for /f "tokens=2,5*" %%A in (%%Z) do echo "%~dp0BAT\wget" -q --show-progress "https://raw.githubusercontent.com/Tom-Bruise/PS2-OPL-CFG-Database/master/%language%/%%B.cfg" -O "%~dp0CFG\%language%\%%B.cfg" ) > PARTITION_GAMES_CFG.bat)
+"%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > PARTITION_GAMES_NEW.txt
 
-mkdir "%~dp0CFG" >nul 2>&1
-call PARTITION_GAMES_CFG.bat
+"%~dp0BAT\busybox" sed -i "1d" PARTITION_GAMES_NEW.txt 
+"%~dp0BAT\busybox" sed -i -e "$ d" PARTITION_GAMES_NEW.txt
+"%~dp0BAT\busybox" cut -c35-500 PARTITION_GAMES_NEW.txt > PARTITION_GAMES_NEW2.txt
 
-cd /d "%~dp0CFG\%language%"
-for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> %%f & move %%f "%~dp0CFG" ) >nul 2>&1
+type PARTITION_GAMES_NEW2.txt
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
 
-cd "%~dp0" & for %%F in ( "%~dp0CFG\*" ) do if %%~zF==0 del "%%F"
-rmdir /Q/S "%~dp0CFG\%language%" >nul 2>&1
-  )
- )
+    REM Online Installation
+	
+    if %language%==CFG_en copy "%~dp0BAT\DB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+    if %language%==CFG_fr copy "%~dp0BAT\DB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+	
+	for /f "tokens=5*" %%i in (PARTITION_GAMES_NEW.txt) do (
+	
+	set "dbtitle="
+	for /f "tokens=1*" %%A in ( 'findstr %%i gameid.txt' ) do (if not defined dbtitle set dbtitle=%%B
+    )
+	
+	if not exist "%~dp0CFG\%language%" md "%~dp0CFG\%language%"
+    echo\
+	"%~dp0BAT\Diagbox" gd 0f
+    echo !dbtitle!
+	echo %%i.cfg
+    "%~dp0BAT\Diagbox" gd 03
+    "%~dp0BAT\wget" -q --show-progress "https://raw.githubusercontent.com/Tom-Bruise/PS2-OPL-CFG-Database/master/%language%/%%i.cfg" -O "%~dp0CFG\%language%\%%i.cfg"
+    "%~dp0BAT\Diagbox" gd 0f
 
+    cd /d "%~dp0CFG\!language!" & for %%F in ( *.cfg ) do if %%~zF==0 del "%%F"
+    if not exist %%i.cfg (
+    "%~dp0BAT\Diagbox" gd 0c
+    echo Not found in database 
+    "%~dp0BAT\Diagbox" gd 0f
+    cd /d "%~dp0TMP"
+    
+    ) else (
+    
+    echo FOUND >nul 2>&1
+    cd /d "%~dp0TMP"
+	
+	   )
+	  )
+	  
+	  cd /d "%~dp0CFG" & for %%f in (*.cfg) do ("%~dp0BAT\busybox" grep -s -e "\$" -e "Modes=" %%f > "%~dp0CFG\%language%\%%fBACKUP")
+	  cd /d "%~dp0CFG\%language%" & for %%f in (*.cfgBACKUP) do ("%~dp0BAT\busybox" sed -i "/Description=\|Title=/d" %%f)
+	  for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> %%f) >nul 2>&1
+	  move "*.cfg" "%~dp0CFG" >nul 2>&1
+	  
+      )
+     )
+	
+    cd /d "%~dp0TMP"
+    if %language%==CFG_en copy "%~dp0BAT\DB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+    if %language%==CFG_fr copy "%~dp0BAT\DB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+    "%~dp0BAT\busybox" sed -i "s/\&/\\\&/g" "%~dp0TMP\gameid.txt"
+    "%~dp0BAT\busybox" sed -i "s/\^!/\!/g" "%~dp0TMP\gameid.txt" >nul 2>&1
+	"%~dp0BAT\busybox" sed -i "s.//.\\/\\/.g" "%~dp0TMP\gameid.txt"
 
-cd /d "%~dp0TMP"
-if %language%==CFG_en copy "%~dp0BAT\DB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
-if %language%==CFG_fr copy "%~dp0BAT\DB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
-"%~dp0BAT\busybox" sed -i "s/\&/\\\&/g" "%~dp0TMP\gameid.txt"
-"%~dp0BAT\busybox" sed -i "s/\^!/\!/g" "%~dp0TMP\gameid.txt" >nul 2>&1
-
-for /f "tokens=5*" %%i in (PARTITION_GAMES_NEW.txt) do (
+    for /f "tokens=5*" %%i in (PARTITION_GAMES_NEW.txt) do (
 	set "dbtitle="
 	for /f "tokens=1*" %%A in ( 'findstr %%i gameid.txt' ) do (if not defined dbtitle set dbtitle=%%B
 	"%~dp0BAT\busybox" sed -i -e "s/\Title=.*/Title=/g; s/Title=/Title=%%B/g" "%~dp0CFG\%%i.cfg" >nul 2>&1
 	 )
-  )
+    )
 
 cd /d "%~dp0"
+rmdir /Q/S "%~dp0CFG\%language%" >nul 2>&1
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
-echo.
+echo\
+echo\
+
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo Download Completed...
+echo\
+echo\
+"%~dp0BAT\Diagbox" gd 07
 
 pause & (goto DownloadsMenu) 
 
 :DownloadCFGManually
-
-IF %@cfg_manually%==yesmanually (
 echo\
 echo\
 echo Choose your languages of your CFG
@@ -6753,56 +6825,29 @@ echo\
 choice /c YN 
 echo\
 
+if errorlevel 1 set DownloadDB=yes
+if errorlevel 2 set DownloadDB=no
 
-if errorlevel 2 (
 
-REM Offline Installation
-"%~dp0BAT\Diagbox" gd 0e
-cls
-echo\
-echo\
-echo List Games
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-
-"%~dp0BAT\hdl_dump" hdl_toc !@hdl_path! > PARTITION_GAMES_NEW.txt
-
-"%~dp0BAT\busybox" sed -i "1d" PARTITION_GAMES_NEW.txt 
-"%~dp0BAT\busybox" sed -i -e "$ d" PARTITION_GAMES_NEW.txt
-"%~dp0BAT\busybox" cut -c35-500 PARTITION_GAMES_NEW.txt > PARTITION_GAMES_NEW2.txt
-
-type PARTITION_GAMES_NEW2.txt
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
-    
-	echo\
-    set /p gameid=Enter the GAMEID:
-    IF "!GAMEID!"=="" (goto DownloadsMenu)
-    echo\
-	 
-    echo Extraction...
-    for /f "tokens=5*" %%i in (PARTITION_GAMES_NEW.txt) do ("%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CFG-Database.7z" -o"%~dp0CFG" PS2-OPL-CFG-Database-master\!language!\!GAMEID!.cfg -r -y)
-	
-	cd /d "%~dp0CFG"
-	for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > %%fBACKUP)
-	for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\%%f" & del %%fBACKUP)
-	move "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\*.cfg" "%~dp0CFG" >nul 2>&1 & rmdir /Q/S PS2-OPL-CFG-Database-master >nul 2>&1
-	cd /d "%~dp0TMP"
-	"%~dp0BAT\Diagbox" gd 07
-	
-	)
-
-if errorlevel 1 (
-    echo.
-	echo Checking internet connection...
+    IF "!DownloadDB!"=="yes" (
+    echo Checking internet connection...
 	Ping www.github.com -n 1 -w 1000 >nul
 	
-if errorlevel 1 (
-"%~dp0BAT\Diagbox" gd 0c
+	if errorlevel 1 (
+    "%~dp0BAT\Diagbox" gd 0c
     echo.
 	echo Unable to connect to internet Or Website
-	 
-REM Offline Installation
+	echo\
+	echo You will switch to offline mode
+	echo\
+	set DownloadDB=no
+	"%~dp0BAT\Diagbox" gd 0f
+	pause
+	)
+)
+
+IF "!DownloadDB!"=="no" (
+
 "%~dp0BAT\Diagbox" gd 0e
 cls
 echo\
@@ -6820,22 +6865,44 @@ echo ----------------------------------------------------
 type PARTITION_GAMES_NEW2.txt
 "%~dp0BAT\Diagbox" gd 0e
 echo ----------------------------------------------------
-    
+"%~dp0BAT\Diagbox" gd 03
+
+    REM Offline Installation
+	
 	echo\
     set /p gameid=Enter the GAMEID:
     IF "!GAMEID!"=="" (goto DownloadsMenu)
     echo\
+	
+	cd /d "%~dp0TMP"
+    if !language!==CFG_en copy "%~dp0BAT\DB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+    if !language!==CFG_fr copy "%~dp0BAT\DB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+
+	set "dbtitle="
+	for /f "tokens=1*" %%A in ( 'findstr !gameid! gameid.txt' ) do (if not defined dbtitle set dbtitle=%%B
+	)
 	 
     echo Extraction...
-    for /f "tokens=5*" %%i in (PARTITION_GAMES_NEW.txt) do ("%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CFG-Database.7z" -o"%~dp0CFG" PS2-OPL-CFG-Database-master\!language!\!GAMEID!.cfg -r -y)
+	echo\
+	"%~dp0BAT\Diagbox" gd 0f
+	echo !dbtitle!
+	echo !gameid!.cfg
+    "%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CFG-Database.7z" -o"%~dp0CFG" PS2-OPL-CFG-Database-master\!language!\!GAMEID!.cfg -r -y
 	
-	cd /d "%~dp0CFG"
-	for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > %%fBACKUP)
-	for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\%%f" & del %%fBACKUP)
-	move "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\*.cfg" "%~dp0CFG" >nul 2>&1 & rmdir /Q/S PS2-OPL-CFG-Database-master >nul 2>&1
-	cd /d "%~dp0TMP"
-	"%~dp0BAT\Diagbox" gd 07
+	cd /d "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\" & for %%F in ( "!gameid!.cfg" ) do if %%~zF==0 del "%%F" >nul 2>&1
+	if not exist !gameid!.cfg (
+	"%~dp0BAT\Diagbox" gd 0c
+	echo Not found in database 
+	"%~dp0BAT\Diagbox" gd 0f
+	) else (
 	
+	cd /d "%~dp0CFG" & "%~dp0BAT\busybox" grep -s -e "\$" -e "Modes=" !gameid!.cfg > "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!\!gameid!.cfgBACKUP"
+	cd /d "%~dp0CFG\PS2-OPL-CFG-Database-master\!language!" & "%~dp0BAT\busybox" sed -i "/Description=\|Title=/d" !gameid!.cfgBACKUP & "%~dp0BAT\busybox" cat !gameid!.cfgBACKUP >> !gameid!.cfg
+    move !gameid!.cfg "%~dp0CFG" >nul 2>&1
+	cd /d "%~dp0" & rmdir /Q/S "%~dp0CFG\PS2-OPL-CFG-Database-master" >nul 2>&1
+	"%~dp0BAT\Diagbox" gd 0f
+	 )
+	 
 	) else (
 
 "%~dp0BAT\Diagbox" gd 0e
@@ -6845,7 +6912,6 @@ echo\
 echo List Games
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
-setlocal DisableDelayedExpansion
 
 "%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > PARTITION_GAMES_NEW.txt
 
@@ -6857,54 +6923,72 @@ type PARTITION_GAMES_NEW2.txt
 "%~dp0BAT\Diagbox" gd 0e
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
-setlocal EnableDelayedExpansion
-echo.
-set /p gameid=Enter the GAMEID:
-IF "!GAMEID!"=="" (goto DownloadsMenu)
 
-"%~dp0BAT\Diagbox" gd 03
-echo\
-echo\
-echo Download...
+REM Online Installation
 
-cd /d "%~dp0CFG" & md %language%
-for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%f | "%~dp0BAT\busybox" grep -e "\$" -e "Modes=" %%f > "%~dp0CFG\%language%\%%fBACKUP")
+    echo\
+    set /p gameid=Enter the GAMEID:
+    IF "!GAMEID!"=="" (goto DownloadsMenu)
+    echo\
+  
+    cd /d "%~dp0TMP"
+    if !language!==CFG_en copy "%~dp0BAT\DB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+    if !language!==CFG_fr copy "%~dp0BAT\DB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
 
-REM CFG Manually
-cd /d "%~dp0TMP"
-echo test > "%~dp0TMP\CFG.txt"
-For %%Z in (CFG.txt) do (
- (for /f %%A in (%%Z) do echo "%~dp0BAT\wget" -q --show-progress "https://raw.githubusercontent.com/Tom-Bruise/PS2-OPL-CFG-Database/master/!language!/!gameid!.cfg" -O "%~dp0CFG\%language%\!gameid!.cfg" ) > PARTITION_GAMES_CFG.bat)
-
-mkdir "%~dp0CFG" >nul 2>&1
-call PARTITION_GAMES_CFG.bat
-
-cd /d "%~dp0CFG\%language%"
-for %%f in (*.cfg) do ("%~dp0BAT\busybox" cat %%fBACKUP >> %%f & move %%f "%~dp0CFG" ) >nul 2>&1
-
-cd "%~dp0" & for %%F in ( "%~dp0CFG\*" ) do if %%~zF==0 del "%%F"
-rmdir /Q/S "%~dp0CFG\%language%" >nul 2>&1
-
-  ) 
- )
-)
-
-cd /d "%~dp0TMP"
-if %language%==CFG_en copy "%~dp0BAT\DB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
-if %language%==CFG_fr copy "%~dp0BAT\DB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
-"%~dp0BAT\busybox" sed -i "s/\&/\\\&/g" "%~dp0TMP\gameid.txt"
-"%~dp0BAT\busybox" sed -i "s/\^!/\!/g" "%~dp0TMP\gameid.txt" >nul 2>&1
-
-for /f "tokens=5*" %%i in (PARTITION_GAMES_NEW.txt) do (
 	set "dbtitle="
-	for /f "tokens=1*" %%A in ( 'findstr %%i gameid.txt' ) do (if not defined dbtitle set dbtitle=%%B
-	"%~dp0BAT\busybox" sed -i -e "s/\Title=.*/Title=/g; s/Title=/Title=%%B/g" "%~dp0CFG\%%i.cfg" >nul 2>&1
+	for /f "tokens=1*" %%A in ( 'findstr !gameid! gameid.txt' ) do (if not defined dbtitle set dbtitle=%%B
+	)
+	
+	cd /d "%~dp0CFG" & md !language!
+    echo\
+	"%~dp0BAT\Diagbox" gd 0f
+	echo Download...
+	echo\
+	echo !dbtitle!
+    echo !gameid!.cfg
+    "%~dp0BAT\Diagbox" gd 03
+    "%~dp0BAT\wget" -q --show-progress "https://raw.githubusercontent.com/Tom-Bruise/PS2-OPL-CFG-Database/master/!language!/!gameid!.cfg" -O "%~dp0CFG\!language!\!gameid!.cfg"
+    "%~dp0BAT\Diagbox" gd 0f
+	
+	cd /d "%~dp0CFG\!language!\" & for %%F in ( "!gameid!.cfg" ) do if %%~zF==0 del "%%F"
+	if not exist !gameid!.cfg (
+	 "%~dp0BAT\Diagbox" gd 0c
+	echo Not found in database
+	 "%~dp0BAT\Diagbox" gd 0f
+	
+	) else (
+	
+    cd /d "%~dp0CFG" & "%~dp0BAT\busybox" grep -s -e "\$" -e "Modes=" !gameid!.cfg > "%~dp0CFG\!language!\!gameid!.cfgBACKUP"
+	cd /d "%~dp0CFG\!language!" & "%~dp0BAT\busybox" sed -i "/Description=\|Title=/d" !gameid!.cfgBACKUP & "%~dp0BAT\busybox" cat !gameid!.cfgBACKUP >> !gameid!.cfg
+	move !gameid!.cfg "%~dp0CFG" >nul 2>&1
+	cd /d "%~dp0" & rmdir /Q/S "%~dp0CFG\!language!" >nul 2>&1
+	
+      )
+     )
+
+    cd /d "%~dp0TMP"
+    if !language!==CFG_en copy "%~dp0BAT\DB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+    if !language!==CFG_fr copy "%~dp0BAT\DB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+    "%~dp0BAT\busybox" sed -i "s/\&/\\\&/g" "%~dp0TMP\gameid.txt"
+    "%~dp0BAT\busybox" sed -i "s/\^!/\!/g" "%~dp0TMP\gameid.txt" >nul 2>&1
+	"%~dp0BAT\busybox" sed -i "s.//.\\/\\/.g" "%~dp0TMP\gameid.txt"
+
+	for /f "tokens=1*" %%A in ( 'findstr !gameid! gameid.txt' ) do (if not defined dbtitle set dbtitle=%%B
+	"%~dp0BAT\busybox" sed -i -e "s/\Title=.*/Title=/g; s/Title=/Title=%%B/g" "%~dp0CFG\!gameid!.cfg" >nul 2>&1
 	 )
-  )
 
 cd /d "%~dp0"
+rmdir /Q/S "%~dp0CFG\!language!" >nul 2>&1
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
-echo.
+
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo Download Completed...
+echo\
+echo\
+"%~dp0BAT\Diagbox" gd 0f
 
 pause & (goto DownloadsMenu) 
 
@@ -6926,7 +7010,7 @@ echo\
 echo Scanning Optical Drives:
 echo ----------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\hdl_dump" query | findstr "cd0: cd1: cd2: cd3: cd4: cd5 cd:6"
+	"%~dp0BAT\hdl_dump" query | findstr "cd[0-9]:"
 	"%~dp0BAT\Diagbox" gd 07
     echo.
     echo ----------------------------------------------------
@@ -7161,9 +7245,38 @@ echo\
 echo\
 "%~dp0BAT\Diagbox" gd 07
 
+endlocal
 pause & (goto GamesManagement)
 
 REM ###################################################################################################################################################
+:ExportChoiceGamesListHDD
+
+cd "%~dp0"
+cls
+
+mkdir "%~dp0TMP" >nul 2>&1
+
+"%~dp0BAT\Diagbox" gd 0f
+echo\
+echo\
+echo Choose what type of games you want to export game list:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo         1) Yes PS2 Games
+"%~dp0BAT\Diagbox" gd 0c
+echo         2) %NO%
+"%~dp0BAT\Diagbox" gd 0e
+echo         3) Yes PS1 Games
+echo\
+"%~dp0BAT\Diagbox" gd 07
+CHOICE /C 123 /M "Select Option:"
+
+IF ERRORLEVEL 3 (goto ExportPS1GamesList)
+IF ERRORLEVEL 2 (goto GamesManagement) 
+IF ERRORLEVEL 1 (goto ExportPS2GamesList)
+
+REM #######################################################################################################################################################################
+
 :ExportPS1GamesList
 cls
 mkdir "%~dp0TMP" >nul 2>&1
@@ -7231,7 +7344,7 @@ echo 10. __.POPS
 echo.
 
 set choice=
-set /p choice=Select Option:
+set /p choice="Select Option:"
 IF "!choice!"=="" (goto ExportPS1GamesList)
 
 IF "!choice!"=="0" set POPSPART=__.POPS0
@@ -7484,31 +7597,35 @@ echo Download Latest Redump Database ?
 echo NOTE: if you choose No, it will do an offline check.
 choice /c YN 
 
-if errorlevel 2 (goto md5processingdumpHASH)
+if errorlevel 1 set DownloadDB=yes
+if errorlevel 2 set DownloadDB=no
 
-if errorlevel 1 (
-    echo.
-	echo Checking internet connection...
-	Ping redump.org -n 1 -w 1000 >nul
+
+    IF "!DownloadDB!"=="yes" (
+    echo Checking internet connection...
+	Ping www.redump.org -n 1 -w 1000 >nul
 	
-if errorlevel 1 (
-"%~dp0BAT\Diagbox" gd 0c
+	if errorlevel 1 (
+    "%~dp0BAT\Diagbox" gd 0c
     echo.
 	echo Unable to connect to internet Or Website
+	echo\	
+	set DownloadDB=no
 	) else (
-	
-"%~dp0BAT\Diagbox" gd 0d
-"%~dp0BAT\wget" -q --show-progress http://redump.org/datfile/ps2/ -O "%~dp0BAT\Dats\RedumpPS2.zip"
-"%~dp0BAT\Diagbox" gd 07
-
-"%~dp0BAT\Diagbox" gd 0e
-	timeout 2 >nul
-"%~dp0BAT\Diagbox" gd 0f
-"%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\Dats\RedumpPS2.zip" -so > "%~dp0BAT\Dats\PS2\RedumpPS2.dat"
- )
+	"%~dp0BAT\Diagbox" gd 0d
+    "%~dp0BAT\wget" -q --show-progress http://redump.org/datfile/ps2/ -O "%~dp0BAT\Dats\RedumpPS2.zip"
+    "%~dp0BAT\Diagbox" gd 07
+    
+    "%~dp0BAT\Diagbox" gd 0e
+    	timeout 2 >nul
+    "%~dp0BAT\Diagbox" gd 0f
+    "%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\Dats\RedumpPS2.zip" -so > "%~dp0BAT\Dats\PS2\RedumpPS2.dat"
+	set DownloadDB=no
+	)
 )
 
-:md5processingdumpHASH
+IF "!DownloadDB!"=="no" (
+
 "%~dp0BAT\Diagbox" gd 06
 echo\
 if not exist "%~dp0CD\*.bin" echo NO .BIN found in CD folder
@@ -7634,7 +7751,7 @@ endlocal
      )
    )
  )
- 
+)
 echo\
 
 move "%~dp0CD-DVD\*.bin" "%~dp0CD" >nul 2>&1
@@ -7705,7 +7822,8 @@ echo\
 echo Scanning HDDs:
 echo ----------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\hdl_dump" query | findstr "Playstation"
+	"%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD"
+    "%~dp0BAT\hdl_dump" query | findstr "hdd" | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" cut -c2-6 > "%~dp0TMP\hdl-hdd.txt"
 	"%~dp0BAT\Diagbox" gd 07
     echo.
     echo ----------------------------------------------------
@@ -7716,54 +7834,53 @@ echo ----------------------------------------------------
 	echo.
 	echo. 
 	echo PLAYSTATION 2 HDD
-	echo 	1. hdd1: 
+	echo 	1. hdd1:
 	echo 	2. hdd2:
 	echo 	3. hdd3:
-	echo 	4. hdd4: 
+	echo 	4. hdd4:
 	echo 	5. hdd5:
 	echo 	6. hdd6:
-	echo 	7. Network
-	echo 	8. Quit Program
-	choice /c 12345678 /m "Choice the number of your PS2 HDD."	
-	    
-		if errorlevel 8 (goto GamesManagement)
-		if errorlevel 1 set hdlhdd=hdd1:
-		if errorlevel 2 set hdlhdd=hdd2:
-		if errorlevel 3 set hdlhdd=hdd3:
-		if errorlevel 4 set hdlhdd=hdd4:
-		if errorlevel 5 set hdlhdd=hdd5:
-		if errorlevel 6 set hdlhdd=hdd6:
-		if errorlevel 7 (goto RenamePS2GamesNetwork)
-
+	echo 	7. Local HDD Auto Search
+	echo 	8. Network
+	echo 	9. Back to main menu
+	choice /c 123456789 /m "Select your PS2 HDD"
+	
+	if errorlevel 9 (goto GamesManagement)
+	if errorlevel 1 set hdlhdd=hdd1:
+	if errorlevel 2 set hdlhdd=hdd2:
+	if errorlevel 3 set hdlhdd=hdd3:
+	if errorlevel 4 set hdlhdd=hdd4:
+	if errorlevel 5 set hdlhdd=hdd5:
+	if errorlevel 6 set hdlhdd=hdd6:
+	if errorlevel 7 set /P hdlhdd=<"%~dp0TMP\hdl-hdd.txt"
+	if errorlevel 8 set RenamePS2GamesNetwork=yes
+  
+    REM IF "!hdlhddm!"=="yes" (
+    REM 
+	REM echo What is the number of my hard drive? / The one next to the hdd#: in the scanned HDDs
+    REM echo Example if hdd2: type 2
+	REM 
+    REM set choice=
+    REM set /p choice=Enter number of the Playstation 2 HDD:
+    REM IF "!choice!"=="" (goto TransferPS2Games)
+    REM IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
+    REM 
+    REM )
+    
+    IF "!RenamePS2GamesNetwork!"=="yes" (
+    
+    set /p "hdlhdd=Enter IP of the Playstation 2: "
+    ping -n 1 -w 2000 !hdlhdd!
+    
+    if errorlevel 1 (
+    "%~dp0BAT\Diagbox" gd 0c
+    echo Unable to ping !hdlhdd! ... ending script.
+    "%~dp0BAT\Diagbox" gd 0f
+    pause & set "RenamePS2GamesNetwork=" & (goto RenamePS2GamesHDD)
+	
+  )
+)
 cls
-"%~dp0BAT\Diagbox" gd 0e
-echo\
-echo\
-echo Prepare HDD:
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-"%~dp0BAT\hdl_dump" query | findstr "%hdlhdd%"
-(goto RenamePS2Games)
-
-:RenamePS2GamesNetwork
-cls
-"%~dp0BAT\Diagbox" gd 0e
-echo\
-echo\
-echo Prepare HDD Network:
-echo ----------------------------------------------------
-echo.
-     "%~dp0BAT\Diagbox" gd 0f
-     set /p "hdlhdd=Enter IP of the Playstation 2: "
-     ping -n 1 -w 2000 !hdlhdd!
-     if errorlevel 1 (
-     "%~dp0BAT\Diagbox" gd 0c
-     	echo Unable to ping !hdlhdd! ... ending script.
-     	"%~dp0BAT\Diagbox" gd 07
-		echo.
-        pause & goto GamesManagement)
-		
-:RenamePS2Games
 echo\
 echo\
 "%~dp0BAT\Diagbox" gd 0f
@@ -7855,6 +7972,7 @@ rmdir /Q/S "%~dp0CD-DVD" >nul 2>&1
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
 
 echo.
+endlocal
 pause & (goto GamesManagement)
 
 REM #######################################################################################################################################################################
@@ -7928,7 +8046,7 @@ echo 10. __.POPS
 echo.
 
 set choice=
-set /p choice=Select Option:
+set /p choice="Select Option:"
 IF "!choice!"=="" (goto RenamePS1GamesHDD)
 
 IF "!choice!"=="0" set POPSPART=__.POPS0
@@ -8156,7 +8274,7 @@ echo 10. __.POPS
 echo.
 
 set choice=
-set /p choice=Select Option:
+set /p choice="Select Option:"
 IF "!choice!"=="" (goto DeletePS1GamesHDD)
 
 IF "!choice!"=="0" set POPSPART=__.POPS0
@@ -8275,10 +8393,238 @@ echo\
 echo\
 "%~dp0BAT\Diagbox" gd 0f
 
+endlocal
 pause & (goto GamesManagement)
 
-REM ####################################################################################################################
 
+REM ####################################################################################################################
+:DownloadWideScreenCheat
+
+cls 
+mkdir "%~dp0TMP" >nul 2>&1
+
+    REM "%~dp0BAT\busybox" sed -i "s/\\\\.\\\PhysicalDrive/hdd/g" "%~dp0TMP\hdl-hdd.txt"
+    REM "%~dp0BAT\busybox" sed -i s/$/:/ "%~dp0TMP\hdl-hdd.txt"
+    REM set /P @hdl_path1=<"%~dp0TMP\hdl-hdd.txt"
+    REM "%~dp0BAT\hdl_dump" hdl_toc !@hdl_path1! > "%~dp0TMP\PARTITION_GAMES.txt"
+    REM "%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\PARTITION_GAMES.txt"
+    REM "%~dp0BAT\busybox" sed -i -e "$ d" "%~dp0TMP\PARTITION_GAMES.txt"
+	REM 
+	REM "%~dp0BAT\Diagbox" gd 0e
+    REM echo %EXTRACTING_WIDE%
+
+	REM cd /d "%~dp0CHT"
+    REM if not exist %%i.cht (
+	REM 
+    REM "%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CHT-Widescreen.zip" -o"%~dp0CHT\WIDE" %%i.cht -r -y
+	REM move WIDE\CHT\%%i.cht "%~dp0CHT\%%i.cht" >nul 2>&1
+	REM 
+    REM )
+
+
+REM for %%F in ( "%~dp0CHT\*.CHT" ) do if %%~zF==0 del "%%F"
+
+cd /d "%~dp0CHT\"
+if exist "%~dp0CHT\*.cht" (
+
+REM Checking Mastercode...
+for %%i in (*.cht) do (
+REM "%~dp0BAT\busybox" grep "Mastercode" "%~dp0CHT\%%i" > "%~dp0TMP\MastercodeCheck.txt" 2>&1
+"%~dp0BAT\busybox" sed -n "/Mastercode/,/ /p" "%~dp0CHT\%%i" > "%~dp0TMP\MastercodeCheck.txt" 2>&1
+"%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\MastercodeCheck.txt"
+"%~dp0BAT\busybox" sed -i "2,20d" "%~dp0TMP\MastercodeCheck.txt"
+"%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\MastercodeCheck.txt"
+for %%F in ( "%~dp0TMP\MastercodeCheck.txt" ) do if %%~zF==0 del "%%F" >nul 2>&1
+
+if errorlevel 1 (
+
+echo %%i Mastercode not found: Files Ignored
+ren %%i %%iIGNORED
+
+) else (
+echo %%i found > nul
+    )
+  )
+)
+
+cd /d "%~dp0"
+if not exist "%~dp0CHT\*.cht" (
+"%~dp0BAT\Diagbox" gd 06
+echo\
+echo NO .CHT FOUND IN CHT FOLDER 
+echo\
+"%~dp0BAT\Diagbox" gd 07
+echo You need to Create your .CHT with the Mastercode inside.
+echo Or extract the .CHT present in your partition +OPL
+echo\
+echo\
+echo Do You want Create .CHT with Mastercode ?
+choice /c YN
+
+if errorlevel 2 (goto DownloadCheatsMenu)
+if errorlevel 1 copy "%~dp0BAT\make_cheat_mastercode.bat" >nul "%~dp0" & call make_cheat_mastercode.bat & del make_cheat_mastercode.bat
+ "%~dp0BAT\Diagbox" gd 0f
+echo --------------------------------------------------------------------------
+)
+if exist "%~dp0TMP\ISONotFound.txt" (
+
+echo not found >nul 
+
+) else (
+
+mkdir "%~dp0TMP" >nul 2>&1
+
+echo.
+echo Download Latest WideScreen Cheat Database ?
+echo NOTE: if you choose No, it will do an offline installation.
+choice /c YN 
+
+if errorlevel 1 set DownloadDB=yes
+if errorlevel 2 set DownloadDB=no
+
+    IF "!DownloadDB!"=="yes" (
+	echo\
+    echo Checking internet connection...
+	echo\
+	Ping www.github.com -n 1 -w 1000 >nul
+	
+	if errorlevel 1 (
+    "%~dp0BAT\Diagbox" gd 0c
+    echo.
+	echo Unable to connect to internet Or Website
+	echo\
+	echo You will switch to offline mode
+	echo\
+	set DownloadDB=no
+	"%~dp0BAT\Diagbox" gd 0f
+	pause
+	
+    ) else (
+	
+	"%~dp0BAT\Diagbox" gd 0d
+    "%~dp0BAT\wget" -q --show-progress https://github.com/PS2-Widescreen/OPL-Widescreen-Cheats/releases/download/Latest/widescreen_hacks.zip -O BAT\PS2-OPL-CHT-Widescreen.zip
+    "%~dp0BAT\Diagbox" gd 0f
+	set DownloadDB=no
+	)
+)
+
+IF "!DownloadDB!"=="no" (
+
+    echo\
+	cd /d "%~dp0CHT"
+	for %%i in (*.cht) do (
+	set gameidcht=%%~ni
+
+	if not exist "%~dp0CHT\WIDE" MD "%~dp0CHT\WIDE" & if not exist "%~dp0CHT\WIDE\CHT" MD "%~dp0CHT\WIDE\CHT"
+	if not exist "%~dp0CHT\WIDE2" MD "%~dp0CHT\WIDE2"
+	
+	"%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CHT-Widescreen.zip" -o"%~dp0CHT\WIDE" !gameidcht!.cht -r -y
+	move WIDE\CHT\!gameidcht!.cht "%~dp0CHT\!gameidcht!.chtWIDE" >nul 2>&1
+	
+	"%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\PS2-OPL-CHT-Widescreen.zip" -o"%~dp0CHT\WIDE" !gameidcht!_v?.??.cht -r -y
+	cd /d "%~dp0CHT\WIDE\CHT" >nul 2>&1 & ren !gameidcht!_v?.??.cht !gameidcht!.chtWIDE2 >nul 2>&1 & move *.chtWIDE2 "%~dp0CHT\WIDE2" >nul 2>&1
+
+	cd /d "%~dp0CHT" & rmdir /Q/S "%~dp0CHT\WIDE\" >nul 2>&1
+
+)
+
+For %%C in (*.cht) do (
+"%~dp0BAT\busybox" sed -n "/Mastercode/,/ /p" "%~dp0CHT\%%C" > "%~dp0TMP\Mastercode.txt"
+"%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\Mastercode.txt"
+"%~dp0BAT\busybox" sed -i "2,20d" "%~dp0TMP\Mastercode.txt"
+"%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\Mastercode.txt"
+set /p Mastercode=<"%~dp0TMP\Mastercode.txt"
+
+REM Check if widescreen is already installe
+echo Widescreen-Fix-Installed-with-PFS-BatchKit-Manager > "%~dp0TMP\checkcheat.txt"
+"%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\checkcheat.txt"
+set /p checkcheat=<"%~dp0TMP\checkcheat.txt"
+"%~dp0BAT\busybox" sed -i "/----Widescreen-Fix-DONT-TOUCH-THIS-LINE----/{N;s/\n$//}" "%~dp0CHT\%%C"
+REM "%~dp0BAT\busybox" sed -i "/----Widescreen-Fix-DONT-TOUCH-THIS-LINE----/{n;d}" "%~dp0CHT\%%C"
+"%~dp0BAT\busybox" sed -i -e "/!checkcheat!/,/----Widescreen-Fix-DONT-TOUCH-THIS-LINE----/d" "%~dp0CHT\%%C"
+
+"%~dp0BAT\busybox" sed -n "/Mastercode/,/ /p" "%~dp0CHT\%%CWIDE" > "%~dp0TMP\MastercodeCheck.txt" 2>&1
+"%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\MastercodeCheck.txt"
+"%~dp0BAT\busybox" sed -i "2,20d" "%~dp0TMP\MastercodeCheck.txt"
+"%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\MastercodeCheck.txt"
+set /p MastercodeCheck=<"%~dp0TMP\MastercodeCheck.txt"
+
+findstr "!checkcheat!" %%C >nul
+
+if errorlevel 1 (
+
+if !Mastercode! equ !MastercodeCheck! (
+
+ "%~dp0BAT\busybox" sed -i -e :a -e "/^\n*$/{$d;N;ba" -e "}" "%~dp0CHT\%%CWIDE"
+ "%~dp0BAT\busybox" grep -s -A 9999 "//" "%~dp0CHT\%%CWIDE" > "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i -e "/Mastercode/,+1d" "%~dp0TMP\Cheatstmp.txt"
+  REM "%~dp0BAT\busybox" sed -i "${/^$/d}" "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i -e "$a//----Widescreen-Fix-DONT-TOUCH-THIS-LINE----" "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i "1i //Widescreen-Fix-Installed-with-PFS-BatchKit-Manager" "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i "${/^$/d}" %%C
+ "%~dp0BAT\busybox" sed -i -e "$a" %%C
+ "%~dp0BAT\busybox" cat "%~dp0TMP\Cheatstmp.txt" >> %%C
+ ) else (
+
+move %%C "%~dp0CHT\WIDE2" >nul 2>&1
+
+"%~dp0BAT\busybox" sed -n "/Mastercode/,/ /p" "%~dp0CHT\WIDE2\%%CWIDE2" > "%~dp0TMP\MastercodeCheck2.txt" 2>&1
+"%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\MastercodeCheck2.txt"
+"%~dp0BAT\busybox" sed -i "2,20d" "%~dp0TMP\MastercodeCheck2.txt"
+"%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\MastercodeCheck2.txt"
+set /p MastercodeCheck2=<"%~dp0TMP\MastercodeCheck2.txt"
+
+if !Mastercode! equ !MastercodeCheck2! (
+
+ "%~dp0BAT\busybox" sed -i -e :a -e "/^\n*$/{$d;N;ba" -e "}" "%~dp0CHT\WIDE2\%%CWIDE2"
+ "%~dp0BAT\busybox" grep -s -A 9999 "//" "%~dp0CHT\WIDE2\%%CWIDE2" > "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i -e "/Mastercode/,+1d" "%~dp0TMP\Cheatstmp.txt"
+ REM "%~dp0BAT\busybox" sed -i "${/^$/d}" "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i -e "$a//----Widescreen-Fix-DONT-TOUCH-THIS-LINE----" "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i "1i //Widescreen-Fix-Installed-with-PFS-BatchKit-Manager" "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\Cheatstmp.txt"
+ "%~dp0BAT\busybox" sed -i "${/^$/d}" "%~dp0CHT\WIDE2\%%C"
+ "%~dp0BAT\busybox" sed -i -e "$a" "%~dp0CHT\WIDE2\%%C"
+ "%~dp0BAT\busybox" cat "%~dp0TMP\Cheatstmp.txt" >> "%~dp0CHT\WIDE2\%%C"
+     )
+   )
+ )
+ 
+ move "%~dp0CHT\WIDE2\*.cht" "%~dp0CHT" >nul 2>&1
+ findstr "!checkcheat!" %%C >nul
+ if errorlevel 1 (
+ "%~dp0BAT\Diagbox" gd 06
+ echo %%C No WideScreen cheats are available for this game.
+ "%~dp0BAT\Diagbox" gd 0f
+ ) else ( 
+ echo %%C WideScreen cheats has been created.
+
+      )
+     )
+    )
+   )
+  )
+
+echo\
+
+del *.chtWIDE >nul 2>&1
+ren *.chtIGNORED *.cht >nul 2>&1
+rmdir /Q/S "%~dp0CHT\WIDE2" >nul 2>&1
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
+
+REM To remove blank lines from the begin of a file:
+REM sed -i '/./,$!d' filename
+
+REM To remove blank lines from the end of a file:
+REM sed -i -e :a -e '/^\n*$/{$d;N;ba' -e '}' file
+
+REM To remove blank lines from begin and end of a file:
+REM sed -i -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}' file
+echo\
+pause & (goto DownloadCheatsMenu)
+
+REM ####################################################################################################################
 :RenameVCDDB
 endlocal
 endlocal
@@ -8299,17 +8645,15 @@ echo\
 echo Do you want rename your .VCDs from database?
 choice /c YN /m "Use titles from database? "
 echo\
+
+if errorlevel 2 (goto GamesManagement)
+
 )
+
 cd /d "%~dp0POPS"
-if errorlevel 2 (
-
-echo >nul 2>&1
-
-) else (
 
 For %%P in ( "*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" >> VCDID.txt
 set "filename=%%P"
-setlocal EnableDelayedExpansion
 
 for /f %%i in (VCDID.txt) do (
 set gameid=%%i
@@ -8318,7 +8662,8 @@ set "dbtitle="
 for /f "tokens=1*" %%A in ( 'findstr %%i "%~dp0BAT\DB\gameidPS1.txt" ' ) do (if not defined dbtitle set dbtitle=%%B
 				
   )	
- ) 
+ )
+setlocal EnableDelayedExpansion
 del "%~dp0POPS\VCDID.txt" >nul 2>&1
 
 findstr !gameid! "%~dp0BAT\DB\gameidPS1.txt" >nul
@@ -8330,13 +8675,25 @@ echo !gameid! "!filename!" : TITLE NOT FOUND IN DATABASE
 echo !gameid! !dbtitle!
 
 md temp >nul 2>&1
+if exist "temp\!dbtitle!.VCD" (
+
+"%~dp0BAT\Diagbox" gd 06
+echo "!filename!" Has the same name as another
+"%~dp0BAT\Diagbox" gd 07
+cd ..
+
+ ) else (
+ 
 move "!filename!" "temp\!dbtitle!.VCD" >nul 2>&1
+
+  )
+	  
+endlocal
      )
    )
 )
 move "%~dp0POPS\temp\*.VCD" "%~dp0POPS" >nul 2>&1
 
-endlocal
 rmdir /s /q temp >nul 2>&1
 echo\
 pause & (goto GamesManagement)
@@ -8388,7 +8745,6 @@ echo >nul 2>&1
 
 For %%P in ( "*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" >> VCDID.txt
 set "filename=%%P"
-setlocal EnableDelayedExpansion
 
 for /f %%i in (VCDID.txt) do (
 set gameid=%%i
@@ -8398,6 +8754,7 @@ for /f "tokens=1*" %%A in ( 'findstr %%i "%~dp0BAT\DB\gameidPS1.txt" ' ) do (if 
 				
   )	
  ) 
+setlocal EnableDelayedExpansion
 del "%~dp0POPS\VCDID.txt" >nul 2>&1
 
 findstr !gameid! "%~dp0BAT\DB\gameidPS1.txt" >nul
@@ -8409,14 +8766,27 @@ echo !gameid! "!filename!" : TITLE NOT FOUND IN DATABASE
 echo !gameid! !dbtitle!
 
 md temp >nul 2>&1
+if exist "temp\!dbtitle!.VCD" (
+
+"%~dp0BAT\Diagbox" gd 06
+echo "!filename!" Has the same name as another
+"%~dp0BAT\Diagbox" gd 07
+cd ..
+
+ ) else (
+ 
 move "!filename!" "temp\!dbtitle!.VCD" >nul 2>&1
+
+  )
+	  
+endlocal
      )
    )
 )
 move "%~dp0POPS\temp\*.VCD" "%~dp0POPS" >nul 2>&1
 
-endlocal
 rmdir /s /q temp >nul 2>&1
+
 echo\
 pause & (goto ConversionMenu)
 
