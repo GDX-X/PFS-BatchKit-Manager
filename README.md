@@ -13,7 +13,7 @@ IMPORTANT! If you have already Formatted and installed FreeHDBoot (From HDD), yo
      
 2) Choose option 8 `Hack your HDD To PS2 Format`
      
-3) After the hacking put your HDD in your PS2 and format your hard drive with wLaunchELF.
+3) After the hacking put your HDD in your PS2 and format your hard drive with wLaunchELF.      
 In wLaunchELF do this `FileBrowser` > `MISC` > `HDDManager` > `Press R1` > `Format and confirm.`
      
 4) Copy the contents of the COPY_TO_USB_ROOT folder to the root of your USB drive
