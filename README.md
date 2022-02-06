@@ -50,7 +50,7 @@ Copy your .ISO in DVD Folder
 Copy your .BIN/CUE in POPS Folder
 
 1) Transfer POPS-Binaries
-2) Go to the Conversion menu
+2) Go to the `Conversion menu`
 3) Choose Convert .BIN/CUE To .VCD
 4) Create `__.POPS` Partition `Choose an appropriate size according to the number of games you want to install`
 5) Transfer your .VCD
@@ -94,8 +94,12 @@ you can find it [__here__](https://www.psx-place.com/threads/popstarter.19139/pa
 <details>
   <summary> <h7> <b> Screenshots </b> </h7> </summary>
    <p>
+
+![image](https://user-images.githubusercontent.com/22562949/152686188-325fe89d-c02c-4908-a517-2751774fcc9f.png)
      
 ![image](https://user-images.githubusercontent.com/22562949/152685686-1a12ed0d-93fc-4eeb-8971-28fb0db95152.png)
+     
+![image](https://user-images.githubusercontent.com/22562949/152686202-ed445546-2d1a-4756-a458-ac84f1377a57.png)
 
   ------
    </p>
