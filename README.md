@@ -1,6 +1,9 @@
 # PFS-BatchKit-Manager
 Is a batch script that allows you to easily manage your PS2 hard drive
 
+![image](https://user-images.githubusercontent.com/22562949/152685631-635c4438-7843-4c24-bb84-c483a688f941.png)
+
+
 <details>
   <summary> <h7> <b> How to hack your PS2 hard drive </b> </h7> </summary>
    <p>
@@ -85,3 +88,15 @@ you can find it [__here__](https://www.psx-place.com/threads/popstarter.19139/pa
      
    </p>
 </details>
+
+
+<details>
+  <summary> <h7> <b> Screenshots </b> </h7> </summary>
+   <p>
+     
+![image](https://user-images.githubusercontent.com/22562949/152685686-1a12ed0d-93fc-4eeb-8971-28fb0db95152.png)
+
+  ------
+   </p>
+</details>
+
