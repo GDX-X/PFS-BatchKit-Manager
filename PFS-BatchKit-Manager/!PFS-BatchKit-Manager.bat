@@ -3797,8 +3797,8 @@ echo.
 	"%~dp0BAT\busybox" cat "%~dp0TMP\hdl-hddinfotmp.txt"
 
 rmdir /Q/S "%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1
-md "%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1
-"%~dp0BAT\7z" x -bso0 "%~dp0BAT\!COPY_TO_USB_ROOT.7z" -o"%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1
+md "%~dp0!COPY_TO_USB_ROOT" >nul 2>&1
+"%~dp0BAT\7z" x -bso0 "%~dp0BAT\!COPY_TO_USB_ROOT.7z" -o"%~dp0!COPY_TO_USB_ROOT" >nul 2>&1
 REM xcopy "%~dp0BAT\^!COPY_TO_USB_ROOT" "%~dp0\^!COPY_TO_USB_ROOT" /e >nul 2>&1
 
 "%~dp0BAT\Diagbox" gd 0c 
@@ -3830,13 +3830,13 @@ echo\
 CHOICE /C 12 /M "Select Option:"
 
 IF ERRORLEVEL 1 set @pfs_hackhdd=yes
-IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2)
+IF ERRORLEVEL 2 rmdir /Q/S "%~dp0!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2)
 IF ERRORLEVEL 2 set @pfs_hackhdd=no
 
 echo.
 
 CHOICE /C YN /m "Confirm"
-IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2) 
+IF ERRORLEVEL 2 rmdir /Q/S "%~dp0!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2) 
 
 
 cls
@@ -3879,7 +3879,7 @@ echo\
 echo\
 "%~dp0BAT\Diagbox" gd 07
 
-"%~dp0\!COPY_TO_USB_ROOT\README.txt"
+"%~dp0!COPY_TO_USB_ROOT\README.txt"
 endlocal
 pause & (goto HDDManagementMenu)
 
@@ -8833,7 +8833,7 @@ REM To remove blank lines from begin and end of a file:
 REM sed -i -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}' file
 echo\
 pause & (goto DownloadCheatsMenu)
-REM ###################################################################################################################
+REM ####################################################################################################################
 :TransferPS1GamesHDDOSD
 
 mkdir "%~dp0TMP" >nul 2>&1
