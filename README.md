@@ -1,7 +1,7 @@
 # PFS-BatchKit-Manager
 Is a batch script that allows you to easily manage your PS2 hard drive
 
-![image](https://user-images.githubusercontent.com/22562949/152685749-f7a8b268-68da-4bb0-a6c6-d9bca5c14dde.png)
+![image](https://user-images.githubusercontent.com/22562949/152685787-f7b0dd25-8731-4b13-aa49-e0b9e5ed09c9.png)
 
 <details>
   <summary> <h7> <b> How to hack your PS2 hard drive </b> </h7> </summary>
@@ -32,6 +32,8 @@ In wLaunchELF `FileBrowser` > `Mass` > `APPS` > `FreeMcBoot` > `FMCBInstaller.el
   <summary> <h7> <b> How to install PS2 Games </b> </h7> </summary>
    <p>
      
+NOTE Before installing your games, it is strongly recommended to create the `+OPL` partition
+     
 Copy your .BIN/CUE in CD Folder
 
 Copy your .ISO in DVD Folder
@@ -50,7 +52,7 @@ Copy your .BIN/CUE in POPS Folder
 1) Transfer POPS-Binaries
 2) Go to the Conversion menu
 3) Choose Convert .BIN/CUE To .VCD
-4) Create `__.POPS` Partition
+4) Create `__.POPS` Partition `Choose an appropriate size according to the number of games you want to install`
 5) Transfer your .VCD
      
   ------
