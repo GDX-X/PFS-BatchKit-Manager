@@ -9381,7 +9381,7 @@ echo\
 	echo cd POPS >> "%~dp0TMP\pfs-log.txt"
 	echo mkdir "!VMCName!" >> "%~dp0TMP\pfs-log.txt"
 	echo cd "!VMCName!" >> "%~dp0TMP\pfs-log.txt"
-	echo IMAGE0.VCD >> "%~dp0POPS\Temp\!appfolder!\DISCS.TXT"
+	echo IMAGE0.VCD > "%~dp0POPS\Temp\!appfolder!\DISCS.TXT"
 	echo IMAGE1.VCD >> "%~dp0POPS\Temp\!appfolder!\DISCS.TXT"
 	if defined Disc3 echo IMAGE2.VCD >> "%~dp0POPS\Temp\!appfolder!\DISCS.TXT"
 	if defined Disc4 echo IMAGE3.VCD >> "%~dp0POPS\Temp\!appfolder!\DISCS.TXT"
