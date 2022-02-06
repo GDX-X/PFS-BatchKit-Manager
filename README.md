@@ -90,6 +90,17 @@ you can find it [__here__](https://www.psx-place.com/threads/popstarter.19139/pa
    </p>
 </details>
 
+<details>
+  <summary> <h7> <b> I'm stuck during file transfer </code>  </b> </h7> </summary>
+   <p>
+     
+If you get stuck during file transfer, it means your partition is full or corrupted
+     
+  ------
+     
+   </p>
+</details>
+
 
 <details>
   <summary> <h7> <b> Screenshots </b> </h7> </summary>
