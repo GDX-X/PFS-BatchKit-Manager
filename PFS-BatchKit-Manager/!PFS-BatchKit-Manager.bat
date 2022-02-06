@@ -1112,7 +1112,7 @@ echo ----------------------------------------------------
 	echo ls -l >> "%~dp0TMP\pfs-prt.txt"
 	echo exit >> "%~dp0TMP\pfs-prt.txt"
 	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "+OPL" | "%~dp0BAT\busybox" sed "s/.*+OPL/+OPL/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "+OPL" | "%~dp0BAT\busybox" sed "s/.*+OPL/+OPL/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -1758,7 +1758,7 @@ echo device !@hdl_path! > "%~dp0TMP\pfs-prt.txt"
 echo ls -l >> "%~dp0TMP\pfs-prt.txt"
 echo exit >> "%~dp0TMP\pfs-prt.txt"
 type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "__.POPS" | "%~dp0BAT\busybox" sed "s/.*__.POPS/__.POPS/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "__.POPS" | "%~dp0BAT\busybox" sed "s/.*__.POPS/__.POPS/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -1877,7 +1877,7 @@ echo device !@hdl_path! > "%~dp0TMP\pfs-prt.txt"
 echo ls -l >> "%~dp0TMP\pfs-prt.txt"
 echo exit >> "%~dp0TMP\pfs-prt.txt"
 type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%popspartinstall%" | "%~dp0BAT\busybox" sed "s/.*%popspartinstall%/%popspartinstall%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%popspartinstall%" | "%~dp0BAT\busybox" sed "s/.*%popspartinstall%/%popspartinstall%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -2072,7 +2072,7 @@ echo ----------------------------------------------------
 	echo ls -l >> "%~dp0TMP\pfs-prt.txt"
 	echo exit >> "%~dp0TMP\pfs-prt.txt"
 	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "+OPL" | "%~dp0BAT\busybox" sed "s/.*+OPL/+OPL/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "+OPL" | "%~dp0BAT\busybox" sed "s/.*+OPL/+OPL/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -2395,7 +2395,7 @@ echo ----------------------------------------------------
     echo ls -l >> "%~dp0TMP\pfs-prt.txt"
     echo exit >> "%~dp0TMP\pfs-prt.txt"
     type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "__.POPS" | "%~dp0BAT\busybox" sed "s/.*__.POPS/__.POPS/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "__.POPS" | "%~dp0BAT\busybox" sed "s/.*__.POPS/__.POPS/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
     set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 	
     REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
@@ -2506,7 +2506,7 @@ echo ----------------------------------------------------
     echo ls -l >> "%~dp0TMP\pfs-prt.txt"
     echo exit >> "%~dp0TMP\pfs-prt.txt"
     type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%popspartextract%" | "%~dp0BAT\busybox" sed "s/.*%popspartextract%/%popspartextract%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%popspartextract%" | "%~dp0BAT\busybox" sed "s/.*%popspartextract%/%popspartextract%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
     set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
     REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -2623,7 +2623,7 @@ echo ----------------------------------------------------
     echo ls -l >> "%~dp0TMP\pfs-prt.txt"
     echo exit >> "%~dp0TMP\pfs-prt.txt"
     type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%POPSPART%" | "%~dp0BAT\busybox" sed "s/.*%POPSPART%/%POPSPART%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%POPSPART%" | "%~dp0BAT\busybox" sed "s/.*%POPSPART%/%POPSPART%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
     set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
     REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -2823,7 +2823,7 @@ echo ----------------------------------------------------
     echo ls >> "%~dp0TMP\pfs-prt.txt"
     echo exit >> "%~dp0TMP\pfs-prt.txt"
     type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__common" | "%~dp0BAT\busybox" sed "s/.*__common/__common/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__common" | "%~dp0BAT\busybox" sed "s/.*__common/__common/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
     set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
     REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
     IF "!@hdd_avl!"=="__common/" (
@@ -3699,8 +3699,9 @@ REM ############################################################################
 :hackHDDtoPS2
 
 cd /d "%~dp0"
-
 mkdir "%~dp0TMP" >nul 2>&1
+
+setlocal disabledelayedexpansion
 
 cls
 "%~dp0BAT\Diagbox" gd 0e
@@ -3795,9 +3796,9 @@ echo.
 	"%~dp0BAT\busybox" sed -i "3,100d" "%~dp0TMP\hdl-hddinfotmp.txt"
 	"%~dp0BAT\busybox" cat "%~dp0TMP\hdl-hddinfotmp.txt"
 
-rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1
-md "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1
-"%~dp0BAT\7z" x -bso0 "%~dp0BAT\^!COPY_TO_USB_ROOT.7z" -o"%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1
+rmdir /Q/S "%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1
+md "%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1
+"%~dp0BAT\7z" x -bso0 "%~dp0BAT\!COPY_TO_USB_ROOT.7z" -o"%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1
 REM xcopy "%~dp0BAT\^!COPY_TO_USB_ROOT" "%~dp0\^!COPY_TO_USB_ROOT" /e >nul 2>&1
 
 "%~dp0BAT\Diagbox" gd 0c 
@@ -3829,13 +3830,13 @@ echo\
 CHOICE /C 12 /M "Select Option:"
 
 IF ERRORLEVEL 1 set @pfs_hackhdd=yes
-IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2)
+IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2)
 IF ERRORLEVEL 2 set @pfs_hackhdd=no
 
 echo.
 
 CHOICE /C YN /m "Confirm"
-IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2) 
+IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2) 
 
 
 cls
@@ -3879,6 +3880,7 @@ echo\
 "%~dp0BAT\Diagbox" gd 07
 
 "%~dp0\!COPY_TO_USB_ROOT\README.txt"
+endlocal
 pause & (goto HDDManagementMenu)
 
 REM ##############################################################################################################################################################
@@ -5126,7 +5128,7 @@ echo ----------------------------------------------------
 	echo ls -l >> "%~dp0TMP\pfs-prt.txt"
 	echo exit >> "%~dp0TMP\pfs-prt.txt"
 	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__sysconf" | "%~dp0BAT\busybox" sed "s/.*__sysconf/__sysconf/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__sysconf" | "%~dp0BAT\busybox" sed "s/.*__sysconf/__sysconf/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -5156,7 +5158,7 @@ echo ----------------------------------------------------
 	echo ls -l >> "%~dp0TMP\pfs-prt.txt"
 	echo exit >> "%~dp0TMP\pfs-prt.txt"
 	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__system" | "%~dp0BAT\busybox" sed "s/.*__system/__system/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__system" | "%~dp0BAT\busybox" sed "s/.*__system/__system/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -5186,7 +5188,7 @@ echo ----------------------------------------------------
 	echo ls -l >> "%~dp0TMP\pfs-prt.txt"
 	echo exit >> "%~dp0TMP\pfs-prt.txt"
 	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "+OPL" | "%~dp0BAT\busybox" sed "s/.*+OPL/+OPL/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "+OPL" | "%~dp0BAT\busybox" sed "s/.*+OPL/+OPL/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -5690,7 +5692,7 @@ echo ----------------------------------------------------
 	echo ls -l >> "%~dp0TMP\pfs-prt.txt"
 	echo exit >> "%~dp0TMP\pfs-prt.txt"
 	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__sysconf" | "%~dp0BAT\busybox" sed "s/.*__sysconf/__sysconf/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__sysconf" | "%~dp0BAT\busybox" sed "s/.*__sysconf/__sysconf/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -5722,7 +5724,7 @@ echo ----------------------------------------------------
 	echo ls -l >> "%~dp0TMP\pfs-prt.txt"
 	echo exit >> "%~dp0TMP\pfs-prt.txt"
 	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__system" | "%~dp0BAT\busybox" sed "s/.*__system/__system/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "__system" | "%~dp0BAT\busybox" sed "s/.*__system/__system/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
 	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -8281,7 +8283,7 @@ echo ----------------------------------------------------
     echo ls -l >> "%~dp0TMP\pfs-prt.txt"
     echo exit >> "%~dp0TMP\pfs-prt.txt"
     type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%POPSPART%" | "%~dp0BAT\busybox" sed "s/.*%POPSPART%/%POPSPART%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%POPSPART%" | "%~dp0BAT\busybox" sed "s/.*%POPSPART%/%POPSPART%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
     set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
     REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -8509,7 +8511,7 @@ echo ----------------------------------------------------
     echo ls -l >> "%~dp0TMP\pfs-prt.txt"
     echo exit >> "%~dp0TMP\pfs-prt.txt"
     type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%POPSPART%" | "%~dp0BAT\busybox" sed "s/.*%POPSPART%/%POPSPART%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\hdd-prt.txt"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%POPSPART%" | "%~dp0BAT\busybox" sed "s/.*%POPSPART%/%POPSPART%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
     set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
     REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
@@ -8831,7 +8833,6 @@ REM To remove blank lines from begin and end of a file:
 REM sed -i -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}' file
 echo\
 pause & (goto DownloadCheatsMenu)
-
 REM ###################################################################################################################
 :TransferPS1GamesHDDOSD
 
@@ -9000,9 +9001,9 @@ REM echo %%G.VCD
      )
 
 if not defined PPtitle set PPtitle=%%~nG
-echo !PPtitle! | "%~dp0BAT\busybox" sed -e "s/-/_/g" | "%~dp0BAT\busybox" sed -e "s/^/PP.POPS-%%F./" | "%~dp0BAT\busybox" cut -c0-32 > "%~dp0POPS\Temp\!appfolder!\PPName.txt"
-"%~dp0BAT\busybox" sed -r -i "s/^(.{12})(.{1})/\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/.\{12\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+echo !PPtitle! | "%~dp0BAT\busybox" sed -e "s/-/_/g" | "%~dp0BAT\busybox" sed -e "s/^/PP.%%F.POPS./" | "%~dp0BAT\busybox" cut -c0-32 > "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -r -i "s/^(.{11})(.{1})/\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/.\{8\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 
 "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/ /_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
@@ -9011,7 +9012,7 @@ echo !PPtitle! | "%~dp0BAT\busybox" sed -e "s/-/_/g" | "%~dp0BAT\busybox" sed -e
 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/(//g; s/)//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/\(.\{16\}\)./\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/\(.\{7\}\)./\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 REM "%~dp0BAT\busybox" sed -i "s/.\{7\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 REM "%~dp0BAT\busybox" sed -i "s/.\{12\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 REM "%~dp0BAT\busybox" sed -i "s/.\{16\}/&./" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
@@ -9316,9 +9317,9 @@ REM echo %%G.VCD
      )
 
 if not defined PPtitle set PPtitle=%%~nG
-echo !PPtitle! | "%~dp0BAT\busybox" sed -e "s/-/_/g" | "%~dp0BAT\busybox" sed -e "s/^/PP.POPS-%%F./" | "%~dp0BAT\busybox" cut -c0-32 > "%~dp0POPS\Temp\!appfolder!\PPName.txt"
-"%~dp0BAT\busybox" sed -r -i "s/^(.{12})(.{1})/\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/.\{12\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+echo !PPtitle! | "%~dp0BAT\busybox" sed -e "s/-/_/g" | "%~dp0BAT\busybox" sed -e "s/^/PP.%%F.POPS./" | "%~dp0BAT\busybox" cut -c0-32 > "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -r -i "s/^(.{11})(.{1})/\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/.\{8\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 
 "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/ /_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
@@ -9327,7 +9328,7 @@ echo !PPtitle! | "%~dp0BAT\busybox" sed -e "s/-/_/g" | "%~dp0BAT\busybox" sed -e
 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/(//g; s/)//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/\(.\{16\}\)./\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/\(.\{7\}\)./\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 REM "%~dp0BAT\busybox" sed -i "s/.\{7\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 REM "%~dp0BAT\busybox" sed -i "s/.\{12\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 REM "%~dp0BAT\busybox" sed -i "s/.\{16\}/&./" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
