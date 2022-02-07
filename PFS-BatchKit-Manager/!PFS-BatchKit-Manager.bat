@@ -9428,11 +9428,11 @@ echo\
 	hdl_dump modify_header %@hdl_path2% "!PPName!" >nul 2>&1
 
 	echo        Completed...
-	PAUSE
+	
 	move "%~dp0POPS\Temp\!appfolder!\EXECUTE.KELF" "%~dp0TMP\POPSTARTER.KELF" >nul 2>&1
 	move "%~dp0POPS\Temp\!appfolder!\hdl_dump.exe" "%~dp0TMP" >nul 2>&1
-    move "%~dp0POPS\Temp\!appfolder!\*.VCD" "%~dp0POPS" >nul 2>&1
-    rmdir /Q/S "%~dp0POPS\Temp\!appfolder!" >nul 2>&1
+        move "%~dp0POPS\Temp\!appfolder!\*.VCD" "%~dp0POPS" >nul 2>&1
+        rmdir /Q/S "%~dp0POPS\Temp\!appfolder!" >nul 2>&1
 	  )
      )
    endlocal
