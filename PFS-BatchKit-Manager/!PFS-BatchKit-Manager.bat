@@ -3701,8 +3701,6 @@ REM ############################################################################
 cd /d "%~dp0"
 mkdir "%~dp0TMP" >nul 2>&1
 
-setlocal disabledelayedexpansion
-
 cls
 "%~dp0BAT\Diagbox" gd 0e
 echo\
@@ -3796,9 +3794,9 @@ echo.
 	"%~dp0BAT\busybox" sed -i "3,100d" "%~dp0TMP\hdl-hddinfotmp.txt"
 	"%~dp0BAT\busybox" cat "%~dp0TMP\hdl-hddinfotmp.txt"
 
-rmdir /Q/S "%~dp0\!COPY_TO_USB_ROOT" >nul 2>&1
-md "%~dp0!COPY_TO_USB_ROOT" >nul 2>&1
-"%~dp0BAT\7z" x -bso0 "%~dp0BAT\!COPY_TO_USB_ROOT.7z" -o"%~dp0!COPY_TO_USB_ROOT" >nul 2>&1
+rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1
+md "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1
+"%~dp0BAT\7z" x -bso0 "%~dp0BAT\^!COPY_TO_USB_ROOT.7z" -o"%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1
 REM xcopy "%~dp0BAT\^!COPY_TO_USB_ROOT" "%~dp0\^!COPY_TO_USB_ROOT" /e >nul 2>&1
 
 "%~dp0BAT\Diagbox" gd 0c 
@@ -3830,13 +3828,13 @@ echo\
 CHOICE /C 12 /M "Select Option:"
 
 IF ERRORLEVEL 1 set @pfs_hackhdd=yes
-IF ERRORLEVEL 2 rmdir /Q/S "%~dp0!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2)
+IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2)
 IF ERRORLEVEL 2 set @pfs_hackhdd=no
 
 echo.
 
 CHOICE /C YN /m "Confirm"
-IF ERRORLEVEL 2 rmdir /Q/S "%~dp0!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2) 
+IF ERRORLEVEL 2 rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1 & set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2) 
 
 
 cls
@@ -3879,8 +3877,8 @@ echo\
 echo\
 "%~dp0BAT\Diagbox" gd 07
 
-"%~dp0!COPY_TO_USB_ROOT\README.txt"
-endlocal
+"%~dp0\^!COPY_TO_USB_ROOT\README.txt"
+
 pause & (goto HDDManagementMenu)
 
 REM ##############################################################################################################################################################
@@ -8833,7 +8831,8 @@ REM To remove blank lines from begin and end of a file:
 REM sed -i -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}' file
 echo\
 pause & (goto DownloadCheatsMenu)
-REM ####################################################################################################################
+
+REM ###################################################################################################################
 :TransferPS1GamesHDDOSD
 
 mkdir "%~dp0TMP" >nul 2>&1
@@ -9051,11 +9050,13 @@ echo\
 	"%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\HDD-OSD_SAMPLE_HEADER.zip" -o"%~dp0POPS\Temp\!appfolder!" -r -y
 	
 	if defined DownloadARTPS1HDDOSD (
+	md PS1 >nul 2>&1
 	"%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\wget" -q --show-progress "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Ficon.sys" -O "%~dp0POPS\Temp\!appfolder!\icon.sys" >nul 2>&1
-	"%~dp0BAT\wget" -q --show-progress "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Flist.ico" -O "%~dp0POPS\Temp\!appfolder!\list.ico" >nul 2>&1
-    "%~dp0BAT\wget" -q --show-progress "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2FPreview.png" -O "%~dp0POPS\Temp\!appfolder!\Preview.png" >nul 2>&1
+	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Ficon.sys" -O "%~dp0POPS\Temp\!appfolder!\PS1\icon.sys" >nul & for %%x in (icon.sys) do if %%~zx==0 del %%x
+	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Flist.ico" -O "%~dp0POPS\Temp\!appfolder!\PS1\list.ico" >nul & for %%x in (list.ico) do if %%~zx==0 del %%x
+    "%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2FPreview.png" -O "%~dp0POPS\Temp\!appfolder!\PS1\Preview.png" >nul & for %%x in (Preview.png) do if %%~zx==0 del %%x
     "%~dp0BAT\Diagbox" gd 0f
+	move "%~dp0POPS\Temp\!appfolder!\PS1\*" "%~dp0POPS\Temp\!appfolder!\" >nul 2>&1
 	)	
 	
 	if not defined DownloadARTPS1HDDOSD (
@@ -9146,8 +9147,9 @@ pause & (goto HDDOSDPartManagement)
    for %%x in ( "Disc1.txt" ) do if %%~zx==0 set NODISC1=NO
    if not defined NODISC1 (
    for /f "tokens=*" %%# in (Disc1.txt) do (
-   if not exist "Temp/%%~n#" md "Temp/%%~n#" 
+   if not exist "Temp/%%~n#" md "Temp/%%~n#"
    move %%# "Temp/%%~n#" >nul 2>&1
+   )
 
    "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0POPS\Disc1.txt"
    "%~dp0BAT\busybox" sed -i "s/^/temp\//g" "%~dp0POPS\Disc1.txt"
@@ -9166,9 +9168,8 @@ pause & (goto HDDOSDPartManagement)
    "%~dp0BAT\busybox" paste -d " " "%~dp0POPS\Disc4.txt" "%~dp0POPS\Disc1.txt" > "%~dp0POPS\Disc4.BAT"
    call Disc4.BAT >nul 2>&1
    
-    )
    )
-  
+
    del Disc?.???
    
    cd /d "%~dp0POPS\temp" & for /f "delims=" %%a in ('dir /ad /b') do (
@@ -9396,16 +9397,18 @@ echo\
 	
 	"%~dp0BAT\busybox" sed -i -e "s/ (Disc [1-6])//g" "%~dp0TMP\gameid.txt"
 	)
- 	
+
 	"%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\HDD-OSD_SAMPLE_HEADER.zip" -o"%~dp0POPS\Temp\!appfolder!" -r -y
 	
 	if defined DownloadARTPS1HDDOSD (
+	md PS1 >nul 2>&1
 	"%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\wget" -q --show-progress "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Ficon.sys" -O "%~dp0POPS\Temp\!appfolder!\icon.sys" >nul 2>&1
-	"%~dp0BAT\wget" -q --show-progress "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Flist.ico" -O "%~dp0POPS\Temp\!appfolder!\list.ico" >nul 2>&1
-    "%~dp0BAT\wget" -q --show-progress "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2FPreview.png" -O "%~dp0POPS\Temp\!appfolder!\Preview.png" >nul 2>&1
+	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Ficon.sys" -O "%~dp0POPS\Temp\!appfolder!\PS1\icon.sys" >nul & for %%x in ("%~dp0POPS\Temp\!appfolder!\PS1\icon.sys") do if %%~zx==0 del %%x
+	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Flist.ico" -O "%~dp0POPS\Temp\!appfolder!\PS1\list.ico" >nul & for %%x in ("%~dp0POPS\Temp\!appfolder!\PS1\list.ico") do if %%~zx==0 del %%x
+    "%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2FPreview.png" -O "%~dp0POPS\Temp\!appfolder!\PS1\Preview.png" >nul & for %%x in ("%~dp0POPS\Temp\!appfolder!\PS1\Preview.png") do if %%~zx==0 del %%x
     "%~dp0BAT\Diagbox" gd 0f
-	)	
+	move "%~dp0POPS\Temp\!appfolder!\PS1\*" "%~dp0POPS\Temp\!appfolder!\" >nul 2>&1
+	)
 	
 	if not defined DownloadARTPS1HDDOSD (
 	"%~dp0BAT\7z.exe" x -bso0 "%~dp0BAT\HDD-OSD-Icons-Pack.zip" -o"%~dp0POPS\Temp\!appfolder!" PS1\%%F\ -r -y & move "%~dp0POPS\Temp\!appfolder!\PS1\%%F\*" "%~dp0POPS\Temp\!appfolder!\" >nul 2>&1
@@ -9423,8 +9426,9 @@ echo\
      )
 	 
 	hdl_dump modify_header %@hdl_path2% "!PPName!" >nul 2>&1
+
 	echo        Completed...
-	
+	PAUSE
 	move "%~dp0POPS\Temp\!appfolder!\EXECUTE.KELF" "%~dp0TMP\POPSTARTER.KELF" >nul 2>&1
 	move "%~dp0POPS\Temp\!appfolder!\hdl_dump.exe" "%~dp0TMP" >nul 2>&1
     move "%~dp0POPS\Temp\!appfolder!\*.VCD" "%~dp0POPS" >nul 2>&1
