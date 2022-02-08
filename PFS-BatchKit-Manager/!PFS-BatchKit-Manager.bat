@@ -8832,7 +8832,7 @@ REM sed -i -e '/./,$!d' -e :a -e '/^\n*$/{$d;N;ba' -e '}' file
 echo\
 pause & (goto DownloadCheatsMenu)
 
-REM ###################################################################################################################
+REM ####################################################################################################################
 :TransferPS1GamesHDDOSD
 
 mkdir "%~dp0TMP" >nul 2>&1
@@ -8947,19 +8947,18 @@ REM Get Size (Disc 0)
 set "Disc0Size="
 cd /d "%~dp0POPS\temp\!appfolder!" & for %%s in (*.VCD) do echo %%~zs | "%~dp0BAT\busybox" sed "s/\s*$//g" > "%~dp0POPS\Temp\!appfolder!\Disc0Size.txt"
 REM "%~dp0BAT\busybox" sed -i -r "/^.{,8}$/d" Disc0Size.txt >nul 2>&1
-"%~dp0BAT\busybox" sed -i "/^.\{9\}./d" Disc0Size.txt >nul 2>&1
-for %%x in (Disc0Size.txt) do if %%~zx==0 del %%x & set SIZEMBD0=0
+REM "%~dp0BAT\busybox" sed -i "/^.\{9\}./d" Disc0Size.txt >nul 2>&1
+for %%x in (*.VCD) do if %%~zx GTR 1920000000 set SIZEMBD0=0
 
 if !SIZEMBD0!==0 (
 "%~dp0BAT\Diagbox" gd 0c
     echo.
-	echo !filename! Files Exceeds size limit
+	echo !filename! Files Exceeds size limit: 2GB Maximum per Files
 	echo.
 	move "%~dp0POPS\Temp\!appfolder!\*.VCD" "%~dp0POPS" >nul 2>&1
 "%~dp0BAT\Diagbox" gd 0f
 	) else (
 	echo good >nul 2>&1
-    if exist "%~dp0POPS\temp\!appfolder!\Disc0Size.txt" set /P Disc0Size=<"%~dp0POPS\temp\!appfolder!\Disc0Size.txt"
 
 if exist "%~dp0POPS\temp\!appfolder!\Disc0Size.txt" for /f %%0 in (Disc0Size.txt) do (
 if %%0 GTR 1000000 set SIZEMBD0=128
@@ -9052,9 +9051,9 @@ echo\
 	if defined DownloadARTPS1HDDOSD (
 	md PS1 >nul 2>&1
 	"%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Ficon.sys" -O "%~dp0POPS\Temp\!appfolder!\PS1\icon.sys" >nul & for %%x in (icon.sys) do if %%~zx==0 del %%x
-	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Flist.ico" -O "%~dp0POPS\Temp\!appfolder!\PS1\list.ico" >nul & for %%x in (list.ico) do if %%~zx==0 del %%x
-    "%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2FPreview.png" -O "%~dp0POPS\Temp\!appfolder!\PS1\Preview.png" >nul & for %%x in (Preview.png) do if %%~zx==0 del %%x
+	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Ficon.sys" -O "%~dp0POPS\Temp\!appfolder!\PS1\icon.sys" >nul & for %%x in ( "%~dp0POPS\Temp\!appfolder!\PS1\icon.sys" ) do if %%~zx==0 del %%x
+	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Flist.ico" -O "%~dp0POPS\Temp\!appfolder!\PS1\list.ico" >nul & for %%x in ( "%~dp0POPS\Temp\!appfolder!\PS1\list.ico" ) do if %%~zx==0 del %%x
+    "%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2FPreview.png" -O "%~dp0POPS\Temp\!appfolder!\PS1\Preview.png" >nul & for %%x in ( "%~dp0POPS\Temp\!appfolder!\PS1\Preview.png" ) do if %%~zx==0 del %%x
     "%~dp0BAT\Diagbox" gd 0f
 	move "%~dp0POPS\Temp\!appfolder!\PS1\*" "%~dp0POPS\Temp\!appfolder!\" >nul 2>&1
 	)	
@@ -9185,36 +9184,51 @@ REM echo "!appfolder!"
 REM Get Size + Name (Disc 0)
 set "Disc0Size="
 set "Disc0="
+set "SIZEMBD0="
 dir "%~dp0POPS\temp\!appfolder!" | "%~dp0BAT\busybox" grep -s -i -e ".*\.VCD$" | "%~dp0BAT\busybox" sed -e "/(Disc [1-6])/d" |  "%~dp0BAT\busybox" cut -c37-999 > "%~dp0POPS\temp\!appfolder!\Disc0.txt" & cd /d "%~dp0POPS\temp\!appfolder!" & for %%x in (Disc0.txt) do if %%~zx==0 del %%x & cd /d "%~dp0POPS\temp\"
 if exist "%~dp0POPS\temp\!appfolder!\Disc0.txt" set /P Disc0=<"%~dp0POPS\temp\!appfolder!\Disc0.txt"
 if defined Disc0 cd /d "%~dp0POPS\temp\!appfolder!" & for %%s in ("!Disc0!") do ( echo %%~zs | "%~dp0BAT\busybox" sed "s/\s*$//g" > Disc0Size.txt )
 
-"%~dp0BAT\busybox" sed -i "/^.\{9\}./d" Disc0Size.txt >nul 2>&1
-for %%x in (Disc0Size.txt) do if %%~zx==0 del %%x & set SIZEMBD0=0
+REM "%~dp0BAT\busybox" sed -i "/^.\{9\}./d" Disc0Size.txt >nul 2>&1
+for %%x in ("!Disc0!") do if %%~zx GTR 1920000000 set SIZEMBD0=0
 
 if !SIZEMBD0!==0 (
 "%~dp0BAT\Diagbox" gd 0c
     echo.
-	echo !filename! Files Exceeds size limit
+	echo !Disc0! Files Exceeds size limit
 	echo.
 	move "%~dp0POPS\Temp\!appfolder!\*.VCD" "%~dp0POPS" >nul 2>&1
 	cd /d "%~dp0POPS\temp"
 "%~dp0BAT\Diagbox" gd 0f
 	) else (
 	echo good >nul 2>&1
-    if exist "%~dp0POPS\temp\!appfolder!\Disc0Size.txt" set /P Disc0Size=<"%~dp0POPS\temp\!appfolder!\Disc0Size.txt"
-	
-cd /d "%~dp0POPS\temp"
+
 REM Get Size + Name (Disc 1)
 set "Disc1Size="
 set "Disc1="
+set "SIZEMBD1="
 dir "%~dp0POPS\temp\!appfolder!" | "%~dp0BAT\busybox" grep -e "(Disc 1)" | "%~dp0BAT\busybox" sed -e "1d" | "%~dp0BAT\busybox" cut -c37-999 > "%~dp0POPS\temp\!appfolder!\Disc1.txt" & cd /d "%~dp0POPS\temp\!appfolder!" & for %%x in (Disc1.txt) do if %%~zx==0 del %%x & cd /d "%~dp0POPS\temp\"
 if exist "%~dp0POPS\temp\!appfolder!\Disc1.txt" set /P Disc1=<"%~dp0POPS\temp\!appfolder!\Disc1.txt"
-if defined Disc1 cd /d "%~dp0POPS\temp\!appfolder!" & for %%s in ("!Disc1!") do ( echo %%~zs | "%~dp0BAT\busybox" sed "s/\s*$//g" > Disc1Size.txt ) & cd /d "%~dp0POPS\temp\"
+if defined Disc1 cd /d "%~dp0POPS\temp\!appfolder!" & for %%s in ("!Disc1!") do ( echo %%~zs | "%~dp0BAT\busybox" sed "s/\s*$//g" > Disc1Size.txt ) 
 
+for %%x in ("!Disc1!") do if %%~zx GTR 1920000000 set SIZEMBD1=0
+
+if !SIZEMBD1!==0 (
+"%~dp0BAT\Diagbox" gd 0c
+    echo.
+	echo !Disc1! Files Exceeds size limit: 2GB Maximum per Files
+	echo.
+	move "%~dp0POPS\Temp\!appfolder!\*.VCD" "%~dp0POPS" >nul 2>&1
+	cd /d "%~dp0POPS\temp"
+"%~dp0BAT\Diagbox" gd 0f
+	) else (
+	echo good >nul 2>&1
+	
+cd /d "%~dp0POPS\temp\"
 REM Get Size + Name (Disc 2)
 set "Disc2Size="
 set "Disc2="
+set "SIZEMBD2="
 dir "%~dp0POPS\temp\!appfolder!" | "%~dp0BAT\busybox" grep -e "(Disc 2)" | "%~dp0BAT\busybox" cut -c37-999 > "%~dp0POPS\temp\!appfolder!\Disc2.txt" & cd /d "%~dp0POPS\temp\!appfolder!" & for %%x in (Disc2.txt) do if %%~zx==0 del %%x & cd /d "%~dp0POPS\temp\"
 if exist "%~dp0POPS\temp\!appfolder!\Disc2.txt" set /P Disc2=<"%~dp0POPS\temp\!appfolder!\Disc2.txt"
 if defined Disc2 cd /d "%~dp0POPS\temp\!appfolder!" & for %%s in ("!Disc2!") do ( echo %%~zs | "%~dp0BAT\busybox" sed "s/\s*$//g" > Disc2Size.txt ) & cd /d "%~dp0POPS\temp\"
@@ -9222,6 +9236,7 @@ if defined Disc2 cd /d "%~dp0POPS\temp\!appfolder!" & for %%s in ("!Disc2!") do 
 REM Get Size + Name(Disc 3)
 set "Disc3Size="
 set "Disc3="
+set "SIZEMBD3="
 dir "%~dp0POPS\temp\!appfolder!" | "%~dp0BAT\busybox" grep -e "(Disc 3)" | "%~dp0BAT\busybox" cut -c37-999 > "%~dp0POPS\temp\!appfolder!\Disc3.txt" & cd /d "%~dp0POPS\temp\!appfolder!" & for %%x in (Disc3.txt) do if %%~zx==0 del %%x & cd /d "%~dp0POPS\temp\"
 if exist "%~dp0POPS\temp\!appfolder!\Disc3.txt" set /P Disc3=<"%~dp0POPS\temp\!appfolder!\Disc3.txt"
 if defined Disc3 cd /d "%~dp0POPS\temp\!appfolder!" & for %%s in ("!Disc3!") do ( echo %%~zs | "%~dp0BAT\busybox" sed "s/\s*$//g" > Disc3Size.txt ) & cd /d "%~dp0POPS\temp\"
@@ -9229,6 +9244,7 @@ if defined Disc3 cd /d "%~dp0POPS\temp\!appfolder!" & for %%s in ("!Disc3!") do 
 REM Get Size + Name (Disc 4)
 set "Disc4Size="
 set "Disc4="
+set "SIZEMBD4="
 dir "%~dp0POPS\temp\!appfolder!" | "%~dp0BAT\busybox" grep -e "(Disc 4)" | "%~dp0BAT\busybox" cut -c37-999 > "%~dp0POPS\temp\!appfolder!\Disc4.txt" & cd /d "%~dp0POPS\temp\!appfolder!" & for %%x in (Disc4.txt) do if %%~zx==0 del %%x & cd /d "%~dp0POPS\temp\"
 if exist "%~dp0POPS\temp\!appfolder!\Disc4.txt" set /P Disc4=<"%~dp0POPS\temp\!appfolder!\Disc4.txt"
 if defined Disc4 cd /d "%~dp0POPS\temp\!appfolder!" & for %%s in ("!Disc4!") do ( echo %%~zs | "%~dp0BAT\busybox" sed "s/\s*$//g" > Disc4Size.txt ) & cd /d "%~dp0POPS\temp\"
@@ -9403,9 +9419,9 @@ echo\
 	if defined DownloadARTPS1HDDOSD (
 	md PS1 >nul 2>&1
 	"%~dp0BAT\Diagbox" gd 03
-	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Ficon.sys" -O "%~dp0POPS\Temp\!appfolder!\PS1\icon.sys" >nul & for %%x in ("%~dp0POPS\Temp\!appfolder!\PS1\icon.sys") do if %%~zx==0 del %%x
-	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Flist.ico" -O "%~dp0POPS\Temp\!appfolder!\PS1\list.ico" >nul & for %%x in ("%~dp0POPS\Temp\!appfolder!\PS1\list.ico") do if %%~zx==0 del %%x
-    "%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2FPreview.png" -O "%~dp0POPS\Temp\!appfolder!\PS1\Preview.png" >nul & for %%x in ("%~dp0POPS\Temp\!appfolder!\PS1\Preview.png") do if %%~zx==0 del %%x
+	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Ficon.sys" -O "%~dp0POPS\Temp\!appfolder!\PS1\icon.sys" >nul & for %%x in ( "%~dp0POPS\Temp\!appfolder!\PS1\icon.sys" ) do if %%~zx==0 del %%x
+	"%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2Flist.ico" -O "%~dp0POPS\Temp\!appfolder!\PS1\list.ico" >nul & for %%x in ( "%~dp0POPS\Temp\!appfolder!\PS1\list.ico" ) do if %%~zx==0 del %%x
+    "%~dp0BAT\wget" -q "https://ia801402.us.archive.org/view_archive.php?archive=/16/items/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip&file=PS1%%2F%%F%%2FPreview.png" -O "%~dp0POPS\Temp\!appfolder!\PS1\Preview.png" >nul & for %%x in ( "%~dp0POPS\Temp\!appfolder!\PS1\Preview.png" ) do if %%~zx==0 del %%x
     "%~dp0BAT\Diagbox" gd 0f
 	move "%~dp0POPS\Temp\!appfolder!\PS1\*" "%~dp0POPS\Temp\!appfolder!\" >nul 2>&1
 	)
@@ -9428,13 +9444,14 @@ echo\
 	hdl_dump modify_header %@hdl_path2% "!PPName!" >nul 2>&1
 
 	echo        Completed...
-	
+
 	move "%~dp0POPS\Temp\!appfolder!\EXECUTE.KELF" "%~dp0TMP\POPSTARTER.KELF" >nul 2>&1
 	move "%~dp0POPS\Temp\!appfolder!\hdl_dump.exe" "%~dp0TMP" >nul 2>&1
-        move "%~dp0POPS\Temp\!appfolder!\*.VCD" "%~dp0POPS" >nul 2>&1
-        rmdir /Q/S "%~dp0POPS\Temp\!appfolder!" >nul 2>&1
+    move "%~dp0POPS\Temp\!appfolder!\*.VCD" "%~dp0POPS" >nul 2>&1
+    rmdir /Q/S "%~dp0POPS\Temp\!appfolder!" >nul 2>&1
 	  )
      )
+	)
    endlocal
   endlocal
  endlocal 
