@@ -8834,6 +8834,8 @@ pause & (goto DownloadCheatsMenu)
 
 REM ####################################################################################################################
 :TransferPS1GamesHDDOSD
+endlocal
+endlocal
 
 mkdir "%~dp0TMP" >nul 2>&1
 setlocal DisableDelayedExpansion
@@ -8999,15 +9001,17 @@ REM echo %%G.VCD
      )
 
 if not defined PPtitle set PPtitle=%%~nG
-echo !PPtitle! | "%~dp0BAT\busybox" sed -e "s/-/_/g" | "%~dp0BAT\busybox" sed -e "s/^/PP.%%F.POPS./" | "%~dp0BAT\busybox" cut -c0-32 > "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+echo !PPtitle! | "%~dp0BAT\busybox" iconv -f utf8 -t ascii//TRANSLIT//IGNORE | "%~dp0BAT\busybox" sed -e "s/-/_/g; s/\./_/g" | "%~dp0BAT\busybox" sed -e "s/^/PP.%%F.POPS./" | "%~dp0BAT\busybox" cut -c0-32 > "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -r -i "s/^(.{11})(.{1})/\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/.\{8\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 
 "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/ /_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/'/_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\&/_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/%%/_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/\[//g; s/\]//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/(//g; s/)//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\(.\{7\}\)./\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
@@ -9334,21 +9338,20 @@ REM echo %%G.VCD
      )
 
 if not defined PPtitle set PPtitle=%%~nG
-echo !PPtitle! | "%~dp0BAT\busybox" sed -e "s/-/_/g" | "%~dp0BAT\busybox" sed -e "s/^/PP.%%F.POPS./" | "%~dp0BAT\busybox" cut -c0-32 > "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+echo !PPtitle! | "%~dp0BAT\busybox" iconv -f utf8 -t ascii//TRANSLIT//IGNORE | "%~dp0BAT\busybox" sed -e "s/-/_/g; s/\./_/g" | "%~dp0BAT\busybox" sed -e "s/^/PP.%%F.POPS./" | "%~dp0BAT\busybox" cut -c0-32 > "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -r -i "s/^(.{11})(.{1})/\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/.\{8\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 
 "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/ /_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/'/_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\&/_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/%%/_/g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/\[//g; s/\]//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/(//g; s/)//g" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\(.\{7\}\)./\1/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
-REM "%~dp0BAT\busybox" sed -i "s/.\{7\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
-REM "%~dp0BAT\busybox" sed -i "s/.\{12\}/&-/" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
-REM "%~dp0BAT\busybox" sed -i "s/.\{16\}/&./" "%~dp0POPS\Temp\!appfolder!\PPName.txt"
 set /P PPName=<"%~dp0POPS\Temp\!appfolder!\PPName.txt"
 
 REM echo !PPName!
