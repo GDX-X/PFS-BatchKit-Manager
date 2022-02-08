@@ -430,14 +430,18 @@ SLUS_010.22 Armorines - Project Swarm
 SLES_024.98 Army Men - Air Attack
 SLUS_009.13 Army Men - Air Attack
 SLES_032.26 Army Men - Air Attack 2
-SLUS_011.32 Army Men - Air Attack 2
+SLES_032.27 Army Men - Air Attack 2
 SLES_032.28 Army Men - Air Attack 2
+SLES_032.29 Army Men - Air Attack 2
+SLES_032.30 Army Men - Air Attack 2
+SLUS_011.32 Army Men - Air Attack 2
 SLUS_013.30 Army Men - Green Rouge
 SLES_032.31 Army Men - Land, Sea & Air
 SLES_034.14 Army Men - Lock 'n' Load
 SLES_034.31 Army Men - Omega Soldier
 SLES_028.55 Army Men - Operation Meltdown
 SLUS_009.14 Army Men - Sarge's Heroes
+SLES_026.28 Army Men - Sarge's Heroes
 SLES_026.28 Army Men - Sarge's Heroes
 SLES_033.16 Army Men - Sarge's Heroes 2
 SLUS_012.02 Army Men - Sarge's Heroes 2
@@ -465,7 +469,7 @@ SCPS_454.20 Assault Suits Valken 2
 SLPS_008.54 Assault Suits Valken 2
 SLPM_868.72 Assault Suits Valken 2 (Cyclone Reprint)
 SLES_014.16 Asterix
-SLES_024.73 Asterix & Obelix - Contra César
+SLES_024.73 Asterix & Obelix - Contra CÃ©sar
 SLES_020.92 Asterix & Obelix - Take on Caesar
 SLES_024.75 Asterix & Obelix - Take on Caesar
 SLES_033.24 Asterix - Mega Madness
@@ -1958,9 +1962,9 @@ SLES_028.91 Disney's Dinosaure
 SLES_028.93 Disney's Dinosauri
 SLES_028.92 Disney's Dinosaurier
 SLES_040.63 Disney's Dinosaurs
-SCES_030.15 Disney's Ein Königreich für ein Lama
+SCES_030.15 Disney's Ein KÃ¶nigreich fÃ¼r ein Lama
 SCES_030.29 Disney's El Libro de la Selva Muevete con Ritmo
-SCES_021.77 Disney's El Tetris Un Mágico Desafío
+SCES_021.77 Disney's El Tetris Un MÃ¡gico DesafÃ­o
 SLES_039.84 Disney's Evail avec Winnie l'Ourson
 SLES_031.78 Disney's Goofy's Fun House
 SLES_036.39 Disney's Goofy's Fun House
@@ -1993,7 +1997,7 @@ SLUS_010.38 Disney's Mulan - Story Studio
 SLES_037.45 Disney's Party mit Winnie Puh
 SLES_037.05 Disney's Party Time with Winnie the Pooh
 SCES_037.07 Disney's Peter Pan - Adventures in Neverland
-SCES_037.12 Disney's Peter Pan - Rückkehr nach Nimmerland
+SCES_037.12 Disney's Peter Pan - RÃ¼ckkehr nach Nimmerland
 SCUS_946.43 Disney's Peter Pan in Return to Neverland
 SLUS_014.37 Disney's Pooh's Party Game - In Search of the Treasure
 SCES_021.85 Disney's Tarzan
@@ -3383,7 +3387,7 @@ SLES_036.64 Harry Potter and the Philosopher's Stone
 SLES_036.65 Harry Potter and the Philosopher's Stone
 SLUS_014.15 Harry Potter and the Sorcerer's Stone
 SLPS_033.55 Harry Potter to Kenja no Ishi
-SLES_039.73 Harry Potter y la Cámara Secreta
+SLES_039.73 Harry Potter y la CÃ¡mara Secreta
 SLES_036.63 Harry Potter y la Piedra Filosofal
 SLPM_864.66 Harukanaru Toki no Naka de
 SLPM_873.49 Harukanaru Toki no Naka de (Koei The Best)
@@ -4344,7 +4348,7 @@ SCPS_454.16 Legend of Mana
 SLUS_010.13 Legend of Mana
 SLES_041.45 Legend of Mulan
 SLES_033.01 LEGO Eiland 2 - De Wraak van Dondersteen
-SLES_033.04 LEGO Insel 2 - Der Steinbrecher kehrt zurück
+SLES_033.04 LEGO Insel 2 - Der Steinbrecher kehrt zurÃ¼ck
 SLES_033.03 LEGO Island 2 - La Revanche de Cassbrik
 SLES_032.99 LEGO Island 2 - The Brickster's Revenge
 SLES_033.06 LEGO Island 2 - The Brickster's Revenge
@@ -4358,7 +4362,7 @@ SLUS_005.81 LEGO Racers
 SLUS_009.37 LEGO Rock Raiders
 SLES_016.90 LEGO Rock Raiders
 SLUS_013.90 LEGO Stunt Rally
-SLES-033.00 LEGO Øen 2 - Kim Cool's Hævn
+SLES-033.00 LEGO Ã˜en 2 - Kim Cool's HÃ¦vn
 SLES_014.61 Lemmings & Oh No^! More Lemmings
 SLUS_007.60 Lemmings & Oh No^! More Lemmings
 SCES_000.09 Lemmings 3D
@@ -8111,8 +8115,8 @@ SCES_122.85 Syphon Filter 2 (Disc 2)
 SCES_122.86 Syphon Filter 2 (Disc 2)
 SCES_122.87 Syphon Filter 2 (Disc 2)
 SCES_122.88 Syphon Filter 2 (Disc 2)
-SCES_022.89 Syphon Filter 2 Conspiración Mortal (Disc 1)
-SCES_122.89 Syphon Filter 2 Conspiración Mortal (Disc 2)
+SCES_022.89 Syphon Filter 2 ConspiraciÃ³n Mortal (Disc 1)
+SCES_122.89 Syphon Filter 2 ConspiraciÃ³n Mortal (Disc 2)
 SCES_036.99 Syphon Filter 3
 SCUS_946.40 Syphon Filter 3
 SCES_036.97 Syphon Filter 3
@@ -9694,28 +9698,3 @@ SLPS_002.71 Zork I - The Great Underground Empire
 SLPS_012.38 Zutto Issho - With Me Everytime...
 SLPM_865.23 Zutto Issho - With Me Everytime... (MajorWave 1500 Series)
 SLPS_004.24 Zxe-D - Legend of Plasmalite
-
-PSRM_012.240 Colony Wars - Vengeance (Demo)
-PSRM_005.510 Final Fantasy VII Interactive Sampler CD (Demo)
-PSRM_006.781 Final Fantasy VII Square Soft on PlayStation Preview (Demo)
-PSRM_010.560 Jampack (Demo)
-PSRM_023.340 Jampack Fall 2001 (Demo)
-PSRM_013.670 Jampack Summer '99 (Demo)
-PSRM_018.400 Jampack Summer 2k (Demo)
-PSRM_011.720 Jampack Winter '98 (Demo)
-PSRM_016.450 Jampack Winter '99 (Demo)
-PSRM_021.300 Jampack Winter 2000 (Demo)
-PSRM_023.570 PSone (Demo)
-PSRM_006.590 PlayStation Underground 1 (Demo) (Disc 1)
-PSRM_006.600 PlayStation Underground 1 (Demo) (Disc 2)
-PSRM_006.770 PlayStation Underground 2 (Demo) (Disc 1)
-PSRM_006.780 PlayStation Underground 2 (Demo) (Disc 2)
-PSRM_009.340 PlayStation Underground 2.1 (Demo) (Disc 1)
-PSRM_009.350 PlayStation Underground 2.1 (Demo) (Disc 2)
-PSRM_007.670 PlayStation Underground 3 (Demo) (Disc 1)
-PSRM_007.680 PlayStation Underground 3 (Demo) (Disc 2)
-PSRM_008.900 PlayStation Underground 4 (Demo) (Disc 1)
-PSRM_008.910 PlayStation Underground 4 (Demo) (Disc 2)
-PSRM_010.800 Squaresoft on PlayStation 1998 Collector's CD Vol.1 (Demo)
-PSRM_010.900 Squaresoft on PlayStation 1998 Collector's CD Vol.2 (Demo)
-PSRM_017.110 Squaresoft on PlayStation 2000 Collector's CD Vol.3 (Demo)

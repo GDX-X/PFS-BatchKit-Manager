@@ -1320,8 +1320,8 @@ SCES_547.01 Buzz^! : Junior : RoboJam
 SCES_546.76 Buzz^! : Junior : RoboJam
 SCED_548.08 Buzz^! : Junior : RoboJam + Buzz^! : Junior : Jungle Party
 SCUS_975.96 Buzz^! : Junior Jungle Party
-SCES_544.97 Buzz^! : Le Méga Quiz
-SCES_553.86 Buzz^! : Le Plus Malin des Français
+SCES_544.97 Buzz^! : Le MÃ©ga Quiz
+SCES_553.86 Buzz^! : Le Plus Malin des FranÃ§ais
 SCES_533.05 Buzz^! : Le Quiz musical
 SCES_554.23 Buzz^! : Norgesmester
 SCES_550.94 Buzz^! : Pop Quiz
@@ -1400,7 +1400,7 @@ SLES_542.68 Buzz^! : The Sports Quiz
 SLES_542.61 Buzz^! : The Sports Quiz
 SCES_542.64 Buzz^! : The Sports Quiz
 SLES_542.62 Buzz^! : The Sports Quiz
-SCES_553.88 Buzz^! : ¿Qué Sabes de tu País?
+SCES_553.88 Buzz^! : Â¿QuÃ© Sabes de tu PaÃ­s?
 SCES_532.36 Buzzrod Fishing Fantasy
 SLES_532.36 Buzzrod Fishing Fantasy
 SCES_526.48 BVB 09 : Club Football 2005 : Borussia Dortmund
@@ -2100,7 +2100,7 @@ SCES_535.64 Darkwatch
 SLUS_210.42 Darkwatch
 SLPM_656.53 Darling Special Backlash : Koi no Exhaust Heat
 SLES_544.75 Darwin
-SLES_536.40 Das Große deutsche Fußball-Quiz
+SLES_536.40 Das GroÃŸe deutsche FuÃŸball-Quiz
 SCES_502.17 Dave Mirra Freestyle BMX 2
 SLUS_201.59 Dave Mirra Freestyle BMX 2
 SLES_502.17 Dave Mirra Freestyle BMX 2
@@ -2585,7 +2585,7 @@ SLES_551.93 Disney-Pixar's WALL-E
 SLES_551.94 Disney-Pixar's WALL-E
 SLUS_217.36 Disney-Pixar's WALL-E
 SLES_551.95 Disney-Pixar's WALL-E	
-SLES_551.88 Disney-Pixar's WALL-E : Der Letzte räumt die Erde auf
+SLES_551.88 Disney-Pixar's WALL-E : Der Letzte rÃ¤umt die Erde auf
 SCED_527.23 DJ : Decks & FX
 SCES_524.05 DJ : Decks & FX (House Edition)
 SCES_527.56 DJ : Decks & FX : Claudio Coccoluto Edition
@@ -2822,7 +2822,7 @@ SCED_506.60 Dropship : United Peace Force
 SLUS_204.63 Dropship : United Peace Force
 SCES_504.59 Dropship : United Peace Force
 SLPM_620.01 Drum Mania
-SLES_505.58 DSF Fußball Manager 2002
+SLES_505.58 DSF FuÃŸball Manager 2002
 SLUS_217.93 DT Carnage
 SLES_539.04 DT Racer
 SCES_539.04 DT Racer
@@ -4880,7 +4880,7 @@ SCES_525.27 Harry Potter og Fangen fra Azkaban
 SLES_512.15 Harry Potter og Mysteriekammeret
 SLPS_202.34 Harry Potter to Himitsu no Heya
 SLPM_654.65 Harry Potter to Kenja no Ishi
-SLES_511.95 Harry Potter y la Cámara Secreta
+SLES_511.95 Harry Potter y la CÃ¡mara Secreta
 SLPM_663.18 Haru no Ashioto : Step of Spring
 ALCH_000.05 Haru no Ashioto : Step of Spring (PacPac Pack)
 SLPM_661.00 Harukanaru Jikuu no Kade 3
@@ -6207,7 +6207,7 @@ SLPM_550.09 L no Kisetsu 2 : Invisible Memories
 SLES_532.21 L'Entraineur 5: Saison 04/05
 SLES_532.21 L'Entraineur 5: Saison 04/05
 SLES_555.16 L'Era glaciale 3 L'Alba dei Dinosauri
-SLES_521.55 L'Eredità
+SLES_521.55 L'EreditÃ 
 SCES_534.19 L.A. Rush
 SLUS_211.12 L.A. Rush
 SLES_534.19 L.A. Rush
@@ -6527,7 +6527,7 @@ SLUS_214.77 Madden NFL 07 (Hall of Fame Edition)
 SLUS_216.38 Madden NFL 08
 SLPM_668.37 Madden NFL 08
 SLES_548.12 Madden NFL 08
-SLUS_217.05 Madden NFL 08 en Español
+SLUS_217.05 Madden NFL 08 en EspaÃ±ol
 SLUS_217.70 Madden NFL 09
 SLES_552.38 Madden NFL 09
 SLUS_219.37 Madden NFL 11
@@ -7487,7 +7487,7 @@ SLUS_211.04 MX vs ATV Unleashed
 SLES_531.06 MX vs ATV Unleashed
 SCES_531.06 MX vs ATV Unleashed
 SLUS_291.40 MX vs ATV Unleashed (Demo)
-SLES_550.51 MX vs. ATV Extrême Limite
+SLES_550.51 MX vs. ATV ExtrÃªme Limite
 SLES_550.50 MX vs. ATV Untamed
 SLES_528.64 MX World Tour
 SCES_528.64 MX World Tour
@@ -7533,9 +7533,9 @@ SCES_541.13 Myth Makers : Super Kart GP
 SLES_541.13 Myth Makers : Super Kart GP
 SCES_521.59 Myth Makers Super Kart GP
 SLES_521.59 Myth Makers Super Kart GP
-SLES_510.27 Mánager de Liga 2003
-SLES_514.61 Mánager de Liga 2004
-SLES_526.97 Mánager de Liga 2005
+SLES_510.27 MÃ¡nager de Liga 2003
+SLES_514.61 MÃ¡nager de Liga 2004
+SLES_526.97 MÃ¡nager de Liga 2005
 SLPM_552.23 NadePro^!^! Kisama no Seiyuu Yatte Miro^!
 SLPS_255.00 Namco 50th Anniversary Collection
 SLUS_202.73 Namco Museum
@@ -8060,11 +8060,11 @@ SCES_536.86 NHL Hockey 2K6
 SLUS_215.47 NHRA : Countdown to the Championship 2007
 SLUS_211.14 NHRA Championship Drag Racing
 SLPS_251.01 Nichibeikan Pro Yakyuu : Final League
-SLES_543.77 Nick : Der tierisch verrückte Bauernhof
+SLES_543.77 Nick : Der tierisch verrÃ¼ckte Bauernhof
 SLES_552.88 Nick Jr. Dora the Explorer : Dora Saves the Mermaids
 SLES_543.78 Nickelodeon Barnyard
-SLES_534.98 Nickelodeon Bob Esponja : ¡Luces, Cámara, Esponja^!
-SLES_534.95 Nickelodeon Bob L'éponge : Silence on Tourne^!
+SLES_534.98 Nickelodeon Bob Esponja : Â¡Luces, CÃ¡mara, Esponja^!
+SLES_534.95 Nickelodeon Bob L'Ã©ponge : Silence on Tourne^!
 SLUS_219.23 Nickelodeon Dora the Explorer : Dora Saves the Crystal Kingdom
 SLUS_219.44 Nickelodeon Dora's Big Birthday Adventure
 SLES_552.84 Nickelodeon Go Diego Go^! Great Dinosaur Rescue
@@ -9339,7 +9339,7 @@ SLES_534.88 Puzzlemaniacs
 SLPM_655.33 Pyu to Fuku^! Jaguar Ashita no Japan
 SLPM_658.62 Pyua Pyua Mimi Toshippono Monogatari
 SLPM_655.68 Pyuu to Fuku^! Jogger Ashita no Japan
-SLES_541.73 På andra sidan häcken
+SLES_541.73 PÃ¥ andra sidan hÃ¤cken
 SLPM_622.42 Q-Ball Billiards Master
 SLUS_200.70 Q-Ball Billiards Master
 SLES_501.27 Quake III : Revolution
@@ -9618,7 +9618,7 @@ SLES_515.22 Return to Castle Wolfenstein : Operation Resurrection
 SLUS_202.97 Return to Castle Wolfenstein : Operation Resurrection
 SLES_514.49 Return to Castle Wolfenstein : Operation Resurrection
 SCES_514.49 Return to Castle Wolfenstein : Operation Resurrection
-SLES_514.50 Return to Castle Wolfenstein : Opération Résurrection
+SLES_514.50 Return to Castle Wolfenstein : OpÃ©ration RÃ©surrection
 SLPS_252.01 Reveal Fantasia
 SLPS_250.94 Reveal Fantasia
 SLPM_621.01 Rez
@@ -9754,8 +9754,8 @@ SCES_527.61 Rocky : Legends
 SLES_505.47 Roger Lemerre : La Selection des Champions 2002
 SCES_505.47 Roger Lemerre : La Selection des Champions 2002
 SLES_526.95 Roger Lemerre : La Selection des Champions 2005
-SLES_510.24 Roger Lemerre : La Sélection des Champions 2003
-SLES_514.59 Roger Lemerre : La Sélection des Champions 2004
+SLES_510.24 Roger Lemerre : La SÃ©lection des Champions 2003
+SLES_514.59 Roger Lemerre : La SÃ©lection des Champions 2004
 SCES_545.52 Rogue Galaxy
 SCAJ_201.62 Rogue Galaxy
 SCPS_151.02 Rogue Galaxy
@@ -11101,11 +11101,11 @@ SCES_552.56 SingStar Canciones Disney
 SCES_556.40 SingStar Cantautori Italiani
 SCES_556.11 SingStar Chart Hits
 SCES_555.70 SingStar Chartbreaker
-SCES_551.82 SingStar Clásicos
+SCES_551.82 SingStar ClÃ¡sicos
 SCUS_976.50 SingStar Country
 SCUS_976.51 SingStar Country (Game Only)
 SCES_547.41 SingStar Deutsch Rock-Pop Vol. 2
-SCES_556.06 SingStar Die größten Solokünstler
+SCES_556.06 SingStar Die grÃ¶ÃŸten SolokÃ¼nstler
 SCES_552.60 SingStar e la Magia Disney
 SCES_545.76 SingStar ESKA : Hity na Czasie
 SCES_556.17 SingStar Fussballhits
@@ -11136,14 +11136,14 @@ SCES_555.64 Singstar Made in Germany
 SCES_554.89 SingStar Mallorca Party
 SCES_555.40 SingStar Mecano
 SCES_555.66 SingStar Miliki
-SCES_555.15 SingStar Morangos com Açúcar
+SCES_555.15 SingStar Morangos com AÃ§Ãºcar
 SCES_555.52 SingStar Motown
 SCES_555.49 SingStar Motown
 SLES_540.78 SingStar Norsk pa Norsk
 SCES_540.78 SingStar Norsk pa Norsk
 SCES_531.84 SingStar Norske Hits
 SLES_531.84 SingStar Norske Hits
-SCES_551.73 SingStar Operación Triunfo
+SCES_551.73 SingStar OperaciÃ³n Triunfo
 SCES_528.27 SingStar Party
 SLES_528.30 SingStar Party
 SCES_528.30 SingStar Party
@@ -11210,7 +11210,7 @@ SCES_550.56 SingStar Summer Party
 SCES_531.85 SingStar Svenska Hits
 SLES_531.85 SingStar Svenska Hits
 SCES_545.98 SingStar Svenska Hits Schlager
-SCES_555.68 SingStar Svenska stjärnor
+SCES_555.68 SingStar Svenska stjÃ¤rnor
 SCES_555.57 SingStar Take That
 SCES_555.54 SingStar Take That
 SCES_551.83 SingStar Turkish Party
@@ -12434,7 +12434,7 @@ SLPM_655.21 Tentama 2 Wins
 SLPM_655.20 Tentama 2 Wins (Limited Edition)
 SLPM_664.86 Tentama : 1st Sunny Side (2800 Collection)
 SCES_509.22 Terminator
-SLES_520.39 Terminator 3 : La Rebelión de las Máquinas
+SLES_520.39 Terminator 3 : La RebeliÃ³n de las MÃ¡quinas
 SCES_521.51 Terminator 3 : Le Macchine Ribelli
 SLES_521.51 Terminator 3 : Le Macchine Ribelli
 SLPM_658.37 Terminator 3 : Redemption
@@ -12850,7 +12850,7 @@ SLES_550.10 Thrillville : Fuori dai Binari
 SLES_548.07 Thrillville : Le Parc en Folie
 SLES_548.06 Thrillville : Off the Rails
 SLUS_216.11 Thrillville : Off the Rails
-SLES_548.87 Thrillville : Verrückte Achterbahn
+SLES_548.87 Thrillville : VerrÃ¼ckte Achterbahn
 SCES_518.52 Thug MOTX (Demo)
 SLES_518.52 Thug MOTX (Demo)
 SLPM_550.96 Thunder Force VI
@@ -13703,7 +13703,7 @@ SLES_507.09 Weakest Link (Le Maillon Fable)
 SLPM_627.11 Welcome to Sheep Village (Superlite 2000)
 SCUS_973.94 Welcome to the World of Online Gaming for Your PlayStation 2 (Demo)
 SLPM_623.49 Welcome to Universal Studios Japan
-SLES_548.05 Wer wird Millionär : Party Edition
+SLES_548.05 Wer wird MillionÃ¤r : Party Edition
 SLUS_207.90 Wheel of Fortune
 SLES_519.58 Whiplash
 SCES_519.58 Whiplash
@@ -14119,7 +14119,7 @@ SLPS_732.24 Xenosaga Episode II : Jenseits von Gut und Bose (PlayStation 2 The B
 SLPS_732.25 Xenosaga Episode II : Jenseits von Gut und Bose (PlayStation 2 The Best) (Disc 2)
 SLPS_253.66 Xenosaga Episode II : Jenseits von Gut und Bose (Premium Box) (Disc 1)
 SLPS_253.67 Xenosaga Episode II : Jenseits von Gut und Bose (Premium Box) (Disc 2)
-SCES_820.35 Xenosaga Episode II : Jenseits von Gut und Böse (Disc 2)
+SCES_820.35 Xenosaga Episode II : Jenseits von Gut und BÃ¶se (Disc 2)
 SLPM_611.47 Xenosaga Episode III : Also Sprach Zarathustra (Demo)
 SCAJ_201.79 Xenosaga Episode III : Also Sprach Zarathustra (Disc 1)
 SLPS_256.40 Xenosaga Episode III : Also Sprach Zarathustra (Disc 1)
