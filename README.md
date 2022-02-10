@@ -74,6 +74,17 @@ Copy your .BIN/CUE in POPS Folder
    </p>
 </details>
 
+<details>
+  <summary> <h7> <b> How to Setup HDD Network </b> </h7> </summary>
+   <p>
+
+SOON
+
+  ------
+   </p>
+</details>
+
+
 # FAQ
 
 
@@ -87,6 +98,17 @@ you can find it [__here__](https://www.psx-place.com/threads/popstarter.19139/pa
      
   ------
      
+   </p>
+</details>
+
+
+<details>
+  <summary> <h7> <b> Can use it without internet ?  </b> </h7> </summary>
+   <p>
+
+  Yes you can use it without internet
+
+  ------
    </p>
 </details>
 
