@@ -1,0 +1,23 @@
+name: Update OPL Launcher
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 15 * * 5"
+
+jobs:
+  update_patinfo:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Update Widescreen Hacks Package
+      run: |
+        cd PFS-BatchKit-Manager/BAT
+        rm -f boot.kelf
+        wget https://github.com/israpps/HDL-Batch-installer/blob/main/Release/boot.kelf?raw=true -O $PWD/boot.kelf
+        
+    - uses: EndBug/add-and-commit@v7
+      with:
+        default_author: github_actions
+        message: 'Update OPL Launcher'
