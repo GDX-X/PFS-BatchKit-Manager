@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Update Widescreen Hacks Package
+    - name: Update OPL Launcher
       run: |
         cd PFS-BatchKit-Manager/BAT
         rm -f boot.kelf
