@@ -1805,7 +1805,7 @@ CHOICE /C 1234 /M "Select Option:"
 
 IF ERRORLEVEL 4 (goto TransferPS1GamesHDDOSD)
 IF ERRORLEVEL 1 set @pfs_pop=yes & set "choice=" & set popspartinstall=__.POPS
-IF ERRORLEVEL 2 set @pfs_pop=no
+IF ERRORLEVEL 2 (goto mainmenu)
 IF ERRORLEVEL 3 set @pfs_popmanually=yes
 
 IF !@pfs_popmanually!==yes (
