@@ -844,11 +844,23 @@ IF "!@hdl_path!"=="" (
 	)
 )
 
-"%~dp0BAT\Diagbox" gd 0e
+"%~dp0BAT\Diagbox" gd 0f
 echo\
+echo\
+echo Transfer PS2 Games:
 echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo         1) Yes
+"%~dp0BAT\Diagbox" gd 0c
+echo         2) No
+echo\
 "%~dp0BAT\Diagbox" gd 07
+CHOICE /C 12 /M "Select Option:"
 
+if errorlevel 2 (goto mainmenu)
+
+cls
+"%~dp0BAT\Diagbox" gd 07
 set usedb=no
 if exist gameid.txt (
 	echo.
@@ -956,18 +968,13 @@ for %%f in (*.iso *.cue *.nrg *.gi *.iml) do (
 			if "!fnheader!"==%%m ( set title=!fname:~12!) else ( set title=!fname!)
 		)
 
-		set disctype=unknown
-		if "%%i"=="CD" ( set disctype=inject_cd && set gameidtmp=%%~l)
-		if "%%i"=="DVD" ( set disctype=inject_dvd && set gameidtmp=%%~l)
-		if "%%i"=="dual-layer" ( if "%%j"=="DVD" ( set disctype=inject_dvd && set gameidtmp=%%~m))
-		echo !gameidtmp! > "%~dp0TMP\gameidtmp.txt"
-		"%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\gameidtmp.txt"
-		set /P gameid=<"%~dp0TMP\gameidtmp.txt"
-		
+        set disctype=unknown
+		if "%%i"=="CD" ( set disctype=inject_cd && set gameid=%%l)
+		if "%%i"=="DVD" ( set disctype=inject_dvd && set gameid=%%l)
+		if "%%i"=="dual-layer" ( if "%%j"=="DVD" ( set disctype=inject_dvd && set gameid=%%m))
 		if "!disctype!"=="unknown" (
-		
 		"%~dp0BAT\Diagbox" gd 0c
-		echo	WARNING: Unable to determine disc type^! File ignored.
+			echo	WARNING: Unable to determine disc type^! File ignored.
 	    "%~dp0BAT\Diagbox" gd 07
 		
 		) else (
