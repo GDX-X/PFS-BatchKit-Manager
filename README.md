@@ -95,11 +95,11 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
      
 6) In OPL Go to `Settings` > `Enable Write Operation` `ON` Select `OK` For save
    
-7) Still in OPL Go to `Network Settings` and write down the `IP Address` Now go back to the menu and "Start NBD Server"
+7) Still in OPL Go to `Network Settings` and write down the `IP Address` Now go back to the menu and `Start NBD Server`
      
 8) Now In PFS Batchkit Manager Go to `Advanced menu` > `HDDManagement` > `NBD Server` > `Mount Device`
 
-9) Type in the IP address of your PS2 that you wrote down
+9) Type in the IP address of your PS2 that you wrote down                                                       
 (From the time you start the NBD Server, you have approximately 20-30 seconds to enter the IP Address into PFS Batchkit Manager.)
      
 10) Normally if all goes well, your hard drive should be connected to your pc as local hard drive                    
