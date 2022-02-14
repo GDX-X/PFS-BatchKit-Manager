@@ -95,13 +95,13 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
      
 6) In OPL Go to `Settings` > `Enable Write Operation` `ON` Select `OK` For save
    
-7) Still in OPL Go to `Network Settings` > `IP Address Type` Select `Static` and put `192.168.0.21` Select `OK` > `Start NBD server`                           
+7) Still in OPL Go to `Network Settings` > `IP Address Type` Select `Static` and put `192.168.0.21` Select `OK` > `Start NBD server`                              
 (this will depend on your devices connected to your local network change the last number if it interferes with another device)
 
 8) Now In PFS Batchkit Manager Go to `Advanced menu` > `HDDManagement` > `NBD Server`
 
-9) Select `Mount Device` And type the IP Address of your NBD server that you have configured in OPL                             
-(From the time you start the NBD server, you have approximately 20-30 seconds to enter the IP address into PFS Batchkit Manager.)
+9) Select `Mount Device` And type the IP Address of your NBD Server that you have configured in OPL                             
+(From the time you start the NBD Server, you have approximately 20-30 seconds to enter the IP Address into PFS Batchkit Manager.)
      
 10) Normally if all goes well, your hard drive should be connected to your pc as local hard drive                    
 (You can check in `Show list of mounted devices`)
