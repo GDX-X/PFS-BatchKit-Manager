@@ -1810,10 +1810,10 @@ echo\
 "%~dp0BAT\Diagbox" gd 07
 CHOICE /C 1234 /M "Select Option:"
 
-IF ERRORLEVEL 4 (goto TransferPS1GamesHDDOSD)
 IF ERRORLEVEL 1 set @pfs_pop=yes & set "choice=" & set popspartinstall=__.POPS
-IF ERRORLEVEL 2 (goto mainmenu)
+IF ERRORLEVEL 2 set @pfs_pop=no
 IF ERRORLEVEL 3 set @pfs_popmanually=yes
+IF ERRORLEVEL 4 (goto TransferPS1GamesHDDOSD)
 
 IF !@pfs_popmanually!==yes (
 echo.
@@ -1837,9 +1837,8 @@ set choice=
 set /p choice="Select Option:"
 IF "!choice!"=="" (goto TransferPS1Games)
 
-IF "!choice!"=="!choice!" set popspartinstall=__.POPS!choice!
+IF "!choice!"=="!choice!" set @pfs_pop=yes & set popspartinstall=__.POPS!choice!
 IF "!choice!"=="10" set @pfs_pop=yes & set "choice=" & set popspartinstall=__.POPS
-
 )
 
 "%~dp0BAT\Diagbox" gd 0e
@@ -1877,6 +1876,8 @@ echo\
 pause
 cls
 "%~dp0BAT\Diagbox" gd 0f
+
+IF %@pfs_pop%==yes (
 echo\
 echo\
 echo Installing VCD:
@@ -1912,6 +1913,7 @@ IF /I EXIST "%~dp0POPS\*.VCD" (
 	echo         POPS %COMPLETED%	
 	cd "%~dp0"
 	) else ( echo         .VCD - %IS_EMPTY% )
+)
 
 endlocal
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
