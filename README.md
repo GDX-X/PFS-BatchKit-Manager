@@ -79,7 +79,7 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
 </details>
 
 <details>
-  <summary> <h7> <b> How to Setup HDD Network </b> </h7> </summary>
+  <summary> <h7> <b> How to Setup NBD Network </b> </h7> </summary>
    <p>
 
 1) Go to `Advanced menu` > `HDDManagement` > `NBD Server`
