@@ -107,6 +107,9 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
 
 10) Normally if all goes well, your hard drive should be connected to your pc as local hard drive                    
 (You can check in `Show list of mounted devices` InstanceName PS2HDD)
+     
+Now you can use all features of PFS Batchkit Manager!
+   
 
   ------
    </p>
