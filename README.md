@@ -94,7 +94,7 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
 4) A window should warn you if you want to install the driver Confirm install the driver                              
 (If the driver refuses to install, you will have to go into your computer's bios and disable Secureboot UEFI)
 
-5) After installing the driver Turn on your PS2 go to OPL (Compatible NBD [__Download Here__](https://github.com/ps2homebrew/Open-PS2-Loader/releases/download/latest/OPNPS2LD.7z)) 
+5) After installing the driver Turn on your PS2 go to OPL (Compatible NBD [__Download Here__](https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/HDD-OSD/OPNPS2LD.ELF)) 
      
 6) In OPL Go to `Settings` > `Enable Write Operation` `ON` Select `OK` For save
    
