@@ -1176,7 +1176,7 @@ IF ERRORLEVEL 2 set @pfs_popvmc=no
 "%~dp0BAT\Diagbox" gd 0e
 echo\
 echo\
-echo %SEARCHING_OPLPART% [%OPLPART%]
+echo %SEARCHING_OPLPART% [+OPL]
 echo ----------------------------------------------------
 
 	echo device !@hdl_path! > "%~dp0TMP\pfs-prt.txt"
@@ -1189,11 +1189,11 @@ echo ----------------------------------------------------
 
 	IF "!@hdd_avl!"=="+OPL/" (
 	"%~dp0BAT\Diagbox" gd 0a
-		echo         %OPLPART% - %DETECTED_OPLPART%
+		echo         +OPL - %DETECTED_OPLPART%
 		"%~dp0BAT\Diagbox" gd 07
 		) else (
 		"%~dp0BAT\Diagbox" gd 0c
-		echo         %OPLPART% - %MISSING_OPLPART%
+		echo         +OPL - %MISSING_OPLPART%
 		"%~dp0BAT\Diagbox" gd 07
 		echo         %FORMAT_OPLPART%
 		echo\
@@ -1214,7 +1214,7 @@ IF %@pfs_apps%==yes (
 
 echo\
 echo\
-echo %INSTALLING% Applications [APPS]
+echo Installing Applications [APPS]
 echo ----------------------------------------------------
 echo\
 
@@ -1225,7 +1225,7 @@ IF /I EXIST "%~dp0APPS\*" (
 	REM MOUNT OPL
 
 	echo device %@hdl_path% > "%~dp0TMP\pfs-apps.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-apps.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-apps.txt"
 
 	REM PARENT DIR (OPL\APPS)
 
@@ -1404,13 +1404,13 @@ IF /I EXIST "%~dp0APPS\*" (
 	echo umount >> "%~dp0TMP\pfs-apps.txt"
 	echo exit >> "%~dp0TMP\pfs-apps.txt"
 
-	echo         %INSTALLING% Que
+	echo         Installing Que
 	type "%~dp0TMP\pfs-apps.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	del "%~dp0TMP\pfs-apps.txt" >nul 2>&1
 	
-	echo         %CREAT_LOG%
+	echo         Creating Log
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd APPS >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
 	echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -1431,7 +1431,7 @@ IF %@pfs_art%==yes (
 
 echo\
 echo\
-echo %INSTALLING% Artworks [ART]
+echo Installing Artworks [ART]
 echo ----------------------------------------------------
 echo\
 
@@ -1440,20 +1440,20 @@ IF /I EXIST "%~dp0ART\*.*" (
 	cd /d "%~dp0ART" & for %%F in ( "*.*" ) do if %%~zF==0 del "%%F"
 	echo         Creating Que
 	echo device %@hdl_path% > "%~dp0TMP\pfs-art.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-art.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-art.txt"
 	echo mkdir ART >> "%~dp0TMP\pfs-art.txt"
 	echo cd ART >> "%~dp0TMP\pfs-art.txt"
 	for %%f in (*) do (echo put "%%f") >> "%~dp0TMP\pfs-art.txt"
 	echo umount >> "%~dp0TMP\pfs-art.txt"
 	echo exit >> "%~dp0TMP\pfs-art.txt"
 	
-	echo         %INSTALLING% Que
+	echo         Installing Que
 	type "%~dp0TMP\pfs-art.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	del "%~dp0TMP\pfs-art.txt" >nul 2>&1
 	
-	echo         %CREAT_LOG%
+	echo         Creating Log
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd ART >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
 	echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -1474,7 +1474,7 @@ IF %@pfs_cfg%==yes (
 
 echo\
 echo\
-echo %INSTALLING% Configs [CFG]
+echo Installing Configs [CFG]
 echo ----------------------------------------------------
 echo\
 
@@ -1483,20 +1483,20 @@ IF /I EXIST "%~dp0CFG\*.*" (
 	cd "%~dp0CFG"
 	echo         Creating Que
 	echo device %@hdl_path% > "%~dp0TMP\pfs-cfg.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-cfg.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-cfg.txt"
 	echo mkdir CFG >> "%~dp0TMP\pfs-cfg.txt"
 	echo cd CFG >> "%~dp0TMP\pfs-cfg.txt"
 	for %%f in (*.cfg) do (echo put "%%f") >> "%~dp0TMP\pfs-cfg.txt"
 	echo umount >> "%~dp0TMP\pfs-cfg.txt"
 	echo exit >> "%~dp0TMP\pfs-cfg.txt"
 	
-	echo         %INSTALLING% Que
+	echo         Installing Que
 	type "%~dp0TMP\pfs-cfg.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	del "%~dp0TMP\pfs-cfg.txt" >nul 2>&1
 	
-	echo         %CREAT_LOG%
+	echo         Creating Log
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd CFG >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
 	echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -1516,7 +1516,7 @@ IF %@pfs_cht%==yes (
 
 echo\
 echo\
-echo %INSTALLING% Cheats: [CHT]
+echo Installing Cheats: [CHT]
 echo ----------------------------------------------------
 echo\
 
@@ -1525,20 +1525,20 @@ IF /I EXIST "%~dp0CHT\*.*" (
 	cd "%~dp0CHT"
 	echo         Creating Que
 	echo device %@hdl_path% > "%~dp0TMP\pfs-cht.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-cht.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-cht.txt"
 	echo mkdir CHT >> "%~dp0TMP\pfs-cht.txt"
 	echo cd CHT >> "%~dp0TMP\pfs-cht.txt"
 	for %%f in (*.cht) do (echo put "%%f") >> "%~dp0TMP\pfs-cht.txt"
 	echo umount >> "%~dp0TMP\pfs-cht.txt"
 	echo exit >> "%~dp0TMP\pfs-cht.txt"
 	
-	echo         %INSTALLING% Que
+	echo         Installing Que
 	type "%~dp0TMP\pfs-cht.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	del "%~dp0TMP\pfs-cht.txt" >nul 2>&1
 	
-	echo         %CREAT_LOG%
+	echo         Creating Log
 	echo device %@hdl_path%  > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd CHT >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
 	echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -1559,7 +1559,7 @@ IF %@pfs_vmc%==yes (
 
 echo\
 echo\
-echo %INSTALLING% Virtual Memory Card: [VMC]
+echo Installing Virtual Memory Card: [VMC]
 echo ----------------------------------------------------
 echo\
 
@@ -1568,20 +1568,20 @@ IF /I EXIST "%~dp0VMC\*.*" (
 	cd "%~dp0VMC"
 	echo         Creating Que
 	echo device %@hdl_path% > "%~dp0TMP\pfs-vmc.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-vmc.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-vmc.txt"
 	echo mkdir VMC >> "%~dp0TMP\pfs-vmc.txt"
 	echo cd VMC >> "%~dp0TMP\pfs-vmc.txt"
 	for %%f in (*.bin) do (echo put "%%f") >> "%~dp0TMP\pfs-vmc.txt"
 	echo umount >> "%~dp0TMP\pfs-vmc.txt"
 	echo exit >> "%~dp0TMP\pfs-vmc.txt"
 	
-	echo         %INSTALLING% Que
+	echo         Installing Que
 	type "%~dp0TMP\pfs-vmc.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	del "%~dp0TMP\pfs-vmc.txt" >nul 2>&1
 	
-	echo         %CREAT_LOG%
+	echo         Creating Log
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd VMC >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
 	echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -1602,7 +1602,7 @@ IF %@pfs_thm%==yes (
 
 echo\
 echo\
-echo %INSTALLING% Themes: [THM]
+echo Installing Themes: [THM]
 echo ----------------------------------------------------
 echo\
 
@@ -1614,7 +1614,7 @@ IF /I EXIST "%~dp0THM\*" (
 	REM MOUNT OPL
 
 	echo device %@hdl_path% > "%~dp0TMP\pfs-thm.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-thm.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-thm.txt"
 
 	REM PARENT DIR (OPL\THM)
 
@@ -1663,13 +1663,13 @@ IF /I EXIST "%~dp0THM\*" (
 	echo umount >> "%~dp0TMP\pfs-thm.txt"
 	echo exit >> "%~dp0TMP\pfs-thm.txt"
 
-	echo         %INSTALLING% Que
+	echo         Installing Que
 	type "%~dp0TMP\pfs-thm.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	del "%~dp0TMP\pfs-thm.txt" >nul 2>&1
 	
-	echo         %CREAT_LOG%
+	echo         Creating Log
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd THM >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
 	echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -1687,7 +1687,7 @@ IF %@pfs_popvmc%==yes (
 
 echo\
 echo\
-echo %INSTALLING% POPS-VMC:
+echo Installing POPS-VMC:
 echo ----------------------------------------------------
 echo\
 
@@ -1727,11 +1727,11 @@ IF /I EXIST "%~dp0POPS\VMC\*" (
 	echo umount >> "%~dp0TMP\pfs-popsmvc.txt"
 	echo exit >> "%~dp0TMP\pfs-popsmvc.txt"
 
-	echo         %INSTALLING% Que
+	echo         Installing Que
 	type "%~dp0TMP\pfs-popsmvc.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	del "%~dp0TMP\pfs-popsmvc.txt" >nul 2>&1
 	
-	echo         %CREAT_LOG%
+	echo         Creating Log
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount __common >> "%~dp0TMP\pfs-log.txt"
 	echo cd POPS >> "%~dp0TMP\pfs-log.txt"
@@ -1800,12 +1800,12 @@ echo\
 echo Transfer VCD:
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
-echo         1) %YES%
+echo         1) Yes
 "%~dp0BAT\Diagbox" gd 0c
-echo         2) %NO%
+echo         2) No
 "%~dp0BAT\Diagbox" gd 0e
-echo         3) %YES% (Manually choose the partition where you want to install your .VCDs)
-echo         4) %YES% (Install .VCD as partition for HDD-OSD)
+echo         3) Yes (Manually choose the partition where you want to install your .VCDs)
+echo         4) Yes (Install .VCD as partition for HDD-OSD)
 echo\
 "%~dp0BAT\Diagbox" gd 07
 CHOICE /C 1234 /M "Select Option:"
@@ -1814,7 +1814,7 @@ IF ERRORLEVEL 1 set @pfs_pop=yes & set "choice=" & set popspartinstall=__.POPS
 IF ERRORLEVEL 2 set @pfs_pop=no
 IF ERRORLEVEL 3 set @pfs_popmanually=yes
 IF ERRORLEVEL 4 (goto TransferPS1GamesHDDOSD)
-
+ 
 IF !@pfs_popmanually!==yes (
 echo.
 echo Choose the partition on which you want to install your .VCDs
@@ -1835,11 +1835,13 @@ echo.
 
 set choice=
 set /p choice="Select Option:"
-IF "!choice!"=="" (goto TransferPS1Games)
+IF "!choice!"=="" set "@pfs_popmanually=" & (goto TransferPS1Games)
 
 IF "!choice!"=="!choice!" set @pfs_pop=yes & set popspartinstall=__.POPS!choice!
 IF "!choice!"=="10" set @pfs_pop=yes & set "choice=" & set popspartinstall=__.POPS
 )
+
+IF !@pfs_pop!==no (goto mainmenu)
 
 "%~dp0BAT\Diagbox" gd 0e
 echo\
@@ -1847,16 +1849,16 @@ echo\
 echo Detecting POPS Partition:
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 07
-echo device !@hdl_path! > "%~dp0TMP\pfs-prt.txt"
-echo ls -l >> "%~dp0TMP\pfs-prt.txt"
-echo exit >> "%~dp0TMP\pfs-prt.txt"
-type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "%popspartinstall%" | "%~dp0BAT\busybox" sed "s/.*%popspartinstall%/%popspartinstall%/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
-set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
-REM del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
-IF "!@hdd_avl!"=="%popspartinstall%/" (
-"%~dp0BAT\Diagbox" gd 0a
+    echo device !@hdl_path! > "%~dp0TMP\pfs-prt.txt"
+    echo ls -l >> "%~dp0TMP\pfs-prt.txt"
+    echo exit >> "%~dp0TMP\pfs-prt.txt"
+    type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -w "!popspartinstall!" | "%~dp0BAT\busybox" sed "s/.*!popspartinstall!/!popspartinstall!/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
+    
+    set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
+    IF "!@hdd_avl!"=="!popspartinstall!/" (
+    "%~dp0BAT\Diagbox" gd 0a
 	echo          __.POPS!choice! - Partition Detected
 	"%~dp0BAT\Diagbox" gd 07
 	) else (
@@ -1876,8 +1878,6 @@ echo\
 pause
 cls
 "%~dp0BAT\Diagbox" gd 0f
-
-IF %@pfs_pop%==yes (
 echo\
 echo\
 echo Installing VCD:
@@ -1896,11 +1896,11 @@ IF /I EXIST "%~dp0POPS\*.VCD" (
 	echo umount >> "%~dp0TMP\pfs-pops.txt"
 	echo exit >> "%~dp0TMP\pfs-pops.txt"
 	
-	echo         %INSTALLING% Que
+	echo         Installing Que
 	type "%~dp0TMP\pfs-pops.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	del "%~dp0TMP\pfs-pops.txt" >nul 2>&1
 
-	echo         %CREAT_LOG%
+	echo         Creating Log
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount %popspartinstall% >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
@@ -1913,11 +1913,11 @@ IF /I EXIST "%~dp0POPS\*.VCD" (
 	echo         POPS %COMPLETED%	
 	cd "%~dp0"
 	) else ( echo         .VCD - %IS_EMPTY% )
-)
 
 endlocal
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
 del info.sys >nul 2>&1
+
 "%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
@@ -1962,6 +1962,7 @@ IF "!@hdl_path!"=="" (
 		del info.sys >nul 2>&1
 		pause & (goto mainmenu)
 	)
+
 "%~dp0BAT\Diagbox" gd 0f
 echo\
 echo\
@@ -2041,7 +2042,7 @@ IF ERRORLEVEL 2 set @pfs_popvmc=no
 "%~dp0BAT\Diagbox" gd 0e
 echo\
 echo\
-echo Detecting %OPLPART% Partition:
+echo Detecting +OPL Partition:
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 07
 
@@ -2051,15 +2052,14 @@ echo ----------------------------------------------------
 	type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
 	"%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep "+OPL" | "%~dp0BAT\busybox" sed "s/.*+OPL/+OPL/" | "%~dp0BAT\busybox" tr -d " " | "%~dp0BAT\busybox" head -1 | "%~dp0BAT\busybox" sed -e "s/@/\//g" > "%~dp0TMP\hdd-prt.txt"
 	set /P @hdd_avl=<"%~dp0TMP\hdd-prt.txt"
-	del "%~dp0TMP\pfs-prt.txt" "%~dp0TMP\pfs-prt.log" >nul 2>&1 "%~dp0TMP\hdd-prt.txt"
 
 	IF "!@hdd_avl!"=="+OPL/" (
 	"%~dp0BAT\Diagbox" gd 0a
-		echo         %OPLPART% - Partition Detected
+		echo         +OPL - Partition Detected
 		"%~dp0BAT\Diagbox" gd 07
 		) else (
 		"%~dp0BAT\Diagbox" gd 0c
-		echo         %OPLPART% - Partition NOT Detected
+		echo         +OPL - Partition NOT Detected
 		echo         Partition Must Be Formatted Or Created
 		echo\
 		echo\
@@ -2086,7 +2086,7 @@ echo\
 	cd "%~dp0ART"
     echo         Files scan...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd ART >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
     echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -2100,7 +2100,7 @@ echo\
 	
 	echo         Extraction...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-art.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-art.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-art.txt"
 	echo cd ART >> "%~dp0TMP\pfs-art.txt"
 	type "%~dp0TMP\pfs-art-new.txt" >> "%~dp0TMP\pfs-art.txt"
 	echo umount >> "%~dp0TMP\pfs-art.txt"
@@ -2121,7 +2121,7 @@ echo\
 	cd "%~dp0CFG"
     echo         Files scan...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd CFG >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
     echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -2135,7 +2135,7 @@ echo\
 	
 	echo         Extraction...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-cfg.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-cfg.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-cfg.txt"
 	echo cd CFG >> "%~dp0TMP\pfs-cfg.txt"
 	type "%~dp0TMP\pfs-cfg-new.txt" >> "%~dp0TMP\pfs-cfg.txt"
 	echo umount >> "%~dp0TMP\pfs-cfg.txt"
@@ -2156,7 +2156,7 @@ echo\
 	cd "%~dp0CHT"
     echo         Files scan...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd CHT >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
     echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -2170,7 +2170,7 @@ echo\
 	
 	echo         Extraction...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-cht.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-cht.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-cht.txt"
 	echo cd CHT >> "%~dp0TMP\pfs-cht.txt"
 	type "%~dp0TMP\pfs-cht-new.txt" >> "%~dp0TMP\pfs-cht.txt"
 	echo umount >> "%~dp0TMP\pfs-cht.txt"
@@ -2191,7 +2191,7 @@ echo\
 	cd "%~dp0VMC"
     echo         Files scan...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-log.txt"
 	echo cd VMC >> "%~dp0TMP\pfs-log.txt"
 	echo ls -l >> "%~dp0TMP\pfs-log.txt"
 	echo umount >> "%~dp0TMP\pfs-log.txt"
@@ -2205,7 +2205,7 @@ echo\
 	
 	echo         Extraction...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-vmc.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-vmc.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-vmc.txt"
 	echo cd VMC >> "%~dp0TMP\pfs-vmc.txt"
 	type "%~dp0TMP\pfs-vmc-new.txt" >> "%~dp0TMP\pfs-vmc.txt"
 	echo umount >> "%~dp0TMP\pfs-vmc.txt"
@@ -2224,7 +2224,6 @@ echo ----------------------------------------------------
 echo\
 
     IF NOT EXIST "%~dp0POPS\VMC" MD "%~dp0POPS\VMC"
-	
 	cd "%~dp0POPS\VMC"
 	echo         Files scan...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-popsvmc.txt"
@@ -2281,7 +2280,6 @@ echo\
     type "%~dp0TMP\pfs-tmp4.log" >> "%~dp0TMP\pfs-popsvmc.txt"
     echo umount >> "%~dp0TMP\pfs-popsvmc.txt"
     echo exit >> "%~dp0TMP\pfs-popsvmc.txt"
-	
     type "%~dp0TMP\pfs-popsvmc.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-tmp.log"
 	echo         Completed...
     cd "%~dp0"
@@ -3352,7 +3350,7 @@ echo ----------------------------------------------------
     echo ls -l >> "%~dp0TMP\pfs-prt.txt"
     echo exit >> "%~dp0TMP\pfs-prt.txt"
     type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -e "0x0100" -e "0x0001" | "%~dp0BAT\busybox" sed "/.POPS./d" > "%~dp0TMP\hdd-prt.txt"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -e "0x0100" -e "0x0001" | "%~dp0BAT\busybox" sed "/\.POPS\./d" > "%~dp0TMP\hdd-prt.txt"
 	type "%~dp0TMP\hdd-prt.txt"
 echo ----------------------------------------------------
 	
@@ -3408,7 +3406,7 @@ set /P @hdl_path2=<"%~dp0TMP\hdl-hdd.txt"
     echo ls -l >> "%~dp0TMP\pfs-prt.txt"
     echo exit >> "%~dp0TMP\pfs-prt.txt"
     type "%~dp0TMP\pfs-prt.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" tee > "%~dp0TMP\pfs-prt.log"
-    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -e ".POPS." > "%~dp0TMP\hdd-prt.txt"
+    "%~dp0BAT\busybox" cat "%~dp0TMP\pfs-prt.log" | "%~dp0BAT\busybox" grep -e ".POPS." | "%~dp0BAT\busybox" sed "/__.POPS/d"> "%~dp0TMP\hdd-prt.txt"
 	type "%~dp0TMP\hdd-prt.txt"
 
 echo ----------------------------------------------------
@@ -5559,7 +5557,7 @@ cd "%~dp0HDD-OSD\__common\OPL"
 
 cd "%~dp0"HDD-OSD\"
     echo device !@hdl_path! > "%~dp0TMP\pfs-hddosd.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-hddosd.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-hddosd.txt"
  	echo put OPNPS2LD.ELF >> "%~dp0TMP\pfs-hddosd.txt"
     echo umount >> "%~dp0TMP\pfs-hddosd.txt"
 	echo exit >> "%~dp0TMP\pfs-hddosd.txt"
@@ -5826,7 +5824,7 @@ REM FOLDER FSCK100
  
 REM Delete OPNPS2LD.ELF
     echo device !@hdl_path! > "%~dp0TMP\pfs-hddosd.txt"
-	echo mount %OPLPART% >> "%~dp0TMP\pfs-hddosd.txt"
+	echo mount +OPL >> "%~dp0TMP\pfs-hddosd.txt"
  	echo rm OPNPS2LD.ELF >> "%~dp0TMP\pfs-hddosd.txt"
     echo umount >> "%~dp0TMP\pfs-hddosd.txt"
 	echo exit >> "%~dp0TMP\pfs-hddosd.txt"
