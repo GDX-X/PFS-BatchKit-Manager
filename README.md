@@ -98,7 +98,7 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
      
 6) In OPL Go to `Settings` > `Enable Write Operation` `ON` Select `OK` For save
    
-7) Still in OPL Go to `Network Settings` and write down the `IP Address` Now go back to the menu and Go to `Start NBD Server`
+7) Still in OPL Go to `Network Settings` and write down the `IP Address` Now go back to the menu and Go to `Start NBD Server`       
 (if it works, the following message should appear `NBD Server Running...`)     
      
 8) Now In PFS Batchkit Manager Go to `Advanced menu` > `HDDManagement` > `NBD Server` > `Mount Device`
