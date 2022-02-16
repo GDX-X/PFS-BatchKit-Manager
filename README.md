@@ -82,6 +82,9 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
   <summary> <h7> <b> How to Setup NBD Server </b> </h7> </summary>
    <p>
 
+`Obviously this method won't work for PS2/HDD network adapters that don't have a working network port (i.e. gamestar`
+       
+     
 1) Go to `Advanced menu` > `HDDManagement` > `NBD Server`
 
 2) Choose `Install/Update NBD Driver` (You will be asked to restart the computer to activate test mode)
