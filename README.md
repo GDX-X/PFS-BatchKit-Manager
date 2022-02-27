@@ -4,7 +4,7 @@ Is a batch script that allows you to easily manage your PS2 hard drive
 ![image](https://user-images.githubusercontent.com/22562949/152685787-f7b0dd25-8731-4b13-aa49-e0b9e5ed09c9.png)
 
 <details>
-  <summary> <h7> <b> How to Install FreeHDBoot Hack your PS2 hard drive </b> </h7> </summary>
+  <summary> <h7> <b> How to Install FreeHDBoot (Hack your PS2 hard drive) </b> </h7> </summary>
    <p>
      
 IMPORTANT! If you have already Formatted and installed FreeHDBoot (From HDD), you don't need to do this.                            
@@ -64,7 +64,7 @@ Copy your .BIN/CUE in POPS Folder
 
 
 <details>
-  <summary> <h7> <b> How to Install HDD-OSD </b> </h7> </summary>
+  <summary> <h7> <b> How to Install HDD-OSD (Browser 2.0) </b> </h7> </summary>
    <p>
 
 NOTE: You need to find the correct files to be able to install the HDD-OSD.                  
