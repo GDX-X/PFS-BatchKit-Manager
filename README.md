@@ -4,7 +4,7 @@ Is a batch script that allows you to easily manage your PS2 hard drive
 ![image](https://user-images.githubusercontent.com/22562949/152685787-f7b0dd25-8731-4b13-aa49-e0b9e5ed09c9.png)
 
 <details>
-  <summary> <h7> <b> How to hack your PS2 hard drive </b> </h7> </summary>
+  <summary> <h7> <b> How to Install FreeHDBoot Hack your PS2 hard drive </b> </h7> </summary>
    <p>
      
 IMPORTANT! If you have already Formatted and installed FreeHDBoot (From HDD), you don't need to do this.                            
@@ -16,7 +16,8 @@ IMPORTANT! If you have already Formatted and installed FreeHDBoot (From HDD), yo
 3) After the hacking put your HDD in your PS2 and format your hard drive with wLaunchELF.      
 In wLaunchELF do this `FileBrowser` > `MISC` > `HDDManager` > `Press R1` > `Format and confirm.`
      
-4) Copy the contents of the !COPY_TO_USB_ROOT folder to the root of your USB drive
+4) Copy the contents of the !COPY_TO_USB_ROOT folder to the root of your USB drive                
+ `Your usb key must be in FAT32 format`
 
 5) Install FreeHDBoot (From HDD).
 In wLaunchELF do this `FileBrowser` > `Mass` > `APPS` > `FreeMcBoot` > `FMCBInstaller.elf` Press Circle for Launch > `Press R1` > `Install FHDB` (From HDD)
@@ -55,7 +56,7 @@ Copy your .BIN/CUE in POPS Folder
 2) Go to the `Advanced menu` > `Conversion`
 3) Choose Convert .BIN/CUE To .VCD
 4) Create `__.POPS` Partition `Choose an appropriate size according to the number of games you want to install`
-5) Transfer your .VCD
+5) Transfer your PS1 Games
      
   ------
    </p>
@@ -63,7 +64,7 @@ Copy your .BIN/CUE in POPS Folder
 
 
 <details>
-  <summary> <h7> <b> How to Setup HDD-OSD </b> </h7> </summary>
+  <summary> <h7> <b> How to Install HDD-OSD </b> </h7> </summary>
    <p>
 
 NOTE: You need to find the correct files to be able to install the HDD-OSD.                  
@@ -71,8 +72,8 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
      
 1) Install FreeHDBoot (From HDD)
 2) Create `+OPL` Partition
-3) Install HDD-OSD
-4) Inject the `OPL-Launcher` (For PS2 games you want to run from HDD-OSD)
+3) Go to the `Advanced menu` > `HDD-OSD/PSBBN/XMB` Install HDD-OSD
+4) In `Partition Management` Inject OPL-Launcher (For PS2 games you want to run from HDD-OSD)
      
   ------
    </p>
