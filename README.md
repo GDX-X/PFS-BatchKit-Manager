@@ -170,3 +170,29 @@ If you get stuck during file transfer, it means your partition is full or corrup
    </p>
 </details>
 
+<details>
+  <summary> <h7> <b> Special Thanks </b> </h7> </summary>
+   <p>
+ 
+AkuHAK, Roland, Uyjulian For maintaining and improving hdl_dump and pfsshell.
+
+NeMesiS, Dekkit Rs1n For making me want to create this script.
+
+krHACKen For mbr.img and POPStarter and CUE2POPS
+
+El_isra For POPS-VCD-ID-Extractor and DiagBox.
+
+LopoTRI For the tests carried out.
+
+TnA For giving me some ideas to add to the script.
+
+Roland For NBD Server
+
+SpaceCoyote For PS1 games covers HDD-OSD
+
+Thanks to the other people I may have forgotten who have contributed to the PS2 scene!
+
+  ------
+   </p>
+</details>
+
