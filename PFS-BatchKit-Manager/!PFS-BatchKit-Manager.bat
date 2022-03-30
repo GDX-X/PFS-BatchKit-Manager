@@ -9958,6 +9958,7 @@ md Original >nul 2>&1
 for %%f in (*.cue) do ( "%~dp0BAT\binmerge" "%%f" "temp\%%~nf" | findstr "Merging ERROR" & echo "%%f"
 echo\
 move "%%~nf.bin" "%~dp0POPS\Original" >nul 2>&1
+move "%%~nf (Track *).bin" "%~dp0POPS\Original" >nul 2>&1
 move "%%~nf.cue" "%~dp0POPS\Original" >nul 2>&1
 
 "%~dp0BAT\busybox" sed -i "s/temp\\//g" "%~dp0POPS\temp\%%~nf.cue"
