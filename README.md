@@ -1,5 +1,5 @@
 # PFS-BatchKit-Manager
-Is a batch script that allows you to easily manage your PS2 hard drive
+Is a batch script that allows you to easily manage your PS2 hard drive.
 
 ![image](https://user-images.githubusercontent.com/22562949/152685787-f7b0dd25-8731-4b13-aa49-e0b9e5ed09c9.png)
 
@@ -152,6 +152,16 @@ If you get stuck during file transfer, it means your partition is full or corrup
      
   ------
      
+   </p>
+</details>
+
+<details>
+  <summary> <h7> <b> Can I use my 1TB, 2TB hard drive? </b> </h7> </summary>
+   <p>
+
+Yes Support up to 2TB Maximum
+
+  ------
    </p>
 </details>
 
