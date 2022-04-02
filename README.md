@@ -7,7 +7,9 @@ Is a batch script that allows you to easily manage your PS2 hard drive.
   <summary> <h7> <b> How to Install FreeHDBoot (Hack your PS2 hard drive) </b> </h7> </summary>
    <p>
      
-IMPORTANT! If you have already Formatted and installed FreeHDBoot (From HDD), you don't need to do this.                            
+IMPORTANT! If you have already Formatted and installed FreeHDBoot (From HDD), you don't need to do this.       
+     
+If you installed FreeHDBoot image with HDD Raw Copy Please format your hard drive by following all the steps below.
 
 1) In PFS BatchKit Manager Go to `Advanced menu` > `HDD Management`
      
