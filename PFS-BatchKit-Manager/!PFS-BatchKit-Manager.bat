@@ -8234,7 +8234,7 @@ echo ----------------------------------------------------
 	if %language%==ENG copy "%~dp0BAT\TitlesDB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
     if %language%==FRA copy "%~dp0BAT\TitlesDB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
 
-    for /f "tokens=%check%*" %%C in (PARTITION_GAMES.txt) do (
+    for /f "tokens=5*" %%C in (PARTITION_GAMES.txt) do (
 	
 	set "dbtitle="
 	for /f "tokens=1*" %%A in (' findstr %%C "%~dp0TMP\gameid.txt" ') do (if not defined dbtitle set dbtitle=%%B
