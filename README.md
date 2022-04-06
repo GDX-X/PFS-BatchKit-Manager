@@ -16,15 +16,26 @@ If you installed Premade FreeHDBoot image with HDD Raw Copy Please format your h
 2) Choose option 8 `Hack your HDD To PS2 Format` `(This is only intended to be used as an entry point for the PS2.)`
      
 3) After the hacking put your HDD in your PS2 and format your hard drive with wLaunchELF.      
-In wLaunchELF do this `FileBrowser` > `MISC` > `HDDManager` > `Press R1` > `Format and confirm.`
+In wLaunchELF do this `FileBrowser` > `MISC` > `HDDManager` > `Press R1` > `Format` and confirm.
      
-4) Copy the contents of the !COPY_TO_USB_ROOT folder to the root of your USB drive                
+4) Now `Press R1` > `Create` Type `+OPL` And Select `OK`
+    
+5) Choose the size of your partition          
+   it will depend on your use if you plan to use the Virtual Memory Card for each game it is preferable to have a large partition size     
+  
+   If your HDD size is 500GB choose `1024`                    
+   If your HDD size is 1TB   choose `2560`                    
+   If your HDD size is 2TB   choose `4096`   
+     
+   Now Press Circle and OK to continue
+ 
+6) Copy the contents of the !COPY_TO_USB_ROOT folder to the root of your USB drive                
  `Your usb key must be in FAT32 format`
 
-5) Install FreeHDBoot (From HDD).
+7) Install FreeHDBoot (From HDD).
 In wLaunchELF do this `FileBrowser` > `Mass` > `APPS` > `FreeMcBoot` > `FMCBInstaller.elf` Press Circle for Launch > `Press R1` > `Install FHDB` (From HDD)
 
-6) Your hard drive will be properly formatted and hacked after that
+8) Your hard drive will be properly formatted and hacked after that
   ------
      
    </p>
@@ -121,6 +132,48 @@ Now you can use all features of PFS Batchkit Manager!
 
 # FAQ
 
+<details>
+  <summary> <h7> <b> I'm stuck during file transfer </code>  </b> </h7> </summary>
+   <p>
+  
+If you get stuck during file transfer, it means your partition is full or corrupted.
+
+You have to delete it and recreate one with an appropriate size
+
+ ------
+   </p>
+</details>
+
+
+<details>
+  <summary> <h7> <b> Can use it without internet ?  </b> </h7> </summary>
+   <p>
+     
+  Yes you can use it without internet
+     
+  ------
+   </p>
+</details>
+
+<details>
+  <summary> <h7> <b> Can I use my 1TB, 2TB hard drive? </b> </h7> </summary>
+   <p>
+
+Yes Support up to 2TB Maximum
+     
+  ------
+   </p>
+</details>
+
+<details>
+  <summary> <h7> <b> Things not to do </code>  </b> </h7> </summary>
+   <p>
+     
+  Do not use the Expand option in wLaunchELF, it may corrupt your hard drive 
+  
+  ------
+   </p>
+</details>
 
 <details>
   <summary> <h7> <b> What is <code>TROJAN_7.BIN</code>  </b> </h7> </summary>
@@ -131,42 +184,8 @@ It's a patch for PS1 games that fixes some bugs.
 you can find it [__here__](https://www.psx-place.com/threads/popstarter.19139/page-8#post-298564)
      
   ------
-     
    </p>
 </details>
-
-
-<details>
-  <summary> <h7> <b> Can use it without internet ?  </b> </h7> </summary>
-   <p>
-
-  Yes you can use it without internet
-
-  ------
-   </p>
-</details>
-
-<details>
-  <summary> <h7> <b> I'm stuck during file transfer </code>  </b> </h7> </summary>
-   <p>
-     
-If you get stuck during file transfer, it means your partition is full or corrupted
-     
-  ------
-     
-   </p>
-</details>
-
-<details>
-  <summary> <h7> <b> Can I use my 1TB, 2TB hard drive? </b> </h7> </summary>
-   <p>
-
-Yes Support up to 2TB Maximum
-
-  ------
-   </p>
-</details>
-
 
 <details>
   <summary> <h7> <b> Screenshots </b> </h7> </summary>
