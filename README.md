@@ -28,7 +28,7 @@ In wLaunchELF do this `FileBrowser` > `MISC` > `HDDManager` > `Press R1` > `Form
    If your HDD size is 2TB   choose `4096`   
      
    Now Press Circle and OK to continue             
-   Note sometimes when creating the partition that it may be called `+OPL1` , it will have to be renamed to `+OPL`
+   Note sometimes during the creation of the partition, he will be able to name it in `+OPL1` , it will have to be renamed to `+OPL`
  
 6) Copy the contents of the !COPY_TO_USB_ROOT folder to the root of your USB drive                
  `Your usb key must be in FAT32 format`
