@@ -23,12 +23,13 @@ In wLaunchELF do this `FileBrowser` > `MISC` > `HDDManager` > `Press R1` > `Form
 5) Choose the size of your partition          
    it will depend on your use if you plan to use the Virtual Memory Card for each game it is preferable to have a large partition size     
   
-   If your HDD size is 500GB choose `1024`                    
-   If your HDD size is 1TB   choose `2560`                    
-   If your HDD size is 2TB   choose `4096`   
+   Choose `768`  if your HDD size is smaller than `500gb`       
+   Choose `2560` if your HDD size is larger than `500gb`   
+     
+   If you do not intend to use the Virtual Memory Card for each game you can choose `512`
      
    Now Press Circle and OK to continue             
-   Note sometimes during the creation of the partition, he will be able to name it in `+OPL1` , it will have to be renamed to `+OPL`
+   Note: sometimes during the creation of the partition, he will be able to name it in `+OPL1` , it will have to be renamed to `+OPL`
  
 6) Copy the contents of the !COPY_TO_USB_ROOT folder to the root of your USB drive                
  `Your usb key must be in FAT32 format`
