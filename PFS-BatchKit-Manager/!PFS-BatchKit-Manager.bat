@@ -6077,7 +6077,7 @@ echo\
 	 cd /d "%~dp0TMP\PP.HEADER" & hdl_dump modify_header %@hdl_path% "!PPNameHeader!" >nul 2>&1
 	 echo            Completed...
 
-REM cd /d "%~dp0" & rmdir /Q/S "%~dp0TMP" >nul 2>&1
+cd /d "%~dp0" & rmdir /Q/S "%~dp0TMP" >nul 2>&1
 
 "%~dp0BAT\Diagbox" gd 0f
 echo\
