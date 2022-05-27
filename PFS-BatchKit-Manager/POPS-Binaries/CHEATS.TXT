@@ -1,0 +1,47 @@
+$SAFEMODE
+
+# Global Cheats files. Codes activated in this txt will be activated for all your games
+# Add the "$" in front of the code to activate the cheat
+# Don't touch the first line with SAFEMODE
+# For more infos: https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home
+
+COMPATIBILITY_0x01 / Helps restoring the music/voices in several games.
+COMPATIBILITY_0x02 / A variant of mode 0×01, with a second hack for not breaking the MDECoding of FMVs.
+COMPATIBILITY_0x03 / Can be used if the mode 0×01 doesn’t provide the expected results.
+COMPATIBILITY_0x04 / Fixes slowdowns, flickering, and many other glitches.
+COMPATIBILITY_0x05 / Made for fixing the cutscenes of the PAL Resident Evil: Director’s Cut.
+COMPATIBILITY_0x06 / Disables the OSD shell of the emulator’s built-in BIOS, making some games that freeze on startup run.
+COMPATIBILITY_0x07 / Fixes the missing textures problems.
+CODECACHE_ADDON_0 / A variant of $COMPATIBILITY_0×04.
+SUBCDSTATUS / A variant of $COMPATIBILITY_0×05.
+
+$HDTVFIX
+FAKELC
+SMOOTH
+NOPAL
+FORCEPAL
+480p
+WIDESCREEN
+ULTRA_WIDESCREEN
+EYEFINITY
+XPOS_0640
+YPOS_10
+DWSTRETCH_####
+DWCROP_####
+MUTE_CDDA
+MUTE_VAB
+00507028 00000001 / Rumble Always On (Pad 1).
+005070B8 00000001 / Rumble Always On (Pad 2).
+D2LS
+D2LS_ALT
+NOVMC0
+NOVMC1
+IGR0
+IGR1
+IGR2
+IGR3
+IGR4
+IGR5
+NOIGR
+CACHE1
+USBDELAY_#
