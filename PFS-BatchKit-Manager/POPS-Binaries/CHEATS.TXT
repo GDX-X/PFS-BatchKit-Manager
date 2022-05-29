@@ -5,43 +5,151 @@ $SAFEMODE
 # Don't touch the first line with SAFEMODE
 # For more infos: https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home
 
-COMPATIBILITY_0x01 / Helps restoring the music/voices in several games.
-COMPATIBILITY_0x02 / A variant of mode 0×01, with a second hack for not breaking the MDECoding of FMVs.
-COMPATIBILITY_0x03 / Can be used if the mode 0×01 doesn’t provide the expected results.
-COMPATIBILITY_0x04 / Fixes slowdowns, flickering, and many other glitches.
-COMPATIBILITY_0x05 / Made for fixing the cutscenes of the PAL Resident Evil: Director’s Cut.
-COMPATIBILITY_0x06 / Disables the OSD shell of the emulator’s built-in BIOS, making some games that freeze on startup run.
-COMPATIBILITY_0x07 / Fixes the missing textures problems.
-CODECACHE_ADDON_0 / A variant of $COMPATIBILITY_0×04.
-SUBCDSTATUS / A variant of $COMPATIBILITY_0×05.
+//is a hexadecimal value. You can write as many $COMPATIBILITY_0x## as you want.
 
+//Helps restoring the music/voices in several games.
+COMPATIBILITY_0x01
+
+//A variant of mode 0×01, with a second hack for not breaking the MDECoding of FMVs.
+COMPATIBILITY_0x02
+
+//Can be used if the mode 0×01 doesn’t provide the expected results.
+COMPATIBILITY_0x03
+
+//Fixes slowdowns, flickering, and many other glitches.
+COMPATIBILITY_0x04
+
+//Made for fixing the cutscenes of the PAL Resident Evil: Director’s Cut.
+COMPATIBILITY_0x05
+
+//Disables the OSD shell of the emulator’s built-in BIOS, making some games that freeze on startup run.
+COMPATIBILITY_0x06
+
+//Fixes the missing textures problems.
+COMPATIBILITY_0x07
+
+//A variant of COMPATIBILITY_0×04.
+//If compatibility mode and mode 0×04 doesn’t fix that doesn’t fix your issue. 
+//Do not use it by default on all your games, because most games will stop working with it. 
+CODECACHE_ADDON_0
+
+//A variant of $COMPATIBILITY_0×05.
+SUBCDSTATUS
+
+#
+#
+
+//Enables SetGsCrt hack. 
+//Helps with the HDTVs that can’t deal with the interlaced resolutions thru component (plain green screens and other rubbish displayed otherwise).
+//Not compatible with some CRT TVs. 
 $HDTVFIX
+
+//Enables the scanlines generator. A scanline is a horizontal line, or row, in a raster scanning pattern, 
+//so that the image of the games are seen with this type of lines that the old TVs and tube monitors (CRT) had. 
+SCANLINES
+
+//Loads a null LibCrypt magic word into the cop0 register.
+/May be needed by some discs that have a messed up LC protection.  
 FAKELC
+
+//Just for the records : value is S0003390 00000001. 
 SMOOTH
+
+//Disables POPStarters’ PAL patcher. Can be done using a PATCH_#.BIN file. 
 NOPAL
+
+//Forces the activation of the PAL patcher (POPS will run it PAL) and patches the BIOS region code to Euro (shows the boot screen in PAL).
+/Useful for PAL VCDs that don’t have a valid license text in their bootsector. Can be done using a PATCH_#.BIN file. 
 FORCEPAL
+
+//Forces 480p. Not compatible with XPOS, YPOS, DWSTRETCH, DWCROP & NOT reliable ATM. See notes here
 480p
+
+//Enables POPS GTE widescreen hack and forces 16:9. 
+//Does not deal with stuff like HUDs, texts/fonts, menus, 2D backgrounds… This hack is not finished (no render fix…). 
 WIDESCREEN
+
+//Same as WIDESCREEN, but wider FOV. 	
+//Does not match any aspect ratio standard. Does not deal with stuff like HUDs, texts/fonts, menus, 2D backgrounds… 
 ULTRA_WIDESCREEN
+
+//Same as WIDESCREEN, with 3×16:9 aspect ratio. Does not deal with stuff like HUDs, texts/fonts, menus, 2D backgrounds… 
 EYEFINITY
-XPOS_0640
-YPOS_10
+
+//Centers the screen horizontally. 	
+//is a number (decimal, negative values not supported). 
+//Works only in PAL and NTSC modes. Default value : 640. Value lower than 640 will move the screen on the left, value higher than 640 will move it to the right. Not compatible with 480p.
+//Replace # by Number
+XPOS_####
+
+//Centers the screen vertically. 	
+//is a number (decimal, negative values not supported). 
+//Works only in PAL and NTSC modes. Not working in OBT15, fixed in OBT16. No default value, depends on the game, you have to experiment. The higher the value is, the more the screen moves down. Not compatible with 480p.
+//Replace # by Number
+YPOS_##
+
+//Stretches the display horizontally to your screen. 	
+//is a number (decimal). Works only in PAL and NTSC modes. Default value : 2559. Increase it to stretch the screen on the right, decrease it for the left. Not compatible with 480p.
+//Replace # by Number
 DWSTRETCH_####
+
+//Reduces/expands the display area width. 	
+//is a number (decimal). Works only in PAL and NTSC modes. Maximum value : 2560. Decrease it to crop the screen on the right. Not compatible with 480p.
+//Replace # by Number
 DWCROP_####
-MUTE_CDDA
+
+//Unmutes CDDA tracks in PS1CD mode. 	
+UNDO_MUTE_CDDA
+
+//Mute VAB/VAG/VB+VH based sounds/music on games. 
+//May be useful for these old games which output distorted SFX, wrong audio samples or stupid noises. 
 MUTE_VAB
-00507028 00000001 / Rumble Always On (Pad 1).
-005070B8 00000001 / Rumble Always On (Pad 2).
+
+//Rumble Always On (Pad 1)
+00507028 00000001
+//Rumble Always On (Pad 2)
+005070B8 00000001
+
+//Left Stick is the D-Pad” code + Stay on Digital Mode.
+//Enables joystick support for games that doesn’t support it natively.
+//D2LS should be OK for most games. If it doesn’t work, the user should try D2LS_ALT. 
 D2LS
+
+//Left Stick is the D-Pad” code + Stay on Analog Mode.
+//Enables joystick support for games that doesn’t support it natively. 
 D2LS_ALT
+
+//Use VMC1 only. 
 NOVMC0
+//Use VMC0 only. 
 NOVMC1
+
+//Change IGR key for Opens the IGR menu.
+// L1+L2+R1+R2+X+DOWN
 IGR0
+//Change IGR key for Opens the IGR menu.
+// SELECT+START
 IGR1
+//Change IGR key for Opens the IGR menu.
+// L1+L2+R1+R2+SELECT+START
 IGR2
+
+//Terminates POPS (no IGR menu)
+// L1+L2+R1+R2+X+DOWN
 IGR3
+//Terminates POPS (no IGR menu)
+// SELECT+START
 IGR4
+//Terminates POPS (no IGR menu)
+// L1+L2+R1+R2+SELECT+START
 IGR5
+
+//Disables the IGR menu
 NOIGR
+
+//Makes POPS buffer 1 sector instead of 16.
 CACHE1
+
+//Sets up the PFS wrapper USB delay. Useful for slow reading USB sticks
+//Replace # by Number
 USBDELAY_#
