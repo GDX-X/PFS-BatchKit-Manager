@@ -135,7 +135,7 @@ Now you can use all features of PFS Batchkit Manager!
   <summary> <h7> <b> How to Show PS1 & PS2 Games in PSBBN & PSX XMB Menu </b> </h7> </summary>
    <p>
 
-1) Connect your PS2 Or PSX With NBD Server
+1) Connect your PS2 Or PSX HDD With NBD Server Or locally
 2) Install PS2 Games
 3) Go to the `Advanced menu` > `HDD-OSD/PSBBN/XMB` > `Partitions Management` 
 4) Choose Convert a PS2 game for PSBBN & XMB Menu
