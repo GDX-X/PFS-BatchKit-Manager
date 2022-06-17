@@ -131,8 +131,41 @@ Now you can use all features of PFS Batchkit Manager!
    </p>
 </details>
 
+<details>
+  <summary> <h7> <b> How to Show PS1 & PS2 Games in PSBBN & PSX XMB Menu </b> </h7> </summary>
+   <p>
+
+1) Connect your PS2 Or PSX With NBD Server
+2) Install PS2 Games
+3) Go to the `Advanced menu` > `HDD-OSD/PSBBN/XMB` > `Partitions Management` 
+4) Choose Convert a PS2 game for PSBBN & XMB Menu
+
+NOTE: For PS1 games, install them .VCD as partition everything will be done automatically
+
+  ------
+   </p>
+</details>
+
 
 # FAQ
+
+<details>
+  <summary> <h7> <b> PSX DESR compatible? </code>  </b> </h7> </summary>
+   <p>
+  
+  Yes All Models Supported
+  
+  PSX V1 5000, 7000, 5100, 7100                
+  PSX V2 5500, 7500, 5700, 7700
+  
+  NOTE:
+  In HDD Management menu                     
+  Do Not Format your PSX hard drive           
+  Do Not Use Option Hack PS2 HDD
+
+ ------
+   </p>
+</details>
 
 <details>
   <summary> <h7> <b> I'm stuck during file transfer </code>  </b> </h7> </summary>
