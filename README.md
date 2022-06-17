@@ -153,7 +153,7 @@ NOTE: For PS1 games, install them as a partition, everything will be done automa
   <summary> <h7> <b> PSX DESR compatible? </code>  </b> </h7> </summary>
    <p>
   
-  Yes All Models Supported
+  Yes, all models are supported
   
   PSX V1 5000, 7000, 5100, 7100                
   PSX V2 5500, 7500, 5700, 7700
