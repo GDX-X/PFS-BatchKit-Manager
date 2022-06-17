@@ -140,8 +140,8 @@ Now you can use all features of PFS Batchkit Manager!
 3) Go to the `Advanced menu` > `HDD-OSD/PSBBN/XMB` > `Partitions Management` 
 4) Choose Convert a PS2 game for PSBBN & XMB Menu
 
-NOTE: For PS1 games, install them .VCD as partition everything will be done automatically
-
+NOTE: For PS1 games, install them as a partition, everything will be done automatically
+     
   ------
    </p>
 </details>
