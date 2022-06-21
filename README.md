@@ -51,8 +51,10 @@ In wLaunchELF do this `FileBrowser` > `Mass` > `APPS` > `FreeMcBoot` > `FMCBInst
 NOTE Before installing your games, it is strongly recommended to create the `+OPL` partition
      
 Copy your `.BIN/CUE` in CD Folder
-
+     
 Copy your `.ISO` in DVD Folder
+
+Copy your `.ZSO` to the DVD folder
      
 In PFS BatchKit Manager Choose `Transfer PS2 Games`
      
