@@ -232,7 +232,7 @@ you can find it [__here__](https://www.psx-place.com/threads/popstarter.19139/pa
      
 ![image](https://user-images.githubusercontent.com/22562949/152685686-1a12ed0d-93fc-4eeb-8971-28fb0db95152.png)
      
-![image](https://user-images.githubusercontent.com/22562949/152686202-ed445546-2d1a-4756-a458-ac84f1377a57.png)
+![PFSInstall](https://user-images.githubusercontent.com/22562949/177049531-475f18ad-f0d6-4d7f-9d9e-4eb93b39ee94.png)
 
 ![ae3d5a45181942f225fe4657b1b0a8d8](https://user-images.githubusercontent.com/22562949/170713114-5154c779-92f6-4917-bf83-89f2bd313396.png)
 
