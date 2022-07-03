@@ -26,7 +26,7 @@ REM    echo Requesting Administrative Privileges...
 REM ****************************************************************************************
 REM * Hey, if you look at this code, be aware that some parts of the code may be weird     *
 REM * But I had to adapt to windows syntax and busybox to make them work properly,         *
-REM * Especially for illegal characters and accents                                        *
+REM * Especially for illegal characters and accents.                                       *
 REM *                                                                                      *
 REM * GDX 2022/18/06                                                                       *
 REM ****************************************************************************************
@@ -56,16 +56,13 @@ IF NOT EXIST "%~dp0TMP"  MD "%~dp0TMP"
 cd /d "%~dp0TMP"
 
 echo Checking for updates...
-"%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/.github/workflows/CheckUPDATE.zip" -O "%~dp0TMP\CheckUPDATE.zip" >nul 2>&1
-"%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0TMP\CheckUPDATE.zip" -o"%~dp0TMP" "!PFS-BatchKit-Manager.bat" -r -y
+"%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/!PFS-BatchKit-Manager.bat" -O "%~dp0TMP\!PFS-BatchKit-Manager2.bat" >nul 2>&1
 for %%F in ( "!PFS-BatchKit-Manager2.bat" ) do if %%~zF==0 del "%%F"
 
-"%~dp0BAT\busybox" md5sum "%~dp0TMP\!PFS-BatchKit-Manager.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
+"%~dp0BAT\busybox" md5sum "%~dp0TMP\!PFS-BatchKit-Manager2.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
 "%~dp0BAT\busybox" md5sum "%~dp0!PFS-BatchKit-Manager.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
 
-if exist !PFS-BatchKit-Manager.bat (
-if !CheckUPDATE! equ !CheckOriginal! (echo ) else (set update=UPDATE AVAILABLE)
-)
+if exist !PFS-BatchKit-Manager.bat (if %CheckUPDATE%  equ %CheckOriginal% (echo ) else (set update=UPDATE AVAILABLE))
 
 cd /d "%~dp0" & IF EXIST "%~dp0TMP" rmdir /Q/S "%~dp0TMP" >nul 2>&1
 
