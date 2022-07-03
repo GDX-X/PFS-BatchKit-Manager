@@ -1,8 +1,12 @@
 $SAFEMODE
+//SAFEMODE Disables the cheat engine and only activate it after POPS has left the PS OSD. 
+//Should be always ON. Some game codes do patch the memory area where the PS OSD is loaded, causing crashes and other garbage…
 
 # Global Cheats files. Codes activated in this txt will be activated for all your games
-# Add the "$" in front of the code to activate the cheat
+# You can enable a code if you add the $ character in front of the code
+# You can disable a code if you remove the $ character from the code
 # Don't touch the first line with SAFEMODE
+# each code line must have a space between the adress and the value. Example: 00000001 00000001
 # For more infos: https://bitbucket.org/ShaolinAssassin/popstarter-documentation-stuff/wiki/Home
 
 //is a hexadecimal value. You can write as many $COMPATIBILITY_0x## as you want.
@@ -124,13 +128,13 @@ NOVMC0
 //Use VMC0 only. 
 NOVMC1
 
-//Change IGR key for Opens the IGR menu.
+//Change IGR hotkey for Opens the IGR menu.
 // L1+L2+R1+R2+X+DOWN
 IGR0
-//Change IGR key for Opens the IGR menu.
+//Change IGR hotkey for Opens the IGR menu.
 // SELECT+START
 IGR1
-//Change IGR key for Opens the IGR menu.
+//Change IGR hotkey for Opens the IGR menu.
 // L1+L2+R1+R2+SELECT+START
 IGR2
 
