@@ -10832,6 +10832,9 @@ if defined UmountManuallyPartition (
    if exist "%HOMEDRIVE%\Windows\System32\drivers\dokan2.sys" (
    "%~dp0BAT\Diagbox" gd 0a
    echo Installation Successfully
+   "%~dp0BAT\Diagbox" gd 06
+   echo\
+   echo You may need to restart your computer if you cannot mount partitions
    "%~dp0BAT\Diagbox" gd 0f
    ) else (
    "%~dp0BAT\Diagbox" gd 0c
