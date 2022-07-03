@@ -54,13 +54,16 @@ IF NOT EXIST "%~dp0HDD-OSD\PP.HEADER" MD "%~dp0HDD-OSD\PP.HEADER\res\image"
 
 IF NOT EXIST "%~dp0TMP"  MD "%~dp0TMP"
 cd /d "%~dp0TMP"
+
 echo Checking for updates...
-"%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/!PFS-BatchKit-Manager.bat" -O "%~dp0TMP\!PFS-BatchKit-Manager2.bat" >nul 2>&1
+"%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/.github/workflows/CheckUPDATE.zip" -O "%~dp0TMP\CheckUPDATE.zip" >nul 2>&1
+"%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0TMP\CheckUPDATE.zip" -o"%~dp0TMP" "!PFS-BatchKit-Manager.bat" -r -y
 for %%F in ( "!PFS-BatchKit-Manager2.bat" ) do if %%~zF==0 del "%%F"
-"%~dp0BAT\busybox" md5sum "%~dp0TMP\!PFS-BatchKit-Manager2.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
+
+"%~dp0BAT\busybox" md5sum "%~dp0TMP\!PFS-BatchKit-Manager.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
 "%~dp0BAT\busybox" md5sum "%~dp0!PFS-BatchKit-Manager.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
 
-if exist !PFS-BatchKit-Manager2.bat (
+if exist !PFS-BatchKit-Manager.bat (
 if !CheckUPDATE! equ !CheckOriginal! (echo ) else (set update=UPDATE AVAILABLE)
 )
 
@@ -6162,7 +6165,7 @@ echo\
 	 )
 	 if not defined REGIONTMP set REGIONTMP=X
 	 
-	 if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/Féier/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/Démbre/g" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
+	 if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/F?ier/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/D?mbre/g" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
 	 
 	 if not defined dbtitleTMP (
 	 echo\
@@ -9559,23 +9562,23 @@ echo "!PPtitle!"| "%~dp0BAT\busybox" sed -e "s/\""//g" | "%~dp0BAT\busybox" icon
 REM Remove illegal character Partition name
 "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/ /_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/²/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/'/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/`/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/,/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/;/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/:/_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/¨/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\&/_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/°/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/+/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/=/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/#/_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/§/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/^!/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\$/_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/£/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/~/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/@/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\*/_/g" "%~dp0TMP\PPName.txt"
@@ -9651,7 +9654,7 @@ echo\
 	 if defined LSPID set REGIONTMP=U
 	 if not defined REGIONTMP set REGIONTMP=X
 	 
-	REM if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/Féier/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/Démbre/g;" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
+	REM if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/F?ier/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/D?mbre/g;" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
 	
 	 set "dbtitleTMP="
  	 for /f "tokens=1*" %%A in ( 'findstr %%F "%~dp0TMP\gameid.txt"' ) do (if not defined dbtitleTMP set dbtitleTMP=%%B
