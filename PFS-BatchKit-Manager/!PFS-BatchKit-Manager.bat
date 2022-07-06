@@ -26,7 +26,7 @@ REM    echo Requesting Administrative Privileges...
 REM ****************************************************************************************
 REM * Hey, if you look at this code, be aware that some parts of the code may be weird     *
 REM * But I had to adapt to windows syntax and busybox to make them work properly,         *
-REM * Especially for illegal characters and accents.                                       *
+REM * Especially for illegal characters and accents                                        *
 REM *                                                                                      *
 REM * GDX 2022/18/06                                                                       *
 REM ****************************************************************************************
@@ -1026,6 +1026,8 @@ move *.bin "%~dp0CD-DVD" >nul 2>&1
 move *.cue "%~dp0CD-DVD" >nul 2>&1
 move *.iso "%~dp0CD-DVD" >nul 2>&1
 cd /d "%~dp0DVD"
+move *.bin "%~dp0CD-DVD" >nul 2>&1
+move *.cue "%~dp0CD-DVD" >nul 2>&1
 move *.iso "%~dp0CD-DVD" >nul 2>&1
 move *.zso "%~dp0CD-DVD" >nul 2>&1
 
@@ -2775,9 +2777,10 @@ echo         2) No
 "%~dp0BAT\Diagbox" gd 0e
 echo         3) Yes (Manually Choose the partition where your .VCDs to extract are located.)
 echo         4) Yes (Manually Choose your .VCD)
+echo         5) Yes (Backup from PFS Partition)
 echo\
 "%~dp0BAT\Diagbox" gd 07
-CHOICE /C 1234 /M "Select Option:"
+CHOICE /C 12345 /M "Select Option:"
 
 IF %ERRORLEVEL%==1 set "@pfs_pop=yes" & set "choice=" & set popspartextract=__.POPS
 IF %ERRORLEVEL%==2 (goto mainmenu)
@@ -6162,7 +6165,7 @@ echo\
 	 )
 	 if not defined REGIONTMP set REGIONTMP=X
 	 
-	 if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/F?ier/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/D?mbre/g" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
+	 if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/Féier/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/Démbre/g" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
 	 
 	 if not defined dbtitleTMP (
 	 echo\
@@ -6226,7 +6229,7 @@ echo\
 	 set /P GENRE=<"%~dp0TMP\GENRE.txt"
 	 
      "%~dp0BAT\busybox" sed -i -e "s/title =.*/title =/g; s/title =/title = !dbtitle!/g" "%~dp0TMP\PP.HEADER\res\info.sys"
- 	 "%~dp0BAT\busybox" sed -i -e "s/title_id = .*/title_id =/g; s/title_id =/title_id = !gameid2!/g" "%~dp0TMP\PP.HEADER\res\info.sys"
+ 	 "%~dp0BAT\busybox" sed -i -e "s/title_id =.*/title_id =/g; s/title_id =/title_id = !gameid2!/g" "%~dp0TMP\PP.HEADER\res\info.sys"
 	 "%~dp0BAT\busybox" sed -i -e "s/area =.*/area =/g; s/area =/area = !REGION!/g" "%~dp0TMP\PP.HEADER\res\info.sys"
 	 "%~dp0BAT\busybox" sed -i -e "s/release_date =.*/release_date =/g; s/release_date =/release_date = !RELEASE!/g" "%~dp0TMP\PP.HEADER\res\info.sys"
      "%~dp0BAT\busybox" sed -i -e "s/developer_id =.*/developer_id =/g; s/developer_id =/developer_id = !DEVELOPER!/g" "%~dp0TMP\PP.HEADER\res\info.sys"
@@ -6587,9 +6590,9 @@ echo\
 "%~dp0BAT\Diagbox" gd 07
 CHOICE /C 123 /M "Select Option:"
 
-IF %ERRORLEVEL%==1 (goto RenamePS2GamesOSD) 
+IF %ERRORLEVEL%==1 set RenamePS2GamesOSD=yes& (goto RenamePPTitleOSD)
 IF %ERRORLEVEL%==2 if defined @GameManagementMenu (goto GamesManagement) else (goto HDDOSDPartManagement)
-IF %ERRORLEVEL%==3 (goto RenamePS1GamesOSD)
+IF %ERRORLEVEL%==3 set RenamePS1GamesOSD=yes& (goto RenamePPTitleOSD)
 
 REM ####################################################################################################################################################
 :CustomPPHeader
@@ -8020,7 +8023,7 @@ CHOICE /C 1234 /M "Select Option:"
 
 IF %ERRORLEVEL%==2 (goto GamesManagement)
 IF %ERRORLEVEL%==3 (goto RenamePS2GamesDBTITLE)
-IF %ERRORLEVEL%==4 (goto RenamePS2GamesOSD) 
+IF %ERRORLEVEL%==4 set RenamePS2GamesOSD=yes& (goto RenamePPTitleOSD)
 
 "%~dp0BAT\Diagbox" gd 0e
 cls
@@ -8169,7 +8172,7 @@ echo\
 endlocal
 pause & (goto GamesManagement)
 REM ###############################################################################
-:RenamePS2GamesOSD
+:RenamePPTitleOSD
 
 cd /d "%~dp0TMP"
 
@@ -8179,6 +8182,7 @@ echo\
 echo\
 echo Scanning Partitions Games:
 echo ----------------------------------------------------
+if defined RenamePS2GamesOSD (
 "%~dp0BAT\Diagbox" gd 03
 
 "%~dp0BAT\hdl_dump" hdl_toc %@hdl_path% > "%~dp0TMP\PARTITION_GAMES.txt"
@@ -8198,6 +8202,52 @@ echo ----------------------------------------------------
    "%~dp0BAT\busybox" paste -d " " "%~dp0TMP\PARTITION_GAMES_NEW.txt" "%~dp0TMP\PART_GAMES.log" > "%~dp0TMP\PARTITION_GAMES_NEW2.txt"
    "%~dp0BAT\busybox" cut -c14-500 "%~dp0TMP\PARTITION_GAMES_NEW2.txt" > "%~dp0TMP\PARTITION_GAMES_NEW3.txt"
    "%~dp0BAT\busybox" sed -i "s/ ;/;/g" "%~dp0TMP\PARTITION_GAMES_NEW3.txt"
+)
+
+if defined RenamePS1GamesOSD (
+"%~dp0BAT\Diagbox" gd 03
+
+    "%~dp0BAT\hdl_dump" toc %@hdl_path% | "%~dp0BAT\busybox" grep -e "\.POPS\." | "%~dp0BAT\busybox" cut -c30-250 | "%~dp0BAT\busybox" sed "s/.\{15\}/& /" | "%~dp0BAT\busybox" sort -k2 | "%~dp0BAT\busybox" sed -e "s/\(.\{15\}\)./\1/" | "%~dp0BAT\busybox" sed -e "s/\s*$//" > "%~dp0TMP\PART_GAMES.log"
+    "%~dp0BAT\busybox" grep -o "[A-Z][A-Z][A-Z][A-Z][-][0-9][0-9][0-9][0-9][0-9]" "%~dp0TMP\PART_GAMES.log" | "%~dp0BAT\busybox" sed "s/-/_/"g | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" > "%~dp0TMP\ID.txt"
+	
+	"%~dp0BAT\busybox" grep -o "LSP-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]\|LSP-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" "%~dp0TMP\PART_GAMES.log" | "%~dp0BAT\busybox" sed "s/.\{9\}/&./" | "%~dp0BAT\busybox" sed "s/LSP-/LSP/g; s/LSP90712\.7001/907127\.001/g" > "%~dp0TMP\LSPID.txt"
+	"%~dp0BAT\busybox" grep "PP\.LSP-" "%~dp0TMP\PART_GAMES.log" > "%~dp0TMP\PART_GAMESLSP.log"
+	"%~dp0BAT\busybox" paste -d " " "%~dp0TMP\LSPID.txt" "%~dp0TMP\PART_GAMESLSP.log" > "%~dp0TMP\LSPIDPPName.txt"
+	
+	"%~dp0BAT\busybox" sed -i "/PP\.LSP-/d" "%~dp0TMP\PART_GAMES.log"
+    "%~dp0BAT\busybox" paste -d " " "%~dp0TMP\ID.txt" "%~dp0TMP\PART_GAMES.log" > "%~dp0TMP\IDPPName.txt"
+	for /f "tokens=*" %%A in (LSPIDPPName.txt) do (echo %%~A>> "%~dp0TMP\IDPPName.txt")
+	for /f "tokens=*" %%A in (PART_GAMESLSP.log) do (echo %%~A>> "%~dp0TMP\PART_GAMES.log")
+
+    for %%F in ( "PART_GAMES.log" ) do if %%~zF==0 del "%%F"
+	if exist "%~dp0TMP\PART_GAMES.log" (
+	
+	for /f "tokens=1*" %%f in (IDPPName.txt) do (set gameid=%%f
+	
+	findstr !gameid! "%~dp0BAT\TitlesDB\gameidPS1.txt" >nul
+	if errorlevel 1 (
+	echo %%g >> "%~dp0TMP\GameList.txt"
+	)
+	
+	set "dbtitle="
+ 	for /f "tokens=1*" %%A in ( 'findstr !gameid! "%~dp0BAT\TitlesDB\gameidPS1.txt"' ) do (
+	if not defined dbtitle set dbtitle=%%B
+	echo !dbtitle! >> "%~dp0TMP\GameList.txt"
+	   )
+	  )
+	  
+   "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\GameList.txt"
+   "%~dp0BAT\busybox" sed -i "s/^/;/" "%~dp0TMP\PART_GAMES.log"
+   "%~dp0BAT\busybox" paste -d " " "%~dp0TMP\GameList.txt" "%~dp0TMP\PART_GAMES.log" | "%~dp0BAT\busybox" sort > "%~dp0TMP\GameList2.txt"
+   "%~dp0BAT\busybox" sed -i "s/ ;/;/g" "%~dp0TMP\GameList2.txt"
+   "%~dp0BAT\busybox" cat "%~dp0TMP\GameList.txt" | "%~dp0BAT\busybox" sort > "%~dp0TMP\GameListPS1.txt"
+
+type "%~dp0TMP\GameListPS1.txt" ) else ( echo No PS1 game partition detected)
+ 
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 06
+)
 
 setlocal DisableDelayedExpansion
 "%~dp0BAT\Diagbox" gd 06
@@ -8209,7 +8259,9 @@ set /p gamename=Enter the name of the game you want to rename:
 if "%gamename%"=="" if defined @GameManagementMenu (goto GamesManagement) else (goto HDDOSDPartManagement)
 "%~dp0BAT\Diagbox" gd 0f
 
-"%~dp0BAT\busybox" grep -m 1 "%gamename%" "%~dp0TMP\PARTITION_GAMES_NEW3.txt" | "%~dp0BAT\busybox" sed -e "s/__\./PP\./g" > "%~dp0TMP\gameselected.txt"
+if defined RenamePS2GamesOSD "%~dp0BAT\busybox" grep -m 1 "%gamename%" "%~dp0TMP\PARTITION_GAMES_NEW3.txt" | "%~dp0BAT\busybox" sed -e "s/__\./PP\./g" > "%~dp0TMP\gameselected.txt"
+if defined RenamePS1GamesOSD "%~dp0BAT\busybox" grep -m 1 "%gamename%" "%~dp0TMP\GameList2.txt" > "%~dp0TMP\gameselected.txt"
+
 setlocal EnableDelayedExpansion
 
 for /f "tokens=1* delims=;" %%f in (gameselected.txt) do (set PPName=%%g)
@@ -8230,7 +8282,7 @@ for /f "tokens=1* delims=;" %%f in (gameselected.txt) do (set PPName=%%g)
     echo\
 	echo Titles displayed in PSBBN, XMB menu 
 	"%~dp0BAT\Diagbox" gd 0f
-    REM This is shit but with cat and grep command cmd don't show letter accent.
+    REM This is shit but with cat and grep command cmd don't show letter with accent.
 	chcp 65001 >nul 2>&1
     "%~dp0BAT\busybox" cat info.sys | "%~dp0BAT\busybox" grep -w "title =" > info.sys2 & type info.sys2
 	echo\
@@ -8273,7 +8325,7 @@ for /f "tokens=1* delims=;" %%f in (gameselected.txt) do (set PPName=%%g)
     set /P newgamename=<"%~dp0TMP\newgamenametmp.txt"
     
     if !Titletype!==PSBBNXMB (
-	"%~dp0BAT\busybox" sed -i -e "s/title = .*/title =/g; s/title =/title = !newgamename!/g" "%~dp0TMP\info.sys"
+	"%~dp0BAT\busybox" sed -i -e "s/title =.*/title =/g; s/title =/title = !newgamename!/g" "%~dp0TMP\info.sys"
 	"%~dp0BAT\busybox" sed -i -e "s/\"TOP-TITLE\" label=.*/\"TOP-TITLE\" label=/g; s/\"TOP-TITLE\" label=/\"TOP-TITLE\" label=\"!newgamename!\"/g" "%~dp0TMP\man.xml"
     echo device %@hdl_path2% > "%~dp0TMP\pfs-log.txt"
     echo mount "!PPName!" >> "%~dp0TMP\pfs-log.txt"
@@ -8286,8 +8338,8 @@ for /f "tokens=1* delims=;" %%f in (gameselected.txt) do (set PPName=%%g)
 	)
 	
 	if !Titletype!==HDDOSD (
-    if !title!==0 ("%~dp0BAT\busybox" sed -i -e "s/title0 = .*/title0 = /g; s/title0 = /title0 = !newgamename!/g" "%~dp0TMP\icon.sys")
-    if !title!==1 ("%~dp0BAT\busybox" sed -i -e "s/title1 = .*/title1 = /g; s/title1 = /title1 = !newgamename!/g" "%~dp0TMP\icon.sys")
+    if !title!==0 ("%~dp0BAT\busybox" sed -ie "s/title0 = .*/title0 = /g; s/title0 = /title0 = !newgamename!/g" "%~dp0TMP\icon.sys")
+    if !title!==1 ("%~dp0BAT\busybox" sed -ie "s/title1 = .*/title1 = /g; s/title1 = /title1 = !newgamename!/g" "%~dp0TMP\icon.sys")
     "%~dp0BAT\hdl_dump" modify_header %@hdl_path% "!PPName!" | findstr "icon.sys"
     )
 
@@ -8305,7 +8357,6 @@ echo\
 
 endlocal
 endlocal
-
 if defined @GameManagementMenu (pause & goto GamesManagement) else (pause & goto HDDOSDPartManagement)
 
 REM #######################################################################################################################################################################
@@ -8359,7 +8410,7 @@ CHOICE /C 1234 /M "Select Option:"
 IF %ERRORLEVEL%==1 set @pfs_pop=yes & set POPSPART=__.POPS
 IF %ERRORLEVEL%==2 (goto GamesManagement)
 IF %ERRORLEVEL%==3 set @pfs_pop=yesmanually
-IF %ERRORLEVEL%==4 (goto RenamePS1GamesOSD)
+IF %ERRORLEVEL%==4 set RenamePS1GamesOSD=yes& (goto RenamePPTitleOSD)
 
 IF %@pfs_pop%==yesmanually (
 echo.
@@ -8497,167 +8548,6 @@ echo\
 
 endlocal
 pause & (goto GamesManagement)
-
-REM #####################################################
-:RenamePS1GamesOSD
-
-cd /d "%~dp0TMP"
-
-"%~dp0BAT\Diagbox" gd 0e
-cls
-echo\
-echo\
-echo Scanning Games List:
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 03
-
-    "%~dp0BAT\hdl_dump" toc %@hdl_path% | "%~dp0BAT\busybox" grep -e "\.POPS\." | "%~dp0BAT\busybox" cut -c30-250 | "%~dp0BAT\busybox" sed "s/.\{15\}/& /" | "%~dp0BAT\busybox" sort -k2 | "%~dp0BAT\busybox" sed -e "s/\(.\{15\}\)./\1/" | "%~dp0BAT\busybox" sed -e "s/\s*$//" > "%~dp0TMP\PART_GAMES.log"
-    "%~dp0BAT\busybox" grep -o "[A-Z][A-Z][A-Z][A-Z][-][0-9][0-9][0-9][0-9][0-9]" "%~dp0TMP\PART_GAMES.log" | "%~dp0BAT\busybox" sed "s/-/_/"g | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" > "%~dp0TMP\ID.txt"
-	
-	"%~dp0BAT\busybox" grep -o "LSP-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]\|LSP-[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" "%~dp0TMP\PART_GAMES.log" | "%~dp0BAT\busybox" sed "s/.\{9\}/&./" | "%~dp0BAT\busybox" sed "s/LSP-/LSP/g; s/LSP90712\.7001/907127\.001/g" > "%~dp0TMP\LSPID.txt"
-	"%~dp0BAT\busybox" grep "PP\.LSP-" "%~dp0TMP\PART_GAMES.log" > "%~dp0TMP\PART_GAMESLSP.log"
-	"%~dp0BAT\busybox" paste -d " " "%~dp0TMP\LSPID.txt" "%~dp0TMP\PART_GAMESLSP.log" > "%~dp0TMP\LSPIDPPName.txt"
-	
-	"%~dp0BAT\busybox" sed -i "/PP\.LSP-/d" "%~dp0TMP\PART_GAMES.log"
-    "%~dp0BAT\busybox" paste -d " " "%~dp0TMP\ID.txt" "%~dp0TMP\PART_GAMES.log" > "%~dp0TMP\IDPPName.txt"
-	for /f "tokens=*" %%A in (LSPIDPPName.txt) do (echo %%~A>> "%~dp0TMP\IDPPName.txt")
-	for /f "tokens=*" %%A in (PART_GAMESLSP.log) do (echo %%~A>> "%~dp0TMP\PART_GAMES.log")
-
-    for %%F in ( "PART_GAMES.log" ) do if %%~zF==0 del "%%F"
-	if exist "%~dp0TMP\PART_GAMES.log" (
-	
-	for /f "tokens=1*" %%f in (IDPPName.txt) do (set gameid=%%f
-	
-	findstr !gameid! "%~dp0BAT\TitlesDB\gameidPS1.txt" >nul
-	if errorlevel 1 (
-	echo %%g >> "%~dp0TMP\GameList.txt"
-	)
-	
-	set "dbtitle="
- 	for /f "tokens=1*" %%A in ( 'findstr !gameid! "%~dp0BAT\TitlesDB\gameidPS1.txt"' ) do (
-	if not defined dbtitle set dbtitle=%%B
-	echo !dbtitle! >> "%~dp0TMP\GameList.txt"
-	   )
-	  )
-	  
-   "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\GameList.txt"
-   "%~dp0BAT\busybox" sed -i "s/^/;/" "%~dp0TMP\PART_GAMES.log"
-   "%~dp0BAT\busybox" paste -d " " "%~dp0TMP\GameList.txt" "%~dp0TMP\PART_GAMES.log" | "%~dp0BAT\busybox" sort > "%~dp0TMP\GameList2.txt"
-   "%~dp0BAT\busybox" sed -i "s/ ;/;/g" "%~dp0TMP\GameList2.txt"
-   "%~dp0BAT\busybox" cat "%~dp0TMP\GameList.txt" | "%~dp0BAT\busybox" sort > "%~dp0TMP\GameListPS1.txt"
-
-type "%~dp0TMP\GameListPS1.txt" ) else ( echo No PS1 game partition detected)
- 
-"%~dp0BAT\Diagbox" gd 0e
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 06
-
-setlocal DisableDelayedExpansion
-echo\
-echo Keep in mind that the list of titles displayed are not those displayed in HDD-OSD, this is just to help you
-echo\
-"%~dp0BAT\Diagbox" gd 03
-set /p gamename=Enter the name of the game you want to rename:
-if "%gamename%"=="" if defined @GameManagementMenu (goto GamesManagement) else (goto HDDOSDPartManagement)
-"%~dp0BAT\Diagbox" gd 0f
-
-"%~dp0BAT\busybox" grep -m 1 "%gamename%" "%~dp0TMP\GameList2.txt" > "%~dp0TMP\gameselected.txt"
-setlocal EnableDelayedExpansion
-
-for /f "tokens=1* delims=;" %%f in (gameselected.txt) do (set PPName=%%g)
-
-	"%~dp0BAT\hdl_dump_fix" dump_header %@hdl_path% "!PPName!" >nul 2>&1
-	
-    echo device %@hdl_path2% > "%~dp0TMP\pfs-log.txt"
-    echo mount "!PPname!" >> "%~dp0TMP\pfs-log.txt"
-	echo cd res >> "%~dp0TMP\pfs-log.txt"
-    echo get info.sys >> "%~dp0TMP\pfs-log.txt"
-    echo get man.xml >> "%~dp0TMP\pfs-log.txt"
-	echo umount >> "%~dp0TMP\pfs-log.txt"
-   	echo exit >> "%~dp0TMP\pfs-log.txt"
- 	type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
-
-	"%~dp0BAT\Diagbox" gd 0e
-    echo\
-    echo\
-	echo Titles displayed in PSBBN, XMB menu 
-	"%~dp0BAT\Diagbox" gd 0f
-    REM This is shit but with cat and grep command cmd don't show letter accent.
-	chcp 65001 >nul 2>&1
-    "%~dp0BAT\busybox" cat info.sys | "%~dp0BAT\busybox" grep -w "title =" > info.sys2 & type info.sys2
-	echo\
-	"%~dp0BAT\Diagbox" gd 0e
-	echo Titles displayed in HDD-OSD
-	"%~dp0BAT\Diagbox" gd 0f
-	"%~dp0BAT\busybox" cat icon.sys | "%~dp0BAT\busybox" grep -e "title0" -e "title1"  > icon.sys2 & type icon.sys2
-    chcp 1252 >nul 2>&1
-	
-	echo\
-	echo\
-	echo What title do you want to edit?
-    echo Option: 1 = PSBBN, XMB menu
-    echo Option: 2 = HDD-OSD
-    CHOICE /C 12 /M "Select Option:"
-	
-    IF %ERRORLEVEL%==1 set Titletype=PSBBNXMB
-    IF %ERRORLEVEL%==2 set Titletype=HDDOSD
-	
-	if !Titletype!==HDDOSD (
-	echo\
-    echo\
-    echo What title line do you want to edit?
-    echo Option: 1 = title0
-    echo Option: 2 = title1
-    CHOICE /C 12 /M "Select Option:"
-    
-    IF ERRORLEVEL 1 set title=0
-    IF ERRORLEVEL 2 set title=1
-	)
-
-	echo\
-    echo\
-    if !Titletype!==HDDOSD echo 47 Characters max
-    set /p newgamenametmp=Enter the New Game Name:
-	"%~dp0BAT\Diagbox" gd 03
-
-    echo "!newgamenametmp!"| "%~dp0BAT\busybox" sed -e "s/\&/\\\&/g; s./.\\\/.g" | "%~dp0BAT\busybox" iconv -f windows-1252 -t utf-8 > "%~dp0TMP\newgamenametmp.txt"
-    "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\newgamenametmp.txt"
-    set /P newgamename=<"%~dp0TMP\newgamenametmp.txt"
-    
-    if !Titletype!==PSBBNXMB (
-	"%~dp0BAT\busybox" sed -i -e "s/title = .*/title =/g; s/title =/title = !newgamename!/g" "%~dp0TMP\info.sys"
-	"%~dp0BAT\busybox" sed -i -e "s/\"TOP-TITLE\" label=.*/\"TOP-TITLE\" label=/g; s/\"TOP-TITLE\" label=/\"TOP-TITLE\" label=\"!newgamename!\"/g" "%~dp0TMP\man.xml"
-    echo device %@hdl_path2% > "%~dp0TMP\pfs-log.txt"
-    echo mount "!PPName!" >> "%~dp0TMP\pfs-log.txt"
-	echo cd res >> "%~dp0TMP\pfs-log.txt"
-    echo put info.sys >> "%~dp0TMP\pfs-log.txt"
-	echo put man.xml >> "%~dp0TMP\pfs-log.txt"
-	echo umount >> "%~dp0TMP\pfs-log.txt"
-   	echo exit >> "%~dp0TMP\pfs-log.txt"
- 	type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
-	)
-	
-	if !Titletype!==HDDOSD (
-    if !title!==0 ("%~dp0BAT\busybox" sed -i -e "s/title0=.*/title0=/g; s/title0=/title0=!newgamename!/g" "%~dp0TMP\icon.sys")
-    if !title!==1 ("%~dp0BAT\busybox" sed -i -e "s/title1=.*/title1=/g; s/title1=/title1=!newgamename!/g" "%~dp0TMP\icon.sys")
-    "%~dp0BAT\hdl_dump" modify_header %@hdl_path% "!PPName!" | findstr "icon.sys"
-    )
-
-cd /d "%~dp0" & rmdir /Q/S "%~dp0TMP" >nul 2>&1
-
-"%~dp0BAT\Diagbox" gd 0f
-echo\
-echo\
-echo ----------------------------------------------------
-"%~dp0BAT\Diagbox" gd 0a
-echo Renaming Completed...
-echo\
-echo\
-"%~dp0BAT\Diagbox" gd 0f
-
-endlocal
-endlocal
-if defined @GameManagementMenu (pause & goto GamesManagement) else (pause & goto HDDOSDPartManagement)
 
 REM #######################################################################################################################################################################
 :DeleteChoiceGamesHDD
@@ -9559,23 +9449,23 @@ echo "!PPtitle!"| "%~dp0BAT\busybox" sed -e "s/\""//g" | "%~dp0BAT\busybox" icon
 REM Remove illegal character Partition name
 "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/ /_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/²/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/'/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/`/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/,/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/;/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/:/_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/¨/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\&/_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/°/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/+/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/=/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/#/_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/§/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/^!/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\$/_/g" "%~dp0TMP\PPName.txt"
-"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/£/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/~/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/@/_/g" "%~dp0TMP\PPName.txt"
 "%~dp0BAT\busybox" sed -i "s/\*/_/g" "%~dp0TMP\PPName.txt"
@@ -9651,7 +9541,7 @@ echo\
 	 if defined LSPID set REGIONTMP=U
 	 if not defined REGIONTMP set REGIONTMP=X
 	 
-	REM if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/F?ier/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/D?mbre/g;" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
+	REM if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/Féier/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/Démbre/g;" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
 	
 	 set "dbtitleTMP="
  	 for /f "tokens=1*" %%A in ( 'findstr %%F "%~dp0TMP\gameid.txt"' ) do (if not defined dbtitleTMP set dbtitleTMP=%%B
@@ -9683,7 +9573,7 @@ echo\
 	 set /P GENRE=<"%~dp0TMP\GENRE.txt"
 
     "%~dp0BAT\busybox" sed -i -e "s/title =.*/title =/g; s/title =/title = !dbtitle!/g" "%~dp0POPS\Temp\!appfolder!\res\info.sys"
- 	"%~dp0BAT\busybox" sed -i -e "s/title_id = .*/title_id =/g; s/title_id =/title_id = !gameid2!/g" "%~dp0POPS\Temp\!appfolder!\res\info.sys"
+ 	"%~dp0BAT\busybox" sed -i -e "s/title_id =.*/title_id =/g; s/title_id =/title_id = !gameid2!/g" "%~dp0POPS\Temp\!appfolder!\res\info.sys"
 	"%~dp0BAT\busybox" sed -i -e "s/release_date =.*/release_date =/g; s/release_date =/release_date = !RELEASE!/g" "%~dp0POPS\Temp\!appfolder!\res\info.sys"
 	"%~dp0BAT\busybox" sed -i -e "s/area =.*/area =/g; s/area =/area = !REGION!/g" "%~dp0POPS\Temp\!appfolder!\res\info.sys"
     "%~dp0BAT\busybox" sed -i -e "s/developer_id =.*/developer_id =/g; s/developer_id =/developer_id = !DEVELOPER!/g" "%~dp0POPS\Temp\!appfolder!\res\info.sys"
@@ -9839,10 +9729,12 @@ REM  "%~dp0BAT\wget" -q "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD
 	 "%~dp0BAT\Diagbox" gd 0f
      cd /d "%~dp0POPS\Temp\!appfolder!\PS1" & for %%x in (*) do if %%~zx==0 del %%x
 	 move "%~dp0POPS\Temp\!appfolder!\PS1\*" "%~dp0POPS\Temp\!appfolder!" >nul 2>&1
-
-     "%~dp0BAT\busybox" sed -i -e "s/title0=.*/title0=/g; s/title0=/title0=!dbtitle!/g" "%~dp0POPS\Temp\!appfolder!\icon.sys"
- 	 "%~dp0BAT\busybox" sed -i -e "s/title1=.*/title1=/g; s/title1=/title1=!gameid2!/g" "%~dp0POPS\Temp\!appfolder!\icon.sys"
-	  
+     
+	 "%~dp0BAT\busybox" sed -ie "s/ = /=/g; s/=/ = /g" "%~dp0POPS\Temp\!appfolder!\icon.sys"
+	 "%~dp0BAT\busybox" sed -ie "s/title0 =.*/title0 =/g; s/title0 =/title0 = !dbtitle!/g" "%~dp0POPS\Temp\!appfolder!\icon.sys"
+ 	 "%~dp0BAT\busybox" sed -ie "s/title1 =.*/title1 =/g; s/title1 =/title1 = !gameid2!/g" "%~dp0POPS\Temp\!appfolder!\icon.sys"
+	 "%~dp0BAT\busybox" sed -ie "s/\s*$//" "%~dp0POPS\Temp\!appfolder!\icon.sys"
+	 
 	 cd /d "%~dp0POPS\Temp\!appfolder!" & hdl_dump modify_header %@hdl_path2% "!PPName!" >nul 2>&1
 	 echo            Completed...
 	 echo ----------------------------------------------------
@@ -9993,6 +9885,9 @@ setlocal DisableDelayedExpansion
 For %%P in ( "*.VCD" ) do ( "%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" > VCDID.txt & "%~dp0BAT\busybox" sed -i -e "s/-/_/g" VCDID.txt
 set "filename=%%P"
 
+"%~dp0BAT\busybox" grep -ow "[0-9][0-9][0-9][0-9][0-9].[0-9][0-9][0-9]" VCDID.txt > LSPVCDID.txt
+for /f %%x in (LSPVCDID.txt) do (set LSPID=%%x& "%~dp0BAT\busybox" sed -i -e "s/%%x/LSP%%x/g" VCDID.txt)
+
 for /f %%i in (VCDID.txt) do (
 set gameid=%%i
 
@@ -10004,6 +9899,7 @@ for /f "tokens=1*" %%A in ( 'findstr %%i "%~dp0TMP\gameid.txt" ' ) do ( if not d
 
 setlocal EnableDelayedExpansion
 del "%~dp0POPS\VCDID.txt" >nul 2>&1
+del "%~dp0POPS\LSPVCDID.txt" >nul 2>&1
 
 if !usegameiddb!==yes (
 findstr !gameid! "%~dp0TMP\gameid.txt" >nul
@@ -10058,7 +9954,7 @@ endlocal
 "%~dp0BAT\Diagbox" gd 06
 cls
 echo.
-echo .BIN/CUE NOT DETECTED: Please drop .BIN/CUE IN POPS FOLDER.
+echo .VCD NOT DETECTED: Please drop .VCD IN POPS FOLDER.
 echo.
 "%~dp0BAT\Diagbox" gd 0f
 pause & (goto GamesManagement)
@@ -10068,7 +9964,7 @@ move "%~dp0POPS\temp\*.VCD" "%~dp0POPS" >nul 2>&1
 
 rmdir /s /q temp >nul 2>&1
 echo\
-
+endlocal
 pause & if defined usedbtitleconv (goto ConversionMenu) else (goto GamesManagement)
 
 REM ####################################################################################################################################################
@@ -10138,7 +10034,7 @@ if !patchVCD!==yes (
    cd /d "%~dp0POPS\temp\%%a" & for %%V in (*.bin) do set filename=%%~nV
    setlocal EnableDelayedExpansion
    
-   "%~dp0BAT\BIN-ID" "!filename!.bin" | "%~dp0BAT\busybox" sed -e "s/-/_/g" > "%~dp0POPS\Temp\!appfolder!\BINID.txt" & set /p BINID=<"%~dp0POPS\Temp\!appfolder!\BINID.txt"
+   "%~dp0BAT\busybox" grep -o -m 1 "[A-Z][A-Z][A-Z][A-Z][_-][0-9][0-9][0-9].[0-9][0-9]" "!filename!.bin" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" head -1 > "%~dp0POPS\Temp\!appfolder!\BINID.txt" & set /p BINID=<"%~dp0POPS\Temp\!appfolder!\BINID.txt"
    findstr !BINID! "%~dp0TMP\id.txt" >nul 2>&1
    if errorlevel 1 (
    echo\
@@ -10719,6 +10615,7 @@ IF "!@hdl_path!"=="" (
    echo\
    echo\
    
+   REM Assign Drive Letter
    wmic logicaldisk get caption | "%~dp0BAT\busybox" grep -o "[A-Z]:" | "%~dp0BAT\busybox" grep -o "[A-Z]" > "%~dp0TMP\LTR.txt"
    "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /l a >nul 2>&1 | "%~dp0BAT\busybox" grep -o "DosDevices\\[A-Z]:" | "%~dp0BAT\busybox" cut -c12-12 >> "%~dp0TMP\LTR.txt"
    
@@ -10733,10 +10630,12 @@ IF "!@hdl_path!"=="" (
    "%~dp0BAT\Diagbox" gd 0e
    echo Umount Partition?
    choice /c YN
-   if !errorlevel!==1 set "UmountPartition=yes" & cd "%~dp0" & rmdir /Q/S "%~dp0TMP" >nul 2>&1
+   if !errorlevel!==1 set "UmountPartition=yes" 
    
    if !UmountPartition!==yes (
-   "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /u !DeviceLTR!
+   "%~dp0BAT\Diagbox" gd 0f
+   "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /u !DeviceLTR! | "%~dp0BAT\busybox" grep -o "Unmount status = 0" > "%~dp0TMP\UnmountPart.txt" & set /P UnmountPart=<"%~dp0TMP\UnmountPart.txt"
+   if "!UnmountPart!"=="Unmount status = 0" echo Unmount success
    ) else (
    "%~dp0BAT\Diagbox" gd 06
    echo\
@@ -10758,6 +10657,7 @@ IF "!@hdl_path!"=="" (
    echo Enter the partition name do you want mount
    set /p PartName=Partition name:
    
+   REM Assign Drive Letter
    wmic logicaldisk get caption | "%~dp0BAT\busybox" grep -o "[A-Z]:" | "%~dp0BAT\busybox" grep -o "[A-Z]" > "%~dp0TMP\LTR.txt"
    "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /l a >nul 2>&1 | "%~dp0BAT\busybox" grep -o "DosDevices\\[A-Z]:" | "%~dp0BAT\busybox" cut -c12-12 >> "%~dp0TMP\LTR.txt"
    
@@ -10772,10 +10672,12 @@ IF "!@hdl_path!"=="" (
    "%~dp0BAT\Diagbox" gd 0e
    echo Umount Partition?
    choice /c YN
-   if !errorlevel!==1 set "UmountPartition=yes" & cd "%~dp0" & rmdir /Q/S "%~dp0TMP" >nul 2>&1
+   if !errorlevel!==1 set "UmountPartition=yes"
    
    if !UmountPartition!==yes (
-   "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /u !DeviceLTR!
+   "%~dp0BAT\Diagbox" gd 0f
+   "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /u !DeviceLTR! | "%~dp0BAT\busybox" grep -o "Unmount status = 0" > "%~dp0TMP\UnmountPart.txt" & set /P UnmountPart=<"%~dp0TMP\UnmountPart.txt"
+   if "!UnmountPart!"=="Unmount status = 0" echo Unmount success
    ) else (
    "%~dp0BAT\Diagbox" gd 06
    echo\
@@ -10788,9 +10690,12 @@ IF "!@hdl_path!"=="" (
   )
 
 if defined UmountManuallyPartition (
-   if exist "C:\Program Files\Dokan\" ( 
+   if exist "C:\Program Files\Dokan\" (
    "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /l a | "%~dp0BAT\busybox" grep -o "DosDevices\\[A-Z]:" | "%~dp0BAT\busybox" cut -c12-12 > "%~dp0TMP\Listmount.txt"
-   for /f "tokens=*" %%m in (Listmount.txt) do ("C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /u %%m)
+   for /f "tokens=*" %%m in (Listmount.txt) do (echo\ & "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /u %%m | "%~dp0BAT\busybox" grep -o "Unmount status = 0" > "%~dp0TMP\UnmountPart.txt" & set /P UnmountPart=<"%~dp0TMP\UnmountPart.txt"
+   "%~dp0BAT\Diagbox" gd 0f
+   if "!UnmountPart!"=="Unmount status = 0" echo Unmount success 
+     )
     )
    )
    
@@ -10872,6 +10777,65 @@ echo\
 pause & (goto PS2HDDExplore)
 
 REM ###########################################################################################################################################################
+:CheckUPDATE
+
+REM cls
+REM IF NOT EXIST "%~dp0TMP\"  MD "%~dp0TMP"
+REM IF NOT EXIST "%~dp0TMP\7-Zip"  MD "%~dp0TMP\7-Zip"
+REM copy "%~dp0BAT\busybox.exe" "%~dp0TMP" >nul 2>&1
+REM copy "%~dp0BAT\wget.exe" "%~dp0TMP" >nul 2>&1
+REM copy "%~dp0BAT\7-Zip\*" "%~dp0TMP\7-Zip" >nul 2>&1
+REM 
+REM cd /d "%~dp0TMP\"
+REM 
+REM echo Checking for updates...
+REM echo\
+REM echo\
+REM "%~dp0TMP\wget" -q "https://github.com/GDX-X/PFS-BatchKit-Manager/releases/" & "%~dp0BAT\busybox" grep -m 1 -o "1\.1\.0" index.html > version.txt & set /P STABLEVER=<"%~dp0TMP\version.txt"
+REM "%~dp0TMP\wget" -q "https://github.com/GDX-X/PFS-BatchKit-Manager/releases/download/!STABLEVER!/PFS_BatchKit_Manager_v!STABLEVER!.zip" -O "%~dp0TMP\UPDATE_STABLE.zip" & for %%F in ( "UPDATE_STABLE.zip" ) do if %%~zF==0 del "%%F"
+REM 
+REM if exist UPDATE_STABLE.zip (
+REM echo Stable Update available
+REM set checkupdate_daily=no
+REM "%~dp0TMP\7-Zip\7z" x -bso0 "%~dp0TMP\UPDATE_STABLE.zip" -o"%~dp0TMP" PFS-BatchKit-Manager-main\PFS-BatchKit-Manager\BAT -r -y
+REM ) else (set checkupdate_daily=yes & set UpdateBinaries=yes)
+REM 
+REM if defined checkupdate_daily (
+REM 
+REM "%~dp0TMP\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/^!PFS-BatchKit-Manager.bat" -O "%~dp0TMP\^!PFS-BatchKit-Manager.bat"
+REM "%~dp0TMP\busybox" md5sum "%~dp0TMP\^!PFS-BatchKit-Manager.bat" | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
+REM "%~dp0TMP\busybox" md5sum "%~dp0^!PFS-BatchKit-Manager.bat" | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
+REM 
+REM if !CheckUPDATE! equ !CheckOriginal! (echo ) else (echo Daily Update avaiable)
+REM 
+REM )
+REM 
+REM 
+REM if not defined UpdateBinaries (
+REM echo\
+REM echo\
+REM echo Download Latest Binaries?
+REM echo This will update the database of titles and such. [Recommanded]
+REM 
+REM CHOICE /C YN /M "Select Option:"
+REM if errorlevel 1 set UpdateBinaries=yes
+REM if errorlevel 2 set UpdateBinaries=no
+REM )
+REM 
+REM if %UpdateBinaries%==yes (
+REM 
+REM "%~dp0TMP\wget" -q "https://github.com/GDX-X/PFS-BatchKit-Manager/archive/refs/heads/main.zip" -O "%~dp0TMP\UPDATE_LATEST.zip" & for %%F in ( "UPDATE_LATEST.zip" ) do if %%~zF==0 del "%%F"
+REM 
+REM if exist UPDATE_LATEST.zip (
+REM "%~dp0TMP\7-Zip\7z" x -bso0 "%~dp0TMP\UPDATE_LATEST.zip" -o"%~dp0TMP" PFS-BatchKit-Manager-main\PFS-BatchKit-Manager\BAT -r -y
+REM move "%~dp0TMP\PFS-BatchKit-Manager-main\PFS-BatchKit-Manager\BAT" "%~dp0TMP" >nul 2>&1
+REM ) else ( echo No Daily update avaiable )
+REM 
+REM )
+REM 
+REM pause & (goto mainmenu)
+REM ###########################################################################################################################################################
+
 :GDX-X 
 cls
 echo\
