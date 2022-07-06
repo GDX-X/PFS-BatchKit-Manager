@@ -123,6 +123,7 @@ SLES_015.37 Actua Pool - Pool Shark
 SLES_000.14 Actua Soccer
 SLES_000.14 Actua Soccer
 SLPS_002.97 Actua Soccer
+SLES_001.90 Actua Soccer - Club Edition
 SLES_000.21 Actua Soccer 2
 SLES_010.29 Actua Soccer 2
 SLES_010.28 Actua Soccer 2
@@ -130,7 +131,6 @@ SLES_012.10 Actua Soccer 3
 SLES_016.44 Actua Soccer 3
 SLES_016.45 Actua Soccer 3
 SLES_016.46 Actua Soccer 3
-SLES_001.90 Actua Soccer - Club Edition
 SLES_002.65 Actua Tennis
 SLES_013.96 Actua Tennis
 SLPS_035.10 Ad Lib Ouji - Prince & Unpleasant Friends
@@ -4070,10 +4070,10 @@ SLPS_022.36 Jojo no Kimyouna Bouken - Jojo's Bizarre Adventure
 SLPM_867.21 Jojo no Kimyouna Bouken - Jojo's Bizarre Adventure (Capkore)
 SLUS_010.60 Jojo's Bizarre Adventure
 SLES_025.99 Jojo's Bizarre Adventure
-SCED_011.38 Joypad Demo 01
 SLES_003.77 Jonah Lomu Rugby
 SLES_027.72 Joue avec les Teletubbies
 SLPS_009.36 Jounetsu Nekketsu - Athletes
+SCED_011.38 Joypad Demo 01
 SLPS_006.27 JTCC Japanese Touring Car Championship
 SLES_007.55 Judge Dredd
 SLUS_006.30 Judge Dredd
@@ -4207,13 +4207,13 @@ SLPS_915.10 Kensetsu Kikai Simulator - Kenki Ippai^! (PSone Books)
 SLPM_866.21 Kero Kero King
 SLPS_914.51 Kero Kero King (PSone Books)
 SLPS_026.40 Khamrai
-SLUS_014.12 Kickboxing
-SLES_039.59 Kickboxing Knockout
 SLES_013.27 Kick Off World
 SLES_010.61 Kick Off World
 SLES_010.62 Kick Off World
 SLES_013.28 Kick Off World
 SLES_010.63 Kick Off World Manager
+SLUS_014.12 Kickboxing
+SLES_039.59 Kickboxing Knockout
 SLPS_004.54 Kid Klown in Crazy Chase 2 - Love Love Hani Soudatsusen
 SLPS_032.36 Kid Mix Section - Character Collection
 SLPS_022.39 Kidou Keisatsu Patlabor - Game Edition

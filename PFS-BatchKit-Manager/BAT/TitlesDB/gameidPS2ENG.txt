@@ -3142,6 +3142,7 @@ SLUS_280.21 Everquest Online Adventures (Beta Vol.2.0)
 SLUS_280.26 Everquest Online Adventures (Beta Vol.3.0)
 SLUS_290.50 Everquest Online Adventures (Demo)
 SLUS_290.63 Everquest Online Adventures: Frontiers (Public Beta Ver.1.0)
+SCES_517.25 EverQuest: Online Adventures
 SCES_516.48 Everquest: Online Adventures
 SLES_516.48 Everquest: Online Adventures
 SCED_517.28 EverQuest: Online Adventures
@@ -4562,38 +4563,35 @@ SLPM_650.11 Guitar Freaks 3rd Mix and DrumMania 2nd Mix
 SLPM_650.52 Guitar Freaks 4th Mix & Drummania 3rd Mix
 SLPM_663.13 Guitar Freaks V & DrumMania V
 SLPM_665.75 Guitar Freaks V-2 & Drummania V-2
-SLUS_212.24 Guitar Hero
 SLES_540.93 Guitar Hero
-SCES_541.32 Guitar Hero
 SLES_541.32 Guitar Hero
-SCES_540.93 Guitar Hero
+SLUS_212.24 Guitar Hero
 SLES_555.33 Guitar Hero 5
-SLUS_218.65 Guitar Hero 5 (Game Only)
-SLUS_215.86 Guitar Hero Encore: Rocks the '80s
-SLES_548.59 Guitar Hero Encore: Rocks the 80s
-SLUS_214.47 Guitar Hero II
-SCES_544.42 Guitar Hero II
+SLUS_218.65 Guitar Hero 5
+SLUS_215.86 Guitar Hero Encore: Rocks the 80s
+SLED_545.09 Guitar Hero II (Demo)
 SLES_544.42 Guitar Hero II
+SLUS_214.47 Guitar Hero II
 SLUS_291.98 Guitar Hero II (Demo)
-SLUS_216.72 Guitar Hero III: Legends of Rock
-SLPS_258.90 Guitar Hero III: Legends of Rock
 SLES_549.74 Guitar Hero III: Legends of Rock
 SLES_549.62 Guitar Hero III: Legends of Rock
-SLPS_258.40 Guitar Hero III: Legends of Rock (with Guitar)
+SLPS_258.40 Guitar Hero III: Legends of Rock
+SLKA_254.14 Guitar Hero III: Legends of Rock
+SLUS_216.72 Guitar Hero III: Legends of Rock
 SLES_553.55 Guitar Hero World Tour
-SLUS_217.40 Guitar Hero: Aerosmith
-SLES_551.91 Guitar Hero: Aerosmith
+SLUS_217.81 Guitar Hero World Tour
 SLES_552.00 Guitar Hero: Aerosmith
-SLPS_258.89 Guitar Hero: Aerosmith on Tour
-SLPS_258.86 Guitar Hero: Aerosmith on Tour (with Guitar)
+SLES_551.91 Guitar Hero: Aerosmith
+SLPS_258.89 Guitar Hero: Aerosmith
+SLUS_217.40 Guitar Hero: Aerosmith
 SLES_555.44 Guitar Hero: Greatest Hits
-SLUS_218.43 Guitar Hero: Metallica
 SLES_554.72 Guitar Hero: Metallica
+SLUS_218.43 Guitar Hero: Metallica
 SLES_548.60 Guitar Hero: Rocks the 80s
+SLES_548.59 Guitar Hero: Rocks the 80s
 SLUS_218.66 Guitar Hero: Smash Hits
-SLUS_218.67 Guitar Hero: Van Halen
 SLES_555.18 Guitar Hero: Van Halen
-SLUS_217.81 Guitar Hero: World Tour
+SLUS_218.67 Guitar Hero: Van Halen
 SLPM_666.86 GuitarFreaks & DrumMania Masterpiece Gold
 SLPM_668.22 GuitarFreaks V3 & DrumMania V3
 SCES_509.85 Gumball 3000
@@ -6831,6 +6829,7 @@ SLPM_659.42 Mercenaries
 SCES_525.90 Mercenaries
 SLES_530.08 Mercenaries
 SLES_525.88 Mercenaries
+SLED_529.79 Mercenaries (Demo)
 SLUS_291.37 Mercenaries (Demo)
 SLPM_664.65 Mercenaries (EA Best Hits)
 SLES_549.99 Mercenaries 2: Inferno di Fuoco
