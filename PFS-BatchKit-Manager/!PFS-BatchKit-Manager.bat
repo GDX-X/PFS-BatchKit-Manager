@@ -2777,10 +2777,9 @@ echo         2) No
 "%~dp0BAT\Diagbox" gd 0e
 echo         3) Yes (Manually Choose the partition where your .VCDs to extract are located.)
 echo         4) Yes (Manually Choose your .VCD)
-echo         5) Yes (Backup from PFS Partition)
 echo\
 "%~dp0BAT\Diagbox" gd 07
-CHOICE /C 12345 /M "Select Option:"
+CHOICE /C 1234 /M "Select Option:"
 
 IF %ERRORLEVEL%==1 set "@pfs_pop=yes" & set "choice=" & set popspartextract=__.POPS
 IF %ERRORLEVEL%==2 (goto mainmenu)
