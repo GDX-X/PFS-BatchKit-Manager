@@ -18,7 +18,7 @@ jobs:
       run: |
         cd PFS-BatchKit-Manager/BAT
         rm -f PS2-OPL-CHT-Widescreen.zip
-        wget https://github.com/PS2-Widescreen/OPL-Widescreen-Cheats/releases/download/Latest/widescreen_hacks.zip -O $PWD/PS2-OPL-CHT-Widescreen.zip
+        wget https://github.com/PS2-Widescreen/OPL-Widescreen-Cheats/archive/refs/heads/main.zip -O $PWD/PS2-OPL-CHT-Widescreen.zip
         
     - uses: EndBug/add-and-commit@v7
       with:
