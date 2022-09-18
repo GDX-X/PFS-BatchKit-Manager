@@ -65,7 +65,7 @@ if exist "!PFS-BatchKit-Manager2.bat" (
 setlocal EnableDelayedExpansion
 "%~dp0BAT\busybox" md5sum "%~dp0TMP\^!PFS-BatchKit-Manager2.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
 "%~dp0BAT\busybox" md5sum "%~dp0^!PFS-BatchKit-Manager.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
-if !CheckUPDATE! equ !CheckOriginal! (echo ) else (echo )
+if !CheckUPDATE! equ !CheckOriginal! (set "update=") else (echo )
 endlocal
 ) else (set "update=")
 
