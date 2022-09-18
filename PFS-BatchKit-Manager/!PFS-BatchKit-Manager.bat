@@ -55,18 +55,14 @@ IF NOT EXIST "%~dp0HDD-OSD\PP.HEADER" MD "%~dp0HDD-OSD\PP.HEADER\res\image"
 IF NOT EXIST "%~dp0TMP"  MD "%~dp0TMP"
 cd /d "%~dp0TMP"
 
-set update=UPDATE AVAILABLE
-
 echo Checking for updates...
 "%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/!PFS-BatchKit-Manager.bat" -O "%~dp0TMP\!PFS-BatchKit-Manager2.bat" >nul 2>&1
 for %%F in ( "!PFS-BatchKit-Manager2.bat" ) do if %%~zF==0 del "%%F"
 
-if exist "!PFS-BatchKit-Manager2.bat" (
-setlocal EnableDelayedExpansion
-"%~dp0BAT\busybox" md5sum "%~dp0TMP\^!PFS-BatchKit-Manager2.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
-"%~dp0BAT\busybox" md5sum "%~dp0^!PFS-BatchKit-Manager.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
-if !CheckUPDATE! equ !CheckOriginal! (set "update=") else (echo )
-) else (set "update=")
+"%~dp0BAT\busybox" md5sum "%~dp0TMP\!PFS-BatchKit-Manager2.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
+"%~dp0BAT\busybox" md5sum "%~dp0!PFS-BatchKit-Manager.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
+
+if exist "!PFS-BatchKit-Manager2.bat" if "%CheckUPDATE%"=="%CheckOriginal%" (echo "update=") else (set update=UPDATE AVAILABLE)
 
 cd /d "%~dp0" & IF EXIST "%~dp0TMP" rmdir /Q/S "%~dp0TMP" >nul 2>&1
 
