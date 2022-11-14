@@ -28,6 +28,12 @@ REM * Hey, if you look at this code, be aware that some parts of the code may be
 REM * But I had to adapt to windows syntax and busybox to make them work properly,         *
 REM * Especially for illegal characters and accents.                                       *
 REM *                                                                                      *
+REM * This script use hdl_dump & pfsshell commands                                  *
+REM *                                                                                      *
+REM * https://github.com/ps2homebrew/hdl-dump                                              *
+REM * https://github.com/ps2homebrew/pfsshell                                              *
+REM * Thanks to AKuHAK and Uyjulian                                                        *
+REM *                                                                                      *
 REM * GDX 2022/18/06                                                                       *
 REM ****************************************************************************************
 
@@ -50,7 +56,8 @@ IF NOT EXIST "%~dp0POPS\VMC" MD "%~dp0POPS\VMC"
 IF NOT EXIST "%~dp0POPS-Binaries\" MD "%~dp0POPS-Binaries\"
 IF NOT EXIST "%~dp0HDD-OSD\__sysconf" MD "%~dp0HDD-OSD\__sysconf"
 IF NOT EXIST "%~dp0HDD-OSD\__system" MD "%~dp0HDD-OSD\__system"
-IF NOT EXIST "%~dp0HDD-OSD\PP.HEADER" MD "%~dp0HDD-OSD\PP.HEADER\res\image"
+IF NOT EXIST "%~dp0HDD-OSD\PP.HEADER\res" MD "%~dp0HDD-OSD\PP.HEADER\PFS\res\image" >nul 2>&1
+
 
 IF NOT EXIST "%~dp0TMP"  MD "%~dp0TMP"
 cd /d "%~dp0TMP"
@@ -71,8 +78,8 @@ cd /d "%~dp0" & IF EXIST "%~dp0TMP" rmdir /Q/S "%~dp0TMP" >nul 2>&1
 IF NOT EXIST "%~dp0TMP"  MD "%~dp0TMP"
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -123,8 +130,8 @@ if "%choice%"=="13" (start https://github.com/GDX-X/PFS-BatchKit-Manager/release
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal DisableDelayedExpansion
@@ -135,7 +142,7 @@ ECHO I was inspired by the scripts of NeMesiS, Dekkit and Rs1n to make this scri
 ECHO.
 ECHO This batch script is intended to help and automate operations on the PS2 hard drive!
 ECHO. 
-ECHO Many thanks to the PS2 community for their contribution to the program used to make this scripts!
+ECHO Many thanks to the PS2 community for contributing the programs used to create these scripts!
 ECHO.                                                          _______
 ECHO GDX                                                      /!      !
 ECHO.                                                        / ! [][] !___
@@ -162,7 +169,7 @@ if "%choice%"=="1" (start https://twitter.com/GDX_SM)
 if "%choice%"=="3" (start https://www.youtube.com/user/GDXTV/videos)
 if "%choice%"=="4" (start https://github.com/GDX-X/PFS-BatchKit-Manager)
 
-if "%choice%"=="7" cls & type "%~dp0\Credit.txt" & echo\ & echo\ & echo\ & pause
+if "%choice%"=="7" cls & type "%~dp0\Credits.txt" & echo\ & echo\ & echo\ & pause
 if "%choice%"=="8" (start https://www.psx-place.com/forums/#playstation-2-forums.6)
 if "%choice%"=="9" (start https://discord.gg/PWGvKXjRgy)
 
@@ -178,8 +185,8 @@ if "%choice%"=="100" (goto GDX-X)
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -222,8 +229,8 @@ if "%choice%"=="11" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -270,8 +277,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -318,8 +325,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -360,36 +367,35 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 
 if defined checkappsupdate (
-cd /d "%~dp0\TMP"
+cd /d "%~dp0TMP"
 cls
 echo\
 echo Checking for APPS Database updates...
 "%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/BAT/APPS.BAT" -O "%~dp0TMP\APPS.BAT" >nul 2>&1
-for %%F in ( "APPS.BAT" ) do if %%~zF==0 (del "%%F" ) else (move "APPS.BAT" "%~dp0BAT")
+for %%F in ( "APPS.BAT" ) do if %%~zF==0 (del "%%F")
 
 if exist "APPS.BAT" (
-setlocal EnableDelayedExpansion
 "%~dp0BAT\busybox" md5sum "%~dp0TMP\APPS.BAT" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
 "%~dp0BAT\busybox" md5sum "%~dp0\BAT\APPS.BAT" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
 
-if !CheckUPDATE! equ !CheckOriginal! (echo ) else (
+if "!CheckUPDATE!"=="!CheckOriginal!" (echo ) else (
 echo\
 echo\
 echo Updating...
+move "APPS.BAT" "%~dp0BAT" >nul 2>&1
 "%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/BAT/APPS.zip" -O "%~dp0TMP\APPS.zip" >nul 2>&1
-for %%F in ( "APPS.zip" ) do if %%~zF==0 (del "%%F" ) else (move "APPS.zip" "%~dp0BAT")
+for %%F in ( "APPS.zip" ) do if %%~zF==0 (del "%%F" ) else (move "APPS.zip" "%~dp0BAT" >nul 2>&1)
 "%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/BAT/PSBBN_XMB_APPSINFOS_Database.zip" -O "%~dp0TMP\PSBBN_XMB_APPSINFOS_Database.zip" >nul 2>&1
-for %%F in ( "PSBBN_XMB_APPSINFOS_Database.zip" ) do if %%~zF==0 (del "%%F" ) else (move "PSBBN_XMB_APPSINFOS_Database.zip" "%~dp0BAT")
+for %%F in ( "PSBBN_XMB_APPSINFOS_Database.zip" ) do if %%~zF==0 (del "%%F" ) else (move "PSBBN_XMB_APPSINFOS_Database.zip" "%~dp0BAT" >nul 2>&1)
+  )
+ ) else (set "checkappsupdate=")
 )
 
-endlocal
-) else (set "checkappsupdate=")
-)
-
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -424,7 +430,6 @@ if "%choice%"=="4" set "@DownloadEmulators=yes" & (call "%~dp0BAT\APPS.BAT")
 if "%choice%"=="5" set "@DownloadMultiMedia=yes" & (call "%~dp0BAT\APPS.BAT")
 if "%choice%"=="6" set "@DownloadHardware=yes" & (call "%~dp0BAT\APPS.BAT")
 
-if "%choice%"=="9" (goto DownloadAPPSMenu)
 if "%choice%"=="10" (goto DownloadsMenu)
 if "%choice%"=="11" (goto mainmenu)
 if "%choice%"=="12" exit
@@ -435,8 +440,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -478,8 +483,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -522,8 +527,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -564,8 +569,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -574,16 +579,14 @@ echo.------------------------------------------
 ECHO HDD-OSD/PSBBN/XMB Partitions Management
 ECHO.
 ECHO 1. Transfer PS1 Games (Install as Partition Launch PS1 games from HDD-OSD, PSBBN, XMB Menu)
-ECHO 2.
-REM ECHO 2. Transfer APPS (Install as Partition Launch APPS from HDD-OSD, PSBBN, XMB Menu)
+ECHO 2. Transfer Or Update APP (Install as Partition Launch your APP from HDD-OSD, PSBBN, XMB Menu)
 ECHO 3. Inject OPL-Launcher (Launch PS2 games from HDD-OSD)
 ECHO 4. Hide Partition (Hide partitions in HDD-OSD)
 ECHO 5. Unhide Partition (Show partitions in HDD-OSD)
 ECHO 6. Rename a title (Displayed in HDD-OSD, PSBBN, XMB Menu)
-ECHO 7. Convert a PS2 game for PSBBN ^& XMB Menu (Launch PS2 games from HDD-OSD, PSBBN, XMB Menu)
-ECHO 8.
-REM ECHO 8. Update partition header (Update Icons & Infos)
-ECHO 9. Modify Partitions Header (Customize your partition header)
+ECHO 7. Convert HDL Partition for PSBBN ^& XMB Menu (Launch PS2 games from HDD-OSD, PSBBN, XMB Menu)
+ECHO 8. Modify Partition Header (Customize your partition header)
+ECHO 9. Update Partition Header (Update Title, Icons, Gameinfo, ART)
 ECHO.
 ECHO 10. Back
 ECHO 11. Back to main menu
@@ -593,13 +596,14 @@ echo.------------------------------------------
 set "choice="
 set /p choice="Select Option:"
 if "%choice%"=="1" set "@pfs_popHDDOSDMAIN=" & (goto TransferPS1GamesHDDOSD)
-
+if "%choice%"=="2" (goto TransferAPPSPart)
 if "%choice%"=="3" (goto InjectOPL-Launcher)
 if "%choice%"=="4" (goto pphide)
 if "%choice%"=="5" (goto ppunhide)
 if "%choice%"=="6" (goto RenameTitleHDDOSD)
 if "%choice%"=="7" (goto ConvertGamesBBNXMB)
-if "%choice%"=="9" (goto CustomPPHeader)
+if "%choice%"=="8" (goto CustomPPHeader)
+if "%choice%"=="9" (goto UpdatePPHeader)
 
 if "%choice%"=="10" (goto HDDOSDMenu)
 if "%choice%"=="11" (goto mainmenu)
@@ -611,8 +615,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -649,8 +653,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -698,8 +702,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -715,7 +719,8 @@ ECHO 5.
 ECHO 6.
 ECHO 7.
 ECHO 8.
-ECHO 9. Scan Partitions Error
+ECHO 9.
+REM ECHO 9. Scan Partitions Error
 ECHO.
 ECHO 10. Back
 ECHO 11. Back to main menu
@@ -728,7 +733,7 @@ set /p choice="Select Option:"
 if "%choice%"=="1" set ShowPS1GamePartitionList=yes & (goto PartitionInfoList)
 if "%choice%"=="2" set ShowPS2GamePartitionList=yes & (goto PartitionInfoList)
 if "%choice%"=="3" set ShowSystemPartitionList=yes & (goto PartitionInfoList)
-if "%choice%"=="9" set DiagPartitionError=yes & (goto PartitionInfoList)
+REM if "%choice%"=="9" set DiagPartitionError=yes & (goto PartitionInfoList)
 
 if "%choice%"=="10" (goto HDDManagementMenu)
 if "%choice%"=="11" (goto mainmenu)
@@ -740,8 +745,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -785,8 +790,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.3 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -1061,7 +1066,7 @@ echo\
 
 if !ConvZSO!==yes (
 "%~dp0BAT\Diagbox" gd 0e
-echo Do you want to delete .ZSO files after conversion?
+echo Do you want to delete .ZSO files after installation?
 "%~dp0BAT\Diagbox" gd 07
 CHOICE /C YN /M "Select Option:"
 if errorlevel 1 set DelConvZSO=yes
@@ -1073,17 +1078,12 @@ if errorlevel 2 set DelConvZSO=no
 echo ----------------------------------------------------
 REM CHECK IF .CUE IS MISSING FOR .BIN IF IT IS NOT DETECTED IT WILL BE CREATED
 cd /d "%~dp0CD" & call "%~dp0BAT\cuemaker.bat"
-move *.bin "%~dp0CD-DVD" >nul 2>&1
-move *.cue "%~dp0CD-DVD" >nul 2>&1
-move *.iso "%~dp0CD-DVD" >nul 2>&1
+for %%f in (*.bin *.cue *.iso *.zso *.zip *.7z) do move "%%f" "%~dp0CD-DVD" >nul 2>&1
 cd /d "%~dp0DVD"
-move *.bin "%~dp0CD-DVD" >nul 2>&1
-move *.cue "%~dp0CD-DVD" >nul 2>&1
-move *.iso "%~dp0CD-DVD" >nul 2>&1
-move *.zso "%~dp0CD-DVD" >nul 2>&1
+for %%f in (*.bin *.cue *.iso *.zso *.zip *.7z) do move "%%f" "%~dp0CD-DVD" >nul 2>&1
 
-cd /d "%~dp0CD-DVD" 
-"%~dp0BAT\busybox" ls | "%~dp0BAT\busybox" grep -ie ".iso" -ie ".cue" -ie ".zso" > GameslistTMP.txt
+cd /d "%~dp0CD-DVD"
+"%~dp0BAT\busybox" ls | "%~dp0BAT\busybox" grep -ie ".*\.iso$" -ie ".*\.cue$" -ie ".*\.zso$" -ie ".*\.zip$" -ie ".*\.7z$" > GameslistTMP.txt
 
 set /a gamecount=0
 for /f "tokens=*" %%f in (GameslistTMP.txt) do (
@@ -1093,16 +1093,40 @@ set /a gamecount+=1
 	set filename=%%f
 	set fname=%%~nf
 	set disctype=unknown
-	if "%%f"=="%%~nf.cue" set ext=CUE
-	if "%%f"=="%%~nf.iso" set ext=ISO
-	if "%%f"=="%%~nf.CUE" set ext=CUE
-	if "%%f"=="%%~nf.ISO" set ext=ISO
+	
 	setlocal EnableDelayedExpansion
+	if "!filename!"=="!fname!.zip" set compressed=zip
+	if "!filename!"=="!fname!.ZIP" set compressed=ZIP
+	if "!filename!"=="!fname!.7z" set compressed=7z
+	if "!filename!"=="!fname!.7Z" set compressed=7z
+	REM if "!filename!"=="!fname!.zso" set zso=ZSO
+	REM if "!filename!"=="!fname!.ZSO" set zso=ZSO
 	
     echo\
 	echo\
 	echo !gamecount! - !filename!
 	
+	if "!filename!"=="!fname!.!compressed!" (
+	"%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0CD-DVD\!fname!.!compressed!" -o"%~dp0TMP"
+    "%~dp0BAT\busybox" ls "%~dp0TMP" | "%~dp0BAT\busybox" grep -ie ".*\.iso$" -ie ".*\.cue$" -ie ".*\.zso$" | "%~dp0BAT\busybox" sed -e "s/.cue//g; s/.iso//g; s/.zso//g" > "%~dp0TMP\GamesUnzip.txt" & set /P fname=<"%~dp0TMP\GamesUnzip.txt" 
+	"%~dp0BAT\busybox" ls "%~dp0TMP" | "%~dp0BAT\busybox" grep -ie ".*\.iso$" -ie ".*\.cue$" -ie ".*\.zso$" | "%~dp0BAT\busybox" sed -e "s/!fname!\.//g; s/cue/CUE/g; s/iso/ISO/g; s/zso/zso/g" > "%~dp0TMP\GamesUnzip.txt"  & set /P ext=<"%~dp0TMP\GamesUnzip.txt" 
+	move "%~dp0TMP\!fname!.bin" "%~dp0CD-DVD" >nul 2>&1
+	move "%~dp0TMP\!fname!.!ext!" "%~dp0CD-DVD" >nul 2>&1
+	set DelExtracted=yes
+	
+	REM Why Delete? A strange bug with 7z when it extracts around 400 or 450 games. But I haven't done much testing. just for security
+	del "%~dp0TMP\!fname!.bin" >nul 2>&1
+	del "%~dp0TMP\!fname!.!ext!" >nul 2>&1
+	)
+	
+	if "!filename!"=="!fname!.cue" set ext=CUE
+	if "!filename!"=="!fname!.CUE" set ext=CUE
+	if "!filename!"=="!fname!.iso" set ext=ISO
+	if "!filename!"=="!fname!.ISO" set ext=ISO
+	
+	if !ext!==zso set filename=!fname!.zso
+	if "!filename!"=="!fname!.zso" "%~dp0BAT\maxcso" --decompress "!fname!.zso" -o "!fname!.iso" & set ext=ISO
+
 	if defined ext ( hdl_dump cdvd_info2 ".\!fname!.!ext!" > cdvd_info.txt
 	for /f "tokens=1,2,3,4,5*" %%i in (cdvd_info.txt) do (
 	if "%%i"=="CD" ( set disctype=CD&& set gameid=%%~l)
@@ -1110,12 +1134,13 @@ set /a gamecount+=1
 	if "%%i"=="dual-layer" ( if "%%j"=="DVD" ( set disctype=DVD&& set gameid=%%~m))
      )
 	 
-	) else (
-	"%~dp0BAT\busybox" grep -o -m 1 "[A-Z][A-Z][A-Z][A-Z][_-][0-9][0-9][0-9].[0-9][0-9]" "!filename!" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" head -1 > cdvd_info.txt
-	set ext=ZSO
-	set disctype=DVD
-	set /P gameid=<cdvd_info.txt
 	)
+	REM else (
+	REM "%~dp0BAT\busybox" grep -o -m 1 "[A-Z][A-Z][A-Z][A-Z][_-][0-9][0-9][0-9].[0-9][0-9]" "!filename!" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" head -1 > cdvd_info.txt
+	REM set ext=ZSO
+	REM set disctype=DVD
+	REM set /P gameid=<cdvd_info.txt
+	REM )
 	
 	set fnheader=!fname:~0,11!
 	if "!fnheader!"==%%l (
@@ -1204,18 +1229,18 @@ set /a gamecount+=1
 		 ) else (
 		 "%~dp0BAT\bchunk" "!fname!.bin" "!fname!.cue" "!fname!" >nul 2>&1 & ren "!fname!01.iso" "!fname!.iso" >nul 2>&1
 		 "%~dp0BAT\maxcso" --block=2048 --format=zso "!fname!.iso" >nul 2>&1
-		 del "!fname!.iso" >nul 2>&1
+		 REM del "!fname!.iso" >nul 2>&1
 		     )
             )
 		 if "!disctype!"=="DVD" "%~dp0BAT\maxcso" --block=2048 --format=zso "!fname!.iso" >nul 2>&1
            )
 		  )
 		 )
-		
+
 	   REM GET FILE SIZE 
 	   if not exist "!fname!.iso" "%~dp0BAT\busybox" du -csh "!fname!.bin" 2>&1 | "%~dp0BAT\busybox" grep -e "total" | "%~dp0BAT\busybox" sed -e "s/total//g; s/K/KB/g; s/M/MB/g; s/G/GB/g" > "%~dp0TMP\binsize.txt" & set /P size=<"%~dp0TMP\binsize.txt"
 	   if not exist "!fname!.bin" "%~dp0BAT\busybox" du -csh "!fname!.iso" 2>&1 | "%~dp0BAT\busybox" grep -e "total" | "%~dp0BAT\busybox" sed -e "s/total//g; s/K/KB/g; s/M/MB/g; s/G/GB/g" > "%~dp0TMP\binsize.txt" & set /P size=<"%~dp0TMP\binsize.txt"
-       if !ext!==ZSO "%~dp0BAT\busybox" du -csh "!fname!.zso" 2>&1 | "%~dp0BAT\busybox" grep -e "total" | "%~dp0BAT\busybox" sed -e "s/total//g; s/K/KB/g; s/M/MB/g; s/G/GB/g" > "%~dp0TMP\zsosize.txt" & set /P size=<"%~dp0TMP\zsosize.txt"
+	   if exist "!fname!.zso" set ext=ZSO& "%~dp0BAT\busybox" du -csh "!fname!.zso" 2>&1 | "%~dp0BAT\busybox" grep -e "total" | "%~dp0BAT\busybox" sed -e "s/total//g; s/K/KB/g; s/M/MB/g; s/G/GB/g" > "%~dp0TMP\zsosize.txt" & set /P size=<"%~dp0TMP\zsosize.txt"
 			
 			echo Title:    [!title!]
 			echo Gameid:   [!gameid!]
@@ -1223,11 +1248,15 @@ set /a gamecount+=1
 			echo DiscType: [!disctype!]
 			echo Format:   [!ext!]
 			echo Size:     [!size!]
-
+            
+			if exist "!fname!.zso" set ext=ISO
 			"%~dp0BAT\Diagbox" gd 0d
 			if "%TEST%"=="NO" hdl_dump inject_!disctype! !@hdl_path! "!title!" "!fname!.!ext!" !gameid! *u4
 			if "!InjectKELF!"=="yes" hdl_dump modify_header !@hdl_path! "!title!" | findstr "Successfully"
+			
 			if "!DelConvZSO!"=="yes" del "!fname!.zso" >nul 2>&1
+			if exist "!fname!.zso" del "!fname!.iso" >nul 2>&1
+			if "!DelExtracted!"=="yes" del "!fname!.cue" >nul 2>&1 & del "!fname!.bin" >nul 2>&1 & del "!fname!.iso" >nul 2>&1 & del "!fname!.zso" >nul 2>&1
 			"%~dp0BAT\Diagbox" gd 07
 		)
 	endlocal
@@ -1236,10 +1265,8 @@ endlocal
 
 echo\
 cd /d "%~dp0CD-DVD"
-move *.bin "%~dp0CD" >nul 2>&1
-move *.cue "%~dp0CD" >nul 2>&1
-move *.iso "%~dp0DVD" >nul 2>&1
-move *.zso "%~dp0DVD" >nul 2>&1
+for %%f in (*.bin *.cue) do move "%%f" "%~dp0CD" >nul 2>&1
+for %%f in (*.iso *.zso *.zip *.7z) do move "%%f" "%~dp0DVD" >nul 2>&1
 
 REM Del OPL games cache 
 echo device %@hdl_path2% > "%~dp0TMP\pfs-OPLcache.txt"
@@ -1899,10 +1926,8 @@ IF /I EXIST "%~dp0APPS\*" (
 
 	echo         Installing Que
 	type "%~dp0TMP\pfs-apps.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -i -e "drwx" | "%~dp0BAT\busybox" sed -e "1,2d" > "%~dp0LOG\PFS-APPS.log"
-	del "%~dp0TMP\pfs-apps.txt" >nul 2>&1
 	echo         APPS Completed...	
-	cd "%~dp0"
-	) else ( echo         APPS - NOT DETECTED )
+	) else ( echo         APPS - Source Not Detected... )
 )
 
 REM OPL ARTWORK
@@ -1932,9 +1957,7 @@ IF /I EXIST "%~dp0ART\*.*" (
 	
 	echo         Installing Que
 	type "%~dp0TMP\pfs-art.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -ie ".png" -ie ".jpg" > "%~dp0LOG\PFS-ART.log"
-	del "%~dp0TMP\pfs-art.txt" >nul 2>&1
 	echo         ART Completed...	
-	cd "%~dp0"
 	) else ( echo         ART - Source Not Detected... )
 )
 
@@ -1965,9 +1988,7 @@ IF /I EXIST "%~dp0CFG\*.*" (
 	
 	echo         Installing Que
 	type "%~dp0TMP\pfs-cfg.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -ie ".*\.cfg$" > "%~dp0LOG\PFS-CFG.log"
-	del "%~dp0TMP\pfs-cfg.txt" >nul 2>&1
 	echo         CFG Completed...	
-	cd "%~dp0"
 	) else ( echo         CFG - Source Not Detected... )
 )
 
@@ -1998,9 +2019,7 @@ IF /I EXIST "%~dp0CHT\*.*" (
 	
 	echo         Installing Que
 	type "%~dp0TMP\pfs-cht.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -ie ".*\.cht$" > "%~dp0LOG\PFS-CHT.log"
-	del "%~dp0TMP\pfs-cht.txt" >nul 2>&1
 	echo         CHT Completed...
-	cd "%~dp0"
 	) else ( echo         CHT - Source Not Detected... )
 )
 
@@ -2031,9 +2050,7 @@ IF /I EXIST "%~dp0VMC\*.*" (
 	
 	echo         Installing Que
 	type "%~dp0TMP\pfs-vmc.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -ie ".*\.bin$" > "%~dp0LOG\PFS-VMC.log"
-	del "%~dp0TMP\pfs-vmc.txt" >nul 2>&1
 	echo         VMC Completed...	
-	cd "%~dp0"
 	) else ( echo         VMC - Source Not Detected... )
 )
 
@@ -2109,9 +2126,7 @@ IF /I EXIST "%~dp0THM\*" (
 
 	echo         Installing Que
 	type "%~dp0TMP\pfs-thm.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -i -e "drwx" | "%~dp0BAT\busybox" sed -e "1,2d" > "%~dp0LOG\PFS-THM.log"
-	del "%~dp0TMP\pfs-thm.txt" >nul 2>&1
 	echo         THM Completed...	
-	cd "%~dp0"
 	) else ( echo         THM - Source Not Detected... )
 )
 
@@ -2162,7 +2177,6 @@ IF /I EXIST "%~dp0POPS\VMC\*" (
 
  	for %%2 in (*) do (echo put "%%2") >> "%~dp0TMP\pfs-popsmvc.txt"
 	
-	
 	echo lcd .. >> "%~dp0TMP\pfs-popsmvc.txt"
 	echo cd .. >> "%~dp0TMP\pfs-popsmvc.txt"
  	cd ..
@@ -2180,9 +2194,7 @@ IF /I EXIST "%~dp0POPS\VMC\*" (
 
 	echo         Installing Que
 	type "%~dp0TMP\pfs-popsmvc.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -i -e "drwx" | "%~dp0BAT\busybox" sed -e "1,2d" > "%~dp0LOG\PFS-POPS-VMC.log"
-	del "%~dp0TMP\pfs-popsmvc.txt" >nul 2>&1
 	echo         POPS-VMC Completed...	
-	cd "%~dp0"
 	) else ( echo         POPS-VMC - Source Not Detected... )
 )
 
@@ -2359,7 +2371,6 @@ IF /I EXIST "%~dp0POPS\*.VCD" (
 	if exist CHEATS.TXT del CHEATS.TXT
 	if exist TROJAN_0.BIN del TROJAN_0.BIN
 
-
 echo\
 echo\
 echo Installing "%%f":
@@ -2427,10 +2438,10 @@ pause & (goto mainmenu)
 REM ########################################################################################################################################################################
 :BackupARTCFGCHTVMC
 
-cd "%~dp0"
 cls
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
 md "%~dp0TMP" >nul 2>&1
+cd "%~dp0"
 
 "%~dp0BAT\Diagbox" gd 0e
 echo\
@@ -2595,6 +2606,7 @@ echo\
 pause
 cls
 setlocal DisableDelayedExpansion
+cd /d "%~dp0TMP"
 
 IF %@pfs_art%==yes (
 
@@ -2605,7 +2617,6 @@ echo ----------------------------------------------------
 echo\
 
     IF NOT EXIST "%~dp0ART" MD "%~dp0ART"
-	cd "%~dp0TMP"
     echo         Files scan...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
@@ -2625,9 +2636,9 @@ echo\
 	for /f "tokens=*" %%f in (pfs-tmp.log) do (echo get "%%f" >> "%~dp0TMP\pfs-art.txt")
 	echo umount >> "%~dp0TMP\pfs-art.txt"
 	echo exit >> "%~dp0TMP\pfs-art.txt"
+	
 	type "%~dp0TMP\pfs-art.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	echo         Completed...
-	cd "%~dp0"
 	)
 
 IF %@pfs_cfg%==yes (
@@ -2639,7 +2650,6 @@ echo ----------------------------------------------------
 echo\
 
     IF NOT EXIST "%~dp0CFG" MD "%~dp0CFG"
-	cd "%~dp0TMP"
     echo         Files scan...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
@@ -2659,9 +2669,9 @@ echo\
 	for /f "tokens=*" %%f in (pfs-tmp.log) do (echo get "%%f" >> "%~dp0TMP\pfs-cfg.txt")
 	echo umount >> "%~dp0TMP\pfs-cfg.txt"
 	echo exit >> "%~dp0TMP\pfs-cfg.txt"
+	
 	type "%~dp0TMP\pfs-cfg.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	echo         Completed...
-	cd "%~dp0"
 	)
 
 IF %@pfs_cht%==yes (
@@ -2673,7 +2683,7 @@ echo ----------------------------------------------------
 echo\
     
 	IF NOT EXIST "%~dp0CHT" MD "%~dp0CHT"
-	cd "%~dp0TMP"
+
     echo         Files scan...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
@@ -2693,9 +2703,9 @@ echo\
 	for /f "tokens=*" %%f in (pfs-tmp.log) do (echo get "%%f" >> "%~dp0TMP\pfs-cht.txt")
 	echo umount >> "%~dp0TMP\pfs-cht.txt"
 	echo exit >> "%~dp0TMP\pfs-cht.txt"
+	
 	type "%~dp0TMP\pfs-cht.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	echo         Completed...
-	cd "%~dp0"
 	)
 
 IF %@pfs_vmc%==yes (
@@ -2707,7 +2717,7 @@ echo ----------------------------------------------------
 echo\
 
     IF NOT EXIST "%~dp0VMC" MD "%~dp0VMC"
-	cd "%~dp0TMP"
+
     echo         Files scan...
 	echo device %@hdl_path% > "%~dp0TMP\pfs-log.txt"
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-log.txt"
@@ -2727,9 +2737,9 @@ echo\
 	for /f "tokens=*" %%f in (pfs-tmp.log) do (echo get "%%f" >> "%~dp0TMP\pfs-vmc.txt")
 	echo umount >> "%~dp0TMP\pfs-vmc.txt"
 	echo exit >> "%~dp0TMP\pfs-vmc.txt"
+	
 	type "%~dp0TMP\pfs-vmc.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	echo         Completed...
-	cd "%~dp0"
 	)
 
 IF %@pfs_popvmc%==yes (
@@ -3047,7 +3057,7 @@ echo\
 	set "dbtitle="
 	for /f "tokens=1*" %%A in ( 'findstr !gameid! "%~dp0BAT\TitlesDB\gameidPS1.txt"' ) do (
 	if not defined dbtitle set dbtitle=%%B
-	move "%%V" "%~dp0POPS\!dbtitle!.VCD" >nul 2>&1
+	move "%%V" "%~dp0POPS\!gameid!.!dbtitle!.VCD" >nul 2>&1
 	echo         Completed...
    )
   )
@@ -3613,7 +3623,7 @@ echo ----------------------------------------------------
 "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" > "%~dp0TMP\hdl-hdd.txt"
 
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" ( 
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -3685,7 +3695,7 @@ echo ----------------------------------------------------
 "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" > "%~dp0TMP\hdl-hdd.txt"
 
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" ( 
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -3779,7 +3789,6 @@ echo ----------------------------------------------------
 	if errorlevel 9 (goto HDDManagementMenu)
   
     IF "!hdlhddm!"=="yes" (
-    
 	echo\
     echo What is the number of my hard drive? / The one next to the hdd#: in the scanned HDDs
     echo Example If you want to format hdd7: type 7
@@ -3791,8 +3800,7 @@ echo ----------------------------------------------------
     IF "!choice!"=="" set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto formatHDDtoPS2)
     IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
     IF "!choice!"=="Q" (goto  HDDManagementMenu)
-   
-   )
+    )
 
 "%~dp0BAT\hdl_dump" query | findstr "%hdlhdd%" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" > "%~dp0TMP\hdl-hdd.txt"
 "%~dp0BAT\busybox" sed -i "s/hdd/\\\\.\\\PhysicalDrive/g; s/://g" "%~dp0TMP\hdl-hdd.txt"
@@ -3800,7 +3808,6 @@ set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
 
 "%~dp0BAT\busybox" sed -e "s/\\\\.\\\PhysicalDrive/PHYSICALDRIVE/g; s/://g" "%~dp0TMP\hdl-hdd.txt" > "%~dp0TMP\hdl-hddinfo.txt"
 set /P @hdl_pathinfo=<"%~dp0TMP\hdl-hddinfo.txt"
-REM del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
 
 "%~dp0BAT\Diagbox" gd 0e
 cls
@@ -3860,9 +3867,9 @@ IF %ERRORLEVEL%==2 set "hdlhdd=" & set "hdlhddm=" & set "@hdl_path=" & set "@hdl
 		pause & (goto HDDManagementMenu)
 		)
 
-cls
 IF %@pfs_formathdd%==yes (
 "%~dp0BAT\Diagbox" gd 0f
+cls
 echo\
 echo\
 echo Formatting HDD:
@@ -3959,7 +3966,6 @@ echo ----------------------------------------------------
 	if errorlevel 9 (goto HDDManagementMenu)
   
     IF "!hdlhddm!"=="yes" (
-    
 	echo\
     echo What is the number of my hard drive? / The one next to the hdd#: in the scanned HDDs
     echo Example If you want to hack hdd7: type 7
@@ -3971,8 +3977,7 @@ echo ----------------------------------------------------
     IF "!choice!"=="" set "hdlhddm=" & set "hdlhdd=" & set "@hdl_path=" & set "@hdl_pathinfo=" & (goto hackHDDtoPS2)
     IF "!choice!"=="!choice!" set hdlhdd=hdd!choice!:
     IF "!choice!"=="Q" (goto  HDDManagementMenu)
-   
-   )
+    )
 
 "%~dp0BAT\hdl_dump" query | findstr "%hdlhdd%" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" > "%~dp0TMP\hdl-hdd.txt"
 "%~dp0BAT\busybox" sed -i "s/hdd/\\\\.\\\PhysicalDrive/g; s/://g" "%~dp0TMP\hdl-hdd.txt"
@@ -3980,7 +3985,6 @@ set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
 
 "%~dp0BAT\busybox" sed -e "s/\\\\.\\\PhysicalDrive/PHYSICALDRIVE/g; s/://g" "%~dp0TMP\hdl-hdd.txt" > "%~dp0TMP\hdl-hddinfo.txt"
 set /P @hdl_pathinfo=<"%~dp0TMP\hdl-hddinfo.txt"
-REM del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
 
 "%~dp0BAT\Diagbox" gd 0e
 cls
@@ -4093,7 +4097,7 @@ echo\
 echo\
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0a
-echo Hack Completed...
+echo MBR Hack Completed...
 echo\
 echo\
 "%~dp0BAT\Diagbox" gd 07
@@ -4150,7 +4154,6 @@ CHOICE /C 12 /M "Select Option:"
 
 IF %ERRORLEVEL%==1 set @pfs_installhddosd=yes
 IF %ERRORLEVEL%==2 set @pfs_installhddosd=no & (goto HDDOSDMenu)
-
 
 echo\
 echo\
@@ -4572,6 +4575,7 @@ REM __sysconf
 	echo mount %OPLPART% >> "%~dp0TMP\pfs-hddosd.txt"
 	if defined CHOICEPART echo mkdir OPL >> "%~dp0TMP\pfs-hddosd.txt"
     if defined CHOICEPART echo cd OPL >> "%~dp0TMP\pfs-hddosd.txt"
+	echo rm OPNPS2LD.ELF >> "%~dp0TMP\pfs-hddosd.txt"
  	echo put OPNPS2LD.ELF >> "%~dp0TMP\pfs-hddosd.txt"
     echo umount >> "%~dp0TMP\pfs-hddosd.txt"
 	echo exit >> "%~dp0TMP\pfs-hddosd.txt"
@@ -4594,7 +4598,6 @@ if defined CHOICEPP (
 	type "%~dp0TMP\pfs-OPLCONFIG.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
 	"%~dp0BAT\busybox" sed -i -e "s/\hdd_partition=.*/hdd_partition=/g; s/hdd_partition=/hdd_partition=+OPL/g" "%~dp0HDD-OSD\__common\OPL\conf_hdd.cfg"
     )
-	
  ) else ( echo         HDDOSD - Installation Canceled... )
 
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
@@ -5002,7 +5005,6 @@ mkdir "%~dp0TMP" >nul 2>&1
 mkdir "%~dp0TMP\PP.HEADER" >nul 2>&1
 cd /d "%~dp0TMP"
 
-copy "%~dp0BAT\boot.kelf" "%~dp0TMP\PP.HEADER" >nul 2>&1
 copy "%~dp0BAT\boot.kelf" "%~dp0TMP\PP.HEADER\EXECUTE.KELF" >nul 2>&1
 copy "%~dp0BAT\system.cnf" "%~dp0TMP\PP.HEADER" >nul 2>&1
 copy "%~dp0BAT\hdl_dump.exe" "%~dp0TMP\PP.HEADER" >nul 2>&1
@@ -5046,7 +5048,7 @@ echo         3^) Undo partition conversion
 echo\
 CHOICE /C 123 /M "Select Option:"
 
-IF %ERRORLEVEL%==1 set convPS2Games=yes
+IF %ERRORLEVEL%==1 set "convPS2Games=yes" & set checkOPL=yes
 IF %ERRORLEVEL%==2 (goto HDDOSDPartManagement)
 IF %ERRORLEVEL%==3 set unconvPS2Games=yes
 
@@ -5082,7 +5084,7 @@ IF ERRORLEVEL 2 set uselocalART=no
 if !uselocalART!==no (
     echo.
 	echo Checking internet Or Website connection...
-	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.jpg" -O "%~dp0TMP\SCES_000.01_COV.jpg" >nul 2>&1
+	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.jpg" -O "%~dp0TMP\SCES_000.01_COV.jpg" >nul 2>&1
 	for %%F in (SCES_000.01_COV.jpg) do if %%~zF==0 del "%%F"
 
 if not exist SCES_000.01_COV.jpg (
@@ -5126,7 +5128,7 @@ echo ----------------------------------------------------
 	 echo\
 "%~dp0BAT\Diagbox" gd 0f
      set /p "PPNameHeader=Enter the partition name:"
-     IF "!PPNameHeader!"=="" (goto HDDOSDPartManagement)
+     IF "!PPNameHeader!"=="" set set "checkOPL=" & (goto HDDOSDPartManagement)
 	 
 "%~dp0BAT\Diagbox" gd 0e
 echo\
@@ -5135,8 +5137,8 @@ echo Detecting !PPNameHeader! Partition:
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 07
 
-    "%~dp0BAT\busybox" grep -ow "!PPNameHeader!" "%~dp0TMP\PARTITION_PS2_GAMES.txt" | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\PPSelected.txt"
-	if %errorlevel%==0 (
+    "%~dp0BAT\busybox" grep -ow "!PPNameHeader!" "%~dp0TMP\PARTITION_PS2_GAMES.txt" | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\PPSelected.txt" & set /P PPSELECTED=<"%~dp0TMP\PPSelected.txt"
+	if "!PPSELECTED!"=="!PPNameHeader!" (
     "%~dp0BAT\Diagbox" gd 0a
 	echo         Partition Detected
 	"%~dp0BAT\Diagbox" gd 07
@@ -5181,6 +5183,7 @@ echo\
 	
 	"%~dp0BAT\hdl_dump_fix" dump_header %@hdl_path% "!PPNameHeader!" >nul 2>&1
 	"%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0BAT\HDD-PSBBN_XMB_SAMPLE_HEADER.zip" -o"%~dp0TMP\PP.HEADER" -r -y >nul 2>&1
+	copy "%~dp0BAT\boot.kelf" "%~dp0TMP\PP.HEADER" >nul 2>&1
 
 	 echo         Getting game information...
 	 chcp 65001 >nul 2>&1
@@ -5329,22 +5332,21 @@ echo ----------------------------------------------------
 
 "%~dp0BAT\Diagbox" gd 0e
 echo ----------------------------------------------------
-echo\
 "%~dp0BAT\Diagbox" gd 0f
 
      echo            Downloading resources...
-     IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS2%%2F!gameid!%%2F!gameid!_COV.jpg" -O "%~dp0TMP\jkt_001.jpg" >nul 2>&1
+     IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS2%%2F!gameid!%%2F!gameid!_COV.jpg" -O "%~dp0TMP\jkt_001.jpg" >nul 2>&1
 	 IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS2\!gameid!\!gameid!_COV.jpg -r -y & move "%~dp0TMP\PS2\!gameid!\!gameid!_COV.jpg" "%~dp0TMP\jkt_001.jpg" >nul 2>&1
-	 IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS2%%2F!gameid!%%2F!gameid!_BG_00.jpg" -O "%~dp0TMP\BG.jpg" >nul 2>&1
+	 IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS2%%2F!gameid!%%2F!gameid!_BG_00.jpg" -O "%~dp0TMP\BG.jpg" >nul 2>&1
 	 IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS2\!gameid!\!gameid!_BG_00.jpg -r -y & move "%~dp0TMP\PS2\!gameid!\!gameid!_BG_00.jpg" "%~dp0TMP\BG.jpg" >nul 2>&1
-	 IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS2%%2F!gameid!%%2F!gameid!_LGO.png" -O "%~dp0TMP\jkt_cp.png" >nul 2>&1
+	 IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS2%%2F!gameid!%%2F!gameid!_LGO.png" -O "%~dp0TMP\jkt_cp.png" >nul 2>&1
 	 IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS2\!gameid!\!gameid!_LGO.png -r -y & move "%~dp0TMP\PS2\!gameid!\!gameid!_LGO.png" "%~dp0TMP\jkt_cp.png" >nul 2>&1
-	 IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS2%%2F!gameid!%%2F!gameid!_SCR_00.jpg" -O "%~dp0TMP\SCR0.jpg" >nul 2>&1
+	 IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS2%%2F!gameid!%%2F!gameid!_SCR_00.jpg" -O "%~dp0TMP\SCR0.jpg" >nul 2>&1
 	 IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS2\!gameid!\!gameid!_SCR_00.jpg -r -y & move "%~dp0TMP\PS2\!gameid!\!gameid!_SCR_00.jpg" "%~dp0TMP\SCR0.jpg" >nul 2>&1
-	 IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS2%%2F!gameid!%%2F!gameid!_SCR_01.jpg" -O "%~dp0TMP\SCR1.jpg" >nul 2>&1
+	 IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS2%%2F!gameid!%%2F!gameid!_SCR_01.jpg" -O "%~dp0TMP\SCR1.jpg" >nul 2>&1
 	 IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS2\!gameid!\!gameid!_SCR_01.jpg -r -y & move "%~dp0TMP\PS2\!gameid!\!gameid!_SCR_01.jpg" "%~dp0TMP\SCR1.jpg" >nul 2>&1
-	 REM IF !uselocalART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS2%%2F!gameid!%%2F!gameid!_SCR_02.jpg" -O "%~dp0TMP\SCR2.jpg" >nul 2>&1
-	 REM IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS2%%2F!gameid!%%2F!gameid!_SCR_03.jpg" -O "%~dp0TMP\SCR3.jpg" >nul 2>&1
+	 REM IF !uselocalART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS2%%2F!gameid!%%2F!gameid!_SCR_02.jpg" -O "%~dp0TMP\SCR2.jpg" >nul 2>&1
+	 REM IF !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS2%%2F!gameid!%%2F!gameid!_SCR_03.jpg" -O "%~dp0TMP\SCR3.jpg" >nul 2>&1
 	 cd "%~dp0TMP" & for %%F in (*.jpg *.png) do if %%~zF==0 del "%%F"
 
 	 REM Covers
@@ -5404,6 +5406,60 @@ echo\
 	 cd /d "%~dp0TMP\PP.HEADER" & hdl_dump modify_header %@hdl_path% "!PPNameHeader!" >nul 2>&1
 	 echo            Completed...
      )
+	 
+if defined checkOPL (
+
+	 REM echo            Checking OPL Files... 
+     echo device !@hdl_path2! > "%~dp0TMP\pfs-OPLconfig.txt"
+     echo mount __common >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo cd OPL >> "%~dp0TMP\pfs-OPLconfig.txt"
+     echo get conf_hdd.cfg >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo cd .. >> "%~dp0TMP\pfs-OPLconfig.txt"
+     echo umount >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo mount +OPL >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo cd OPL >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo ls >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo cd .. >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo umount >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo exit >> "%~dp0TMP\pfs-OPLconfig.txt"
+     type "%~dp0TMP\pfs-OPLconfig.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -ie "OPNPS2LD.ELF" > "%~dp0TMP\OPLELF.txt" 2>&1 & set /P OPLELF=<"%~dp0TMP\OPLELF.txt"
+
+	 if not exist conf_hdd.cfg (
+	 copy "%~dp0HDD-OSD\__common\OPL\conf_hdd.cfg" "%~dp0TMP\PP.HEADER" >nul 2>&1
+	 echo device !@hdl_path2! > "%~dp0TMP\pfs-OPLconfig.txt"
+     echo mount __common >> "%~dp0TMP\pfs-OPLconfig.txt"
+     echo cd OPL >> "%~dp0TMP\pfs-OPLconfig.txt"
+     echo put conf_hdd.cfg >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo cd .. >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo umount >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 
+	 if not defined OPLELF (
+	 copy "%~dp0HDD-OSD\OPNPS2LD.ELF" "%~dp0TMP\PP.HEADER" >nul 2>&1
+     echo mount +OPL >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo put OPNPS2LD.ELF >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo cd .. >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo umount >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 )
+	 
+     echo exit >> "%~dp0TMP\pfs-OPLconfig.txt"
+     type "%~dp0TMP\pfs-OPLconfig.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
+	 
+	 ) else (
+	 "%~dp0BAT\busybox" grep "hdd_partition=" "%~dp0TMP\PP.HEADER\conf_hdd.cfg" | "%~dp0BAT\busybox" sed "s/^.*=//" > "%~dp0TMP\OPLPATH.txt" & set /P OPLPATH=<"%~dp0TMP\OPLPATH.txt"
+		 
+	 if not defined OPLELF (
+	 copy "%~dp0HDD-OSD\OPNPS2LD.ELF" "%~dp0TMP\PP.HEADER" >nul 2>&1
+	 echo device !@hdl_path2! > "%~dp0TMP\pfs-OPLconfig.txt"
+     echo mount !OPLPATH! >> "%~dp0TMP\pfs-OPLconfig.txt"
+     echo cd OPL >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo put OPNPS2LD.ELF >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo cd .. >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 echo umount >> "%~dp0TMP\pfs-OPLconfig.txt"
+     echo exit >> "%~dp0TMP\pfs-OPLconfig.txt"
+     type "%~dp0TMP\pfs-OPLconfig.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
+	  )
+     )
+)
 
 if defined unconvPS2Games (
 "%~dp0BAT\Diagbox" gd 0e
@@ -5675,7 +5731,7 @@ echo ----------------------------------------------------
 
 set /P @hdl_path2=<"%~dp0TMP\hdl-hdd2.txt"
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" ( 
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -5726,7 +5782,7 @@ echo ----------------------------------------------------
 
 set /P @hdl_path2=<"%~dp0TMP\hdl-hdd2.txt"
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" ( 
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -5860,18 +5916,19 @@ echo\
 
 	echo device %@hdl_path2% > "%~dp0TMP\pfs-header.txt"
 	echo mount "!PPNameHeader!" >> "%~dp0TMP\pfs-header.txt"
-	echo lcd "%~dp0HDD-OSD\PP.HEADER" >> "%~dp0TMP\pfs-header.txt"
+	echo lcd "%~dp0HDD-OSD\PP.HEADER\PFS" >> "%~dp0TMP\pfs-header.txt"
+	echo get BOOT.ELF >> "%~dp0TMP\pfs-header.txt"
 	echo get EXECUTE.ELF >> "%~dp0TMP\pfs-header.txt"
 	echo get EXECUTE.KELF >> "%~dp0TMP\pfs-header.txt"
 	
 	echo cd res >> "%~dp0TMP\pfs-header.txt"
-	mkdir "%~dp0HDD-OSD\PP.HEADER\res" >nul 2>&1
-	echo lcd "%~dp0HDD-OSD\PP.HEADER\res" >> "%~dp0TMP\pfs-header.txt"
+	mkdir "%~dp0HDD-OSD\PP.HEADER\PFS\res" >nul 2>&1
+	echo lcd "%~dp0HDD-OSD\PP.HEADER\PFS\res" >> "%~dp0TMP\pfs-header.txt"
 	for /f "tokens=*" %%f in (pfs-tmp.log) do (echo get "%%f" >> "%~dp0TMP\pfs-header.txt")
 	
 	echo cd image >> "%~dp0TMP\pfs-header.txt"
-	mkdir "%~dp0HDD-OSD\PP.HEADER\res\image" >nul 2>&1
-	echo lcd "%~dp0HDD-OSD\PP.HEADER\res\image" >> "%~dp0TMP\pfs-header.txt"
+	mkdir "%~dp0HDD-OSD\PP.HEADER\PFS\res\image" >nul 2>&1
+	echo lcd "%~dp0HDD-OSD\PP.HEADER\PFS\res\image" >> "%~dp0TMP\pfs-header.txt"
 	for /f "tokens=*" %%f in (pfs-tmp2.log) do (echo get "%%f" >> "%~dp0TMP\pfs-header.txt")
 	
 	echo umount >> "%~dp0TMP\pfs-header.txt"
@@ -5890,7 +5947,7 @@ echo Inject !PPNameHeader! Header:
 echo ----------------------------------------------------
 echo\
 
-cd /d "%~dp0HDD-OSD\PP.HEADER"
+REM cd /d "%~dp0HDD-OSD\PP.HEADER\"
 
 	echo         Inject Header...
 	REM HDD-OSD Header
@@ -5898,19 +5955,21 @@ cd /d "%~dp0HDD-OSD\PP.HEADER"
     echo !PPNameHeader!| "%~dp0BAT\busybox" sed -e "s/PP\./__\./g" > "%~dp0TMP\PPBBNXMB.txt" & set /P PPNameHeader2=<"%~dp0TMP\PPBBNXMB.txt"
 	"%~dp0BAT\hdl_dump_fix" modify_header %@hdl_path% "!PPNameHeader2!" >nul 2>&1
 	
+	cd /d "%~dp0HDD-OSD\PP.HEADER\PFS"
 	echo         Inject Resources Header...
 	echo device %@hdl_path2% > "%~dp0TMP\pfs-headerbbn.txt"
 	echo mount "!PPNameHeader!" >> "%~dp0TMP\pfs-headerbbn.txt"
-	echo lcd "%~dp0HDD-OSD\PP.HEADER" >> "%~dp0TMP\pfs-headerbbn.txt"
-	echo put EXECUTE.ELF >> "%~dp0TMP\pfs-headerbbn.txt"
-	echo put EXECUTE.KELF >> "%~dp0TMP\pfs-headerbbn.txt"
-	echo lcd "%~dp0HDD-OSD\PP.HEADER\res" >> "%~dp0TMP\pfs-headerbbn.txt"
+	echo lcd "%~dp0HDD-OSD\PP.HEADER\PFS\" >> "%~dp0TMP\pfs-headerbbn.txt"
+	echo rm BOOT.ELF >> "%~dp0TMP\pfs-headerbbn.txt"
+	echo rm EXECUTE.ELF >> "%~dp0TMP\pfs-headerbbn.txt"
+	echo rm EXECUTE.KELF >> "%~dp0TMP\pfs-headerbbn.txt"
+    for %%0 in (*.elf *.kelf) do (echo put "%%0") >> "%~dp0TMP\pfs-headerbbn.txt"
 	echo mkdir res >> "%~dp0TMP\pfs-headerbbn.txt"
 	echo cd res >> "%~dp0TMP\pfs-headerbbn.txt"
 	
-	cd /d "%~dp0HDD-OSD\PP.HEADER\res"
+	cd /d "%~dp0HDD-OSD\PP.HEADER\PFS\res"
 	for %%0 in (*) do (echo put "%%0") >> "%~dp0TMP\pfs-headerbbn.txt"
-	
+
 	REM RESSOURCE DIR (PP.NAME\res\image\)
 	for /D %%x in (*) do (
 	echo mkdir "%%x" >> "%~dp0TMP\pfs-headerbbn.txt"
@@ -5987,7 +6046,7 @@ echo ----------------------------------------------------
 "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" > "%~dp0TMP\hdl-hdd.txt"
 
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" ( 
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -6030,7 +6089,7 @@ IF ERRORLEVEL 2 set uselocalART=no
 if !uselocalART!==no (
     echo.
 	echo Checking internet Or Website connection...
-	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.jpg" -O "%~dp0TMP\SCES_000.01_COV.jpg" >nul 2>&1
+	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.jpg" -O "%~dp0TMP\SCES_000.01_COV.jpg" >nul 2>&1
 	for %%F in (SCES_000.01_COV.jpg) do if %%~zF==0 del "%%F"
 
 if not exist SCES_000.01_COV.jpg (
@@ -6100,7 +6159,7 @@ echo %%A
 
 REM Cover
 IF !uselocalART!==yes if exist "%~dp0ART.zip" if not exist "%~dp0ART\%%A_COV.jpg" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_COV.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_COV.jpg" "%~dp0ART" >nul 2>&1
-IF !DownloadART!==yes if not exist "%~dp0ART\%%A_COV.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/%ARTType%%%2F%%A%%2F%%A_COV.jpg" -O "%~dp0ART\%%A_COV.jpg"
+IF !DownloadART!==yes if not exist "%~dp0ART\%%A_COV.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/%ARTType%%%2F%%A%%2F%%A_COV.jpg" -O "%~dp0ART\%%A_COV.jpg"
 
 cd /d "%~dp0ART" & for %%F in (%%A_COV.jpg) do if %%~zF==0 del "%%F"
 if exist %%A_COV.jpg echo Found >nul
@@ -6110,7 +6169,7 @@ if not exist %%A_COV.jpg echo %%A_COV.jpg   Not found in database
 
 REM Back Cover
 IF !uselocalART!==yes if exist "%~dp0ART.zip" if not exist "%~dp0ART\%%A_COV2.jpg" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_COV2.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_COV2.jpg" "%~dp0ART" >nul 2>&1
-IF !DownloadART!==yes if not exist "%~dp0ART\%%A_COV2.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/%ARTType%%%2F%%A%%2F%%A_COV2.jpg" -O "%~dp0ART\%%A_COV2.jpg"
+IF !DownloadART!==yes if not exist "%~dp0ART\%%A_COV2.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/%ARTType%%%2F%%A%%2F%%A_COV2.jpg" -O "%~dp0ART\%%A_COV2.jpg"
 
 cd /d "%~dp0ART" & for %%F in (%%A_COV2.jpg) do if %%~zF==0 del "%%F"
 if exist %%A_COV2.jpg echo Found >nul
@@ -6119,8 +6178,8 @@ if not exist %%A_COV2.jpg echo %%A_COV2.jpg  Not found in database
 "%~dp0BAT\Diagbox" gd 03
 
 REM ICO
-IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_ICO.png -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_ICO.png" "%~dp0ART" >nul 2>&1
-IF !DownloadART!==yes if not exist "%~dp0ART\%%A_ICO.png" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/%ARTType%%%2F%%A%%2F%%A_ICO.png" -O "%~dp0ART\%%A_ICO.png"
+IF !uselocalART!==yes if exist "%~dp0ART.zip" if not exist "%~dp0ART\%%A_ICO.png" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_ICO.png -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_ICO.png" "%~dp0ART" >nul 2>&1
+IF !DownloadART!==yes if not exist "%~dp0ART\%%A_ICO.png" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/%ARTType%%%2F%%A%%2F%%A_ICO.png" -O "%~dp0ART\%%A_ICO.png"
 
 cd /d "%~dp0ART" & for %%F in (%%A_ICO.png) do if %%~zF==0 del "%%F"
 if exist %%A_ICO.png echo Found >nul
@@ -6129,8 +6188,8 @@ if not exist %%A_ICO.png echo %%A_ICO.png   Not found in database
 "%~dp0BAT\Diagbox" gd 03
 
 REM LAB
-IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_LAB.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_LAB.jpg" "%~dp0ART" >nul 2>&1
-IF !DownloadART!==yes if not exist "%~dp0ART\%%A_LAB.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/%ARTType%%%2F%%A%%2F%%A_LAB.jpg" -O "%~dp0ART\%%A_LAB.jpg"
+IF !uselocalART!==yes if exist "%~dp0ART.zip" if not exist "%~dp0ART\%%A_LAB.jpg" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_LAB.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_LAB.jpg" "%~dp0ART" >nul 2>&1
+IF !DownloadART!==yes if not exist "%~dp0ART\%%A_LAB.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/%ARTType%%%2F%%A%%2F%%A_LAB.jpg" -O "%~dp0ART\%%A_LAB.jpg"
 
 cd /d "%~dp0ART" & for %%F in (%%A_LAB.jpg) do if %%~zF==0 del "%%F"
 if exist %%A_LAB.jpg echo Found >nul
@@ -6139,8 +6198,8 @@ if not exist %%A_LAB.jpg echo %%A_LAB.jpg   Not found in database
 "%~dp0BAT\Diagbox" gd 03
 
 REM LOGO
-IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_LGO.png -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_LGO.png" "%~dp0ART" >nul 2>&1
-IF !DownloadART!==yes if not exist "%~dp0ART\%%A_LGO.png" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/%ARTType%%%2F%%A%%2F%%A_LGO.png" -O "%~dp0ART\%%A_LGO.png"
+IF !uselocalART!==yes if exist "%~dp0ART.zip" if not exist "%~dp0ART\%%A_LGO.png" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_LGO.png -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_LGO.png" "%~dp0ART" >nul 2>&1
+IF !DownloadART!==yes if not exist "%~dp0ART\%%A_LGO.png" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/%ARTType%%%2F%%A%%2F%%A_LGO.png" -O "%~dp0ART\%%A_LGO.png"
 
 cd /d "%~dp0ART" & for %%F in (%%A_LGO.png) do if %%~zF==0 del "%%F"
 if exist %%A_LGO.png echo Found >nul
@@ -6149,8 +6208,8 @@ if not exist %%A_LGO.png echo %%A_LGO.png   Not found in database
 "%~dp0BAT\Diagbox" gd 03
  
 REM Background
-IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_BG_00.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_BG_00.jpg" "%~dp0ART\%%A_BG.jpg" >nul 2>&1
-IF !DownloadART!==yes if not exist "%~dp0ART\%%A_BG.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/%ARTType%%%2F%%A%%2F%%A_BG_00.jpg" -O "%~dp0ART\%%A_BG.jpg"
+IF !uselocalART!==yes if exist "%~dp0ART.zip" if not exist "%~dp0ART\%%A_BG.jpg" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_BG_00.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_BG_00.jpg" "%~dp0ART\%%A_BG.jpg" >nul 2>&1
+IF !DownloadART!==yes if not exist "%~dp0ART\%%A_BG.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/%ARTType%%%2F%%A%%2F%%A_BG_00.jpg" -O "%~dp0ART\%%A_BG.jpg"
 
 cd /d "%~dp0ART" & for %%F in (%%A_BG.jpg) do if %%~zF==0 del "%%F"
 if exist %%A_BG.jpg echo Found >nul
@@ -6159,8 +6218,8 @@ if not exist %%A_BG.jpg echo %%A_BG.jpg    Not found in database
 "%~dp0BAT\Diagbox" gd 03
 
 REM Screenshot 0
-IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_SCR_00.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_SCR_00.jpg" "%~dp0ART\%%A_SCR.jpg" >nul 2>&1
-IF !DownloadART!==yes if not exist "%~dp0ART\%%A_SCR.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/%ARTType%%%2F%%A%%2F%%A_SCR_00.jpg" -O "%~dp0ART\%%A_SCR.jpg"
+IF !uselocalART!==yes if exist "%~dp0ART.zip" if not exist "%~dp0ART\%%A_SCR.jpg" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_SCR_00.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_SCR_00.jpg" "%~dp0ART\%%A_SCR.jpg" >nul 2>&1
+IF !DownloadART!==yes if not exist "%~dp0ART\%%A_SCR.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/%ARTType%%%2F%%A%%2F%%A_SCR_00.jpg" -O "%~dp0ART\%%A_SCR.jpg"
 
 cd /d "%~dp0ART" & for %%F in (%%A_SCR.jpg) do if %%~zF==0 del "%%F"
 if exist %%A_SCR.jpg echo Found >nul
@@ -6169,8 +6228,8 @@ if not exist %%A_SCR.jpg echo %%A_SCR.jpg   Not found in database
 "%~dp0BAT\Diagbox" gd 03
 
 REM Screenshot 1
-IF !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_SCR_02.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_SCR_02.jpg" "%~dp0ART\%%A_SCR2.jpg" >nul 2>&1
-IF !DownloadART!==yes if not exist "%~dp0ART\%%A_SCR2.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/%ARTType%%%2F%%A%%2F%%A_SCR_01.jpg" -O "%~dp0ART\%%A_SCR2.jpg"
+IF !uselocalART!==yes if exist "%~dp0ART.zip" if not exist "%~dp0ART\%%A_SCR2.jpg" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" %ARTType%\%%A\%%A_SCR_02.jpg -r -y & move "%~dp0TMP\%ARTType%\%%A\%%A_SCR_02.jpg" "%~dp0ART\%%A_SCR2.jpg" >nul 2>&1
+IF !DownloadART!==yes if not exist "%~dp0ART\%%A_SCR2.jpg" "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/%ARTType%%%2F%%A%%2F%%A_SCR_01.jpg" -O "%~dp0ART\%%A_SCR2.jpg"
 
 cd /d "%~dp0ART" & for %%F in (%%A_SCR2.jpg) do if %%~zF==0 del "%%F"
 if exist %%A_SCR2.jpg echo Found >nul
@@ -6214,7 +6273,7 @@ echo ----------------------------------------------------
 "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" > "%~dp0TMP\hdl-hdd.txt"
 
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" ( 
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -6916,7 +6975,7 @@ echo ----------------------------------------------------
 
 set /P @hdl_path2=<"%~dp0TMP\hdl-hdd2.txt"
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" ( 
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -7012,7 +7071,7 @@ echo ----------------------------------------------------
 "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" > "%~dp0TMP\hdl-hdd.txt"
 
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" ( 
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -7107,7 +7166,7 @@ echo ----------------------------------------------------
 
 set /P @hdl_path2=<"%~dp0TMP\hdl-hdd2.txt"
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" (
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -7453,9 +7512,11 @@ for /f "tokens=1* delims=;" %%f in (gameselected.txt) do (set PPName=%%g)
 	)
 	
 	if !Titletype!==HDDOSD (
+	REM "%~dp0BAT\busybox" sed -ie "s/ = /=/g; s/=/ = /g; s/  =/ = /g" "%~dp0TMP\icon.sys"
     if !title!==0 ("%~dp0BAT\busybox" sed -ie "s/title0 = .*/title0 = /g; s/title0 = /title0 = !newgamename!/g" "%~dp0TMP\icon.sys")
     if !title!==1 ("%~dp0BAT\busybox" sed -ie "s/title1 = .*/title1 = /g; s/title1 = /title1 = !newgamename!/g" "%~dp0TMP\icon.sys")
-    "%~dp0BAT\hdl_dump" modify_header %@hdl_path% "!PPName!" | findstr "icon.sys"
+    REM "%~dp0BAT\busybox" sed -ie "s/\s*$//" "%~dp0TMP\icon.sys"
+	"%~dp0BAT\hdl_dump" modify_header %@hdl_path% "!PPName!" | findstr "icon.sys"
     )
 
 cd /d "%~dp0" & rmdir /Q/S "%~dp0TMP" >nul 2>&1
@@ -8361,7 +8422,7 @@ IF ERRORLEVEL 2 set uselocalART=no
 if !uselocalART!==no (
     echo.
 	echo Checking internet Or Website connection... For ART
-	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.jpg" -O "%~dp0TMP\SCES_000.01_COV.jpg" >nul 2>&1
+	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.jpg" -O "%~dp0TMP\SCES_000.01_COV.jpg" >nul 2>&1
 	for %%F in (SCES_000.01_COV.jpg) do if %%~zF==0 del "%%F"
 
 if not exist SCES_000.01_COV.jpg (
@@ -8750,7 +8811,7 @@ echo\
 	 REM Unknown region
 	 if not defined REGIONTMP set REGIONTMP=X
 	 
-	REM if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/Féier/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/Démbre/g;" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
+	REM if %language%==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/F?r/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/D?re/g;" "%~dp0TMP\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\RELEASE.txt")
 	
 	 set "dbtitleTMP="
  	 for /f "tokens=1*" %%A in ( 'findstr %%F "%~dp0TMP\gameid.txt"' ) do (if not defined dbtitleTMP set dbtitleTMP=%%B
@@ -8810,18 +8871,18 @@ echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0f
 
      echo            Downloading resources...
-     if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2F%%F%%2F%%F_COV.jpg" -O "%~dp0TMP\jkt_001.jpg" >nul 2>&1
+     if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2F%%F%%2F%%F_COV.jpg" -O "%~dp0TMP\jkt_001.jpg" >nul 2>&1
      if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS1\%%F\%%F_COV.jpg -r -y & move "%~dp0TMP\PS1\%%F\%%F_COV.jpg" "%~dp0TMP\jkt_001.jpg" >nul 2>&1
-	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2F%%F%%2F%%F_BG_00.jpg" -O "%~dp0TMP\BG.jpg" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2F%%F%%2F%%F_BG_00.jpg" -O "%~dp0TMP\BG.jpg" >nul 2>&1
 	 if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS1\%%F\%%F_BG_00.jpg -r -y & move "%~dp0TMP\PS1\%%F\%%F_BG_00.jpg" "%~dp0TMP\BG.jpg" >nul 2>&1
-	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2F%%F%%2F%%F_LGO.png" -O "%~dp0TMP\jkt_cp.png" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2F%%F%%2F%%F_LGO.png" -O "%~dp0TMP\jkt_cp.png" >nul 2>&1
 	 if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS1\%%F\%%F_LGO.png -r -y & move "%~dp0TMP\PS1\%%F\%%F_LGO.png" "%~dp0TMP\jkt_cp.png" >nul 2>&1
-	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2F%%F%%2F%%F_SCR_00.jpg" -O "%~dp0TMP\SCR0.jpg" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2F%%F%%2F%%F_SCR_00.jpg" -O "%~dp0TMP\SCR0.jpg" >nul 2>&1
 	 if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS1\%%F\%%F_SCR_00.jpg -r -y & move "%~dp0TMP\PS1\%%F\%%F_SCR_00.jpg" "%~dp0TMP\SCR0.jpg" >nul 2>&1
-	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2F%%F%%2F%%F_SCR_01.jpg" -O "%~dp0TMP\SCR1.jpg" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2F%%F%%2F%%F_SCR_01.jpg" -O "%~dp0TMP\SCR1.jpg" >nul 2>&1
 	 if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" PS1\%%F\%%F_SCR_01.jpg -r -y & move "%~dp0TMP\PS1\%%F\%%F_SCR_01.jpg" "%~dp0TMP\SCR1.jpg" >nul 2>&1
-	 REM "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2F%%F%%2F%%F_SCR_02.jpg" -O "%~dp0TMP\SCR2.jpg" >nul 2>&1
-	 REM "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_07/OPLM_ART_2022_07.zip/PS1%%2F%%F%%2F%%F_SCR_03.jpg" -O "%~dp0TMP\SCR3.jpg" >nul 2>&1
+	 REM "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2F%%F%%2F%%F_SCR_02.jpg" -O "%~dp0TMP\SCR2.jpg" >nul 2>&1
+	 REM "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2F%%F%%2F%%F_SCR_03.jpg" -O "%~dp0TMP\SCR3.jpg" >nul 2>&1
 	 cd "%~dp0TMP" & for %%F in (*.jpg *.png) do if %%~zF==0 del "%%F"
 
 	 REM Covers
@@ -8939,7 +9000,7 @@ REM  "%~dp0BAT\wget" -q "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD
      cd /d "%~dp0POPS\Temp\!appfolder!\PS1" & for %%x in (*) do if %%~zx==0 del %%x
 	 move "%~dp0POPS\Temp\!appfolder!\PS1\*" "%~dp0POPS\Temp\!appfolder!" >nul 2>&1
      
-	 "%~dp0BAT\busybox" sed -ie "s/ = /=/g; s/=/ = /g" "%~dp0POPS\Temp\!appfolder!\icon.sys"
+	 "%~dp0BAT\busybox" sed -ie "s/ = /=/g; s/=/ = /g; s/  =/ = /g" "%~dp0POPS\Temp\!appfolder!\icon.sys"
 	 "%~dp0BAT\busybox" sed -ie "s/title0 =.*/title0 =/g; s/title0 =/title0 = !dbtitle!/g" "%~dp0POPS\Temp\!appfolder!\icon.sys"
  	 "%~dp0BAT\busybox" sed -ie "s/title1 =.*/title1 =/g; s/title1 =/title1 = !gameid2!/g" "%~dp0POPS\Temp\!appfolder!\icon.sys"
 	 "%~dp0BAT\busybox" sed -ie "s/\s*$//" "%~dp0POPS\Temp\!appfolder!\icon.sys"
@@ -8972,7 +9033,1207 @@ echo\
 
 endlocal
 if defined @pfs_popHDDOSDMAIN (pause & goto mainmenu) else (pause & goto HDDOSDPartManagement)
+REM ####################################################################################################################
+:TransferAPPSPart
 
+cls
+mkdir "%~dp0APPS" >nul 2>&1
+mkdir "%~dp0TMP" >nul 2>&1
+cd /d "%~dp0APPS"
+
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Scanning for Playstation 2 HDDs:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 03
+"%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD"
+"%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" > "%~dp0TMP\hdl-hdd.txt" & "%~dp0BAT\busybox" cat "%~dp0TMP\hdl-hdd.txt" > "%~dp0TMP\hdl-hdd2.txt"
+"%~dp0BAT\busybox" sed -i "s/hdd/\\\\.\\\PhysicalDrive/g; s/://g" "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
+set /P @hdl_path2=<"%~dp0TMP\hdl-hdd2.txt"
+set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
+IF "!@hdl_path!"=="" (
+"%~dp0BAT\Diagbox" gd 0c
+		echo         Playstation 2 HDD Not Detected
+		echo         Drive Must Be Formatted First
+		echo\
+		echo\
+"%~dp0BAT\Diagbox" gd 07
+		rmdir /Q/S "%~dp0TMP" >nul 2>&1
+        pause & (goto HDDOSDPartManagement)
+	)
+
+"%~dp0BAT\Diagbox" gd 0f
+echo\
+echo\
+echo Install an application as a partition
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo         1^) Yes
+"%~dp0BAT\Diagbox" gd 0c
+echo         2^) No
+"%~dp0BAT\Diagbox" gd 0e
+echo         3^) Yes ^(Update your app ELF^)
+"%~dp0BAT\Diagbox" gd 0f
+echo\
+CHOICE /C 123 /M "Select Option:"
+
+IF %ERRORLEVEL%==1 set @pfs_APP=yes
+IF %ERRORLEVEL%==2 (goto HDDOSDPartManagement)
+IF %ERRORLEVEL%==3 set @pfs_APP=yesUP
+
+"%~dp0BAT\Diagbox" gd 0f
+cls
+echo\
+echo\
+echo Applications List
+echo ----------------------------------------------------
+   "%~dp0BAT\busybox" ls "%~dp0APPS" > "%~dp0TMP\applist.txt"
+   type "%~dp0TMP\applist.txt"
+   echo ----------------------------------------------------
+   echo\
+   echo\
+   echo Enter the name of the APP you want to install or update
+   set /p "appfolder="
+   IF "!appfolder!"=="" set "@pfs_APP=" & (goto TransferAPPSPart)
+   
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Detecting ELF:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 07
+
+if exist "%~dp0APPS\!appfolder!" (
+
+cd /d "%~dp0APPS\!appfolder!"
+
+set /a ELFcount=0
+for %%f in (*.elf) do (
+set /a ELFcount+=1
+)
+ 
+      if !ELFcount!==1 (
+	  for %%f in (*.elf) do set ELFBOOT=%%f
+      ) else (
+      "%~dp0BAT\Diagbox" gd 06
+      echo         Multiple ELF Detected
+      echo         Please select one ELF
+      echo\
+      "%~dp0BAT\Diagbox" gd 0f
+      "%~dp0BAT\busybox" ls "%~dp0APPS\!appfolder!" | "%~dp0BAT\busybox" grep -ie ".*\.ELF$" > "%~dp0TMP\ELFList.txt"
+      type "%~dp0TMP\ELFList.txt
+	  echo\
+	  echo Enter the name of the ELF boot
+      set /p "ELFBOOT="
+      echo\
+	  echo ----------------------------------------------------
+      "%~dp0BAT\Diagbox" gd 07
+	  )
+	  
+      if exist "!ELFBOOT!" (
+	  "%~dp0BAT\Diagbox" gd 0a
+	  echo         !ELFBOOT! Detected
+	  "%~dp0BAT\Diagbox" gd 07
+	  ) else (
+	  "%~dp0BAT\Diagbox" gd 0c
+	  echo         !ELFBOOT! NOT DETECTED
+	  "%~dp0BAT\Diagbox" gd 07
+	  )
+	  
+	  ) else (
+	  "%~dp0BAT\Diagbox" gd 0c
+	  echo Application NOT DETECTED
+	  "%~dp0BAT\Diagbox" gd 07
+	  echo\
+	  echo\
+      rmdir /Q/S "%~dp0TMP" >nul 2>&1
+      pause & (goto HDDOSDPartManagement)
+	  )	
+	    
+echo\
+echo\
+pause
+cls
+
+
+if exist "!ELFBOOT!" (
+if !@pfs_APP!==yes (
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Configure your Application:
+echo ----------------------------------------------------
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+     
+	 "%~dp0BAT\hdl_dump" toc !@hdl_path2! > "%~dp0TMP\hdd-prt.txt"
+
+      echo Enter the Title of your Application
+	  echo Example: My APP
+      set /p "PPTitle="
+	  IF "!PPTitle!"=="" (goto TransferAPPSPart)
+	  echo\
+	  
+	  echo Enter Application Genre ^(Optional^)
+	  echo Example: File Browser
+      set /p "Genre="
+	  echo\
+
+	  echo Enter the size of your partition
+	  echo The size must be multiplied by 128
+      echo Example: 128 x 5 = 640MB
+      echo Max size per partition 128GB
+      echo\
+      echo Example:
+      echo If you want a 10GB partition Type: 10G
+      echo If you want a 512MB partition Type: 512M
+      echo If you want a 1.5GB partition 1024 + 512 = 1536 Type: 1536M
+      set /p "partsize="
+      IF "!partsize!"=="" set partsize=128M
+      echo\
+	 
+      echo Do you want to choose a custom partition name?
+      choice /c YN
+	  echo\
+	  if !errorlevel!==1 (
+	  echo Enter the name of your partition
+      echo Example: PP.UAPP-00001..YOURAPPNAME
+	  "%~dp0BAT\Diagbox" gd 06
+	  echo It is strongly recommended to respect the sheme as in the example.
+	  echo Unless you know what you're doing
+	  "%~dp0BAT\Diagbox" gd 07
+      set /p "PPName="
+	  echo "!PPName!"| "%~dp0BAT\busybox" sed -e "s/\""//g" | "%~dp0BAT\busybox" iconv -f utf8 -t ascii//TRANSLIT//IGNORE | "%~dp0BAT\busybox" cut -c0-31 > "%~dp0TMP\PPName.txt"
+      ) else (
+	  cd /d "%~dp0TMP"
+	  
+	  echo Assigning an ID
+	  "%~dp0BAT\busybox" grep -ow "PP.UAPP-[0-9][0-9][0-9][0-9][0-9]" "%~dp0TMP\hdd-prt.txt" | "%~dp0BAT\busybox" cut -c9-13 > "%~dp0TMP\PPIDChecking.txt"
+	  for /l %%n in (1,1,9) do echo 0000%%n>> "%~dp0TMP\ids.txt"
+      for /l %%n in (10,1,99) do echo 000%%n>> "%~dp0TMP\ids.txt"
+      for /l %%n in (100,1,200) do echo 00%%n>> "%~dp0TMP\ids.txt"
+	  
+      for /f %%p in (PPIDChecking.txt) do "%~dp0BAT\busybox" sed -i "/%%p/d" "%~dp0TMP\ids.txt"
+	  "%~dp0BAT\busybox" head -1 "%~dp0TMP\ids.txt" > "%~dp0TMP\selectedID.txt" & set /P PPID=<"%~dp0TMP\selectedID.txt"
+	  echo UAPP-!PPID!
+	  
+	  echo "!PPTitle!"| "%~dp0BAT\busybox" sed -e "s/\""//g" | "%~dp0BAT\busybox" iconv -f utf8 -t ascii//TRANSLIT//IGNORE | "%~dp0BAT\busybox" cut -c0-16 > "%~dp0TMP\PPName.txt"
+      echo "!PPID!"| "%~dp0BAT\busybox" grep -ow "[0-9][0-9][0-9][0-9][0-9]" > "%~dp0TMP\IDCHECK.txt" & set /P IDCHECK=<"%~dp0TMP\IDCHECK.txt"
+      )
+
+REM Remove illegal character Partition name
+REM "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/ /_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/²/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/'/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/`/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/,/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/;/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/:/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/¨/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/?/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/\&/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/°/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/+/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/=/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/#/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/§/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/^!/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/\$/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/£/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/~/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/@/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/\*/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/%%/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/[{}]/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/\[/_/g; s/\]/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/(/_/g; s/)/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "s/\^/_/g" "%~dp0TMP\PPName.txt"
+"%~dp0BAT\busybox" sed -i "y/abcdefghijklmnopqrstuvwxyz/ABCDEFGHIJKLMNOPQRSTUVWXYZ/" "%~dp0TMP\PPName.txt"
+
+if defined PPID "%~dp0BAT\busybox" sed -i "s/^^/PP.UAPP-!PPID!../" "%~dp0TMP\PPName.txt"
+set /P PPName=<"%~dp0TMP\PPName.txt"
+
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Checking !PPName!
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 07
+
+    if not defined PPID (
+	"%~dp0BAT\busybox" grep -ow "!PPName!" "%~dp0TMP\hdd-prt.txt" | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\PPIDChecking.txt" & set /P PPIDCheck=<"%~dp0TMP\PPIDChecking.txt"
+	if "!PPIDCheck!"=="!PPName!" (
+	"%~dp0BAT\Diagbox" gd 0c
+	echo     A partition with the same name exists
+	echo               Choose another
+	echo\
+	echo\
+	"%~dp0BAT\Diagbox" gd 07
+	rmdir /Q/S "%~dp0TMP" >nul 2>&1
+	pause & (goto HDDOSDPartManagement)
+	) else (
+	"%~dp0BAT\Diagbox" gd 0a
+	echo         Partition name available
+	"%~dp0BAT\Diagbox" gd 07
+	REM echo !PPName!| "%~dp0BAT\busybox" grep -ow "[A-Z][A-Z][A-Z][A-Z]-[0-9][0-9][0-9][0-9][0-9]" > "%~dp0TMP\PPID.txt" & set /P PPID=<"%~dp0TMP\PPID.txt"
+	)
+	
+    ) else (
+	"%~dp0BAT\Diagbox" gd 0a
+	echo         Verification successfully
+	"%~dp0BAT\Diagbox" gd 07
+	)
+)
+
+if !@pfs_APP!==yesUP (
+
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Scanning Partitions System:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 03
+    "%~dp0BAT\hdl_dump" toc !@hdl_path2! | "%~dp0BAT\busybox" grep -e "0x0100" | "%~dp0BAT\busybox" grep -e "PP\." | "%~dp0BAT\busybox" sed "/\.POPS\./d" | "%~dp0BAT\busybox" cut -c30-250 > "%~dp0TMP\hdd-prt.txt"
+	type "%~dp0TMP\hdd-prt.txt"
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
+     echo\
+	 echo\
+     set /p "PPName=Enter the partition name:"
+     IF "!PPName!"=="" (goto TransferAPPSPart)
+
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Detecting !PPName! Partition:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 07
+
+    "%~dp0BAT\busybox" grep -ow "!PPName!" "%~dp0TMP\hdd-prt.txt" | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\PPSelected.txt" & set /P PPSELECTED=<"%~dp0TMP\PPSelected.txt"
+	if "!PPSELECTED!"=="!PPName!" (
+    "%~dp0BAT\Diagbox" gd 0a
+	echo         Partition Detected
+	"%~dp0BAT\Diagbox" gd 07
+	) else (
+	"%~dp0BAT\Diagbox" gd 0c
+	echo         Partition NOT Detected
+	echo\
+	echo\
+	"%~dp0BAT\Diagbox" gd 07
+	rmdir /Q/S "%~dp0TMP" >nul 2>&1
+	pause & (goto HDDOSDPartManagement)
+	)
+)
+
+echo\
+echo\
+pause
+cls
+if !@pfs_APP!==yes (
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Installing !appfolder!:
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
+cd /d "%~dp0APPS\!appfolder!"
+
+    "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0BAT\HDD-PSBBN_XMB_SAMPLE_HEADER.zip" -o"%~dp0APPS\!appfolder!" -r -y >nul 2>&1
+	"%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0BAT\HDD-OSD_SAMPLE_HEADER.zip" -o"%~dp0TMP" APP\* -r -y >nul 2>&1
+    del ReadMe_Info.txt >nul 2>&1
+	
+"%~dp0BAT\Diagbox" gd 03
+
+	echo Title:     [!PPTitle!]
+	if defined PPID echo Appid:     [!PPID!]
+	REM echo Release:   [!Release!]
+	echo Genre:     [!Genre!]
+    echo Size:      [!partsize!]
+	
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
+
+	echo            Creating Partition
+	echo device !@hdl_path! > "%~dp0TMP\pfs-apps.txt"
+	echo mkpart !PPName! !partsize! PFS >> "%~dp0TMP\pfs-apps.txt"
+	echo mount !PPName! >> "%~dp0TMP\pfs-apps.txt"
+	echo rm BOOT.ELF >> "%~dp0TMP\pfs-apps.txt"
+	echo rm EXECUTE.KELF >> "%~dp0TMP\pfs-apps.txt"
+
+	REM HDD-OSD Infos
+	"%~dp0BAT\busybox" sed -ie "s/ = /=/g; s/=/ = /g; s/  =/ = /g" "%~dp0TMP\APP\icon.sys"
+	"%~dp0BAT\busybox" sed -ie "s/title0 =.*/title0 =/g; s/title0 =/title0 = !PPTitle!/g" "%~dp0TMP\APP\icon.sys"
+ 	"%~dp0BAT\busybox" sed -ie "s/title1 =.*/title1 =/g; s/title1 =/title1 = !Genre!/g" "%~dp0TMP\APP\icon.sys"
+	"%~dp0BAT\busybox" sed -ie "s/\s*$//" "%~dp0TMP\APP\icon.sys"
+
+	REM PSBBN, XMB Infos 
+	"%~dp0BAT\busybox" sed -i -e "s/title =.*/title =/g; s/title =/title = !PPTitle!/g" "%~dp0APPS\!appfolder!\res\info.sys"
+ 	"%~dp0BAT\busybox" sed -i -e "s/title_id =.*/title_id =/g; s/title_id =/title_id = !PPID!/g" "%~dp0APPS\!appfolder!\res\info.sys"
+	REM "%~dp0BAT\busybox" sed -i -e "s/release_date =.*/release_date =/g; s/release_date =/release_date = !date!/g" "%~dp0APPS\!appfolder!\res\info.sys"
+	"%~dp0BAT\busybox" sed -i -e "s/genre =.*/genre =/g; s/genre =/genre = !Genre!/g" "%~dp0APPS\!appfolder!\res\info.sys"
+	
+	REM Disable jkt_cp.png
+	REM "%~dp0BAT\busybox" sed -i -e "s/copyright_imgcount =.*/copyright_imgcount =/g; s/copyright_imgcount =/copyright_imgcount = 0/g" "%~dp0APPS\!appfolder!\res\info.sys"
+	REM Manual
+	"%~dp0BAT\busybox" sed -i -e "s/label=\"APPNAME\"/label=\"!PPTitle!\"/g" "%~dp0APPS\!appfolder!\res\man.xml"
+	)
+	
+if !@pfs_APP!==yesUP (
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Updating !appfolder!:
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
+	echo            Updating...
+	echo device !@hdl_path! > "%~dp0TMP\pfs-apps.txt"
+	echo mount !PPName! >> "%~dp0TMP\pfs-apps.txt"
+	echo rm BOOT.ELF >> "%~dp0TMP\pfs-apps.txt"
+	echo rm EXECUTE.KELF >> "%~dp0TMP\pfs-apps.txt"
+	)
+	
+	echo            Sign KELF...
+	ren "%~dp0APPS\!appfolder!\!ELFBOOT!" BOOT.ELF >nul 2>&1
+	"%~dp0BAT\SCEDoormat_NoME.exe" "%~dp0APPS\!appfolder!\BOOT.ELF" "%~dp0APPS\!appfolder!\EXECUTE.KELF" >nul 2>&1
+	
+	REM !!!!!! SUPPORT 10 SUBFOLDER ONLY !!!!!! 
+	
+    REM APPS FILES (APPS\files.xxx)
+ 	for %%0 in (*) do (echo put "%%0") >> "%~dp0TMP\pfs-apps.txt"
+
+	REM APPS 1 DIR (APPS\APP)
+	for /D %%a in (*) do (
+	echo mkdir "%%a" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%a" >> "%~dp0TMP\pfs-apps.txt"
+ 	echo cd "%%a" >> "%~dp0TMP\pfs-apps.txt"
+ 	cd "%%a"
+
+	REM APPS FILES (APPS\APP\files.xxx)
+
+ 	for %%1 in (*) do (echo put "%%1") >> "%~dp0TMP\pfs-apps.txt"
+
+	REM APPS 2 SUBDIR (APPS\APP\SUBDIR)
+
+	for /D %%b in (*) do (
+	echo mkdir "%%b" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%b" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%b" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%b"
+
+	REM APPS SUBDIR FILES (APPS\APP\SUBDIR\files.xxx)
+
+	for %%2 in (*) do (echo put "%%2") >> "%~dp0TMP\pfs-apps.txt"
+	
+	REM APPS 3 SUBDIR (APPS\APP\SUBDIR\SUBDIR)
+
+	for /D %%c in (*) do (
+	echo mkdir "%%c" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%c" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%c" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%c"
+	
+	REM APPS SUBDIR FILES (APPS\APP\SUBDIR\SUBDIR\files.xxx)
+	
+	for %%3 in (*) do (echo put "%%3") >> "%~dp0TMP\pfs-apps.txt"
+	
+    REM APPS 4 SUBDIR (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR)
+
+	for /D %%e in (*) do (
+	echo mkdir "%%e" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%e" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%e" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%e"
+	
+	REM APPS SUBDIR FILES (APPS\APP\SUBDIR\SUBDIR\SUBDIR\files.xxx)
+	
+	for %%4 in (*) do (echo put "%%4") >> "%~dp0TMP\pfs-apps.txt"
+	
+	REM APPS 5 SUBDIR (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
+
+	for /D %%f in (*) do (
+	echo mkdir "%%f" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%f" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%f" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%f"
+	
+	REM APPS SUBDIR FILES (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
+	
+	for %%5 in (*) do (echo put "%%5") >> "%~dp0TMP\pfs-apps.txt"
+	
+	REM APPS 6 SUBDIR (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
+
+	for /D %%g in (*) do (
+	echo mkdir "%%g" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%g" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%g" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%g"
+	
+	REM APPS SUBDIR FILES (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
+	
+	for %%6 in (*) do (echo put "%%6") >> "%~dp0TMP\pfs-apps.txt"
+	
+	REM APPS 7 SUBDIR (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
+
+	for /D %%h in (*) do (
+	echo mkdir "%%h" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%h" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%h" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%h"
+	
+	REM APPS SUBDIR FILES (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
+	
+	for %%7 in (*) do (echo put "%%7") >> "%~dp0TMP\pfs-apps.txt"
+	
+	REM APPS 8 SUBDIR (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
+
+	for /D %%i in (*) do (
+	echo mkdir "%%i" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%i" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%i" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%i"
+	
+	REM APPS SUBDIR FILES (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
+	
+	for %%8 in (*) do (echo put "%%8") >> "%~dp0TMP\pfs-apps.txt"
+	
+	REM APPS 9 SUBDIR (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\)
+
+	for /D %%j in (*) do (
+	echo mkdir "%%j" >> "%~dp0TMP\pfs-apps.txt"
+	echo lcd "%%j" >> "%~dp0TMP\pfs-apps.txt"
+	echo cd "%%j" >> "%~dp0TMP\pfs-apps.txt"
+	cd "%%j"
+	
+	REM APPS SUBDIR FILES (APPS\APP\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\SUBDIR\files.xxx)
+	
+	for %%9 in (*) do (echo put "%%9") >> "%~dp0TMP\pfs-apps.txt"
+	
+	REM EXIT SUBDIR
+
+	echo lcd .. >> "%~dp0TMP\pfs-apps.txt"
+	echo cd .. >> "%~dp0TMP\pfs-apps.txt"
+	cd ..
+
+	)
+	
+	echo lcd .. >> "%~dp0TMP\pfs-apps.txt"
+	echo cd .. >> "%~dp0TMP\pfs-apps.txt"
+ 	cd ..
+	
+	)
+	
+	echo lcd .. >> "%~dp0TMP\pfs-apps.txt"
+	echo cd .. >> "%~dp0TMP\pfs-apps.txt"
+ 	cd ..
+	
+	)
+	
+	echo lcd .. >> "%~dp0TMP\pfs-apps.txt"
+	echo cd .. >> "%~dp0TMP\pfs-apps.txt"
+ 	cd ..
+
+    )
+	
+	echo lcd .. >> "%~dp0TMP\pfs-apps.txt"
+	echo cd .. >> "%~dp0TMP\pfs-apps.txt"
+ 	cd ..
+	
+	)
+	
+	echo lcd .. >> "%~dp0TMP\pfs-apps.txt"
+	echo cd .. >> "%~dp0TMP\pfs-apps.txt"
+ 	cd ..
+	
+	)
+	
+	echo lcd .. >> "%~dp0TMP\pfs-apps.txt"
+	echo cd .. >> "%~dp0TMP\pfs-apps.txt"
+ 	cd ..
+	
+	)
+	
+	echo lcd .. >> "%~dp0TMP\pfs-apps.txt"
+	echo cd .. >> "%~dp0TMP\pfs-apps.txt"
+ 	cd ..
+	
+	)
+	
+	echo lcd .. >> "%~dp0TMP\pfs-apps.txt"
+	echo cd .. >> "%~dp0TMP\pfs-apps.txt"
+ 	cd ..
+	
+	)
+	
+	echo ls -l >> "%~dp0TMP\pfs-apps.txt"
+	echo umount >> "%~dp0TMP\pfs-apps.txt"
+	echo exit >> "%~dp0TMP\pfs-apps.txt"
+	
+	echo            Installing...
+	type "%~dp0TMP\pfs-apps.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
+	
+	ren "%~dp0APPS\!appfolder!\BOOT.ELF" !ELFBOOT! >nul 2>&1
+	del "%~dp0APPS\!appfolder!\EXECUTE.KELF" >nul 2>&1
+	rmdir /Q/S "%~dp0APPS\!appfolder!\res" >nul 2>&1
+	
+	if !@pfs_APP!==yes cd /d "%~dp0TMP\APP" & "%~dp0BAT\hdl_dump" modify_header !@hdl_path2! "!PPName!" >nul 2>&1
+	echo            Completed...
+	)
+
+rmdir /Q/S "%~dp0TMP" >nul 2>&1
+
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo Completed...
+echo\
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+
+pause & (goto HDDOSDPartManagement)
+REM ####################################################################################################################
+:UpdatePPHeader
+
+cls
+mkdir "%~dp0TMP" >nul 2>&1
+cd /d "%~dp0TMP"
+
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Scanning for Playstation 2 HDDs:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 03
+"%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD"
+"%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" > "%~dp0TMP\hdl-hdd.txt" & "%~dp0BAT\busybox" cat "%~dp0TMP\hdl-hdd.txt" > "%~dp0TMP\hdl-hdd2.txt"
+"%~dp0BAT\busybox" sed -i "s/hdd/\\\\.\\\PhysicalDrive/g; s/://g" "%~dp0TMP\hdl-hdd2.txt" >nul 2>&1
+
+set /P @hdl_path2=<"%~dp0TMP\hdl-hdd2.txt"
+set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
+IF "!@hdl_path!"=="" ( 
+"%~dp0BAT\Diagbox" gd 0c
+		echo         Playstation 2 HDD Not Detected
+		echo         Drive Must Be Formatted First
+		echo\
+		echo\
+"%~dp0BAT\Diagbox" gd 07
+		rmdir /Q/S "%~dp0TMP" >nul 2>&1
+		pause & (goto HDDOSDPartManagement)
+	)
+	
+"%~dp0BAT\Diagbox" gd 0f
+echo\
+echo\
+echo Update partition header:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo         1^) Yes
+"%~dp0BAT\Diagbox" gd 0c
+echo         2^) No
+"%~dp0BAT\Diagbox" gd 0e
+echo         3^) Yes ^(Manually^)
+"%~dp0BAT\Diagbox" gd 07
+echo\
+CHOICE /C 123 /M "Select Option:"
+
+IF %ERRORLEVEL%==1 set UPDATEPPHeader=Yes
+IF %ERRORLEVEL%==2 (goto HDDOSDPartManagement)
+IF %ERRORLEVEL%==3 set UPDATEPPHeader=Manually
+
+echo\
+echo\
+echo Choose the partitions 
+echo ----------------------------------------------------
+echo         1^) Update Partition Header PS1 Games
+echo         2^) Update Partition Header PS2 Games
+echo         3^) Update Partition Header APPS
+echo\
+CHOICE /C 123 /M "Select Option:"
+IF %ERRORLEVEL%==1 set "PartitionType=PS1" & set "showtype=PS1 Games" & copy "%~dp0BAT\TitlesDB\gameidPS1.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+IF %ERRORLEVEL%==2 set "PartitionType=PS2" & set "showtype=PS2 Games" & set selectlang=yes
+IF %ERRORLEVEL%==3 set "PartitionType=APP" & set "showtype=APPS" & copy "%~dp0BAT\TitlesDB\appsid.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+
+if defined selectlang (
+echo\
+echo\
+echo Choose the titles language of the games list:
+echo ----------------------------------------------------
+echo Some games have their own title in several languages for example:
+echo English = The Simpsons Game
+echo French  = Les Simpson le jeu
+"%~dp0BAT\Diagbox" gd 0e
+echo NOTE: Some titles may not be translated
+"%~dp0BAT\Diagbox" gd 07
+echo\
+echo 1. English
+echo 2. French
+echo\
+CHOICE /C 12 /M "Select Option:"
+if !errorlevel!==1 set language=english& copy "%~dp0BAT\TitlesDB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+if !errorlevel!==2 set language=french& copy "%~dp0BAT\TitlesDB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+)
+
+if exist "%~dp0ART.zip" (
+echo\
+"%~dp0BAT\Diagbox" gd 0e
+echo ART.zip detected do you want use it?
+"%~dp0BAT\Diagbox" gd 0f
+CHOICE /C YN /M "Select Option:"
+IF ERRORLEVEL 1 set uselocalART=yes
+IF ERRORLEVEL 2 set uselocalART=no
+) else (set uselocalART=no)
+
+if !uselocalART!==no (
+    echo.
+	echo Checking internet Or Website connection... For ART
+	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.jpg" -O "%~dp0TMP\SCES_000.01_COV.jpg" >nul 2>&1
+	for %%F in (SCES_000.01_COV.jpg) do if %%~zF==0 del "%%F"
+
+if not exist SCES_000.01_COV.jpg (
+"%~dp0BAT\Diagbox" gd 0c
+    echo\
+	echo Unable to connect to internet Or Website
+	if exist "%~dp0ART.zip" set uselocalART=yes
+	echo You will switch to offline mode
+	echo\
+	echo\
+"%~dp0BAT\Diagbox" gd 0f
+	pause
+ ) else (set DownloadART=yes)
+)
+
+if exist "%~dp0HDD-OSD-Icons-Pack.zip" (
+echo\
+"%~dp0BAT\Diagbox" gd 0e
+echo HDD-OSD-Icons-Pack.zip detected do you want use it?
+"%~dp0BAT\Diagbox" gd 0f
+CHOICE /C YN /M "Select Option:"
+IF ERRORLEVEL 1 set uselocalARTHDDOSD=yes
+IF ERRORLEVEL 2 set uselocalARTHDDOSD=no
+) else (set uselocalARTHDDOSD=no)
+
+if !uselocalARTHDDOSD!==no (
+    echo.
+	echo Checking internet Or Website connection... For HDD-OSD ART
+	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS1%%2FSCES_000.01%%2FPreview.png" -O "%~dp0TMP\Preview.png" >nul 2>&1
+	for %%F in (Preview.png) do if %%~zF==0 del "%%F"
+
+if not exist Preview.png (
+"%~dp0BAT\Diagbox" gd 0c
+    echo\
+	echo Unable to connect to internet Or Website
+	if exist "%~dp0HDD-OSD-Icons-Pack.zip" set uselocalARTHDDOSD=yes
+	echo You will switch to offline mode
+	echo\
+	echo\
+"%~dp0BAT\Diagbox" gd 0f
+	pause
+ ) else (set DownloadARTHDDOSD=yes)
+)
+
+"%~dp0BAT\Diagbox" gd 0e
+cls
+echo\
+echo\
+echo Scanning !showtype!:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
+
+if !PartitionType!==PS1 "%~dp0BAT\hdl_dump" toc %@hdl_path% | "%~dp0BAT\busybox" grep -e "\.POPS\." | "%~dp0BAT\busybox" sed "s/.\{48\}/& /" | "%~dp0BAT\busybox" sort -k6 | "%~dp0BAT\busybox" sed -e "s/\(.\{48\}\)./\1/" | "%~dp0BAT\busybox" cut -c30-250 > "%~dp0TMP\hdd-prt.txt"
+if !PartitionType!==PS2 "%~dp0BAT\hdl_dump" toc %@hdl_path% | "%~dp0BAT\busybox" grep -e "0x1337" | "%~dp0BAT\busybox" sed "s/.\{44\}/& /" | "%~dp0BAT\busybox" sort -k6 | "%~dp0BAT\busybox" sed -e "s/\(.\{44\}\)./\1/" | "%~dp0BAT\busybox" cut -c30-250 > "%~dp0TMP\hdd-prt.txt"
+if !PartitionType!==APP "%~dp0BAT\hdl_dump" toc %@hdl_path% | "%~dp0BAT\busybox" grep -e "0x0100" | "%~dp0BAT\busybox" grep -e "PP\.APPS-" | "%~dp0BAT\busybox" sed "/\.POPS\./d" | "%~dp0BAT\busybox" cut -c30-250 > "%~dp0TMP\hdd-prt.txt"
+
+type "%~dp0TMP\hdd-prt.txt"
+
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
+
+if !UPDATEPPHeader!==Manually (
+
+set /p "PPName=Enter partition name:"
+IF "!PPName!"=="" set "PartitionType=" & (goto UpdatePPHeader)
+
+"%~dp0BAT\Diagbox" gd 0e
+echo\
+echo\
+echo Detecting !PPName! Partition:
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 07
+
+    "%~dp0BAT\busybox" grep -ow "!PPName!" "%~dp0TMP\hdd-prt.txt" | "%~dp0BAT\busybox" head -1 > "%~dp0TMP\PPSelected.txt" & set /P PPSELECTED=<"%~dp0TMP\PPSelected.txt"
+	if "!PPSELECTED!"=="!PPName!" (
+	
+	echo !PPName! > "%~dp0TMP\hdd-prt.txt"
+    "%~dp0BAT\Diagbox" gd 0a
+	echo         Partition Detected
+	"%~dp0BAT\Diagbox" gd 07
+	) else (
+	"%~dp0BAT\Diagbox" gd 0c
+	echo         Partition NOT Detected
+	echo\
+	echo\
+	"%~dp0BAT\Diagbox" gd 07
+	rmdir /Q/S "%~dp0TMP" >nul 2>&1
+	pause & (goto HDDOSDPartManagement)
+	)
+)
+
+REM "%~dp0BAT\Diagbox" gd 0e
+REM echo\
+REM echo\
+REM echo Choose what you want to update:
+REM echo ----------------------------------------------------
+REM echo\
+"%~dp0BAT\Diagbox" gd 0f
+      
+	  echo\
+	  echo\
+      "%~dp0BAT\Diagbox" gd 0e
+      echo Do you want to update the titles displayed in HDD-OSD, PSBBN, XMB?
+      "%~dp0BAT\Diagbox" gd 0f
+      CHOICE /C YN /M "Select Option:"
+	  IF !ERRORLEVEL!==1 (echo Yes & set UpdateTitle=Yes) else (echo No & set UpdateTitle=No)
+	  echo\
+	  
+	 "%~dp0BAT\Diagbox" gd 0e
+      echo Do you want to update 3D Icon displayed in HDD-OSD?
+      "%~dp0BAT\Diagbox" gd 0f
+      CHOICE /C YN /M "Select Option:"
+	  IF !ERRORLEVEL!==1 (echo Yes & set Update3DIcon=Yes) else (echo No & set Update3DIcon=No)
+	  echo\
+	  
+	  "%~dp0BAT\Diagbox" gd 0e
+      echo Do you want to update Game infos displayed in PSBBN, XMB?
+      "%~dp0BAT\Diagbox" gd 0f
+      CHOICE /C YN /M "Select Option:"
+	  IF !ERRORLEVEL!==1 (echo Yes & set UpdateGameInfos=Yes) else (echo No & set UpdateGameInfos=No)
+	  echo\
+	  
+      "%~dp0BAT\Diagbox" gd 0e
+      echo Do you want to update ART resources displayed in PSBBN, XMB?
+      "%~dp0BAT\Diagbox" gd 0f
+      CHOICE /C YN /M "Select Option:"
+	  IF !ERRORLEVEL!==1 (echo Yes & set UpdateART=Yes) else (echo No & set UpdateART=No)
+	  echo\
+	  
+	  if !PartitionType!==PS2 (
+	  "%~dp0BAT\Diagbox" gd 0e
+      echo Do you want to update OPL-Launcher?
+      "%~dp0BAT\Diagbox" gd 0f
+      CHOICE /C YN /M "Select Option:"
+	  IF !ERRORLEVEL!==1 (echo Yes & set UpdateLauncher=Yes) else (echo No & set UpdateLauncher=No)
+	  echo\
+      )
+	  
+	  REM if !PartitionType!==PS1 (
+	  REM "%~dp0BAT\Diagbox" gd 0e
+      REM echo Do you want to update POPStarter?
+      REM "%~dp0BAT\Diagbox" gd 0f
+      REM CHOICE /C YN /M "Select Option:"
+	  REM IF !ERRORLEVEL!==1 (echo Yes & set UpdateLauncher=Yes) else (echo No & set UpdateLauncher=No)
+	  REM echo\
+      REM )
+
+PAUSE
+
+cls
+for /f %%p in (hdd-prt.txt) do (
+set PPName=%%p
+
+"%~dp0BAT\Diagbox" gd 0f
+echo\
+echo\
+echo Update %%p:
+echo ----------------------------------------------------
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+
+echo %%p| "%~dp0BAT\busybox" grep -o "[A-Z][A-Z][A-Z][A-Z]-[0-9][0-9][0-9][0-9][0-9]" > "%~dp0TMP\DetectID.txt" & set /P gameid2=<"%~dp0TMP\DetectID.txt"
+if not defined gameid2 (
+"%~dp0BAT\Diagbox" gd 0c
+echo ERROR: NO GAMEID Detected^! Bad partition name
+echo Please Reinstall game or rename partition with wLaunchELF
+echo\
+"%~dp0BAT\Diagbox" gd 06
+echo Your partition name should look like this: PP.SLES-12345..GAME_NAME
+) else (
+
+MD "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\image"
+cd /d "%~dp0TMP\!gameid2!\PP.HEADER"
+
+     echo !gameid2!| "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" > "%~dp0TMP\DetectID.txt" & set /P gameid=<"%~dp0TMP\DetectID.txt"
+	 
+	 chcp 65001 >nul 2>&1
+	 set "dbtitleTMP="
+ 	 for /f "tokens=1*" %%A in ( 'findstr !gameid! "%~dp0TMP\gameid.txt"' ) do (if not defined dbtitleTMP set dbtitleTMP=%%B
+	 chcp 1252 >nul 2>&1
+	 echo "!dbtitleTMP!" > "%~dp0TMP\dbtitle.txt")
+	 
+	 REM FOR PS2 GAMES
+	 if !PartitionType!==PS2 (
+	 
+	 "%~dp0BAT\wget" -q --show-progress https://psxdatacenter.com/psx2/games2/!gameid2!.html 2>&1 -O "%~dp0TMP\!gameid2!\!gameid2!.html" >nul 2>&1
+	 if errorlevel 1 ( "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0BAT\PSBBN_XMB_PS2_GAMEINFO_Database.7z" -o"%~dp0TMP\!gameid2!" !gameid2!.html -r -y)
+	 
+     "%~dp0BAT\busybox" grep -A2 "DATE RELEASED" "%~dp0TMP\!gameid2!\!gameid2!.html" | "%~dp0BAT\busybox" sed "/DATE RELEASED/d; /<td style=/d" | "%~dp0BAT\busybox" sed "s/^.*;//g; s/<\/td>//g; s|[\t][\t][\t]*||g; s/\s*$//" | "%~dp0BAT\busybox" sed -e "2,20d" > "%~dp0TMP\!gameid2!\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\!gameid2!\RELEASE.txt"
+	 "%~dp0BAT\busybox" grep -A2 "DEVELOPER" "%~dp0TMP\!gameid2!\!gameid2!.html" | "%~dp0BAT\busybox" sed "/DEVELOPER/d; /<td style=/d" | "%~dp0BAT\busybox" sed "s/^.*;//g; s/<\/td>//g; s|[\t][\t][\t]*||g; s/\s*$//" | "%~dp0BAT\busybox" sed -e "2,20d" > "%~dp0TMP\!gameid2!\DEVELOPER.txt" & set /P DEVELOPERTMP=<"%~dp0TMP\!gameid2!\DEVELOPER.txt"
+     "%~dp0BAT\busybox" grep -A2 "PUBLISHER" "%~dp0TMP\!gameid2!\!gameid2!.html" | "%~dp0BAT\busybox" sed "/PUBLISHER/d; /<td style=/d" | "%~dp0BAT\busybox" sed "s/^.*;//g; s/<\/td>//g; s|[\t][\t][\t]*||g; s/\s*$//" | "%~dp0BAT\busybox" sed -e "2,20d" > "%~dp0TMP\!gameid2!\PUBLISHER.txt" & set /P PUBLISHERTMP=<"%~dp0TMP\!gameid2!\PUBLISHER.txt"
+	 "%~dp0BAT\busybox" grep -A2 "GENRE" "%~dp0TMP\!gameid2!\!gameid2!.html" | "%~dp0BAT\busybox" sed "/GENRE/d; /<td style=/d" | "%~dp0BAT\busybox" sed "s/^.*;//g; s/<\/td>//g; s|[\t][\t][\t]*||g; s/\s*$//" | "%~dp0BAT\busybox" sed -e "2,20d" > "%~dp0TMP\!gameid2!\GENRE.txt" & set /P GENRETMP=<"%~dp0TMP\!gameid2!\GENRE.txt"
+
+	 REM PS2 Game ID with PBPX other region than JAP
+	 set "REGIONTMP="
+     if "!gameid!"=="PBPX_952.10" set REGIONTMP=U
+     if "!gameid!"=="PBPX_952.16" set REGIONTMP=U
+     if "!gameid!"=="PBPX_952.18" set REGIONTMP=U
+     if "!gameid!"=="PBPX_952.19" set REGIONTMP=E
+     if "!gameid!"=="PBPX_952.23" set REGIONTMP=U
+     if "!gameid!"=="PBPX_952.47" set REGIONTMP=U
+     if "!gameid!"=="PBPX_952.48" set REGIONTMP=U
+     if "!gameid!"=="PBPX_955.17" set REGIONTMP=U
+     if "!gameid!"=="PBPX_952.04" set REGIONTMP=E
+     if "!gameid!"=="PBPX_952.05" set REGIONTMP=E
+     if "!gameid!"=="PBPX_952.08" set REGIONTMP=E
+     if "!gameid!"=="PBPX_952.09" set REGIONTMP=E
+     if "!gameid!"=="PBPX_952.20" set REGIONTMP=E
+     if "!gameid!"=="PBPX_952.39" set REGIONTMP=U
+     if "!gameid!"=="PBPX_952.42" set REGIONTMP=U
+     if "!gameid!"=="PBPX_952.46" set REGIONTMP=U
+     if "!gameid!"=="PBPX_955.03" set REGIONTMP=U
+     if "!gameid!"=="PBPX_955.06" set REGIONTMP=E
+     if "!gameid!"=="PBPX_955.14" set REGIONTMP=E
+     if "!gameid!"=="PBPX_955.19" set REGIONTMP=U
+     if "!gameid!"=="PBPX_955.20" set REGIONTMP=E
+	 )
+	 
+	 REM FOR PS1 GAMES
+	 if !PartitionType!==PS1 (
+	 
+	"%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0BAT\PSBBN_XMB_PS1_GAMEINFO_Database.7z" -o"%~dp0TMP" "!gameid2!.html" -r -y >nul 2>&1
+	 
+	 "%~dp0BAT\busybox" awk " NF > 0 " "%~dp0TMP\!gameid2!.html" > "%~dp0TMP\!gameid2!\!gameid2!.html" 2>&1
+	 "%~dp0BAT\busybox" sed -i "s/Official Title/OFFICIAL TITLE/g; s/Date Released/DATE RELEASED/g; s/Region/REGION/g; s/Developer/DEVELOPER/g; s/Publisher/PUBLISHER/g; s/Genre/GENRE/g" "%~dp0TMP\!gameid2!\!gameid2!.html
+	 "%~dp0BAT\busybox" grep -A2 "DATE RELEASED" "%~dp0TMP\!gameid2!\!gameid2!.html" | "%~dp0BAT\busybox" sed "/DATE RELEASED/d; /<td style=/d" | "%~dp0BAT\busybox" sed "s/&nbsp; / /g; s/^.*;//g; s/<\/td>//g; s|[\t][\t][\t]*||g; s/\s*$//" | "%~dp0BAT\busybox" sed -e "2,20d" > "%~dp0TMP\!gameid2!\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\!gameid2!\RELEASE.txt"
+	 "%~dp0BAT\busybox" grep -A2 "DEVELOPER" "%~dp0TMP\!gameid2!\!gameid2!.html" | "%~dp0BAT\busybox" sed "/DEVELOPER/d; /<td style=/d" | "%~dp0BAT\busybox" sed "s/&nbsp; / /g; s/^.*;//g; s/<\/td>//g; s|[\t][\t][\t]*||g; s/\s*$//" | "%~dp0BAT\busybox" sed -e "2,20d" > "%~dp0TMP\!gameid2!\DEVELOPER.txt" & set /P DEVELOPERTMP=<"%~dp0TMP\!gameid2!\DEVELOPER.txt"
+     "%~dp0BAT\busybox" grep -A2 "PUBLISHER" "%~dp0TMP\!gameid2!\!gameid2!.html" | "%~dp0BAT\busybox" sed "/PUBLISHER/d; /<td style=/d" | "%~dp0BAT\busybox" sed "s/&nbsp; / /g; s/^.*;//g; s/<\/td>//g; s|[\t][\t][\t]*||g; s/\s*$//" | "%~dp0BAT\busybox" sed -e "2,20d" > "%~dp0TMP\!gameid2!\PUBLISHER.txt" & set /P PUBLISHERTMP=<"%~dp0TMP\!gameid2!\PUBLISHER.txt"
+	 "%~dp0BAT\busybox" grep -A2 "GENRE " "%~dp0TMP\!gameid2!\!gameid2!.html" | "%~dp0BAT\busybox" sed "/GENRE /d; /<td style=/d" | "%~dp0BAT\busybox" sed "s/&nbsp; / /g; s/&nbsp;//g; s/^.*;//g; s/<\/td>//g; s|[\t][\t][\t]*||g; s/\s*$//" | "%~dp0BAT\busybox" sed -e "2,20d" > "%~dp0TMP\!gameid2!\GENRE.txt" & set /P GENRETMP=<"%~dp0TMP\!gameid2!\GENRE.txt"
+
+     REM PS1 Game ID with PBPX other region than JAP
+	 set "REGIONTMP="
+     if "!gameid!"=="PAPX_900.28" set REGIONTMP=E
+     if "!gameid!"=="PAPX_900.44" set REGIONTMP=A
+     if "!gameid!"=="PBPX_950.02" set REGIONTMP=U
+     if "!gameid!"=="PBPX_950.01" set REGIONTMP=E
+     if "!gameid!"=="PBPX_950.03" set REGIONTMP=U
+     if "!gameid!"=="PBPX_950.04" set REGIONTMP=U
+     if "!gameid!"=="PBPX_950.06" set REGIONTMP=U
+     if "!gameid!"=="PBPX_950.07" set REGIONTMP=E
+     if "!gameid!"=="PBPX_950.08" set REGIONTMP=E
+     if "!gameid!"=="PBPX_950.09" set REGIONTMP=U
+     if "!gameid!"=="PBPX_950.10" set REGIONTMP=U
+     if "!gameid!"=="PBPX_950.11" set REGIONTMP=U
+	 )
+	
+	 if !PartitionType!==APP (
+	 "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0BAT\PSBBN_XMB_APPSINFOS_Database.zip" -o"%~dp0TMP" !gameid2!.txt -r -y >nul 2>&1
+	 set REGIONTMP=X
+	 
+	 "%~dp0BAT\busybox" grep "Devloper=" "%~dp0TMP\!gameid2!.txt" | "%~dp0BAT\busybox" sed "s/^.*=//" > "%~dp0TMP\!gameid2!\DEVLOPER.txt" & set /P DEVELOPERTMP=<"%~dp0TMP\!gameid2!\DEVLOPER.txt"
+	 "%~dp0BAT\busybox" grep "Publisher=" "%~dp0TMP\!gameid2!.txt" | "%~dp0BAT\busybox" sed "s/^.*=//" > "%~dp0TMP\!gameid2!\PUBLISHER.txt" & set /P PUBLISHERTMP=<"%~dp0TMP\!gameid2!\PUBLISHER.txt"
+	 "%~dp0BAT\busybox" grep "Contentweb=" "%~dp0TMP\!gameid2!.txt" | "%~dp0BAT\busybox" sed "s/^.*=//" > "%~dp0TMP\!gameid2!\Contentweb.txt" & set /P Contentweb=<"%~dp0TMP\!gameid2!\Contentweb.txt"
+	 "%~dp0BAT\busybox" grep "Genre=" "%~dp0TMP\!gameid2!.txt" | "%~dp0BAT\busybox" sed "s/^.*=//" > "%~dp0TMP\!gameid2!\GENRE.txt" & set /P GENRETMP=<"%~dp0TMP\!gameid2!\GENRE.txt"
+	 )
+	 
+	 if not defined REGIONTMP (
+	 echo !gameid!| "%~dp0BAT\busybox" cut -c3-3 > "%~dp0TMP\RegionID.txt" & set /P regionID=<"%~dp0TMP\RegionID.txt"
+	 REM A = Asia
+	 if "!regionID!"=="A" "%~dp0BAT\busybox" sed -ie "s/A/A/g" "%~dp0TMP\RegionID.txt" & set /P REGIONTMP=<"%~dp0TMP\RegionID.txt"
+	 REM C = China                                                                                                  
+     if "!regionID!"=="C" "%~dp0BAT\busybox" sed -ie "s/C/C/g" "%~dp0TMP\RegionID.txt" & set /P REGIONTMP=<"%~dp0TMP\RegionID.txt"
+	 REM E = Europe                                                                                                 
+	 if "!regionID!"=="E" "%~dp0BAT\busybox" sed -ie "s/E/E/g" "%~dp0TMP\RegionID.txt" & set /P REGIONTMP=<"%~dp0TMP\RegionID.txt"
+	 REM K = Korean                                                                                                 
+	 if "!regionID!"=="K" "%~dp0BAT\busybox" sed -ie "s/K/K/g" "%~dp0TMP\RegionID.txt" & set /P REGIONTMP=<"%~dp0TMP\RegionID.txt"
+	 REM P = Japan                                                                                                  
+	 if "!regionID!"=="P" "%~dp0BAT\busybox" sed -ie "s/P/J/g" "%~dp0TMP\RegionID.txt" & set /P REGIONTMP=<"%~dp0TMP\RegionID.txt"
+	 REM UC = North America                                                                                         
+	 if "!regionID!"=="U" "%~dp0BAT\busybox" sed -ie "s/U/U/g" "%~dp0TMP\RegionID.txt" & set /P REGIONTMP=<"%~dp0TMP\RegionID.txt"
+	 )
+	 REM Unknown region
+	 if not defined REGIONTMP set REGIONTMP=X
+	 if defined LSPID set REGIONTMP=U
+	 
+	 if !language!==french ("%~dp0BAT\busybox" sed -i "s/January/Janvier/g; s/February/Février/g; s/March/Mars/g; s/April/Avril/g; s/May/Mai/g; s/June/Juin/g; s/July/Juillet/g; s/August/Aout/g; s/September/Septembre/g; s/October/Octobre/g; s/November/Novembre/g; s/December/Décembre/g" "%~dp0TMP\!gameid2!\RELEASE.txt" & set /P RELEASETMP=<"%~dp0TMP\!gameid2!\RELEASE.txt")
+
+     REM This is only to fix illegal characters with busybox
+     echo "!dbtitleTMP!"| "%~dp0BAT\busybox" sed -e "s/\&/\\\&/g; s./.\\\/.g" | "%~dp0BAT\busybox" iconv -f windows-1252 -t utf-8 > "%~dp0TMP\dbtitle.txt"
+	 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\dbtitle.txt"
+	 set /P dbtitle=<"%~dp0TMP\dbtitle.txt"
+	 
+     echo "!RELEASETMP!"| "%~dp0BAT\busybox" sed -e "s/\&/\\\&/g; s./.\\\/.g" | "%~dp0BAT\busybox" iconv -f windows-1252 -t utf-8 > "%~dp0TMP\RELEASE.txt"
+	 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\RELEASE.txt"
+	 set /P RELEASE=<"%~dp0TMP\RELEASE.txt"
+	 
+	 echo "!REGIONTMP!"| "%~dp0BAT\busybox" sed -e "s/\&/\\\&/g; s./.\\\/.g" | "%~dp0BAT\busybox" iconv -f windows-1252 -t utf-8 > "%~dp0TMP\REGION.txt"
+	 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\REGION.txt"
+	 set /P REGION=<"%~dp0TMP\REGION.txt"
+	 
+     echo "!DEVELOPERTMP!"| "%~dp0BAT\busybox" sed -e "s/\&/\\\&/g; s./.\\\/.g" | "%~dp0BAT\busybox" iconv -f windows-1252 -t utf-8 > "%~dp0TMP\DEVELOPER.txt"
+	 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\DEVELOPER.txt"
+	 set /P DEVELOPER=<"%~dp0TMP\DEVELOPER.txt"
+	
+     echo "!PUBLISHERTMP!"| "%~dp0BAT\busybox" sed -e "s/\&/\\\&/g; s./.\\\/.g" | "%~dp0BAT\busybox" iconv -f windows-1252 -t utf-8 > "%~dp0TMP\PUBLISHER.txt"
+	 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\PUBLISHER.txt"
+	 set /P PUBLISHER=<"%~dp0TMP\PUBLISHER.txt"
+	 
+     echo "!GENRETMP!"| "%~dp0BAT\busybox" sed -e "s/\&/\\\&/g; s./.\\\/.g" | "%~dp0BAT\busybox" iconv -f windows-1252 -t utf-8 > "%~dp0TMP\GENRE.txt"
+	 "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\GENRE.txt"
+	 set /P GENRE=<"%~dp0TMP\GENRE.txt"
+
+    echo         Getting game information...
+    echo        Provided by psxdatacenter.com
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 03
+
+	echo Title:     [!dbtitleTMP!]
+	echo Gameid:    [!gameid2!]
+	echo Region:    [!REGION!]
+	echo Release:   [!RELEASETMP!]
+	echo Developer: [!DEVELOPERTMP!]
+	echo Publisher: [!PUBLISHERTMP!]
+	echo Genre:     [!GENRETMP!]
+if !PartitionType!==APP echo Source:    [!Contentweb!]
+
+"%~dp0BAT\Diagbox" gd 0e
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0f
+
+    "%~dp0BAT\hdl_dump_fix" dump_header !@hdl_path! "!PPName!" >nul 2>&1
+	echo !PPName!| "%~dp0BAT\busybox" sed -e "s/__\./PP\./g" > "%~dp0TMP\PPBBNXMB.txt" & set /P PPName=<"%~dp0TMP\PPBBNXMB.txt"
+	REM "%~dp0BAT\hdl_dump_fix" modify_header !@hdl_path! "!PPName!" >nul 2>&1
+
+	 cd /d "%~dp0TMP"
+     echo            Extraction Resources Header...
+	 echo device !@hdl_path2! > "%~dp0TMP\pfs-log.txt"
+	 echo mount "!PPName!" >> "%~dp0TMP\pfs-log.txt"
+	 echo cd res >> "%~dp0TMP\pfs-log.txt"
+	 echo ls -l >> "%~dp0TMP\pfs-log.txt"
+	 echo umount >> "%~dp0TMP\pfs-log.txt"
+	 echo exit >> "%~dp0TMP\pfs-log.txt"
+	 type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -i -e "-rw-" -e "-rwx" | "%~dp0BAT\busybox" cut -c42-500 > "%~dp0TMP\pfs-tmp.log"
+	 
+	 echo device !@hdl_path2! > "%~dp0TMP\pfs-log.txt"
+	 echo mount "!PPName!" >> "%~dp0TMP\pfs-log.txt"
+	 echo mkdir res >> "%~dp0TMP\pfs-log.txt"
+	 echo cd res >> "%~dp0TMP\pfs-log.txt"
+	 echo mkdir image >> "%~dp0TMP\pfs-log.txt"
+	 echo cd image >> "%~dp0TMP\pfs-log.txt"
+	 echo ls -l >> "%~dp0TMP\pfs-log.txt"
+	 echo umount >> "%~dp0TMP\pfs-log.txt"
+	 echo exit >> "%~dp0TMP\pfs-log.txt"
+	 type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -i -e "-rw-" -e "-rwx" | "%~dp0BAT\busybox" cut -c42-500 > "%~dp0TMP\pfs-tmp2.log"
+	 
+	 echo device !@hdl_path2! > "%~dp0TMP\pfs-header.txt"
+	 echo mount "!PPName!" >> "%~dp0TMP\pfs-header.txt"
+	 echo lcd "%~dp0TMP\!gameid2!\PP.HEADER\PFS" >> "%~dp0TMP\pfs-header.txt"
+	 
+	 echo cd res >> "%~dp0TMP\pfs-header.txt"
+	 mkdir "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res" >nul 2>&1
+	 echo lcd "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res" >> "%~dp0TMP\pfs-header.txt"
+	 for /f "tokens=*" %%f in (pfs-tmp.log) do (echo get "%%f" >> "%~dp0TMP\pfs-header.txt")
+	 
+	 echo cd image >> "%~dp0TMP\pfs-header.txt"
+	 mkdir "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\image" >nul 2>&1
+	 echo lcd "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\image" >> "%~dp0TMP\pfs-header.txt"
+	 for /f "tokens=*" %%f in (pfs-tmp2.log) do (echo get "%%f" >> "%~dp0TMP\pfs-header.txt")
+	 
+	 echo umount >> "%~dp0TMP\pfs-header.txt"
+	 echo exit >> "%~dp0TMP\pfs-header.txt"
+	 type "%~dp0TMP\pfs-header.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
+
+     if !UpdateTitle!==Yes (
+	 echo            Updating Title...
+	 
+	 REM HDD-OSD Infos
+	 "%~dp0BAT\busybox" sed -i -e "s/ = /=/g; s/=/ = /g; s/  =/ = /g" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+	 if defined dbtitle "%~dp0BAT\busybox" sed -i -e "s/title0 =.*/title0 =/g; s/title0 =/title0 = !dbtitle!/g" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+ 	 if defined dbtitle "%~dp0BAT\busybox" sed -i -e "s/title1 =.*/title1 =/g; s/title1 =/title1 = !gameid2!/g" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+	 
+	 if !PartitionType!==APP "%~dp0BAT\busybox" sed -ie "s/title1 =.*/title1 =/g; s/title1 =/title1 = !GENRE!/g" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+	 "%~dp0BAT\busybox" sed -i -e "s/\s*$//" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+	 
+	 if exist "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys" (
+	 REM PSBBN, XMB Menu Infos
+	 if defined dbtitle "%~dp0BAT\busybox" sed -i -e "s/title =.*/title =/g; s/title =/title = !dbtitle!/g" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys"
+	 if defined dbtitle "%~dp0BAT\busybox" sed -i -e "s/\"TOP-TITLE\" label=\".*\"/\"TOP-TITLE\" label=\"!dbtitle!\"/g" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\man.xml"
+	 )
+	)
+
+     if !Update3DIcon!==Yes (
+	 echo            Updating 3D Icon...
+	 
+	 if !DownloadARTHDDOSD!==yes "%~dp0BAT\wget" -q "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Ficon.sys" -O "%~dp0TMP\icon.sys" >nul
+	 if !DownloadARTHDDOSD!==yes "%~dp0BAT\wget" -q "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Flist.ico" -O "%~dp0TMP\list.ico" >nul
+	 if !DownloadARTHDDOSD!==yes "%~dp0BAT\wget" -q "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fdel.ico"  -O "%~dp0TMP\del.ico" >nul
+	 
+	 if !uselocalARTHDDOSD!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\ -r -y >nul 2>&1 & move "%~dp0TMP\!PartitionType!\!gameid!\*" "%~dp0TMP" >nul 2>&1
+	 for %%F in (*.ico) do if %%~zF==0 (del "%%F") else (move %%F "%~dp0TMP\!gameid2!\PP.HEADER" >nul)
+	 
+	 REM Background Color for HDD-OSD icon
+	 if exist "%~dp0TMP\icon.sys" (
+	 "%~dp0BAT\busybox" grep -A 15 "bgcola" "%~dp0TMP\icon.sys" > "%~dp0TMP\bgcolor.txt"
+	 "%~dp0BAT\busybox" sed -i "4,19d" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys" 
+	 "%~dp0BAT\busybox" cat "%~dp0TMP\bgcolor.txt" >> "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+	 del "%~dp0TMP\icon.sys" >nul
+	  )
+	)
+
+     if !UpdateGameInfos!==Yes (
+	 echo            Updating Game Infos...
+	 
+	 if exist "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys" (
+	 "%~dp0BAT\busybox" sed -i -e "s/title_id =.*/title_id =/g; s/title_id =/title_id = !gameid2!/g" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys"
+     "%~dp0BAT\busybox" sed -i -e "s/area =.*/area =/g; s/area =/area = !REGION!/g" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys"
+     if defined RELEASE "%~dp0BAT\busybox" sed -i -e "s/release_date =.*/release_date =/g; s/release_date =/release_date = !RELEASE!/g" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys"
+     if defined DEVELOPER "%~dp0BAT\busybox" sed -i -e "s/developer_id =.*/developer_id =/g; s/developer_id =/developer_id = !DEVELOPER!/g" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys"
+     if defined PUBLISHER "%~dp0BAT\busybox" sed -i -e "s/publisher_id =.*/publisher_id =/g; s/publisher_id =/publisher_id = !PUBLISHER!/g" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys"
+     if defined GENRE "%~dp0BAT\busybox" sed -i -e "s/genre =.*/genre =/g; s/genre =/genre = !GENRE!/g" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys"
+
+	 REM Fix shity illegal chars for busybox like: /.&
+     if defined Contentweb (
+	 "%~dp0BAT\busybox" sed -i "s/\&/\\\&/g; s./.\\\/.g" "%~dp0TMP\!gameid2!\Contentweb.txt" & set /P Contentweb=<"%~dp0TMP\!gameid2!\Contentweb.txt"
+	 "%~dp0BAT\busybox" sed -i -e "s/content_web =.*/content_web =/g; s/content_web =/content_web = !Contentweb!/g" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\info.sys"
+	  )
+	 )
+	)
+	
+     if !UpdateART!==Yes (
+	 echo            Updating Resources ART...
+	 
+     if !PartitionType!==APP (
+	 md "%~dp0TMP\res\image" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2Fjkt_0001.png" -O "%~dp0TMP\res\jkt_001.png" >nul 2>&1 & copy "%~dp0TMP\res\jkt_001.png" "%~dp0TMP\res\jkt_002.png" >nul 2>&1
+	 if !uselocalART!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\res\jkt_001.png -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\res\jkt_001.png" "%~dp0TMP\res\jkt_001.png" >nul 2>&1 & copy "%~dp0TMP\res\jkt_001.png" "%~dp0TMP\res\jkt_002.png" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2F%%2Fimage%%2F0.png" -O "%~dp0TMP\res\image\0.png" >nul 2>&1
+	 if !uselocalART!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\res\image\0.png -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\res\image\0.png" "%~dp0TMP\res\image\0.png" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2F%%2Fimage%%2F1.png" -O "%~dp0TMP\res\image\1.png" >nul 2>&1
+	 if !uselocalART!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\res\image\1.png -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\res\image\1.png" "%~dp0TMP\res\image\1.png" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2F%%2Fimage%%2F2.png" -O "%~dp0TMP\res\image\2.png" >nul 2>&1
+	 if !uselocalART!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\res\image\2.png -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\res\image\2.png" "%~dp0TMP\res\image\2.png" >nul 2>&1
+	 for /r "%~dp0TMP\res" %%F in (*.png) do if %%~zF==0 del "%%F"
+	 
+	 ) else (
+	 
+     if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/!PartitionType!%%2F!gameid!%%2F!gameid!_COV.jpg" -O "%~dp0TMP\jkt_001.jpg" >nul 2>&1
+     if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\!gameid!_COV.jpg -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\!gameid!_COV.jpg" "%~dp0TMP\jkt_001.jpg" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/!PartitionType!%%2F!gameid!%%2F!gameid!_BG_00.jpg" -O "%~dp0TMP\BG.jpg" >nul 2>&1
+	 if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\!gameid!_BG_00.jpg -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\!gameid!_BG_00.jpg" "%~dp0TMP\BG.jpg" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/!PartitionType!%%2F!gameid!%%2F!gameid!_LGO.png" -O "%~dp0TMP\jkt_cp.png" >nul 2>&1
+	 if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\!gameid!_LGO.png -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\!gameid!_LGO.png" "%~dp0TMP\jkt_cp.png" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/!PartitionType!%%2F!gameid!%%2F!gameid!_SCR_00.jpg" -O "%~dp0TMP\SCR0.jpg" >nul 2>&1
+	 if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\!gameid!_SCR_00.jpg -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\!gameid!_SCR_00.jpg" "%~dp0TMP\SCR0.jpg" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/!PartitionType!%%2F!gameid!%%2F!gameid!_SCR_01.jpg" -O "%~dp0TMP\SCR1.jpg" >nul 2>&1
+	 if !uselocalART!==yes if exist "%~dp0ART.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0ART.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\!gameid!_SCR_01.jpg -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\!gameid!_SCR_01.jpg" "%~dp0TMP\SCR1.jpg" >nul 2>&1
+	 REM "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2F%%F%%2F%%F_SCR_02.jpg" -O "%~dp0TMP\SCR2.jpg" >nul 2>&1
+	 REM "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/PS1%%2F%%F%%2F%%F_SCR_03.jpg" -O "%~dp0TMP\SCR3.jpg" >nul 2>&1
+	 )
+	 for %%F in (*.jpg *.png) do if %%~zF==0 del "%%F"
+
+	 REM Covers
+	 if exist "%~dp0TMP\jkt_001.jpg" "%~dp0BAT\nconvert" -overwrite -out png -rtype lanczos -efocus -o "%~dp0TMP\res\jkt_001.png" "%~dp0TMP\jkt_001.jpg" >nul 2>&1
+	 if exist "%~dp0TMP\jkt_001.jpg" "%~dp0BAT\nconvert" -overwrite -out png -rtype lanczos -efocus -o "%~dp0TMP\res\jkt_002.png" "%~dp0TMP\jkt_001.jpg" >nul 2>&1
+	 if exist "%~dp0TMP\jkt_cp.png" move "%~dp0TMP\jkt_cp.png" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res\jkt_cp.png" >nul 2>&1
+	 
+	 REM Screenshot
+	 if exist "%~dp0TMP\BG.jpg" "%~dp0BAT\nconvert" -overwrite -out png -resize 640 350 -efocus -o "%~dp0TMP\res\image\0.png" "%~dp0TMP\BG.jpg" >nul 2>&1
+     if exist "%~dp0TMP\SCR0.jpg" "%~dp0BAT\nconvert" -overwrite -out png -resize 640 350 -rtype lanczos -efocus -o "%~dp0TMP\res\image\1.png" "%~dp0TMP\SCR0.jpg" >nul 2>&1
+	 if exist "%~dp0TMP\SCR1.jpg" "%~dp0BAT\nconvert" -overwrite -out png -resize 640 350 -rtype lanczos -efocus -o "%~dp0TMP\res\image\2.png" "%~dp0TMP\SCR1.jpg" >nul 2>&1
+	 REM if exist "%~dp0TMP\SCR2.jpg" "%~dp0BAT\nconvert" -overwrite -out png -resize 640 350 -rtype lanczos -efocus -o "%~dp0POPS\Temp\!appfolder!\res\image\3.png" "%~dp0TMP\SCR2.jpg" >nul 2>&1
+	 REM if exist "%~dp0TMP\SCR3.jpg" "%~dp0BAT\nconvert" -overwrite -out png -resize 640 350 -rtype lanczos -efocus -o "%~dp0POPS\Temp\!appfolder!\res\image\4.png" "%~dp0TMP\SCR3.jpg" >nul 2>&1
+
+	 REM Nconvert does not support long path
+	 ROBOCOPY /E /MOVE "%~dp0TMP\res" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res" >nul 2>&1
+     for %%f in (*.jpg *.png) do (del "%%f")
+     )
+    
+	 if !UpdateLauncher!==Yes (
+	 
+	 if !PartitionType!==PS1 (
+	 echo            Updating POPStarter...
+	 copy "%~dp0POPS-Binaries\POPSTARTER.KELF" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\EXECUTE.KELF" >nul 2>&1
+	  )
+	 if !PartitionType!==PS2 (
+	 echo            Updating OPL Launcher...
+	 copy "%~dp0BAT\boot.kelf" "%~dp0TMP\!gameid2!\PP.HEADER" >nul 2>&1
+	 copy "%~dp0BAT\boot.kelf" "%~dp0TMP\!gameid2!\PP.HEADER\PFS\EXECUTE.KELF" >nul 2>&1
+	  )
+	 )
+
+     echo            Installing...
+     cd /d "%~dp0TMP\!gameid2!\PP.HEADER\PFS"
+	 
+	 echo device !@hdl_path2! > "%~dp0TMP\pfs-updateheader.txt"
+	 echo mount "!PPName!" >> "%~dp0TMP\pfs-updateheader.txt"
+	 echo lcd "%~dp0TMP\!gameid2!\PP.HEADER\PFS" >> "%~dp0TMP\pfs-updateheader.txt"
+	 if !UpdateLauncher!==Yes echo rm EXECUTE.KELF >> "%~dp0TMP\pfs-updateheader.txt"
+	 if !UpdateLauncher!==Yes echo put EXECUTE.KELF >> "%~dp0TMP\pfs-updateheader.txt"
+	 echo lcd "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res" >> "%~dp0TMP\pfs-updateheader.txt"
+	 echo mkdir res >> "%~dp0TMP\pfs-updateheader.txt"
+	 echo cd res >> "%~dp0TMP\pfs-updateheader.txt"
+     
+	 cd /d "%~dp0TMP\!gameid2!\PP.HEADER\PFS\res"
+	 for %%0 in (*) do (echo put "%%0") >> "%~dp0TMP\pfs-updateheader.txt"
+	 
+	 REM RESSOURCE DIR (PP.NAME\res\image)
+	 for /D %%x in (*) do (
+	 echo mkdir "%%x" >> "%~dp0TMP\pfs-updateheader.txt"
+	 echo lcd "%%x" >> "%~dp0TMP\pfs-updateheader.txt"
+ 	 echo cd "%%x" >> "%~dp0TMP\pfs-updateheader.txt"
+ 	 cd "%%x"
+	 
+	 REM RESSOURCE DIR (PP.NAME\res\image\files.xxx)
+ 	 for %%1 in (*) do (echo put "%%1") >> "%~dp0TMP\pfs-updateheader.txt"
+	 
+	 echo lcd .. >> "%~dp0TMP\pfs-updateheader.txt"
+	 echo cd .. >> "%~dp0TMP\pfs-updateheader.txt"
+	 cd ..
+	 
+	 )
+	 
+	 REM UNMOUNT
+	 echo umount >> "%~dp0TMP\pfs-updateheader.txt"
+	 echo exit >> "%~dp0TMP\pfs-updateheader.txt"
+	 type "%~dp0TMP\pfs-updateheader.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
+	 
+	 cd /d "%~dp0TMP\!gameid2!\PP.HEADER" & "%~dp0BAT\hdl_dump" modify_header !@hdl_path! "!PPName!" >nul 2>&1
+	 echo !PPName!| "%~dp0BAT\busybox" sed -e "s/PP\./__\./g" > "%~dp0TMP\PPBBNXMB.txt" & set /P PPName=<"%~dp0TMP\PPBBNXMB.txt"
+	 cd /d "%~dp0TMP\!gameid2!\PP.HEADER" & "%~dp0BAT\hdl_dump" modify_header !@hdl_path! "!PPName!" >nul 2>&1
+	 rmdir /Q/S "%~dp0TMP\!gameid2!" >nul 2>&1
+	 
+	 echo            Completed...	 
+     )
+    )
+
+cd /d "%~dp0" & rmdir /Q/S "%~dp0TMP" >nul 2>&1
+
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+echo ----------------------------------------------------
+"%~dp0BAT\Diagbox" gd 0a
+echo Completed...
+echo\
+echo\
+"%~dp0BAT\Diagbox" gd 0f
+
+pause & (goto HDDOSDPartManagement)
 REM ####################################################################################################################
 :InstallNBDDriver
 
@@ -8985,7 +10246,6 @@ bcdedit.exe | "%~dp0BAT\busybox" grep testsigning | "%~dp0BAT\busybox" grep -o Y
 set modetest=!checkmodetest!
 
     if !modetest!==Yes (
-	
 	echo\
     "%~dp0BAT\Diagbox" gd 0a
     echo Windows test mode detected!
@@ -9846,7 +11106,7 @@ echo ----------------------------------------------------
 
 set /P @hdl_path2=<"%~dp0TMP\hdl-hdd2.txt"
 set /P @hdl_path=<"%~dp0TMP\hdl-hdd.txt"
-::del "%~dp0TMP\hdl-hdd.txt" >nul 2>&1
+
 IF "!@hdl_path!"=="" (
 "%~dp0BAT\Diagbox" gd 0c
 		echo         Playstation 2 HDD Not Detected
@@ -9958,7 +11218,7 @@ if defined UmountManuallyPartition (
    )
    
    if defined CheckDokanVersion ( cls & if exist "C:\Program Files\Dokan\" "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /v)
-   if defined InstallDriver (if exist "%HOMEDRIVE%\Windows\System32\drivers\dokan2.sys" "%~dp0BAT\Diagbox" gd 06 & echo Driver already installed if you want to update it. Uninstall the driver first & "%~dp0BAT\Diagbox" gd 0f)
+   if defined InstallDriver (if exist "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" "%~dp0BAT\Diagbox" gd 06 & echo Driver already installed if you want to update it. Uninstall the driver first & "%~dp0BAT\Diagbox" gd 0f)
    
    if not exist "%HOMEDRIVE%\Windows\System32\drivers\dokan2.sys" (
    "%~dp0BAT\Diagbox" gd 06
