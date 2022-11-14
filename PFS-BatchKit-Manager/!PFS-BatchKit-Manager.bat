@@ -10120,16 +10120,15 @@ echo ----------------------------------------------------
 	 
      if !PartitionType!==APP (
 	 md "%~dp0TMP\res\image" >nul 2>&1
-	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2Fjkt_0001.png" -O "%~dp0TMP\res\jkt_001.png" >nul 2>&1 & copy "%~dp0TMP\res\jkt_001.png" "%~dp0TMP\res\jkt_002.png" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2Fjkt_001.png" -O "%~dp0TMP\res\jkt_001.png" >nul 2>&1 & copy "%~dp0TMP\res\jkt_001.png" "%~dp0TMP\res\jkt_002.png" >nul 2>&1
 	 if !uselocalART!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\res\jkt_001.png -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\res\jkt_001.png" "%~dp0TMP\res\jkt_001.png" >nul 2>&1 & copy "%~dp0TMP\res\jkt_001.png" "%~dp0TMP\res\jkt_002.png" >nul 2>&1
-	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2F%%2Fimage%%2F0.png" -O "%~dp0TMP\res\image\0.png" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2Fimage%%2F0.png" -O "%~dp0TMP\res\image\0.png" >nul 2>&1
 	 if !uselocalART!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\res\image\0.png -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\res\image\0.png" "%~dp0TMP\res\image\0.png" >nul 2>&1
-	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2F%%2Fimage%%2F1.png" -O "%~dp0TMP\res\image\1.png" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2Fimage%%2F1.png" -O "%~dp0TMP\res\image\1.png" >nul 2>&1
 	 if !uselocalART!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\res\image\1.png -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\res\image\1.png" "%~dp0TMP\res\image\1.png" >nul 2>&1
-	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2F%%2Fimage%%2F2.png" -O "%~dp0TMP\res\image\2.png" >nul 2>&1
+	 if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/!PartitionType!%%2F!gameid!%%2Fres%%2Fimage%%2F2.png" -O "%~dp0TMP\res\image\2.png" >nul 2>&1
 	 if !uselocalART!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" !PartitionType!\!gameid!\res\image\2.png -r -y & move "%~dp0TMP\!PartitionType!\!gameid!\res\image\2.png" "%~dp0TMP\res\image\2.png" >nul 2>&1
 	 for /r "%~dp0TMP\res" %%F in (*.png) do if %%~zF==0 del "%%F"
-	 
 	 ) else (
 	 
      if !DownloadART!==yes "%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2022_09/OPLM_ART_2022_09.zip/!PartitionType!%%2F!gameid!%%2F!gameid!_COV.jpg" -O "%~dp0TMP\jkt_001.jpg" >nul 2>&1
