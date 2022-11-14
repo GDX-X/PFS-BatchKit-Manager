@@ -473,7 +473,7 @@ if !uselocalARTHDDOSD!==no (
 	"%rootpath%\BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS1%%2FSCES_000.01%%2FPreview.png" -O "%rootpath%\TMP\Preview.png" >nul 2>&1
 	for %%F in (Preview.png) do if %%~zF==0 del "%%F"
 
-if not exist %rootpath%\TMP\Preview.png (
+if not exist "%rootpath%\TMP\Preview.png" (
 "%rootpath%\BAT\Diagbox" gd 0c
     echo\
 	echo Unable to connect to internet Or Website
