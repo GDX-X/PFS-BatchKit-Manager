@@ -69,7 +69,7 @@ for %%F in ( "!PFS-BatchKit-Manager2.bat" ) do if %%~zF==0 del "%%F"
 "%~dp0BAT\busybox" md5sum "%~dp0TMP\!PFS-BatchKit-Manager2.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
 "%~dp0BAT\busybox" md5sum "%~dp0!PFS-BatchKit-Manager.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
 
-if exist "!PFS-BatchKit-Manager2.bat" if "%CheckUPDATE%"=="%CheckOriginal%" (echo "update=") else (set update=UPDATE AVAILABLE)
+if exist "!PFS-BatchKit-Manager2.bat" if "%CheckUPDATE%"=="%CheckOriginal%" (set "update=") else (set update=UPDATE AVAILABLE)
 
 cd /d "%~dp0" & IF EXIST "%~dp0TMP" rmdir /Q/S "%~dp0TMP" >nul 2>&1
 
@@ -11088,8 +11088,9 @@ mkdir "%~dp0TMP" >nul 2>&1
 mkdir "%~dp0LOG" >nul 2>&1
 cd /d "%~dp0TMP"
 
-if exist "%HOMEDRIVE%\Windows\System32\drivers\dokan2.sys" (
-if exist "C:\Program Files\Dokan" "%~dp0BAT\busybox" ls "C:\Program Files\Dokan" > "%~dp0TMP\DokanFolder.txt" & set /P DokanFolder=<"%~dp0TMP\DokanFolder.txt"
+if exist "C:\Program Files\Dokan" (
+
+"%~dp0BAT\busybox" ls "C:\Program Files\Dokan" > "%~dp0TMP\DokanFolder.txt" & set /P DokanFolder=<"%~dp0TMP\DokanFolder.txt"
 
 "%~dp0BAT\Diagbox" gd 0f
 echo\
@@ -11204,12 +11205,12 @@ IF "!@hdl_path!"=="" (
    cd "%~dp0" & rmdir /Q/S "%~dp0TMP" >nul 2>&1 & pause & goto PS2HDDExplore
     )
    )
-  )
-
+   
 if defined UmountManuallyPartition (
    if exist "C:\Program Files\Dokan\" (
    "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /l a | "%~dp0BAT\busybox" grep -o "DosDevices\\[A-Z]:" | "%~dp0BAT\busybox" cut -c12-12 > "%~dp0TMP\Listmount.txt"
-   for /f "tokens=*" %%m in (Listmount.txt) do (echo\ & "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /u %%m | "%~dp0BAT\busybox" grep -o "Unmount status = 0" > "%~dp0TMP\UnmountPart.txt" & set /P UnmountPart=<"%~dp0TMP\UnmountPart.txt"
+   for /f "tokens=*" %%m in (Listmount.txt) do (
+   echo\ & "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /u %%m | "%~dp0BAT\busybox" grep -o "Unmount status = 0" > "%~dp0TMP\UnmountPart.txt" & set /P UnmountPart=<"%~dp0TMP\UnmountPart.txt"
    "%~dp0BAT\Diagbox" gd 0f
    if "!UnmountPart!"=="Unmount status = 0" echo Unmount success 
      )
@@ -11217,37 +11218,28 @@ if defined UmountManuallyPartition (
    )
    
    if defined CheckDokanVersion ( cls & if exist "C:\Program Files\Dokan\" "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /v)
-   if defined InstallDriver (if exist "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" "%~dp0BAT\Diagbox" gd 06 & echo Driver already installed if you want to update it. Uninstall the driver first & "%~dp0BAT\Diagbox" gd 0f)
    
-   if not exist "%HOMEDRIVE%\Windows\System32\drivers\dokan2.sys" (
+   if defined InstallDriver if exist "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" (
+   "%~dp0BAT\Diagbox" gd 06 
+   echo Driver already installed if you want to update it. Uninstall the driver first
+   echo Or install it manually by downloading it from https://github.com/dokan-dev/dokany/releases
+   "%~dp0BAT\Diagbox" gd 0f
+   )
+   
+   ) else (
    "%~dp0BAT\Diagbox" gd 06
    if not defined InstallDriver echo Dokan Driver not detected
    "%~dp0BAT\Diagbox" gd 0f
+   
    echo\
    echo Do you want Install Dokan Driver ?
    "%~dp0BAT\Diagbox" gd 0f
    CHOICE /C YN /M "Select Option:"
    if errorlevel 1 set InstallDokanDriver=yes
    if errorlevel 2 cd "%~dp0" & rmdir /Q/S "%~dp0TMP" >nul 2>&1 & (goto PS2HDDExplore)
-
-   if defined InstallDokanDriver (
-   "%~dp0BAT\wget" "https://github.com/dokan-dev/dokany/releases.html" >nul 2>&1
-   for %%F in ( "releases.html" ) do if %%~zF==0 del "%%F"
-   
-   if exist releases.html (
-   "%~dp0BAT\busybox" grep -m 1 "releases/tag/v" "%~dp0TMP\releases.html" | "%~dp0BAT\busybox" sed "s/ //g" | "%~dp0BAT\busybox" cut -c90-105 | "%~dp0BAT\busybox" sed "s/\"".*//" > "%~dp0TMP\DownloadLatest.txt" & set /p LatestVersion=<"%~dp0TMP\DownloadLatest.txt"
-   "%~dp0BAT\wget" "https://github.com/dokan-dev/dokany/releases/download/!LatestVersion!/Dokan_x64.msi" 2>&1 -O "%~dp0BAT\Dokan_x64.msi" >nul 2>&1
-   ) else (
-   "%~dp0BAT\Diagbox" gd 0c
-   echo\
-   echo\
-   echo Unable to connect to internet Or Website
-   echo You will switch to offline mode
-   echo\
-   "%~dp0BAT\Diagbox" gd 0f
-   pause & cls
    )
-
+   
+   if !InstallDokanDriver!==yes (
    echo Installation...
    msiexec.exe /i "%~dp0BAT\Dokan_x64.msi" /QN /L*V "%~dp0LOG\DokanDriverlog.log"
    
@@ -11263,7 +11255,6 @@ if defined UmountManuallyPartition (
    echo An error has occurred Please check logs.
    "%~dp0BAT\Diagbox" gd 0f
      )
-    )
    )
 
    if defined UninstallDokanDriver (
