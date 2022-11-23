@@ -1,7 +1,7 @@
 @echo off
 
 cls
-title PFS BatchKit Manager v1.1.2 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
 cd /d "%~dp0"
 cd ..
 set rootpath=%cd%
