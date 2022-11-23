@@ -140,7 +140,7 @@ Now you can use all features of PFS Batchkit Manager!
 1) Connect your PS2 Or PSX HDD With NBD Server Or locally
 2) Install PS2 Games
 3) Go to the `Advanced menu` > `HDD-OSD/PSBBN/XMB` > `Partitions Management` 
-4) Choose Convert a PS2 game for PSBBN & XMB Menu
+4) Choose Convert HDL Partition for PSBBN & XMB Menu
 
 NOTE: For PS1 games, install them as a partition, everything will be done automatically
      
