@@ -78,8 +78,8 @@ cd /d "%~dp0" & IF EXIST "%~dp0TMP" rmdir /Q/S "%~dp0TMP" >nul 2>&1
 IF NOT EXIST "%~dp0TMP"  MD "%~dp0TMP"
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -130,8 +130,8 @@ if "%choice%"=="13" (start https://github.com/GDX-X/PFS-BatchKit-Manager/release
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX 
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX 
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal DisableDelayedExpansion
@@ -185,8 +185,8 @@ if "%choice%"=="100" (goto GDX-X)
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -229,8 +229,8 @@ if "%choice%"=="11" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -277,8 +277,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -325,8 +325,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -394,8 +394,8 @@ for %%F in ( "PSBBN_XMB_APPSINFOS_Database.zip" ) do if %%~zF==0 (del "%%F" ) el
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -440,8 +440,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -454,7 +454,7 @@ ECHO 2.
 ECHO 3.
 ECHO 4.
 ECHO 5.
-REM ECHO 5. Grand Theft Auto Uncensored blood (European version)
+ECHO 5. Rockstar Games Uncensored Cheats
 ECHO 6.
 ECHO 7.
 ECHO 8.
@@ -469,7 +469,7 @@ echo.------------------------------------------
 set "choice="
 set /p choice="Select Option:"
 
-REM if "%choice%"=="5" (goto GTABloodCheat)
+if "%choice%"=="5" (start https://github.com/GDX-X/Rockstar-Games-Uncensored-PS2)
 if "%choice%"=="9" (goto DownloadWideScreenCheat)
 
 if "%choice%"=="10" (goto DownloadsMenu)
@@ -483,8 +483,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -527,8 +527,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -569,8 +569,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -586,7 +586,7 @@ ECHO 5. Unhide Partition (Show partitions in HDD-OSD)
 ECHO 6. Rename a title (Displayed in HDD-OSD, PSBBN, XMB Menu)
 ECHO 7. Convert HDL Partition for PSBBN ^& XMB Menu (Launch PS2 games from HDD-OSD, PSBBN, XMB Menu)
 ECHO 8. Modify Partition Header (Customize your partition header)
-ECHO 9. Update Partition Header (Update Title, Icons, Gameinfo, ART)
+ECHO 9. Update Partition Header (Update Title, Icons, Gameinfo, ART, KELF)
 ECHO.
 ECHO 10. Back
 ECHO 11. Back to main menu
@@ -615,8 +615,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -653,8 +653,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -702,8 +702,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -745,8 +745,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -790,8 +790,8 @@ if "%choice%"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.3 By GDX
-echo.Welcome in PFS BatchKit Manager v1.1.3 By GDX
+title PFS BatchKit Manager v1.1.4 By GDX
+echo.Welcome in PFS BatchKit Manager v1.1.4 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -1029,7 +1029,49 @@ CHOICE /C YN /M "Select Option:"
 if errorlevel 1 set InjectKELF=yes
 if errorlevel 2 set InjectKELF=no
 
-IF !InjectKELF!==yes ( copy "%~dp0BAT\boot.kelf" "%~dp0CD-DVD" >nul 2>&1 )
+IF !InjectKELF!==yes (
+
+copy "%~dp0BAT\boot.kelf" "%~dp0CD-DVD" >nul 2>&1
+
+echo\
+echo Do you want to download game icons for HDD-OSD?
+CHOICE /C YN /M "Select Option:"
+if errorlevel 1 set DownloadICO=yes
+if errorlevel 2 set DownloadICO=no
+
+if !DownloadICO!==yes (
+if exist "%~dp0HDD-OSD-Icons-Pack.zip" (
+echo\
+"%~dp0BAT\Diagbox" gd 0e
+echo HDD-OSD-Icons-Pack.zip detected do you want use it?
+"%~dp0BAT\Diagbox" gd 0f
+CHOICE /C YN /M "Select Option:"
+IF ERRORLEVEL 1 set uselocalARTHDDOSD=yes
+IF ERRORLEVEL 2 set uselocalARTHDDOSD=no
+) else (set uselocalARTHDDOSD=no)
+
+if !uselocalARTHDDOSD!==no (
+    cd /d "%~dp0TMP"
+    echo.
+	echo Checking internet Or Website connection... For HDD-OSD ART
+	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS1%%2FSCES_000.01%%2FPreview.png" -O "%~dp0TMP\Preview.png" >nul 2>&1
+	for %%F in (Preview.png) do if %%~zF==0 del "%%F"
+
+if not exist Preview.png (
+"%~dp0BAT\Diagbox" gd 0c
+    echo\
+	echo Unable to connect to internet Or Website
+	if exist "%~dp0HDD-OSD-Icons-Pack.zip" set uselocalARTHDDOSD=yes
+	echo You will switch to offline mode
+	echo\
+	echo\
+"%~dp0BAT\Diagbox" gd 0f
+	pause
+   ) else (set DownloadARTHDDOSD=yes)
+  )
+ )
+)
+
 echo ----------------------------------------------------
 echo\
 echo Create cheats.CHT For your games with Mastercode? (Optional)
@@ -1252,8 +1294,48 @@ set /a gamecount+=1
 			if exist "!fname!.zso" set ext=ISO
 			"%~dp0BAT\Diagbox" gd 0d
 			if "%TEST%"=="NO" hdl_dump inject_!disctype! !@hdl_path! "!title!" "!fname!.!ext!" !gameid! *u4
-			if "!InjectKELF!"=="yes" hdl_dump modify_header !@hdl_path! "!title!" | findstr "Successfully"
 			
+			if "!InjectKELF!"=="yes" (
+			
+			if !DownloadICO!==yes (
+			echo Downloading 3D Icon...
+			if !DownloadARTHDDOSD!==yes "%~dp0BAT\wget" -q "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS2%%2F!gameid!%%2Ficon.sys" -O "%~dp0TMP\icon.sys" >nul
+	        if !DownloadARTHDDOSD!==yes "%~dp0BAT\wget" -q "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS2%%2F!gameid!%%2Flist.ico" -O "%~dp0TMP\list.ico" >nul
+	        if !DownloadARTHDDOSD!==yes "%~dp0BAT\wget" -q "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS2%%2F!gameid!%%2Fdel.ico"  -O "%~dp0TMP\del.ico" >nul
+	        if !uselocalARTHDDOSD!==yes if exist "%~dp0HDD-OSD-Icons-Pack.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0HDD-OSD-Icons-Pack.zip" -o"%~dp0TMP" PS2\!gameid!\ -r -y >nul 2>&1 & move "%~dp0TMP\PS2\!gameid!\*" "%~dp0TMP" >nul 2>&1
+			
+			for /r "%~dp0TMP" %%F in (*.ico *.sys) do if %%~zF==0 (del "%%F" >nul 2>&1) else (move "%%F" "%~dp0CD-DVD" >nul 2>&1)
+
+			REM HDD-OSD Infos
+			if exist "%~dp0CD-DVD\icon.sys" (
+			IF !language!==english copy "%~dp0BAT\TitlesDB\gameidPS2ENG.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+            IF !language!==french copy "%~dp0BAT\TitlesDB\gameidPS2FRA.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+  
+ 	        for /f "tokens=1*" %%A in ( 'findstr !gameid! "%~dp0TMP\gameid.txt"' ) do set dbtitleosd=%%B
+			
+			if not defined dbtitleosd ( set dbtitleosd=!title!)
+			
+            echo "!dbtitleosd!"| "%~dp0BAT\busybox" sed -e "s/\&/\\\&/g; s./.\\\/.g" > "%~dp0TMP\dbtitle.txt"
+	        "%~dp0BAT\busybox" sed -i "s/\"//g" "%~dp0TMP\dbtitle.txt"
+	        set /P dbtitleosd=<"%~dp0TMP\dbtitle.txt"
+			
+			echo !gameid!| "%~dp0BAT\busybox" sed "s/_/-/g" | "%~dp0BAT\busybox" sed "s/\.//" > "%~dp0TMP\DetectID.txt" & set /P gameid=<"%~dp0TMP\DetectID.txt"
+	        "%~dp0BAT\busybox" sed -i -e "s/ = /=/g; s/=/ = /g; s/  =/ = /g" "%~dp0CD-DVD\icon.sys"
+	        "%~dp0BAT\busybox" sed -i -e "s/title0 =.*/title0 =/g; s/title0 =/title0 = !dbtitleosd!/g" "%~dp0CD-DVD\icon.sys"
+ 	        "%~dp0BAT\busybox" sed -i -e "s/title1 =.*/title1 =/g; s/title1 =/title1 = !gameid!/g" "%~dp0CD-DVD\icon.sys"
+			
+			IF !language!==french "%~dp0BAT\busybox" sed -i -e "s/uninstallmes0 =.*/uninstallmes0 =/g; s/uninstallmes0 =/uninstallmes0 = Cela supprimera le jeu\./g" "%~dp0CD-DVD\icon.sys"
+			"%~dp0BAT\busybox" sed -i -e "s/\s*$//" "%~dp0CD-DVD\icon.sys"
+			 )
+		    )
+
+			echo Inject header...
+			hdl_dump modify_header !@hdl_path! "!title!" | findstr "Successfully"
+			del "%~dp0CD-DVD\icon.sys" >nul 2>&1
+			del "%~dp0CD-DVD\list.ico">nul 2>&1
+			del "%~dp0CD-DVD\del.ico" >nul 2>&1
+			
+			)
 			if "!DelConvZSO!"=="yes" del "!fname!.zso" >nul 2>&1
 			if exist "!fname!.zso" del "!fname!.iso" >nul 2>&1
 			if "!DelExtracted!"=="yes" del "!fname!.cue" >nul 2>&1 & del "!fname!.bin" >nul 2>&1 & del "!fname!.iso" >nul 2>&1 & del "!fname!.zso" >nul 2>&1
@@ -2382,7 +2464,15 @@ echo\
 	echo mount %popspartinstall% >> "%~dp0TMP\pfs-pops.txt"
 	
 	setlocal EnableDelayedExpansion
-	"%~dp0BAT\POPS-VCD-ID-Extractor" "!fname!.VCD" | "%~dp0BAT\busybox" sed -e "s/-/_/g" > "%~dp0TMP\VCDID.txt" & set /p VCDID=<"%~dp0TMP\VCDID.txt"
+	"%~dp0BAT\POPS-VCD-ID-Extractor" "!fname!.VCD" 2>&1 | "%~dp0BAT\busybox" sed -e "s/-/_/g" > "%~dp0TMP\VCDID.txt" & set /p VCDID=<"%~dp0TMP\VCDID.txt"
+	
+	set "ELFNOTFOUND="
+    "%~dp0BAT\busybox" grep -o -m 1 "regex couldn't find" "%~dp0TMP\VCDID.txt" > "%~dp0TMP\ELFNOTFOUND.TXT" & set /p ELFNOTFOUND=<"%~dp0TMP\ELFNOTFOUND.TXT"
+    if defined ELFNOTFOUND (
+	"%~dp0BAT\busybox" grep -o -m 1 "SLPS-02414" "!fname!.VCD" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt" & set /p VCDID=<"%~dp0TMP\VCDID.txt"
+	"%~dp0BAT\busybox" grep -o -m 1 "SLUSP013.46" "!fname!.VCD" | "%~dp0BAT\busybox" sed "s/-/_/g; s/SLUSP013\.46/SLUS_01346/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> VCDID.txt & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" VCDID.txt & set /p VCDID=<"%~dp0TMP\VCDID.txt"
+	)
+	
 	REM echo         Checking if the game has a need patch GameShark...
 	findstr !VCDID! "%~dp0TMP\id.txt" >nul 2>&1
     if errorlevel 1 (
@@ -3050,7 +3140,14 @@ echo\
 	echo exit >> "%~dp0TMP\pfs-log.txt"
 	type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" 2>&1 | "%~dp0BAT\busybox" grep -ie ".*\.VCD$" > "%~dp0TMP\pfs-tmp.log"
     
-	For %%V in ( "%~dp0TMP\*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%V" > "%~dp0TMP\VCDID.txt" & set /P gameid=<"%~dp0TMP\VCDID.txt"
+	For %%V in ( "%~dp0TMP\*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%V" 2>&1 > "%~dp0TMP\VCDID.txt" & set /P gameid=<"%~dp0TMP\VCDID.txt"
+	
+	set "ELFNOTFOUND="
+    "%~dp0BAT\busybox" grep -o -m 1 "regex couldn't find" "%~dp0TMP\VCDID.txt" >"%~dp0TMP\ELFNOTFOUND.TXT" & set /p ELFNOTFOUND=<"%~dp0TMP\ELFNOTFOUND.TXT"
+    if defined ELFNOTFOUND (
+	"%~dp0BAT\busybox" grep -o -m 1 "SLPS-02414" "%%V" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt" & set /p gameid=<"%~dp0TMP\VCDID.txt"
+	"%~dp0BAT\busybox" grep -o -m 1 "SLUSP013.46" "%%V" | "%~dp0BAT\busybox" sed "s/-/_/g; s/SLUSP013\.46/SLUS_01346/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> VCDID.txt & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" VCDID.txt & set /p gameid=<"%~dp0TMP\VCDID.txt"
+	)
 	
 	findstr !gameid! "%~dp0TMP\gameid.txt" >nul
     if errorlevel 1 (move "%%V" "%~dp0POPS\!gameid!.VCD" >nul 2>&1) else (
@@ -6134,7 +6231,16 @@ pause & (goto DownloadsMenu)
 
  ) else (
 
-For %%P in ( "%~dp0POPS\*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" >> VCDID.txt) >nul 2>&1
+For %%P in ( "%~dp0POPS\*.VCD" ) do ("%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" 2>&1 | "%~dp0BAT\busybox" sed -e "s/-/_/g" >> "%~dp0TMP\VCDID.txt"
+
+    set "ELFNOTFOUND="
+    "%~dp0BAT\busybox" grep -o -m 1 "regex couldn't find" "%~dp0TMP\VCDID.txt" > "%~dp0TMP\ELFNOTFOUND.TXT" & set /p ELFNOTFOUND=<"%~dp0TMP\ELFNOTFOUND.TXT"
+    if defined ELFNOTFOUND (
+	"%~dp0BAT\busybox" grep -o -m 1 "SLPS-02414" "%%P" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt"
+    "%~dp0BAT\busybox" grep -o -m 1 "SLUSP013.46" "%%P" | "%~dp0BAT\busybox" sed "s/-/_/g; s/SLUSP013\.46/SLUS_01346/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt"
+	)
+)
+
 "%~dp0BAT\busybox" sed -i -e "s/-/_/g" "%~dp0TMP\VCDID.txt"
 "%~dp0BAT\busybox" ls "%~dp0POPS" | "%~dp0BAT\busybox" grep -ie ".*\.VCD$" > "%~dp0TMP\Name.txt"
 "%~dp0BAT\busybox" paste -d " " "%~dp0TMP\VCDID.txt" "%~dp0TMP\Name.txt" > "%~dp0TMP\VCDIDNameTMP.txt"
@@ -7925,103 +8031,6 @@ endlocal
 pause & (goto GamesManagement)
 
 REM ####################################################################################################################
-REM :GTABloodCheat
-REM cls 
-REM mkdir "%~dp0TMP" >nul 2>&1
-REM 
-REM REM for %%F in ( "%~dp0CHT\*.CHT" ) do if %%~zF==0 del "%%F"
-REM 
-REM cd /d "%~dp0CHT\"
-REM if exist "%~dp0CHT\*.cht" (
-REM 
-REM REM Checking Mastercode...
-REM for %%i in (*.cht) do (
-REM REM "%~dp0BAT\busybox" grep "Mastercode" "%~dp0CHT\%%i" > "%~dp0TMP\MastercodeCheck.txt" 2>&1
-REM "%~dp0BAT\busybox" sed -n "/Mastercode/,/ /p" "%~dp0CHT\%%i" > "%~dp0TMP\MastercodeCheck.txt" 2>&1
-REM "%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\MastercodeCheck.txt"
-REM "%~dp0BAT\busybox" sed -i "2,20d" "%~dp0TMP\MastercodeCheck.txt"
-REM "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\MastercodeCheck.txt"
-REM for %%F in ( "%~dp0TMP\MastercodeCheck.txt" ) do if %%~zF==0 del "%%F" >nul 2>&1
-REM 
-REM if errorlevel 1 (
-REM 
-REM echo %%i Mastercode not found: Files Ignored
-REM ren %%i %%iIGNORED
-REM 
-REM ) else (
-REM echo %%i found > nul
-REM     )
-REM   )
-REM )
-REM 
-REM cd /d "%~dp0"
-REM if not exist "%~dp0CHT\*.cht" (
-REM "%~dp0BAT\Diagbox" gd 06
-REM echo\
-REM echo NO .CHT FOUND IN CHT FOLDER 
-REM echo\
-REM "%~dp0BAT\Diagbox" gd 07
-REM echo You need to Create your .CHT with the Mastercode inside.
-REM echo Or extract the .CHT present in your partition +OPL
-REM echo\
-REM echo\
-REM echo Do You want Create .CHT with Mastercode ?
-REM choice /c YN
-REM 
-REM if errorlevel 2 (goto DownloadCheatsMenu)
-REM if errorlevel 1 copy "%~dp0BAT\make_cheat_mastercode.bat" >nul "%~dp0" & call make_cheat_mastercode.bat & del make_cheat_mastercode.bat
-REM  "%~dp0BAT\Diagbox" gd 0f
-REM echo --------------------------------------------------------------------------
-REM )
-REM if exist "%~dp0TMP\ISONotFound.txt" (
-REM 
-REM echo not found >nul 
-REM 
-REM ) else (
-REM 
-REM cd /d "%~dp0CHT"
-REM For %%C in (*.cht) do (
-REM "%~dp0BAT\busybox" sed -n "/Mastercode/,/ /p" "%~dp0CHT\%%C" > "%~dp0TMP\Mastercode.txt"
-REM "%~dp0BAT\busybox" sed -i "1d" "%~dp0TMP\Mastercode.txt"
-REM "%~dp0BAT\busybox" sed -i "2,20d" "%~dp0TMP\Mastercode.txt"
-REM "%~dp0BAT\busybox" sed -i "s/\s*$//" "%~dp0TMP\Mastercode.txt"
-REM set /p Mastercode=<"%~dp0TMP\Mastercode.txt"
-REM 
-REM set "GVER="
-REM "%~dp0BAT\busybox" grep -o "VER [0-9].[0-9][0-9]" "%~dp0CHT\%%C" > "%~dp0TMP\GVER.txt"
-REM set /p GVER=<"%~dp0TMP\GVER.txt"
-REM 
-REM REM GTA VICE CITY
-REM if "%%~nC"=="SLES_513.16" (echo vice city austra)
-REM if "%%~nC"=="SLES_515.95" (echo vice city german)
-REM if "%%~nC"=="SLES_510.61" (
-REM if "!Mastercode!"=="90115C40 0C0456B8" echo GTAVC 1.50
-REM if "!Mastercode!"=="901153F8 0C0454A6" echo GTAVC 2.03
-REM if "!Mastercode!"=="90115478 0C0454C6" echo GTAVC 3.00
-REM )
-REM REM GTA 3
-REM if "%%~nC"=="SLES_507.93" (echo GTA 3 austra)
-REM if "%%~nC"=="SLES_503.30" (
-REM 
-REM if not defined GVER ( echo GTA 3 Version not determined ) else (
-REM if "!GVER!"=="VER 1.40" echo GTA 3 1.40
-REM if "!GVER!"=="VER 1.60" echo GTA 3 1.60
-REM  )
-REM )
-REM 
-REM 
-REM 
-REM  )
-REM )
-REM 
-REM 
-REM pause & (goto DownloadCheatsMenu)
-
-
-REM "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0BAT\Grand Theft Auto Uncensored Blood.zip" -o"%~dp0TMP" *.cht -r -y
-REM for /f "delims=" %%a in ('dir /ad /b') do (
-REM echo %%a
-REM ####################################################################################################################
 :DownloadWideScreenCheat
 
 cls 
@@ -8679,11 +8688,27 @@ SET /A Result = !SIZEMBD0!+!SIZEMBD1!+!SIZEMBD2!+!SIZEMBD3!+!SIZEMBD4!
 REM echo !Result!
 
 if defined Disc0 (
-"%~dp0BAT\POPS-VCD-ID-Extractor" "%~dp0POPS\temp\!appfolder!\!Disc0!" | "%~dp0BAT\busybox" sed -e "s/-/_/g" > "%~dp0TMP\VCDID.txt" & set /P ID=<"%~dp0TMP\VCDID.txt"
+"%~dp0BAT\POPS-VCD-ID-Extractor" "%~dp0POPS\temp\!appfolder!\!Disc0!" 2>&1 | "%~dp0BAT\busybox" sed -e "s/-/_/g" > "%~dp0TMP\VCDID.txt" & set /P ID=<"%~dp0TMP\VCDID.txt"
+
+set "ELFNOTFOUND="
+    "%~dp0BAT\busybox" grep -o -m 1 "regex couldn't find" "%~dp0TMP\VCDID.txt" > ELFNOTFOUND.TXT & set /p ELFNOTFOUND=<ELFNOTFOUND.TXT
+    if defined ELFNOTFOUND (
+	"%~dp0BAT\busybox" grep -o -m 1 "SLPS-02414" "!Disc0!" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt" & set /p ID=<"%~dp0TMP\VCDID.txt"
+	"%~dp0BAT\busybox" grep -o -m 1 "SLUSP013.46" "!Disc0!" | "%~dp0BAT\busybox" sed "s/-/_/g; s/SLUSP013\.46/SLUS_01346/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt" & set /p ID=<"%~dp0TMP\VCDID.txt"
+	)
+
 "%~dp0BAT\busybox" ls | "%~dp0BAT\busybox" grep -ie ".*\.VCD$" > "%~dp0TMP\Name.txt" & "%~dp0BAT\busybox" sed -i "s/!ID!.//g" "%~dp0TMP\Name.txt"
 )
 if defined Disc1 (
-"%~dp0BAT\POPS-VCD-ID-Extractor" "%~dp0POPS\temp\!appfolder!\!Disc1!" | "%~dp0BAT\busybox" sed -e "s/-/_/g" > "%~dp0TMP\VCDID.txt" & set /P ID=<"%~dp0TMP\VCDID.txt"
+"%~dp0BAT\POPS-VCD-ID-Extractor" "%~dp0POPS\temp\!appfolder!\!Disc1!" 2>&1 | "%~dp0BAT\busybox" sed -e "s/-/_/g" > "%~dp0TMP\VCDID.txt" & set /P ID=<"%~dp0TMP\VCDID.txt"
+
+set "ELFNOTFOUND="
+    "%~dp0BAT\busybox" grep -o -m 1 "regex couldn't find" "%~dp0TMP\VCDID.txt" > ELFNOTFOUND.TXT & set /p ELFNOTFOUND=<ELFNOTFOUND.TXT
+    if defined ELFNOTFOUND (
+	"%~dp0BAT\busybox" grep -o -m 1 "SLPS-02414" "!Disc1!" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt" & set /p ID=<"%~dp0TMP\VCDID.txt"
+    "%~dp0BAT\busybox" grep -o -m 1 "SLUSP013.46" "!Disc1!" | "%~dp0BAT\busybox" sed "s/-/_/g; s/SLUSP013\.46/SLUS_01346/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt" & set /p ID=<"%~dp0TMP\VCDID.txt"
+	)
+	
 "%~dp0BAT\busybox" ls | "%~dp0BAT\busybox" grep -ie "!Disc1!" | "%~dp0BAT\busybox" sed -e "s/!ID!\.//g" | "%~dp0BAT\busybox" sed -e "2,7d" > "%~dp0TMP\Name.txt"
 )
 "%~dp0BAT\busybox" paste -d " " "%~dp0TMP\VCDID.txt" "%~dp0TMP\Name.txt" | "%~dp0BAT\busybox" sed "s/.\{12\}/&/" > "%~dp0POPS\Temp\!appfolder!\VCDIDName.txt"
@@ -9656,9 +9681,9 @@ echo         2^) Update Partition Header PS2 Games
 echo         3^) Update Partition Header APPS
 echo\
 CHOICE /C 123 /M "Select Option:"
-IF %ERRORLEVEL%==1 set "PartitionType=PS1" & set "showtype=PS1 Games" & copy "%~dp0BAT\TitlesDB\gameidPS1.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
-IF %ERRORLEVEL%==2 set "PartitionType=PS2" & set "showtype=PS2 Games" & set selectlang=yes
-IF %ERRORLEVEL%==3 set "PartitionType=APP" & set "showtype=APPS" & copy "%~dp0BAT\TitlesDB\appsid.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+IF %ERRORLEVEL%==1 set "PartitionType=PS1" & set "showtype=Game" & copy "%~dp0BAT\TitlesDB\gameidPS1.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
+IF %ERRORLEVEL%==2 set "PartitionType=PS2" & set "showtype=Game" & set selectlang=yes
+IF %ERRORLEVEL%==3 set "PartitionType=APP" & set "showtype=Application" & copy "%~dp0BAT\TitlesDB\appsid.txt" "%~dp0TMP\gameid.txt" >nul 2>&1
 
 if defined selectlang (
 echo\
@@ -9742,7 +9767,7 @@ if not exist Preview.png (
 cls
 echo\
 echo\
-echo Scanning !showtype!:
+echo Scanning Partition !PartitionType!:
 echo ----------------------------------------------------
 "%~dp0BAT\Diagbox" gd 0f
 
@@ -9846,7 +9871,13 @@ PAUSE
 
 cls
 for /f %%p in (hdd-prt.txt) do (
+
 set PPName=%%p
+set "RELEASETMP="
+set "DEVELOPERTMP="
+set "PUBLISHERTMP="
+set "GENRETMP="
+set "Contentweb="
 
 "%~dp0BAT\Diagbox" gd 0f
 echo\
@@ -10066,6 +10097,7 @@ echo ----------------------------------------------------
 	 "%~dp0BAT\busybox" sed -i -e "s/ = /=/g; s/=/ = /g; s/  =/ = /g" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
 	 if defined dbtitle "%~dp0BAT\busybox" sed -i -e "s/title0 =.*/title0 =/g; s/title0 =/title0 = !dbtitle!/g" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
  	 if defined dbtitle "%~dp0BAT\busybox" sed -i -e "s/title1 =.*/title1 =/g; s/title1 =/title1 = !gameid2!/g" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+	 if !showtype!==Game if !language!==french "%~dp0BAT\busybox" sed -i -e "s/uninstallmes0 =.*/uninstallmes0 =/g; s/uninstallmes0 =/uninstallmes0 = Cela supprimera le jeu\./g" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
 	 
 	 if !PartitionType!==APP "%~dp0BAT\busybox" sed -ie "s/title1 =.*/title1 =/g; s/title1 =/title1 = !GENRE!/g" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
 	 "%~dp0BAT\busybox" sed -i -e "s/\s*$//" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
@@ -10088,10 +10120,12 @@ echo ----------------------------------------------------
 	 for %%F in (*.ico) do if %%~zF==0 (del "%%F") else (move %%F "%~dp0TMP\!gameid2!\PP.HEADER" >nul)
 	 
 	 REM Background Color for HDD-OSD icon
-	 if exist "%~dp0TMP\icon.sys" (
-	 "%~dp0BAT\busybox" grep -A 15 "bgcola" "%~dp0TMP\icon.sys" > "%~dp0TMP\bgcolor.txt"
-	 "%~dp0BAT\busybox" sed -i "4,19d" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys" 
-	 "%~dp0BAT\busybox" cat "%~dp0TMP\bgcolor.txt" >> "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+	 for %%F in (*.sys) do if %%~zF==0 (del "%%F"
+	 ) else (
+	 "%~dp0BAT\busybox" grep -A 11 "bgcola" "%~dp0TMP\icon.sys" > "%~dp0TMP\!gameid2!\BGCOLOR.txt"
+	 "%~dp0BAT\busybox" sed -i "4,15d" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+	 "%~dp0BAT\busybox" cat "%~dp0TMP\!gameid2!\BGCOLOR.txt" >> "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
+	 "%~dp0BAT\busybox" sed -i "4,6{H;d;}; 18{G;s/\n//;}" "%~dp0TMP\!gameid2!\PP.HEADER\icon.sys"
 	 del "%~dp0TMP\icon.sys" >nul
 	  )
 	)
@@ -10215,7 +10249,14 @@ echo ----------------------------------------------------
 	 cd /d "%~dp0TMP\!gameid2!\PP.HEADER" & "%~dp0BAT\hdl_dump" modify_header !@hdl_path! "!PPName!" >nul 2>&1
 	 echo !PPName!| "%~dp0BAT\busybox" sed -e "s/PP\./__\./g" > "%~dp0TMP\PPBBNXMB.txt" & set /P PPName=<"%~dp0TMP\PPBBNXMB.txt"
 	 cd /d "%~dp0TMP\!gameid2!\PP.HEADER" & "%~dp0BAT\hdl_dump" modify_header !@hdl_path! "!PPName!" >nul 2>&1
+	 
 	 rmdir /Q/S "%~dp0TMP\!gameid2!" >nul 2>&1
+	 del "%~dp0TMP\REGION.txt" >nul 2>&1
+     del "%~dp0TMP\DEVELOPER.txt" >nul 2>&1
+     del "%~dp0TMP\PUBLISHER.txt" >nul 2>&1
+     del "%~dp0TMP\GENRE.txt" >nul 2>&1
+	 del "%~dp0TMP\icon.sys" >nul 2>&1
+	 del "%~dp0TMP\!gameid2!.html" >nul 2>&1
 	 
 	 echo            Completed...	 
      )
@@ -10350,7 +10391,15 @@ cd /d "%~dp0POPS"
 
 setlocal DisableDelayedExpansion
 
-For %%P in ( "*.VCD" ) do ( "%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" > VCDID.txt & "%~dp0BAT\busybox" sed -i -e "s/-/_/g" VCDID.txt
+For %%P in ( "*.VCD" ) do ( "%~dp0BAT\POPS-VCD-ID-Extractor" "%%P" > VCDID.txt 2>&1 & "%~dp0BAT\busybox" sed -i -e "s/-/_/g" VCDID.txt
+
+set "ELFNOTFOUND="
+"%~dp0BAT\busybox" grep -o -m 1 "regex couldn't find" VCDID.txt > ELFNOTFOUND.TXT & set /p ELFNOTFOUND=<ELFNOTFOUND.TXT
+if defined ELFNOTFOUND (
+"%~dp0BAT\busybox" grep -o -m 1 "SLPS-02414" "%%P" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> VCDID.txt & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" VCDID.txt
+"%~dp0BAT\busybox" grep -o -m 1 "SLUSP013.46" "%%P" | "%~dp0BAT\busybox" sed "s/-/_/g; s/SLUSP013\.46/SLUS_01346/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> VCDID.txt & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" VCDID.txt
+)
+
 set "filename=%%P"
 set "fname=%%~nP"
 
@@ -10367,6 +10416,8 @@ for /f "tokens=1*" %%A in ( 'findstr %%i "%~dp0TMP\gameid.txt" ' ) do ( if not d
  )
 
 setlocal EnableDelayedExpansion
+del "%~dp0POPS\ELFNOTFOUND.TXT"
+del "%~dp0POPS\VCDID.txt" >nul 2>&1
 del "%~dp0POPS\VCDID.txt" >nul 2>&1
 del "%~dp0POPS\LSPVCDID.txt" >nul 2>&1
 
@@ -10504,6 +10555,11 @@ if !patchVCD!==yes (
    setlocal EnableDelayedExpansion
    
    "%~dp0BAT\busybox" grep -o -m 1 "[A-Z][A-Z][A-Z][A-Z][_-][0-9][0-9][0-9].[0-9][0-9]" "!filename!.bin" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" head -1 > "%~dp0POPS\Temp\!appfolder!\BINID.txt" & set /p BINID=<"%~dp0POPS\Temp\!appfolder!\BINID.txt"
+   if not defined BINID ( 
+   "%~dp0BAT\busybox" grep -o -m 1 "SLPS-02414" "!filename!.bin" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 > "%~dp0POPS\Temp\!appfolder!\BINID.txt" & set /p BINID=<"%~dp0POPS\Temp\!appfolder!\BINID.txt"
+   "%~dp0BAT\busybox" grep -o -m 1 "SLUSP013.46" "!filename!.bin" | "%~dp0BAT\busybox" sed "s/-/_/g; s/SLUSP013\.46/SLUS_01346/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0POPS\Temp\!appfolder!\BINID.txt" & set /p BINID=<"%~dp0POPS\Temp\!appfolder!\BINID.txt"
+   )
+   
    findstr !BINID! "%~dp0TMP\id.txt" >nul 2>&1
    if errorlevel 1 (
    echo\
@@ -10598,7 +10654,15 @@ if !patchVCD!==yes (
 
 	if !device!==USB (
 	md "%~dp0POPS\!fname!"
-	"%~dp0BAT\POPS-VCD-ID-Extractor" "!filename!" | "%~dp0BAT\busybox" sed -e "s/-/_/g" > "%~dp0TMP\VCDID.txt" & set /p VCDID=<"%~dp0TMP\VCDID.txt"
+	"%~dp0BAT\POPS-VCD-ID-Extractor" "!filename!" 2>&1 | "%~dp0BAT\busybox" sed -e "s/-/_/g" > "%~dp0TMP\VCDID.txt" & set /p VCDID=<"%~dp0TMP\VCDID.txt"
+	
+	set "ELFNOTFOUND="
+    "%~dp0BAT\busybox" grep -o -m 1 "regex couldn't find" "%~dp0TMP\VCDID.txt" > ELFNOTFOUND.TXT & set /p ELFNOTFOUND=<ELFNOTFOUND.TXT
+    if defined ELFNOTFOUND (
+	"%~dp0BAT\busybox" grep -o -m 1 "SLPS-02414" "!filename!" | "%~dp0BAT\busybox" sed "s/-/_/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt" & set /p VCDID=<"%~dp0TMP\VCDID.txt"
+	"%~dp0BAT\busybox" grep -o -m 1 "SLUSP013.46" "!filename!" | "%~dp0BAT\busybox" sed "s/-/_/g; s/SLUSP013\.46/SLUS_01346/g" | "%~dp0BAT\busybox" sed "s/.\{8\}/&./" | "%~dp0BAT\busybox" head -1 >> "%~dp0TMP\VCDID.txt" & "%~dp0BAT\busybox" sed -i "/regex couldn't find/d" "%~dp0TMP\VCDID.txt" & set /p VCDID=<"%~dp0TMP\VCDID.txt"
+	)
+	
 	REM echo         Checking if the game has a need patch GameShark...
 	findstr !VCDID! "%~dp0TMP\id.txt" >nul 2>&1
     if errorlevel 1 (
@@ -11284,64 +11348,6 @@ echo\
 echo\
 pause & (goto PS2HDDExplore)
 
-REM ###########################################################################################################################################################
-:CheckUPDATE
-
-REM cls
-REM IF NOT EXIST "%~dp0TMP\"  MD "%~dp0TMP"
-REM IF NOT EXIST "%~dp0TMP\7-Zip"  MD "%~dp0TMP\7-Zip"
-REM copy "%~dp0BAT\busybox.exe" "%~dp0TMP" >nul 2>&1
-REM copy "%~dp0BAT\wget.exe" "%~dp0TMP" >nul 2>&1
-REM copy "%~dp0BAT\7-Zip\*" "%~dp0TMP\7-Zip" >nul 2>&1
-REM 
-REM cd /d "%~dp0TMP\"
-REM 
-REM echo Checking for updates...
-REM echo\
-REM echo\
-REM "%~dp0TMP\wget" -q "https://github.com/GDX-X/PFS-BatchKit-Manager/releases/" & "%~dp0BAT\busybox" grep -m 1 -o "1\.1\.0" index.html > version.txt & set /P STABLEVER=<"%~dp0TMP\version.txt"
-REM "%~dp0TMP\wget" -q "https://github.com/GDX-X/PFS-BatchKit-Manager/releases/download/!STABLEVER!/PFS_BatchKit_Manager_v!STABLEVER!.zip" -O "%~dp0TMP\UPDATE_STABLE.zip" & for %%F in ( "UPDATE_STABLE.zip" ) do if %%~zF==0 del "%%F"
-REM 
-REM if exist UPDATE_STABLE.zip (
-REM echo Stable Update available
-REM set checkupdate_daily=no
-REM "%~dp0TMP\7-Zip\7z" x -bso0 "%~dp0TMP\UPDATE_STABLE.zip" -o"%~dp0TMP" PFS-BatchKit-Manager-main\PFS-BatchKit-Manager\BAT -r -y
-REM ) else (set checkupdate_daily=yes & set UpdateBinaries=yes)
-REM 
-REM if defined checkupdate_daily (
-REM 
-REM "%~dp0TMP\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/^!PFS-BatchKit-Manager.bat" -O "%~dp0TMP\^!PFS-BatchKit-Manager.bat"
-REM "%~dp0TMP\busybox" md5sum "%~dp0TMP\^!PFS-BatchKit-Manager.bat" | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
-REM "%~dp0TMP\busybox" md5sum "%~dp0^!PFS-BatchKit-Manager.bat" | "%~dp0BAT\busybox" grep -o "[0-9a-f]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
-REM 
-REM if !CheckUPDATE! equ !CheckOriginal! (echo ) else (echo Daily Update avaiable)
-REM 
-REM )
-REM 
-REM 
-REM if not defined UpdateBinaries (
-REM echo\
-REM echo\
-REM echo Download Latest Binaries?
-REM echo This will update the database of titles and such. [Recommanded]
-REM 
-REM CHOICE /C YN /M "Select Option:"
-REM if errorlevel 1 set UpdateBinaries=yes
-REM if errorlevel 2 set UpdateBinaries=no
-REM )
-REM 
-REM if %UpdateBinaries%==yes (
-REM 
-REM "%~dp0TMP\wget" -q "https://github.com/GDX-X/PFS-BatchKit-Manager/archive/refs/heads/main.zip" -O "%~dp0TMP\UPDATE_LATEST.zip" & for %%F in ( "UPDATE_LATEST.zip" ) do if %%~zF==0 del "%%F"
-REM 
-REM if exist UPDATE_LATEST.zip (
-REM "%~dp0TMP\7-Zip\7z" x -bso0 "%~dp0TMP\UPDATE_LATEST.zip" -o"%~dp0TMP" PFS-BatchKit-Manager-main\PFS-BatchKit-Manager\BAT -r -y
-REM move "%~dp0TMP\PFS-BatchKit-Manager-main\PFS-BatchKit-Manager\BAT" "%~dp0TMP" >nul 2>&1
-REM ) else ( echo No Daily update avaiable )
-REM 
-REM )
-REM 
-REM pause & (goto mainmenu)
 REM ###########################################################################################################################################################
 
 :GDX-X 
