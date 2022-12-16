@@ -48,14 +48,13 @@ In wLaunchELF do this `FileBrowser` > `Mass` > `APPS` > `FreeMcBoot` > `FMCBInst
   <summary> <h7> <b> How to install PS2 Games </b> </h7> </summary>
    <p>
      
-NOTE Before installing your games, it is strongly recommended to create the `+OPL` partition
-     
-Copy your `.BIN/CUE` in CD Folder
-     
-Copy your `.ISO` in DVD Folder
+NOTE: Before installing your games, it is strongly recommended to create the `+OPL` partition
 
-Copy your `.ZSO` to the DVD folder
-     
+Support Compressed format Zip, 7z, ZSO
+You don't need to convert your BIN/CUE to iso, they will be automatically converted when transferring.
+
+Copy your `.ISO`, `.BIN/CUE`, `.ZSO`, `Zip`, `7z` in DVD Folder
+   
 In PFS BatchKit Manager Choose `Transfer PS2 Games`
      
   ------
@@ -90,7 +89,8 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
 1) Install FreeHDBoot (From HDD)
 2) Create `+OPL` Partition
 3) Go to the `Advanced menu` > `HDD-OSD/PSBBN/XMB` Install HDD-OSD
-4) In `Partition Management` Inject OPL-Launcher (For PS2 games you want to run from HDD-OSD)
+4) In `Partitions Management` Inject OPL-Launcher (For PS2 games you want to run from HDD-OSD)
+5) If you want 3D save icons to appear instead of HD-Loader icon Choose Option `9. Update Partition Resources Header`
      
   ------
    </p>
@@ -154,7 +154,7 @@ NOTE: For PS1 games, install them as a partition, everything will be done automa
 <details>
   <summary> <h7> <b> PSX DESR compatible? </code>  </b> </h7> </summary>
    <p>
-  
+
   Yes, all models are supported
   
   PSX V1 5000, 7000, 5100, 7100                
@@ -164,8 +164,19 @@ NOTE: For PS1 games, install them as a partition, everything will be done automa
   In HDD Management menu                     
   Do Not Format your PSX hard drive           
   Do Not Use Option Hack PS2 HDD
+  For security, I advise you to make a full backup of your PSX hard drive in case of problems.
 
  ------
+   </p>
+</details>
+
+<details>
+  <summary> <h7> <b> Things not to do </code>  </b> </h7> </summary>
+   <p>
+     
+  Do not use the Expand option in wLaunchELF, it may corrupt your hard drive 
+  
+  ------
    </p>
 </details>
 
@@ -198,16 +209,6 @@ You have to delete it and recreate one with an appropriate size
 
 Yes Support up to 2TB Maximum
      
-  ------
-   </p>
-</details>
-
-<details>
-  <summary> <h7> <b> Things not to do </code>  </b> </h7> </summary>
-   <p>
-     
-  Do not use the Expand option in wLaunchELF, it may corrupt your hard drive 
-  
   ------
    </p>
 </details>
@@ -268,4 +269,3 @@ Thanks to the other people I may have forgotten who have contributed to the PS2 
   ------
    </p>
 </details>
-
