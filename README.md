@@ -1,5 +1,5 @@
 # PFS-BatchKit-Manager
-Is a batch script that allows you to easily manage your PS2 hard drive.
+Is a batch script that allows you to easily manage your PS2/PSX hard drive.
 
 ![image](https://user-images.githubusercontent.com/22562949/152685787-f7b0dd25-8731-4b13-aa49-e0b9e5ed09c9.png)
 
@@ -53,7 +53,7 @@ NOTE: Before installing your games, it is strongly recommended to create the `+O
 Support Compressed format Zip, 7z, ZSO
 You don't need to convert your BIN/CUE to iso, they will be automatically converted when transferring.
 
-Copy your `.ISO`, `.BIN/CUE`, `.ZSO`, `Zip`, `7z` in DVD Folder
+Copy your `.ISO`, `.BIN/CUE`, `.ZSO`, `.Zip`, `.7z` in DVD Folder
    
 In PFS BatchKit Manager Choose `Transfer PS2 Games`
      
@@ -65,9 +65,14 @@ In PFS BatchKit Manager Choose `Transfer PS2 Games`
 <details>
   <summary> <h7> <b> How to install PS1 Games </b> </h7> </summary>
    <p>
-     
-Copy your .BIN/CUE in POPS Folder
+   
+NOTE: You need to find the right files to be able to launch PS1 games        
+for copyright reasons I cannot provide you with these files:
 
+`POPS.ELF` 	    MD5: `355A892A8CE4E4A105469D4EF6F39A42`            
+`IOPRP252.IMG` 	MD5: `1DB9C6020A2CD445A7BB176A1A3DD418`
+
+Copy your .BIN/CUE in POPS Folder
 1) Transfer POPS-Binaries
 2) Go to the `Advanced menu` > `Conversion`
 3) Choose Convert .BIN/CUE To .VCD
@@ -84,7 +89,8 @@ Copy your .BIN/CUE in POPS Folder
    <p>
 
 NOTE: You need to find the correct files to be able to install the HDD-OSD.                  
-for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`  
+for copyright reasons I cannot provide you with these files:        
+`hddosd-1.10-u.7z` MD5: `403202A03B910FB6FBD522D6AB5007E7`
      
 1) Install FreeHDBoot (From HDD)
 2) Create `+OPL` Partition
@@ -97,7 +103,7 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
 </details>
 
 <details>
-  <summary> <h7> <b> How to Setup NBD Server </b> </h7> </summary>
+  <summary> <h7> <b> How to Setup NBD Server (Network) </b> </h7> </summary>
    <p>
 
 `Obviously this method won't work for PS2/HDD network adapters that don't have a working network port (i.e. gamestar`
@@ -127,7 +133,8 @@ for copyright reasons I cannot provide you with these files `hddosd-1.10-u.7z`
 (You can check in `Show list of mounted devices` InstanceName PS2HDD)
      
 Now you can use all features of PFS Batchkit Manager!
-   
+
+NOTE: Once you are done with what you need to do, don't forget to unmount the hard drive from the network
 
   ------
    </p>
@@ -142,7 +149,7 @@ Now you can use all features of PFS Batchkit Manager!
 3) Go to the `Advanced menu` > `HDD-OSD/PSBBN/XMB` > `Partitions Management` 
 4) Choose Convert HDL Partition for PSBBN & XMB Menu
 
-NOTE: For PS1 games, install them as a partition, everything will be done automatically
+NOTE: For PS1 games you need to install them as a partition everything will be done automatically
      
   ------
    </p>
@@ -164,8 +171,9 @@ NOTE: For PS1 games, install them as a partition, everything will be done automa
   In HDD Management menu                     
   Do Not Format your PSX hard drive           
   Do Not Use Option Hack PS2 HDD
-  For security, I advise you to make a full backup of your PSX hard drive in case of problems.
-
+  
+  For security, I advise you to make a full backup of your PSX hard drive in case of problems. You can do it with HDDRawCopy
+  
  ------
    </p>
 </details>
