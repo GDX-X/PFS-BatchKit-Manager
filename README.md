@@ -167,6 +167,7 @@ NOTE: For PS1 games you need to install them as a partition everything will be d
  - Backup OPL Resource Files ART, CFG, CHT, VMC, THM,
  - Backup PS1 Games to VCD in any __.POPS# Partition
  - Backup PS2 Games to iso
+ - Backup POPS VMC
  - Change default directory for iso installation
  - Check MD5 PS2 Games with redump database
  - Connect PS2 HDD to network NBD
@@ -176,6 +177,7 @@ NOTE: For PS1 games you need to install them as a partition everything will be d
  - Create & Delete Partition
  - Create Cheat file with mastercode
  - Create Virtual Memory Card
+ - Create shortcuts PS1 Game for OPL APPS TAB
  - Delete PS1 Games in any __.POPS# Partition
  - Download Applictions, Artwork, Configs, Widescreen
  - Dump your CD-ROM, DVD-ROM PS1 & PS2
