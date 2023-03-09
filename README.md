@@ -3,6 +3,9 @@ Is a batch script that allows you to easily manage your PS2/PSX hard drive.
 
 ![image](https://user-images.githubusercontent.com/22562949/152685787-f7b0dd25-8731-4b13-aa49-e0b9e5ed09c9.png)
 
+
+# How to use
+
 <details>
   <summary> <h7> <b> How to Install FreeHDBoot (Hack your PS2 hard drive) </b> </h7> </summary>
    <p>
@@ -155,6 +158,54 @@ NOTE: For PS1 games you need to install them as a partition everything will be d
    </p>
 </details>
 
+<details>
+  <summary> <h7> <b> Feature </b> </h7> </summary>
+   <p>
+
+- Assign titles database for PS1 Games VCD
+ - Assign titles database for PS2 Games during Installation
+ - Backup OPL Resource Files ART, CFG, CHT, VMC, THM,
+ - Backup PS1 Games to VCD in any __.POPS# Partition
+ - Backup PS2 Games to iso
+ - Change default directory for iso installation
+ - Check MD5 PS2 Games with redump database
+ - Connect PS2 HDD to network NBD
+ - Convert HDL Partiton for HDD-OSD, PSBBN, XMB Menu
+ - Convert PS1 Games to VCD
+ - Convert PS2 Games to ZSO
+ - Create & Delete Partition
+ - Create Cheat file with mastercode
+ - Create Virtual Memory Card
+ - Delete PS1 Games in any __.POPS# Partition
+ - Download Applictions, Artwork, Configs, Widescreen
+ - Dump your CD-ROM, DVD-ROM PS1 & PS2
+ - Dump/Modify Partition Header
+ - Export game lists
+ - Extract MBR from HDD
+ - Format HDD to PS2 Format
+ - Hack HDD For As an entry point
+ - Hide/Unhide partition
+ - Inject OPL-Launcher
+ - Install APPS for HDD-OSD, PSBBN, XMB Menu
+ - Install HDD-OSD Automatically
+ - Mount PFS Partition in windows explorer
+ - Rename a title Displayed in HDD-OSD, PSBBN, XMB Menu
+ - Rename Automatically all game titles on hard drive with database
+ - Show Partition PS1 Games
+ - Show Partition PS2 Games
+ - Show Partition System
+ - Support Compressed format .zip, .7z for PS2 Games
+ - Transfer OPL Resource Files ART, CFG, CHT, VMC, THM,
+ - Transfer POPS-Binaries
+ - Transfer PS1 Games For HDD-OSD, PSBBN, XMB Menu
+ - Transfer PS1 Games in any __.POPS# Partition
+ - Transfer PS2 Games recursively
+ - Transfer PS2 Games To Another PS2 HDD Format
+ - Update Partition Resources Header for HDD-OSD, PSBBN, XMB Menu
+
+  ------
+   </p>
+</details>
 
 # FAQ
 
