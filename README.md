@@ -56,8 +56,8 @@ NOTE: Before installing your games, it is strongly recommended to create the `+O
 Support Compressed format Zip, 7z, ZSO
 You don't need to convert your BIN/CUE to iso, they will be automatically converted when transferring.
 
-Copy your `.ISO`, `.BIN/CUE`, `.ZSO`, `.Zip`, `.7z` in DVD Folder
-   
+Copy your `.ISO`, `.BIN/CUE`, `.ZSO`, `.Zip`, `.7z` in DVD Folder Or You can choose a folder where your games are located during installation.
+
 In PFS BatchKit Manager Choose `Transfer PS2 Games`
      
   ------
@@ -97,7 +97,7 @@ for copyright reasons I cannot provide you with these files:
      
 1) Install FreeHDBoot (From HDD)
 2) Create `+OPL` Partition
-3) Go to the `Advanced menu` > `HDD-OSD/PSBBN/XMB` Install HDD-OSD
+3) Go to the `Advanced menu` > `FHDB\HDD-OSD/PSBBN/XMB` Install HDD-OSD
 4) In `Partitions Management` Inject OPL-Launcher (For PS2 games you want to run from HDD-OSD)
 5) If you want 3D save icons to appear instead of HD-Loader icon Choose Option `9. Update Partition Resources Header`
      
@@ -149,7 +149,7 @@ NOTE: Once you are done with what you need to do, don't forget to unmount the ha
 
 1) Connect your PS2 Or PSX HDD With NBD Server Or locally
 2) Install PS2 Games
-3) Go to the `Advanced menu` > `HDD-OSD/PSBBN/XMB` > `Partitions Management` 
+3) Go to the `Advanced menu` > `FHDB\HDD-OSD/PSBBN/XMB` > `Partitions Management` 
 4) Choose Convert HDL Partition for PSBBN & XMB Menu
 
 NOTE: For PS1 games you need to install them as a partition everything will be done automatically
