@@ -12152,8 +12152,8 @@ echo Converting... .BIN To .ISO
 "%~dp0BAT\bchunk" "!fname!.bin" "!fname!.cue" "!fname!" >nul 2>&1 
 move "!fname!01.iso" "!fname!.iso" >nul 2>&1
 
-move *.bin "%~dp0CD\Original" >nul 2>&1
-move *.cue "%~dp0CD\Original" >nul 2>&1
+move "!fname!.bin" "%~dp0CD\Original" >nul 2>&1
+move "!fname!.cue" "%~dp0CD\Original" >nul 2>&1
  endlocal
 endlocal
 )
