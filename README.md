@@ -1,7 +1,8 @@
 # PFS-BatchKit-Manager
 
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/22562949/372907059-25778679-5152-49d0-bd64-8109c7024efb.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241002%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241002T144219Z&X-Amz-Expires=300&X-Amz-Signature=8e3fa1da1480c35728b069b3a776b8009359081cbbc0283b5e6af20e17798de5&X-Amz-SignedHeaders=host" alt="Logo" align="right" width="600"/>
+
 # ⚠️ Update coming 05/10/2024 ⚠️
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/22562949/372907059-25778679-5152-49d0-bd64-8109c7024efb.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241002%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241002T144219Z&X-Amz-Expires=300&X-Amz-Signature=8e3fa1da1480c35728b069b3a776b8009359081cbbc0283b5e6af20e17798de5&X-Amz-SignedHeaders=host" alt="Logo" align="right" width="650"/>
 
 Is a batch script that allows you to easily manage your PS2/PSX hard drive.
 
