@@ -1,8 +1,20 @@
 # PFS-BatchKit-Manager
+
+# ⚠️ Update coming 05/10/2024 ⚠️
+<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/22562949/372907059-25778679-5152-49d0-bd64-8109c7024efb.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20241002%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20241002T144219Z&X-Amz-Expires=300&X-Amz-Signature=8e3fa1da1480c35728b069b3a776b8009359081cbbc0283b5e6af20e17798de5&X-Amz-SignedHeaders=host" alt="Logo" align="right" width="650"/>
+
 Is a batch script that allows you to easily manage your PS2/PSX hard drive.
 
-![image](https://user-images.githubusercontent.com/22562949/152685787-f7b0dd25-8731-4b13-aa49-e0b9e5ed09c9.png)
+PFS BatchKit Manager required the creation of several additional projects
 
+[Title database manager](https://github.com/GDX-X/Title-Database-Scrapper)
+
+[OPL Game infos database Project](https://github.com/GDX-X/OPL-Games-Infos-Database-Project)
+
+[HDD-OSD Icon Packs Project](https://archive.org/details/hdd-osd-icons-pack)
+
+if my tools have helped you or saved you a lot of time and you would like to buy me a coffee or tea, please consider making a donation!
+[Donate](https://ko-fi.com/J3J6PIQ9O)
 
 # How to use
 
@@ -14,27 +26,16 @@ IMPORTANT! If you have already Formatted and installed FreeHDBoot (From HDD), yo
      
 If you installed Premade FreeHDBoot image with HDD Raw Copy Please format your hard drive by following all the steps below.
 
-1) In PFS BatchKit Manager Go to `Advanced menu` > `HDD Management`
+1) In PFS BatchKit Manager Go to > `HDD Management`
      
 2) Choose option 8 `Hack your HDD To PS2 Format` `(This is only intended to be used as an entry point for the PS2.)`
      
 3) After the hacking put your HDD in your PS2 and format your hard drive with wLaunchELF.      
 In wLaunchELF do this `FileBrowser` > `MISC` > `HDDManager` > `Press R1` > `Format` and confirm.
-     
-4) Now `Press R1` > `Create` Type `+OPL` And Select `OK`
-    
-5) Choose the size of your partition          
-   it will depend on your use if you plan to use the Virtual Memory Card for each game it is preferable to have a large partition size     
-  
-   Choose `768`  if your HDD size is smaller than `500gb`       
-   Choose `2560` if your HDD size is larger than `500gb`   
-     
-   If you do not intend to use the Virtual Memory Card for each game you can choose `512`
-     
-   Now Press Circle and OK to continue             
-   Note: sometimes during the creation of the partition, he will be able to name it in `+OPL1` , it will have to be renamed to `+OPL`
- 
-6) Copy the contents of the !COPY_TO_USB_ROOT folder to the root of your USB drive                
+
+Note it is no longer necessary to create the +OPL partition the default resource partition will now be __common but you can still create it if you want
+
+4) Copy the contents of the !COPY_TO_USB_ROOT folder to the root of your USB drive                
  `Your usb key must be in FAT32 format`
 
 7) Install FreeHDBoot (From HDD).
@@ -45,25 +46,6 @@ In wLaunchELF do this `FileBrowser` > `Mass` > `APPS` > `FreeMcBoot` > `FMCBInst
      
    </p>
 </details>
-
-
-<details>
-  <summary> <h7> <b> How to install PS2 Games </b> </h7> </summary>
-   <p>
-     
-NOTE: Before installing your games, it is strongly recommended to create the `+OPL` partition
-
-Support Compressed format Zip, 7z, ZSO
-You don't need to convert your BIN/CUE to iso, they will be automatically converted when transferring.
-
-Copy your `.ISO`, `.BIN/CUE`, `.ZSO`, `.Zip`, `.7z` in DVD Folder Or You can choose a folder where your games are located during installation.
-
-In PFS BatchKit Manager Choose `Transfer PS2 Games`
-     
-  ------
-   </p>
-</details>
-
 
 <details>
   <summary> <h7> <b> How to install PS1 Games </b> </h7> </summary>
@@ -76,16 +58,32 @@ for copyright reasons I cannot provide you with these files:
 `IOPRP252.IMG` 	MD5: `1DB9C6020A2CD445A7BB176A1A3DD418`
 
 Copy your .BIN/CUE in POPS Folder
-1) Transfer POPS-Binaries
-2) Go to the `Advanced menu` > `Conversion`
+1) Go to > `POPS Management` > `Transfer POPS-Binaries`
+2) Go to > `Games Management` > `Conversion`
 3) Choose Convert .BIN/CUE To .VCD
-4) Create `__.POPS` Partition `Choose an appropriate size according to the number of games you want to install`
+4) Go to > HDD Management > Create a Partition > Create `__.POPS` Partition `Choose an appropriate size according to the number of games you want to install`
 5) Transfer your PS1 Games
      
   ------
    </p>
 </details>
 
+<details>
+  <summary> <h7> <b> How to install PS2 Games </b> </h7> </summary>
+   <p>
+     
+NOTE: Before installing your games, it is strongly recommended to define your OPL resource partition or create the +OPL partition. I recommend using the __common partition by default
+
+Support Compressed format Zip, 7z, Rar, ZSO
+You don't need to convert your BIN/CUE to iso, they will be automatically converted when transferring.
+
+Copy your `.ISO`, `.BIN/CUE`, `.ZSO`, `.Zip`, `.7z` `.Rar` in DVD Folder Or You can choose a folder where your games are located during installation.
+
+In PFS BatchKit Manager Choose `Transfer PS2 Games`
+     
+  ------
+   </p>
+</details>
 
 <details>
   <summary> <h7> <b> How to Install HDD-OSD (Browser 2.0) </b> </h7> </summary>
@@ -96,11 +94,9 @@ for copyright reasons I cannot provide you with these files:
 `hddosd-1.10-u.7z` MD5: `403202A03B910FB6FBD522D6AB5007E7`
      
 1) Install FreeHDBoot (From HDD)
-2) Create `+OPL` Partition
-3) Go to the `Advanced menu` > `FHDB\HDD-OSD/PSBBN/XMB` Install HDD-OSD
-4) In `Partitions Management` Inject OPL-Launcher (For PS2 games you want to run from HDD-OSD)
-5) If you want 3D save icons to appear instead of HD-Loader icon Choose Option `9. Update Partition Resources Header`
-     
+2) Go to the `OSD/XMB Management` > Install HDD-OSD
+4) In `Partitions Management` Update Partition Resources Header (For PS2 games you want to run from HDD-OSD)
+
   ------
    </p>
 </details>
@@ -112,7 +108,7 @@ for copyright reasons I cannot provide you with these files:
 `Obviously this method won't work for PS2/HDD network adapters that don't have a working network port (i.e. gamestar`
        
      
-1) Go to `Advanced menu` > `HDDManagement` > `NBD Server`
+1) Go to `HDDManagement` > `NBD Server`
 
 2) Choose `Install/Update NBD Driver` (You will be asked to restart the computer to activate test mode)
 
@@ -128,7 +124,7 @@ for copyright reasons I cannot provide you with these files:
 7) Still in OPL Go to `Network Settings` and write down the `IP Address` Now go back to the menu and Go to `Start NBD Server`       
 (if it works, the following message should appear `NBD Server Running...`)     
      
-8) Now In PFS Batchkit Manager Go to `Advanced menu` > `HDDManagement` > `NBD Server` > `Mount Device`
+8) Now In PFS Batchkit Manager Go to `HDDManagement` > `NBD Server` > `Mount Device`
 
 9) Type in the IP address of your PS2 that you wrote down                                                       
 
@@ -144,13 +140,15 @@ NOTE: Once you are done with what you need to do, don't forget to unmount the ha
 </details>
 
 <details>
-  <summary> <h7> <b> How to Show PS1 & PS2 Games in PSBBN & PSX XMB Menu </b> </h7> </summary>
+  <summary> <h7> <b> How to Show PS2 Games in PSBBN & PSX XMB Menu </b> </h7> </summary>
    <p>
 
 1) Connect your PS2 Or PSX HDD With NBD Server Or locally
-2) Install PS2 Games
-3) Go to the `Advanced menu` > `FHDB\HDD-OSD/PSBBN/XMB` > `Partitions Management` 
-4) Choose Convert HDL Partition for PSBBN & XMB Menu
+2) Go to the `OSD/XMB Management` > `Partitions Management` > 
+3) Choose Update Partition Resources Header
+4) Choose Yes > Update partition resources PS2 Games
+5) when it asks `Do you want to create a PFS resource partition` put yes
+6) Select your game!
 
 NOTE: For PS1 games you need to install them as a partition everything will be done automatically
      
@@ -162,49 +160,7 @@ NOTE: For PS1 games you need to install them as a partition everything will be d
   <summary> <h7> <b> Feature </b> </h7> </summary>
    <p>
 
-- Assign titles database for PS1 Games VCD
- - Assign titles database for PS2 Games during Installation
- - Backup OPL Resource Files ART, CFG, CHT, VMC, THM,
- - Backup PS1 Games to VCD in any __.POPS# Partition
- - Backup PS2 Games to iso
- - Backup POPS VMC
- - Change default directory for iso installation
- - Check MD5 PS2 Games with redump database
- - Connect PS2 HDD to network NBD
- - Convert HDL Partiton for HDD-OSD, PSBBN, XMB Menu
- - Convert PS1 Games to VCD
- - Convert PS2 Games to ZSO
- - Create & Delete Partition
- - Create Cheat file with mastercode
- - Create Virtual Memory Card
- - Create shortcuts PS1 Game for OPL APPS TAB
- - Delete PS1 Games in any __.POPS# Partition
- - Download Applictions, Artwork, Configs, Widescreen
- - Dump your CD-ROM, DVD-ROM PS1 & PS2
- - Dump/Modify Partition Header
- - Export game lists
- - Extract MBR from HDD
- - Format HDD to PS2 Format
- - Hack HDD For As an entry point
- - Hide/Unhide partition
- - Inject OPL-Launcher
- - Install APPS for HDD-OSD, PSBBN, XMB Menu
- - Install HDD-OSD Automatically
- - Mount PFS Partition in windows explorer
- - Rename a title Displayed in HDD-OSD, PSBBN, XMB Menu
- - Rename Automatically all game titles on hard drive with database
- - Show Partition PS1 Games
- - Show Partition PS2 Games
- - Show Partition System
- - Support Compressed format .zip, .7z for PS2 Games
- - Transfer OPL Resource Files ART, CFG, CHT, VMC, THM,
- - Transfer POPS-Binaries
- - Transfer PS1 Games For HDD-OSD, PSBBN, XMB Menu
- - Transfer PS1 Games in any __.POPS# Partition
- - Transfer PS2 Games recursively
- - Transfer PS2 Games To Another PS2 HDD Format
- - Update Partition Resources Header for HDD-OSD, PSBBN, XMB Menu
-
+ Everything !
   ------
    </p>
 </details>
@@ -305,27 +261,26 @@ you can find it [__here__](https://www.psx-place.com/threads/popstarter.19139/pa
    </p>
 </details>
 
+# Credits
 <details>
   <summary> <h7> <b> Special Thanks </b> </h7> </summary>
    <p>
  
-AkuHAK, Roland, Uyjulian For maintaining and improving hdl_dump and pfsshell.
+AkuHAK, Uyjulian For maintaining and improving hdl_dump and pfsshell.
 
-NeMesiS, Dekkit Rs1n For making me want to create this script.
+NeMesiS, Dekkit, Rs1n For making me want to create this script.
 
-krHACKen For mbr.img and POPStarter and CUE2POPS
+krHACKen For mbr.img, POPStarter, CUE2POPS, SCEDoormat_NoME and more
 
-El_isra For POPS-VCD-ID-Extractor and DiagBox.
-
-LopoTRI For the tests carried out.
-
-TnA For giving me some ideas to add to the script.
+El_isra For DiagBox.
 
 Roland For NBD Server
 
-SpaceCoyote For PS1 games covers HDD-OSD
+SpaceCoyote For 3D PS1 games covers HDD-OSD
 
-Thanks to the other people I may have forgotten who have contributed to the PS2 scene!
+LopoTRI, Ripto For the tests carried out.
+
+TnA For giving me some ideas to add to the script.
 
   ------
    </p>
