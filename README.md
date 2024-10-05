@@ -94,7 +94,9 @@ for copyright reasons I cannot provide you with these files:
      
 1) Install FreeHDBoot (From HDD)
 2) Go to the `OSD/XMB Management` > Install HDD-OSD
-4) In `Partitions Management` Update Partition Resources Header (For PS2 games you want to run from HDD-OSD)
+3) In `Partitions Management` choose Update Partition Resources Header (For PS2 games you want to run from HDD-OSD)
+
+NOTE: HDD-OSD will not work on a 2TB hard drive (Currently)
 
   ------
    </p>
@@ -146,7 +148,8 @@ NOTE: Once you are done with what you need to do, don't forget to unmount the ha
 2) Go to the `OSD/XMB Management` > `Partitions Management` > 
 3) Choose Update Partition Resources Header
 4) Choose Yes > Update partition resources PS2 Games
-5) when it asks `Do you want to create a PFS resource partition` put yes
+5) when it asks `Do you want to create a PFS resource partition` put `Yes`  
+(if you do not have this option it means that it did not detect the `p2lboot` folder in the `__system` partition then you must create it first)
 6) Select your game!
 
 NOTE: For PS1 games you need to install them as a partition everything will be done automatically
