@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<datafile>
+	<APPGamesDB version="20240815140340" filter="FR" />
+	<!--
+	This Database started by GDX in 2024 https://github.com/GDX-X/OPL-Games-Infos-Database-Project
+	Never modify this file manually, it will get overwritten when you update.
+	
+	It was initially designed for Open PS2 Loader, HDD-OSD, PSBBN, but you can use it for any PS2 project.
+	If you would like to use this file on one of your projects, please consider crediting me.
+	-->
+	<game serial="APPS-00001">
+		<PartName>PP.APPS-00001..WLE_LATEST</PartName>
+		<Title>wLaunchELF Latest</Title>
+		<Serial>APPS-00001</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>PS2-Community</Developer>
+		<Publisher>PS2-Community</Publisher>
+		<Genre>File Browser</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/ps2homebrew/wLaunchELF</Contentweb>
+	</game>
+	<game serial="APPS-00002">
+		<PartName>PP.APPS-00002..OPL_LATEST</PartName>
+		<Title>Open PS2 Loader Latest</Title>
+		<Serial>APPS-00002</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>PS2-Community</Developer>
+		<Publisher>PS2-Community</Publisher>
+		<Genre>Game Loader</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/ps2homebrew/Open-PS2-Loader</Contentweb>
+	</game>
+	<game serial="APPS-00003">
+		<PartName>PP.APPS-00003..MEMORY_CARD_ANNI</PartName>
+		<Title>Memory Card Annihilator</Title>
+		<Serial>APPS-00003"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>ffgriever</Developer>
+		<Publisher>ffgriever</Publisher>
+		<Genre>Memory Card Management</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb></Contentweb>
+	</game>
+	<game serial="APPS-00004">
+		<PartName>PP.APPS-00004..HDD_CHECKER</PartName>
+		<Title>HDD Checker</Title>
+		<Serial>APPS-00004"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>SP193</Developer>
+		<Publisher>SP193</Publisher>
+		<Genre>HDD Diagnostic tool</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/ps2homebrew/HDDChecker</Contentweb>
+	</game>
+	<game serial="APPS-00005">
+		<PartName>PP.APPS-00005..PS2_IDENT</PartName>
+		<Title>PlayStation 2 Identification tool</Title>
+		<Serial>APPS-00005"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>PS2-Community</Developer>
+		<Publisher>PS2-Community</Publisher>
+		<Genre>Identification tool</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/ps2homebrew/PS2Ident</Contentweb>
+	</game>
+	<game serial="APPS-00006">
+		<PartName>PP.APPS-00006..GSM</PartName>
+		<Title>Graphics Synthesizer Mode</Title>
+		<Serial>APPS-00006"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>doctorxyz, dlanor, SP193, reprep</Developer>
+		<Publisher>doctorxyz, dlanor, SP193, reprep</Publisher>
+		<Genre>Display Selector</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/doctorxyz/gsm</Contentweb>
+	</game>
+	<game serial="APPS-00007">
+		<PartName>PP.APPS-00007..ESR</PartName>
+		<Title>ESR</Title>
+		<Serial>APPS-00007"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>ffgriever</Developer>
+		<Publisher>ffgriever</Publisher>
+		<Genre>Disc Game Launcher</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://gitlab.com/ffgriever/esr/</Contentweb>
+	</game>
+	<game serial="APPS-00008">
+		<PartName>PP.APPS-00008..SMS</PartName>
+		<Title>Simple Media System</Title>
+		<Serial>APPS-00008"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>Eugene Plotnikov</Developer>
+		<Publisher>Eugene Plotnikov</Publisher>
+		<Genre>Media Player</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/ps2homebrew/SMS</Contentweb>
+	</game>
+	<game serial="APPS-00009">
+		<PartName>PP.APPS-00009..WLE_KHN</PartName>
+		<Title>wLaunchELF kHn</Title>
+		<Serial>APPS-00009"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>krHACKen</Developer>
+		<Publisher>krHACKen</Publisher>
+		<Genre>File Browser</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb></Contentweb>
+	</game>
+	<game serial="APPS-00010">
+		<PartName>PP.APPS-00010..RETROARCH</PartName>
+		<Title>RetroArch</Title>
+		<Serial>APPS-00010"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>Libretro</Developer>
+		<Publisher>Libretro</Publisher>
+		<Genre>Emulators loader</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://www.retroarch.com/</Contentweb>
+	</game>
+	<game serial="APPS-00016">
+		<PartName>PP.APPS-00016..OPL_STABLE</PartName>
+		<Title>Open PS2 Loader Stable</Title>
+		<Serial>APPS-00016"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>PS2-Community</Developer>
+		<Publisher>PS2-Community</Publisher>
+		<Genre>Game Loader</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/ps2homebrew/Open-PS2-Loader</Contentweb>
+	</game>
+	<game serial="APPS-00017">
+		<PartName>PP.APPS-00017..CHTDV_PS2_PAL</PartName>
+		<Title>Cheat Device PS2 PAL</Title>
+		<Serial>APPS-00017"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>root670</Developer>
+		<Publisher>root670</Publisher>
+		<Genre>Load game cheats PAL</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/root670/CheatDevicePS2</Contentweb>
+	</game>
+	<game serial="APPS-00018">
+		<PartName>PP.APPS-00018..CHTDV_PS2_NTSC_U</PartName>
+		<Title>Cheat Device PS2 NTSC-U</Title>
+		<Serial>APPS-00018"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>root670</Developer>
+		<Publisher>root670</Publisher>
+		<Genre>Load game cheats NTSC-U</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/root670/CheatDevicePS2</Contentweb>
+	</game>
+	<game serial="APPS-00020">
+		<PartName>PP.APPS-00020..APOLLO_SAVE_TOOL</PartName>
+		<Title>Apollo Save Tool</Title>
+		<Serial>APPS-00020"</Serial>
+		<Region>X</Region>
+		<Release></Release>
+		<Developer>bucanero</Developer>
+		<Publisher>bucanero</Publisher>
+		<Genre>Save Management</Genre>
+		<Description></Description>
+		<Players></Players>
+		<Parental></Parental>
+		<Device>device/</Device>
+		<Scan></Scan>
+		<Aspect>aspect/</Aspect>
+		<Vmode>vmode/</Vmode>
+		<Rating></Rating>
+		<Notes></Notes>
+		<Contentweb>https://github.com/bucanero/apollo-ps2</Contentweb>
+	</game>
+</datafile>
