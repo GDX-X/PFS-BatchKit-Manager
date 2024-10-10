@@ -1,4 +1,4 @@
-TITLES = https://github.com/GDX-X/Title-Database-Scrapper (type: PS2 English version: 20241005105025)
+TITLES = https://github.com/GDX-X/Title-Database-Scrapper (type: PS2 English version: 20241010160323)
 SLPS_251.43 .hack//Akusei Hen'i Vol. 2
 SLPS_732.31 .hack//Akusei Hen'i Vol. 2
 SLPM_685.21 .hack//Frägment
@@ -2739,6 +2739,7 @@ SLES_508.75 F1 2002
 SLPS_201.99 F1 2002
 SLUS_204.55 F1 2002
 SLES_515.84 F1 Career Challenge
+SLKA_150.19 F1 Career Challenge
 SLPS_202.95 F1 Career Challenge
 SLUS_206.93 F1 Career Challenge
 SLES_500.17 F1 Championship Season 2000
@@ -6000,6 +6001,7 @@ SLPS_204.28 Monkey Turn V
 SLPM_656.82 Monochrome
 SLPM_656.81 Monochrome (Shokai Genteiban)
 SLPM_551.03 Monochrome Factor: Cross Road
+SLKA_251.23 Mononoke Imullok
 SLES_552.09 Monopoly
 SLES_552.78 Monopoly
 SLUS_217.53 Monopoly
@@ -11320,6 +11322,7 @@ SLES_552.51 WWE SmackDown vs. Raw 2009
 SLKA_254.48 WWE SmackDown vs. Raw 2009
 SLUS_218.10 WWE SmackDown vs. Raw 2009
 SLES_555.45 WWE SmackDown vs. Raw 2010
+SLKA_254.63 WWE SmackDown vs. Raw 2010
 SLUS_219.01 WWE SmackDown vs. Raw 2010
 SLES_556.35 WWE SmackDown vs. Raw 2011
 SLUS_219.39 WWE SmackDown vs. Raw 2011

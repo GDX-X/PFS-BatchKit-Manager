@@ -1,4 +1,4 @@
-TITLES = https://github.com/GDX-X/Title-Database-Scrapper (type: PS1 English version: 20241005133045)
+TITLES = https://github.com/GDX-X/Title-Database-Scrapper (type: PS1 English version: 20241010191435)
 SLPM_802.38 '98 Koushien (Taikenban)
 SLPS_012.04 '98 Koushien: Koukou Yakyuu Simulation
 SLPS_021.10 '99 Koushien
@@ -8087,7 +8087,7 @@ SLPS_914.22 Senryaku Shidan: Tora^! Tora^! Tora^! Rikusen-hen
 SLPS_001.42 Senryaku Shougi
 SLES_010.21 Sensible Soccer
 SCUS_941.10 Sentient
-SLES_001.06 Sentient: Explore the Infinite (Limited Edition)
+SLES_001.06 Sentient: Explore the Infinite
 SLPS_031.84 Sentimental Graffiti
 SLPS_031.83 Sentimental Graffiti: Yakusoku
 SLPS_014.73 Sentimental Journey

@@ -59,6 +59,8 @@ IF NOT EXIST "%~dp0POPS\VMC" MD "%~dp0POPS\VMC"
 IF NOT EXIST "%~dp0POPS-Binaries\" MD "%~dp0POPS-Binaries\"
 IF NOT EXIST "%~dp0HDD-OSD\__sysconf" MD "%~dp0HDD-OSD\__sysconf"
 IF NOT EXIST "%~dp0HDD-OSD\__system" MD "%~dp0HDD-OSD\__system"
+IF NOT EXIST "%~dp0HDD-OSD\__common" MD "%~dp0HDD-OSD\__common"
+IF NOT EXIST "%~dp0HDD-OSD\__common\OPL" MD "%~dp0HDD-OSD\__common\OPL"
 IF NOT EXIST "%~dp0HDD-OSD\PP.HEADER\res" MD "%~dp0HDD-OSD\PP.HEADER\PFS\res\image" >nul 2>&1
 
 IF NOT EXIST "%~dp0BAT\__Cache" MD "%~dp0BAT\__Cache"
@@ -79,11 +81,19 @@ rmdir /Q/S "%~dp0POPS\Temp" >nul 2>&1
 if not defined GithubUPDATE (
 echo Checking for updates...
 cd /d "%~dp0TMP"
+
+ping -n 1 -w 2000 github.com >nul
+	if errorlevel 1 (
+			"%~dp0BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			"%~dp0BAT\Diagbox" gd 07
+			) else (
 "%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/!PFS-BatchKit-Manager.bat" -O "%~dp0TMP\!PFS-BatchKit-Manager2.bat" >nul 2>&1
 for %%F in ( "!PFS-BatchKit-Manager2.bat" ) do if %%~zF==0 del "%%F"
 
 "%~dp0BAT\busybox" md5sum "%~dp0TMP\!PFS-BatchKit-Manager2.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-z]\{32\}" > "%~dp0TMP\CheckUPDATE.txt" & set /p CheckUPDATE=<"%~dp0TMP\CheckUPDATE.txt"
 "%~dp0BAT\busybox" md5sum "%~dp0!PFS-BatchKit-Manager.bat" 2>&1 | "%~dp0BAT\busybox" grep -o "[0-9a-z]\{32\}" > "%~dp0TMP\CheckOriginal.txt" & set /p CheckOriginal=<"%~dp0TMP\CheckOriginal.txt"
+	)
 )
 set "GithubUPDATE="
 if exist "!PFS-BatchKit-Manager2.bat" if "%CheckUPDATE%"=="%CheckOriginal%" (set "update=") else (set update=UPDATE AVAILABLE)
@@ -137,6 +147,12 @@ echo DBLang=!DBLang!>>"%~dp0settings.ini"
 
 echo\
 echo Downloading latest database updates..
+ping -n 1 -w 2000 github.com >nul
+	if errorlevel 1 (
+			"%~dp0BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			"%~dp0BAT\Diagbox" gd 07
+			) else (
 "%~dp0BAT\wget" -q --show-progress "https://github.com/GDX-X/OPL-Games-Infos-Database-Project/releases/download/Latest/OPL-Games-Infos-Database-Project.7z" >nul 2>&1 -O "%~dp0TMP\OPL-Games-Infos-Database-Project.7z"
 for %%F in ("%~dp0TMP\OPL-Games-Infos-Database-Project.7z") do if %%~zF==0 (del %%F >nul 2>&1) else (echo Updated^^! & move "%~dp0TMP\OPL-Games-Infos-Database-Project.7z" "%~dp0BAT" >nul 2>&1)
 
@@ -148,6 +164,7 @@ move "%~dp0TMP\%%fDB_!DBLang!.xml" "%~dp0BAT\%%fDB.xml" >nul 2>&1
 
 "%~dp0BAT\busybox" sed "s/^/set /" "%~dp0settings.ini" > "%~dp0BAT\settings.bat"
 if defined ChangeDBLang goto PFSBMSettings
+	)
 )
 
 :ScanningPS2HDD
@@ -661,6 +678,12 @@ cd /d "%~dp0TMP"
 cls
 echo\
 echo Checking for APPS Database updates...
+ping -n 1 -w 2000 github.com >nul
+	if errorlevel 1 (
+			"%~dp0BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			"%~dp0BAT\Diagbox" gd 07
+			) else (
 "%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/BAT/APPS.BAT" -O "%~dp0TMP\APPS.BAT" >nul 2>&1
 for %%F in ( "APPS.BAT" ) do if %%~zF==0 (del "%%F")
 
@@ -677,8 +700,9 @@ move "APPS.BAT" "%~dp0BAT" >nul 2>&1
 for %%F in ( "APPS.zip" ) do if %%~zF==0 (del "%%F" ) else (move "APPS.zip" "%~dp0BAT" >nul 2>&1)
 "%~dp0BAT\wget" -q "https://raw.githubusercontent.com/GDX-X/PFS-BatchKit-Manager/main/PFS-BatchKit-Manager/BAT/APPDB.xml" -O "%~dp0TMP\APPDB.xml" >nul 2>&1
 for %%F in ( "APPDB.xml" ) do if %%~zF==0 (del "%%F" ) else (move "APPDB.xml" "%~dp0BAT" >nul 2>&1)
-  )
- ) else (set "checkappsupdate=")
+  			)
+ 		) else (set "checkappsupdate=")
+	)
 )
 
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
@@ -1357,8 +1381,15 @@ IF ERRORLEVEL 2 set uselocalARTHDDOSD=no
 
 if !uselocalARTHDDOSD!==no (
     cd /d "%~dp0TMP"
-    echo.
+    echo\
 	echo Checking internet Or Website connection... For HDD-OSD ART
+	ping -n 1 -w 2000 archive.org >nul
+	if errorlevel 1 (
+			"%~dp0BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			if exist "%~dp0HDD-OSD-Icons-Pack.zip" set uselocalARTHDDOSD=yes
+			"%~dp0BAT\Diagbox" gd 07
+			) else (
 	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS1%%2FSCES_000.01%%2FPreview.png" -O "%~dp0TMP\Preview.png" >nul 2>&1
 	for %%F in (Preview.png) do if %%~zF==0 del "%%F"
 
@@ -1372,9 +1403,10 @@ if not exist Preview.png (
 	echo\
 "%~dp0BAT\Diagbox" gd 0f
 	pause
-   ) else (set DownloadARTHDDOSD=yes)
-  )
- )
+			) else (set DownloadARTHDDOSD=yes)
+		)
+	)
+)
  
 echo\
 "%~dp0BAT\Diagbox" gd 0e
@@ -4120,7 +4152,7 @@ echo\
 echo Enter the name of your Partition
 set /p "PartName="
 if "!PartName!"=="" rmdir /Q/S "%~dp0TMP" >nul 2>&1 & (goto HDDManagementMenu)
-"%~dp0BAT\busybox" grep "!PartName!" "%~dp0BAT\__Cache\PARTITION_PS2HDD.txt" > "%~dp0TMP\PARTITION_Selected.txt"
+"%~dp0BAT\busybox" grep -ow "!PartName!" "%~dp0TMP\PARTITION_PFS.txt" > "%~dp0TMP\PARTITION_Selected.txt"
 
 cls
 for /f "usebackq tokens=1,2,3,4,5" %%f in ("%~dp0TMP\PARTITION_Selected.txt") do (
@@ -4137,7 +4169,7 @@ echo\
  	echo mkpart "!PartName!" !PartSize:~0,-1! PFS >> "%~dp0TMP\pfs-log.txt"
   	echo exit >> "%~dp0TMP\pfs-log.txt"
 	type "%~dp0TMP\pfs-log.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
-	
+
 	echo        Completed...
 
 )
@@ -5865,8 +5897,16 @@ IF ERRORLEVEL 2 set uselocalART=no
 ) else (set uselocalART=no)
 
 if !uselocalART!==no (
-    echo.
-	echo Checking internet Or Website connection...
+    echo\
+	echo Checking internet Or Website connection... For ART
+	ping -n 1 -w 2000 archive.org >nul
+	if errorlevel 1 (
+			"%~dp0BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			if /i exist "%~dp0ART.zip" set uselocalART=yes
+			"%~dp0BAT\Diagbox" gd 07
+			) else (
+
 	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2024_09/OPLM_ART_2024_09.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.png" -O "%~dp0TMP\SCES_000.01_COV.png" >nul 2>&1
 	for %%F in (SCES_000.01_COV.png) do if %%~zF==0 del "%%F"
 
@@ -5880,7 +5920,8 @@ if not exist SCES_000.01_COV.png (
 	echo\
 "%~dp0BAT\Diagbox" gd 0f
 	pause
- ) else (set DownloadART=yes)
+		) else (set DownloadART=yes)
+	)
 )
 
 if !HDDPFS!==Yes (
@@ -6717,9 +6758,10 @@ REM )
 
 set gametype=PS2
 
-"%~dp0BAT\Diagbox" gd 0e
 echo\
-echo Download Latest Redump Database ?
+"%~dp0BAT\Diagbox" gd 0e
+echo Download Latest Redump Database^?
+"%~dp0BAT\Diagbox" gd 07
 echo NOTE: if you choose No, it will do an offline check.
 choice /c YN 
 
@@ -8422,8 +8464,16 @@ IF ERRORLEVEL 2 set uselocalART=no
 ) else (set uselocalART=no)
 
 if !uselocalART!==no (
-    echo.
+    echo\
 	echo Checking internet Or Website connection... For ART
+	ping -n 1 -w 2000 archive.org >nul
+	if errorlevel 1 (
+			"%~dp0BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			if /i exist "%~dp0ART.zip" set uselocalART=yes
+			"%~dp0BAT\Diagbox" gd 07
+			) else (
+
 	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2024_09/OPLM_ART_2024_09.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.png" -O "%~dp0TMP\SCES_000.01_COV.png" >nul 2>&1
 	for %%F in (SCES_000.01_COV.png) do if %%~zF==0 del "%%F"
 
@@ -8437,13 +8487,14 @@ if not exist SCES_000.01_COV.png (
 	echo\
 "%~dp0BAT\Diagbox" gd 0f
 	pause
- ) else (set DownloadART=yes)
+		) else (set DownloadART=yes)
+	)
 )
 
 if exist "%~dp0HDD-OSD-Icons-Pack.zip" (
 echo\
 "%~dp0BAT\Diagbox" gd 0e
-echo HDD-OSD-Icons-Pack.zip detected do you want use it?
+echo HDD-OSD-Icons-Pack.zip detected do you want use it^?
 "%~dp0BAT\Diagbox" gd 0f
 CHOICE /C YN /M "Select Option:"
 IF ERRORLEVEL 1 set uselocalARTHDDOSD=yes
@@ -8451,8 +8502,16 @@ IF ERRORLEVEL 2 set uselocalARTHDDOSD=no
 ) else (set uselocalARTHDDOSD=no)
 
 if !uselocalARTHDDOSD!==no (
-    echo.
+    echo\
 	echo Checking internet Or Website connection... For HDD-OSD ART
+	ping -n 1 -w 2000 archive.org >nul
+	if errorlevel 1 (
+			"%~dp0BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			if exist "%~dp0HDD-OSD-Icons-Pack.zip" set uselocalARTHDDOSD=yes
+			"%~dp0BAT\Diagbox" gd 07
+			) else (
+			
 	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS1%%2FSCES_000.01%%2FPreview.png" -O "%~dp0TMP\Preview.png" >nul 2>&1
 	for %%F in (Preview.png) do if %%~zF==0 del "%%F"
 
@@ -8466,7 +8525,8 @@ if not exist Preview.png (
 	echo\
 "%~dp0BAT\Diagbox" gd 0f
 	pause
- ) else (set DownloadARTHDDOSD=yes)
+		) else (set DownloadARTHDDOSD=yes)
+	)
 )
 
 if exist "%~dp0POPS-Binaries\Hugopocked_POPStarter_Fixes.zip" "%~dp0BAT\7-Zip\7z" x -bso0 "%~dp0POPS-Binaries\Hugopocked_POPStarter_Fixes.zip" -o"%~dp0TMP" id.txt -r -y >nul 2>&1
@@ -9400,14 +9460,25 @@ echo Do you want to create a PFS resources partition, to launch your PS2 games f
 "%~dp0BAT\Diagbox" gd 06
 echo Keep in mind that will create a 128MB partition^^!
 "%~dp0BAT\Diagbox" gd 07
-echo\
-REM "%~dp0BAT\Diagbox" gd 06
-REM echo IF YOU ARE ONLY USING HDD-OSD, CHOOSE NO.
-REM "%~dp0BAT\Diagbox" gd 07
-REM echo\
+
 CHOICE /C YN /M "Select Option:"
-IF !ERRORLEVEL!==1 (set "CreatePFSRes=Yes" & set UpdateLauncher=Yes) else (set "CreatePFSRes=")
- )
+
+IF !ERRORLEVEL!==1 (
+set "CreatePFSRes=Yes" & set UpdateLauncher=Yes
+if !UPDATEPPHeader!==All (
+echo\
+"%~dp0BAT\Diagbox" gd 06
+echo Be Careful^^!
+echo This will create 128Mb partitions for each PS2 game detected
+echo\
+"%~dp0BAT\Diagbox" gd 0e
+echo Are you sure you want to continue^?
+"%~dp0BAT\Diagbox" gd 07
+CHOICE /C YN /M "Select Option:"
+IF !ERRORLEVEL!==2 (goto UpdatePPHeader)
+			)
+		) else (set "CreatePFSRes=")
+	)
 )
 
 if !showtype!==Game (
@@ -9427,8 +9498,16 @@ IF ERRORLEVEL 2 set uselocalART=no
 ) else (set uselocalART=no)
 
 if !uselocalART!==no (
-    echo.
+    echo\
 	echo Checking internet Or Website connection... For ART
+	ping -n 1 -w 2000 archive.org >nul
+	if errorlevel 1 (
+			"%~dp0BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			if /i exist "%~dp0ART.zip" set uselocalART=yes
+			"%~dp0BAT\Diagbox" gd 07
+			) else (
+	
 	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/OPLM_ART_2024_09/OPLM_ART_2024_09.zip/PS1%%2FSCES_000.01%%2FSCES_000.01_COV.png" -O "%~dp0TMP\SCES_000.01_COV.png" >nul 2>&1
 	for %%F in (SCES_000.01_COV.png) do if %%~zF==0 del "%%F"
 
@@ -9442,13 +9521,15 @@ if not exist SCES_000.01_COV.png (
 	echo\
 "%~dp0BAT\Diagbox" gd 0f
 	pause
- ) else (set DownloadART=yes)
+		) else (set DownloadART=yes)
+	)
 )
+
 
 if exist "%~dp0HDD-OSD-Icons-Pack.zip" (
 echo\
 "%~dp0BAT\Diagbox" gd 0e
-echo HDD-OSD-Icons-Pack.zip detected do you want use it?
+echo HDD-OSD-Icons-Pack.zip detected do you want use it^?
 "%~dp0BAT\Diagbox" gd 0f
 CHOICE /C YN /M "Select Option:"
 IF ERRORLEVEL 1 set uselocalARTHDDOSD=yes
@@ -9456,8 +9537,16 @@ IF ERRORLEVEL 2 set uselocalARTHDDOSD=no
 ) else (set uselocalARTHDDOSD=no)
 
 if !uselocalARTHDDOSD!==no (
-    echo.
+	echo\
 	echo Checking internet Or Website connection... For HDD-OSD ART
+	ping -n 1 -w 2000 archive.org >nul
+	if errorlevel 1 (
+			"%~dp0BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			if exist "%~dp0HDD-OSD-Icons-Pack.zip" set uselocalARTHDDOSD=yes
+			"%~dp0BAT\Diagbox" gd 07
+			) else (
+			
 	"%~dp0BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS1%%2FSCES_000.01%%2FPreview.png" -O "%~dp0TMP\Preview.png" >nul 2>&1
 	for %%F in (Preview.png) do if %%~zF==0 del "%%F"
 
@@ -9471,7 +9560,8 @@ if not exist Preview.png (
 	echo\
 "%~dp0BAT\Diagbox" gd 0f
 	pause
- ) else (set DownloadARTHDDOSD=yes)
+		) else (set DownloadARTHDDOSD=yes)
+	)
 )
 
 "%~dp0BAT\Diagbox" gd 0e

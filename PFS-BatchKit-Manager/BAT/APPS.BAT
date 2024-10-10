@@ -596,8 +596,16 @@ IF ERRORLEVEL 2 set uselocalARTHDDOSD=no
 ) else (set uselocalARTHDDOSD=no)
 
 if !uselocalARTHDDOSD!==no (
-    echo.
+    echo\
 	echo Checking internet Or Website connection... For HDD-OSD ART
+	ping -n 1 -w 2000 archive.org >nul
+	if errorlevel 1 (
+			"%rootpath%\BAT\Diagbox" gd 0c
+			echo Unable to PING^^!
+			if exist "%rootpath%\HDD-OSD-Icons-Pack.zip" set uselocalARTHDDOSD=yes
+			"%rootpath%BAT\Diagbox" gd 07
+			) else (
+			
 	"%rootpath%\BAT\wget" -q --show-progress "https://archive.org/download/hdd-osd-icons-pack/HDD-OSD-Icons-Pack.zip/PS1%%2FSCES_000.01%%2FPreview.png" -O "%rootpath%\TMP\Preview.png" >nul 2>&1
 	for %%F in (Preview.png) do if %%~zF==0 del "%%F"
 
@@ -611,10 +619,10 @@ if not exist "%rootpath%\TMP\Preview.png" (
 	echo\
 "%rootpath%\BAT\Diagbox" gd 0f
 	pause
-  ) else (set DownloadARTHDDOSD=yes)
- )
+			) else (set DownloadARTHDDOSD=yes)
+		)
+	)
 )
-
 "%rootpath%\BAT\Diagbox.EXE" gd 0f
 cd /d "%rootpath%"
 cls
