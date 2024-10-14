@@ -8077,7 +8077,7 @@ pause & (goto OPLManagement)
 REM ####################################################################################################################
 :CreateShortcutsOPL
 cls
-IF NOT EXIST  "%~dp0TMP" MD  "%~dp0TMP"
+mkdir "%~dp0TMP" >nul 2>&1
 cd /d "%~dp0TMP"
 
 "%~dp0BAT\Diagbox" gd 0f
@@ -8134,8 +8134,8 @@ echo\
 if !errorlevel!==1 (
 echo Example: E:\
 set /p "HDDPATH=Enter the root path where yours APPS folder:"
+	)
 )
-
 if not defined HDDPATH set HDDPATH=%rootpath%
 
 echo\
