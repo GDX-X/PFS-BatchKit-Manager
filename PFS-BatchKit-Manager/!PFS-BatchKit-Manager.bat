@@ -6119,10 +6119,7 @@ for /f "usebackq tokens=1*" %%A in ("%~dp0TMP\!ARTType!Games.txt") do (
 	if !ART_NAME2!==!Gameid!_SCR_01 set ART_NAME2=!Gameid!_SCR2
 	
 	REM FOR OPL APPS
-	if !OPLAPPSTAB!==Yes (
-	if !device!==USB set USBPrefix=XX.
-	set ART_NAME2=!USBPrefix!!Gameid!.!Gamename:~12!.ELF!ART_NAME2:~11!
-	)
+	if !OPLAPPSTAB!==Yes (if !device!==USB (set ART_NAME2=XX.!Gamename!.ELF!ART_NAME2:~11!) else (set ART_NAME2=!Gameid!.!Gamename!.ELF!ART_NAME2:~11!))
 	
 	REM Replace with new ART
     if !UpdateOnlyMissingART!==No type nul> "%~dp0TMP\ARTFiles.txt" & del "!HDDPATH!\ART\!ART_NAME2!.png" >nul 2>&1
