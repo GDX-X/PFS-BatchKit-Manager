@@ -8274,6 +8274,7 @@ set /a gamecount+=1
 	echo mount !OPLPART! >> "%~dp0TMP\pfs-log.txt"
 	if defined CUSTOM_OPLPART echo mkdir OPL >> "%~dp0TMP\pfs-log.txt"
 	if defined CUSTOM_OPLPART echo cd OPL >> "%~dp0TMP\pfs-log.txt"
+	echo mkdir APPS >> "%~dp0TMP\pfs-log.txt"
 	echo cd APPS >> "%~dp0TMP\pfs-log.txt"
 	echo mkdir "!APPFolder!" >> "%~dp0TMP\pfs-log.txt"
 	
