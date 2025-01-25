@@ -6492,7 +6492,10 @@ endlocal
     if defined CUSTOM_OPLPART echo cd OPL >> "%~dp0TMP\pfs-cfg.txt"
 	echo mkdir CFG >> "%~dp0TMP\pfs-cfg.txt"
 	echo cd CFG >> "%~dp0TMP\pfs-cfg.txt"
-	for %%f in (*.cfg) do (echo put "%%f") >> "%~dp0TMP\pfs-cfg.txt"
+	for %%f in (*.cfg) do (
+	echo rm %%f >> "%~dp0TMP\pfs-cfg.txt"  
+	echo put %%f >> "%~dp0TMP\pfs-cfg.txt"
+	)
 	echo ls -l >> "%~dp0TMP\pfs-cfg.txt"
 	echo umount >> "%~dp0TMP\pfs-cfg.txt"
 	echo exit >> "%~dp0TMP\pfs-cfg.txt"
