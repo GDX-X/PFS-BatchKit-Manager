@@ -1,4 +1,4 @@
-TITLES = https://github.com/GDX-X/Title-Database-Scrapper (type: PS2 French version: 20241010160323)
+TITLES = https://github.com/GDX-X/Title-Database-Scrapper (type: PS2 French version: 20250124105236)
 SLPS_251.43 .hack//Akusei Hen'i Vol. 2
 SLPS_732.31 .hack//Akusei Hen'i Vol. 2
 SLPM_685.21 .hack//Frägment
@@ -134,6 +134,7 @@ SLUS_216.93 7 Wonders of the Ancient World
 SLPS_205.09 81diver
 SCUS_946.77 989 Sports (Demo)
 SCUS_973.73 989 Sports (Demo)
+PEPX_100.11 ;PS2; Seizou Kensa DISC3 CD-ROM Ver. 5.40 (EU ban)
 SLPS_250.17 A Ressha de Ikou 2001
 SLPS_251.75 A Ressha de Ikou 2001
 SLPS_258.38 A Taiheiyou no Arashi : Senkan Yamatokatsuki ni Shutsugeki su^!
@@ -216,6 +217,7 @@ SLES_539.56 Aeon Flux
 SLES_541.69 Aeon Flux
 SLUS_212.05 Aeon Flux
 SLPM_651.50 Aero Dancing 4 : New Generation
+SLPM_653.87 Aero Dancing 4 : New Generation
 SLUS_206.14 Aero Elite : Combat Academy
 SLPM_623.01 Aerobics Revolution
 SLPM_654.81 After... Wasureenu Kizuna (Shokai Genteiban)
@@ -261,6 +263,7 @@ SLPM_657.22 AirForce Delta : Blue Wing Knights
 SLES_529.39 Airborne Troops : Countdown to D-Day
 SLUS_211.25 Airborne Troops : Countdown to D-Day
 SLPS_201.96 Akagawa Jirou : Tsuki no Hikari : Shizumeru Kane no Satsujin
+SLPS_204.15 Akagawa Jirou : Tsuki no Hikari : Shizumeru Kane no Satsujin
 SLPM_622.69 Akagi : Yami ni Oritatta Tensai
 SLPM_550.06 Akane-iro ni Somaru Saka : Parallel (Genteiban)
 SLES_509.19 Akira Psycho Ball
@@ -346,6 +349,7 @@ SCUS_972.62 Amplitude (Demo)
 SCUS_978.69 Amplitude : P.O.D. (Demo)
 SLES_546.26 An American Tail
 SLPM_668.58 An Itsuka, Todokuo Sora ni. : You no Michi to Hi no Tasogare to
+SLPM_668.57 An Itsuka, Todokuo Sora ni. : You no Michi to Hi no Tasogare to (Genteiban)
 SLPM_667.09 Angel Profile
 SLPM_658.28 Angel Wish : Kimi no Egao ni Chu^!
 SLPM_655.13 Angel's Feather
@@ -415,14 +419,14 @@ SLPM_656.70 Aqua Kids
 SLES_547.88 Aqua Teen Hunger Force : Zombie Ninja Pro-Am
 SLUS_216.33 Aqua Teen Hunger Force : Zombie Ninja Pro-Am
 SLPS_200.27 Aquaqua
-SLES_554.44 Ar tonelico II : Melody of Metafalica
-SLUS_217.88 Ar tonelico II : Melody of Metafalica
-SLPS_258.19 Ar tonelico II : Sekai ni Hibiku Shoujo-tachi no Metafalica
-SLPS_732.63 Ar tonelico II : Sekai ni Hibiku Shoujo-tachi no Metafalica
-SLES_545.86 Ar tonelico : Melody of Elemia
-SLUS_214.45 Ar tonelico : Melody of Elemia
-SLPS_256.04 Ar tonelico : Sekai no Owari de Utai Tsuzukeru Shoujo
-SLPS_732.49 Ar tonelico : Sekai no Owari de Utai Tsuzukeru Shoujo
+SLES_554.44 Ar Tonelico II : Melody of Metafalica
+SLUS_217.88 Ar Tonelico II : Melody of Metafalica
+SLPS_258.19 Ar Tonelico II : Sekai ni Hibiku Shoujo-tachi no Metafalica
+SLPS_732.63 Ar Tonelico II : Sekai ni Hibiku Shoujo-tachi no Metafalica
+SLES_545.86 Ar Tonelico : Melody of Elemia
+SLUS_214.45 Ar Tonelico : Melody of Elemia
+SLPS_256.04 Ar Tonelico : Sekai no Owari de Utai Tsuzukeru Shoujo
+SLPS_732.49 Ar Tonelico : Sekai no Owari de Utai Tsuzukeru Shoujo
 SLPM_668.47 Arabians Lost : The Engagement on Desert
 SLKA_253.71 Arangjeon : Breakblow
 SLUS_211.65 Arc the Lad : End of Darkness
@@ -464,6 +468,7 @@ SCAJ_200.03 Argus no Senshi
 SLPS_251.78 Argus no Senshi
 SLPM_610.36 Argus no Senshi (Taikenban)
 SCKA_200.06 Argus-ui Jeonsa
+SCKA_900.05 Argus-ui Jeonsa
 SLPM_665.36 Aria : The Natural : Tooi Yume no Mirage
 SLPM_669.67 Aria : The Natural : Tooi Yume no Mirage
 SLPM_550.14 Aria : The Origination : Aoi Hoshi no El Cielo
@@ -528,6 +533,7 @@ SLUS_215.51 Artlist Collection : The Dog Island
 SLPM_666.62 Artlist Collection : The Dog Island : Hitotsu no Hana no Monogatari
 SLPM_654.41 Ashita no Joe : Masshiro ni Moe Tsukiro^!
 SLPM_656.25 Ashita no Joe : Masshiro ni Moe Tsukiro^!
+SLPM_664.57 Asobi ni Iku yo^! Chikyuu Pinch no Kon'yaku Sengen
 SLPM_664.56 Asobi ni Iku yo^! Chikyuu Pinch no Kon'yaku Sengen (Genteiban)
 SLES_532.33 Assault Suits Valken
 SLKA_150.23 Assault Suits Valken
@@ -579,8 +585,8 @@ SLPM_652.86 Auto Modellista : U.S.-Tuned
 SLES_510.09 Autobahn Raser IV
 SLES_524.59 Autobahn Raser : Das Spiel zum Film
 SCPS_560.16 Axel Impact : The Extreme Racing
-SLPM_664.91 Ayakashi-bito : Gen'you Ibunroku (Shokai Genteiban)
-SLPM_668.62 Ayakashi-bito : Gen'you Ibunroku (Shokai Genteiban)
+SLPM_664.91 Ayakashibito : Gen'you Ibunroku (Shokai Genteiban)
+SLPM_668.62 Ayakashibito : Gen'you Ibunroku (Shokai Genteiban)
 SLPS_254.65 Azumi
 SLES_546.95 Azur & Asmar
 SCES_539.60 B-Boy
@@ -971,6 +977,7 @@ SLPM_667.08 Brothers in Arms : Meiyo no Daishou
 SLES_528.88 Brothers in Arms : Road to Hill 30
 SLKA_252.77 Brothers in Arms : Road to Hill 30
 SLPM_660.42 Brothers in Arms : Road to Hill 30
+SLPM_665.68 Brothers in Arms : Road to Hill 30
 SLUS_211.63 Brothers in Arms : Road to Hill 30
 SLES_545.88 Brunswick Pro Bowling
 SLUS_215.66 Brunswick Pro Bowling
@@ -1207,7 +1214,7 @@ SLES_544.71 Captain Scarlet
 SLES_546.12 Captain Scarlet
 SLPS_256.91 Captain Tsubasa
 SLES_534.85 Car Racing Challenge
-SLPS_204.08 Card Captor Sakura : Sakura-chan to Asobo^!
+SLPS_204.08 Cardcaptor Sakura : Sakura-chan to Asobo^!
 SLPM_623.65 Cardinal Arc : Konton no Fuusatsu
 SLPM_626.99 Cardinal Arc : Konton no Fuusatsu
 SLES_521.43 Carmen Sandiego : The Secret of the Stolen Drums
@@ -1759,6 +1766,7 @@ SLPM_659.18 Dear My Friend : Love Like Powdery Snow
 SLPS_258.10 Dear My Sun^!^! Musuko Ikusei Capriccio
 SLPS_258.04 Dear My Sun^!^! Musuko Ikusei Capriccio (Genteiban)
 SLPS_253.72 DearS
+SLPS_253.71 DearS (Genteiban)
 SLPM_552.39 Death Connection
 SLPM_624.01 Death Crimson OX+
 SCAJ_201.16 Death by Degrees
@@ -2922,6 +2930,7 @@ SLUS_217.80 Ferrari Challenge : Trofeo Pirelli
 SCES_509.56 Ferrari F355 Challenge
 SLPM_651.78 Ferrari F355 Challenge
 SLUS_205.58 Ferrari F355 Challenge
+SLPM_664.35 Festa^!^! Hyper Girls Party
 SLPM_664.34 Festa^!^! Hyper Girls Party (Genteiban)
 SLPS_251.17 Fever 6 : Sankyo Koushiki Pachinko Simulation
 SLPS_202.65 Fever 7 : Sankyo Koushiki Pachinko Simulation
@@ -3129,6 +3138,7 @@ SLES_503.10 Freak Out
 SLES_546.53 Freak Out : Extreme Freeride
 SLES_507.13 Freaky Flyers
 SLUS_202.84 Freaky Flyers
+SLUS_290.51 Freaky Flyers (Demo)
 SLUS_290.61 Freaky Flyers (Demo)
 SLES_545.59 Free Running
 SLES_514.67 Freedom Fighters
@@ -3270,6 +3280,7 @@ SLPM_662.27 GI Jockey 4
 SLPM_662.29 GI Jockey 4
 SLPM_668.12 GI Jockey 4
 SLPM_665.38 GI Jockey 4 2006
+SLPM_668.88 GI Jockey 4 2007
 SLPM_669.03 GI Jockey 4 2007
 SLPM_550.72 GI Jockey 4 2008
 SLES_526.02 GT Racers
@@ -3516,6 +3527,7 @@ SCES_531.33 God of War
 SCUS_973.99 God of War
 SLPM_670.10 God of War
 SLPM_670.11 God of War
+SLPM_670.12 God of War
 SCED_534.31 God of War (Demo)
 SCAJ_300.11 God of War II
 SCES_542.06 God of War II
@@ -3651,6 +3663,7 @@ SLPM_668.51 Grand Theft Auto : Liberty City Stories
 SLUS_214.23 Grand Theft Auto : Liberty City Stories
 SLES_525.41 Grand Theft Auto : San Andreas
 SLES_529.27 Grand Theft Auto : San Andreas
+SLPM_550.92 Grand Theft Auto : San Andreas
 SLPM_552.92 Grand Theft Auto : San Andreas
 SLPM_659.84 Grand Theft Auto : San Andreas
 SLPM_667.88 Grand Theft Auto : San Andreas
@@ -3743,6 +3756,7 @@ SLUS_204.36 Guilty Gear X2
 SLES_529.67 Guilty Gear X2 #Reload : The Midnight Carnival
 SCAJ_200.33 Guilty Gear XX #Reload : The Midnight Carnival
 SLKA_250.70 Guilty Gear XX #Reload : The Midnight Carnival
+SLPM_661.29 Guilty Gear XX #Reload : The Midnight Carnival
 SLPS_252.61 Guilty Gear XX #Reload : The Midnight Carnival
 SLPM_667.46 Guilty Gear XX Accent Core
 SLUS_216.52 Guilty Gear XX Accent Core
@@ -3761,6 +3775,7 @@ SLPM_658.86 Guisard Revolution : Bokura wa Omoi o Mi ni Matou
 SLES_540.93 Guitar Hero
 SLES_541.32 Guitar Hero
 SLUS_212.24 Guitar Hero
+SLUS_291.77 Guitar Hero (Demo)
 SLES_555.33 Guitar Hero 5
 SLUS_218.65 Guitar Hero 5
 SLUS_215.86 Guitar Hero Encore : Rocks the 80s
@@ -3847,6 +3862,7 @@ SLUS_200.80 Gungriffon Blaze
 SLPM_601.21 Gungriffon Blaze & Silpheed : The Lost Planet (Taikenban)
 SCPS_151.10 Gunparade Orchestra : Ao no Shou : Hikari no Umi kara Tegami o Okuri masu
 SCPS_151.08 Gunparade Orchestra : Midori no Shou : Ookami to Kare no Shounen
+SCPS_151.07 Gunparade Orchestra : Midori no Shou : Ookami to Kare no Shounen (Genteiban)
 SCPS_151.04 Gunparade Orchestra : Shiro no Shou : Aomori Penguin Densetsu
 SCPS_151.03 Gunparade Orchestra : Shiro no Shou : Aomori Penguin Densetsu (Genteiban)
 SLPS_253.43 Gunslinger Girl. Volume.I
@@ -4165,6 +4181,7 @@ SLKA_252.18 Hitman : Contracts
 SLPS_254.06 Hitman : Contracts
 SLUS_208.82 Hitman : Contracts
 SLPS_252.69 Hitman : Silent Assassin
+SLPS_254.03 Hitman : Silent Assassin
 SLPM_657.28 Hobbit no Bouken : Lord of the Rings : Hajimari no Monogatari
 SLES_522.47 Hobbit : Predystoriya Sagi ;Vlastelin Kolets;
 SLPM_664.39 Hokenshitsu e Youkoso (Shokai Genteiban)
@@ -4179,6 +4196,7 @@ SLES_544.69 Home Alone
 SLES_544.72 Home Alone
 SLES_545.32 Home Alone
 SLPM_659.63 Homemaid : Tsui no Yakata
+SLPM_659.62 Homemaid : Tsui no Yakata (Shokai Genteiban)
 SLES_518.12 Homerun
 SLES_539.64 Homura
 SLPM_626.85 Homura
@@ -4187,8 +4205,10 @@ SLPM_663.95 Honoo no Takuhaibin
 SLPS_251.46 Hooligan : Kimi no Naka no Yuuki
 SLES_550.91 Hoppie
 SLPM_620.72 Horse Breaker
+SLPM_622.00 Horse Breaker
 SLUS_215.63 Horsez
 SLPM_661.07 Hoshi no Furu Toki
+SLPM_661.06 Hoshi no Furu Toki (Genteiban)
 SLPM_669.00 Hoshi-iro no Okurimono
 SLPM_668.70 Hoshi-iro no Okurimono (Genteiban)
 SLPM_669.20 Hoshifuru : Hoshi no Furu Machi (Genteiban)
@@ -4893,6 +4913,8 @@ SLPM_651.23 Kikou Heidan J-Phoenix : Burst Tactics
 SLPM_651.99 Kikou Heidan J-Phoenix : Cobalt Shoutai-hen
 SLPS_200.75 Kikou Heidan J-Phoenix : Joshou-hen
 SCPS_151.14 Kikou Souhei Armodyne
+SCES_521.24 Kill Switch
+SLUS_207.06 Kill Switch
 SLES_533.66 Killer7
 SLPM_659.47 Killer7
 SLPM_667.44 Killer7
@@ -4924,6 +4946,7 @@ SLPM_668.35 Kin'iro no Corda 2 Encore
 SLPM_552.48 Kin'iro no Corda 3
 SLPS_250.64 Kindan no Pet : Seaman : Gassé Hakase no Jikken-tou
 SLPS_250.65 Kindan no Pet : Seaman : Gassé Hakase no Jikken-tou
+SLPS_250.66 Kindan no Pet : Seaman : Gassé Hakase no Jikken-tou
 SCUS_971.32 Kinetica
 SCUS_971.61 Kinetica (Demo)
 SLES_528.61 King Arthur
@@ -5032,6 +5055,7 @@ SLPM_661.61 Kokoro no Tobira
 SLPS_253.49 Kokoro no Tobira
 SLPS_253.48 Kokoro no Tobira (Shokai Genteiban)
 SLPM_656.46 Komorebi no Namikimichi : Utsurikawaru Kisetsu no Naka de (Shokai Genteiban)
+SLPM_668.02 Komorebi no Namikimichi : Utsurikawaru Kisetsu no Naka de (Shokai Genteiban)
 SLUS_292.00 Konami Kids Playground (Demo)
 SLUS_215.59 Konami Kids Playground : Alphabet Circus
 SLUS_215.56 Konami Kids Playground : Dinosaurs : Shapes & Colors
@@ -5080,6 +5104,7 @@ SLUS_210.07 Kuon
 SLPM_667.70 Kuon no Kizuna : Sairinshou
 SLPS_251.36 Kuon no Kizuna : Sairinshou
 SLPM_654.77 Kurenai no Umi 2 : Crimson Sea
+SLPM_664.23 Kurenai no Umi 2 : Crimson Sea
 SLES_502.24 Kuri Kuri Mix
 SLPS_250.13 Kuri Kuri Mix
 SLPM_601.27 Kuri Kuri Mix (Taikenban)
@@ -5506,7 +5531,8 @@ SLPS_201.11 Magical Sports 2001 Pro Yakyuu
 SLPS_200.37 Magical Sports GoGoGolf
 SLPS_202.43 Magical Sports GoGoGolf
 SLPM_601.16 Magical Sports GoGoGolf (Taikenban)
-SLPM_659.65 Magical Tale : Chiicha na Mahoutsukai
+SLPM_659.65 Magical Tale : Chitcha na Mahoutsukai
+SLPM_659.64 Magical Tale : Chitcha na Mahoutsukai (Shokai Genteiban)
 SLPS_254.01 Magna Carta
 SLPS_732.16 Magna Carta
 SCKA_200.43 Magna Carta : Jinhongui Seongheun
@@ -5550,6 +5576,7 @@ SLPS_202.80 Mahou no Pumpkin : Ann to Greg no Daibouken
 SLPM_661.64 Mahoutsukai Kuro-hime
 SLPS_255.08 Mai-HiME : Unmei no Keitouju
 SLPS_256.14 Mai-HiME : Unmei no Keitouju
+SLPS_255.07 Mai-HiME : Unmei no Keitouju (DX Pack)
 SLPS_256.81 Mai-Otome HiME : Otome Butoushi^!^!
 SLPM_550.31 Majin Tantei Nougami Neuro : Battle da yo^! Hannin Shuugou^!
 SLPM_667.55 Majokko A La Mode II : Mahou to Ken no Struggle
@@ -6135,8 +6162,8 @@ SCUS_972.63 My Street (Demo)
 SLPM_551.64 Myself; Yourself
 SLPM_668.92 Myself; Yourself
 SLPM_668.91 Myself; Yourself (Shokai Genteiban)
-SLPM_551.62 Myself; Yourself : Sorezore no Finale (Shokai Genteiban)
-SLPM_551.63 Myself; Yourself : Sorezore no Finale (Shokai Genteiban)
+SLPM_551.62 Myself; Yourself : Sorezore no Finale
+SLPM_551.63 Myself; Yourself : Sorezore no Finale
 SLES_507.26 Myst III : Exile
 SLPS_252.31 Myst III : Exile
 SLUS_204.34 Myst III : Exile
@@ -6617,7 +6644,6 @@ SLPM_742.37 New Jinsei Game
 SLPM_742.73 New Jinsei Game
 SLPM_652.35 New Roommania : Porori Seishun
 SLPM_680.14 Newtype Gundam Game Special Disc
-SLPM_669.26 NiGHTS into Dreams...
 SLPS_251.01 Nichibeikan Pro Yakyuu : Final League
 SLES_551.12 Nick Jr. Dora the Explorer : Dora Saves the Mermaids
 SLES_552.88 Nick Jr. Dora the Explorer : Dora Saves the Mermaids
@@ -6720,6 +6746,7 @@ SLES_549.90 Nicktoons : Attack of the Toybots
 SLUS_216.05 Nicktoons : Attack of the Toybots
 SLUS_214.69 Nicktoons : Battle for Volcano Island
 SLPM_669.36 Night Wizard the Video Game : Denial of the World
+SLPM_669.26 Nights into Dreams...
 SLES_522.38 Nightshade
 SLUS_208.10 Nightshade
 SLPM_651.30 Nihon Daihyou Senshu ni Narou^!
@@ -6735,7 +6762,6 @@ SLUS_204.92 Ninja Assault
 SLES_535.70 Ninjabread Man
 SLPM_662.74 Ninkyouden : Toseinin Ichidaiki
 SLPM_611.44 Ninkyouden : Toseinin Ichidaiki (Taikenban)
-SLPS_253.24 Nishikaze no Rhapsody : The Rhapsody of Zephyr (Shokai Genteiban)
 SLES_551.92 Nitrobike
 SLUS_217.38 Nitrobike
 SLES_539.58 Noble Racing
@@ -6778,13 +6804,13 @@ SLPM_551.92 Nuga-Cel^! Nurture Garment Celebration (Genteiban)
 SLPM_551.93 Nuga-Cel^! Nurture Garment Celebration (Genteiban)
 SLPM_654.57 Nurse Witch Komugi-chan : Maji-Karte
 SLES_533.55 Obliterate
-SLES_525.08 ObsCure
-SLES_527.37 ObsCure
-SLES_527.38 ObsCure
-SLES_533.22 ObsCure
-SLUS_207.77 ObsCure
-SLES_547.82 ObsCure II
-SLUS_217.09 ObsCure : The Aftermath
+SLES_525.08 Obscure
+SLES_527.37 Obscure
+SLES_527.38 Obscure
+SLES_533.22 Obscure
+SLUS_207.77 Obscure
+SLES_547.82 Obscure II
+SLUS_217.09 Obscure : The Aftermath
 SLES_550.47 Ocean Commander
 SCKA_201.07 Odin Sphere
 SLES_551.10 Odin Sphere
@@ -7081,6 +7107,7 @@ SCED_521.94 Official PlayStation 2 Magazine-UK Special Edition 19 : 2004 Classic
 SCED_521.96 Official PlayStation 2 Magazine-UK Special Edition 20 : It's Here^!
 SCED_514.44 Official PlayStation 2 Magazine-UK : Crime Special
 SCED_536.11 Official PlayStation 2 Magazine : German Kids Special
+SCED_540.34 Official PlayStation 2 Magazine : Special Edition 2006/01
 SCUS_974.52 Official U.S. PlayStation Magazine Demo Disc 100
 SCUS_974.53 Official U.S. PlayStation Magazine Demo Disc 101
 SCUS_974.54 Official U.S. PlayStation Magazine Demo Disc 102
@@ -7675,6 +7702,7 @@ SLPM_659.35 Princess Maker 4 (Collector's Edition)
 SLPM_669.18 Princess Maker 5
 SLPM_669.73 Princess Nightmare
 SLPS_256.94 Princess Princess : Hime-tachi no Abunai Houkago
+SLPS_256.93 Princess Princess : Hime-tachi no Abunai Houkago (Shokai Genteiban)
 SLPM_620.25 PrintFan
 SLPM_668.46 Prism Ark : Awake
 SLPM_610.27 Prismix : PlayStation 2 Sen'you Music Visual Soft : Demo Disc Vol. 1
@@ -7738,7 +7766,6 @@ SLPS_251.10 Project FIFA World Cup : Sorenara Kimi ga Daihyou Kantoku
 SLPM_651.65 Project Minerva
 SLPM_675.45 Project Minerva
 SLES_524.72 Project Minerva Professional
-SLPM_653.44 Project Minerva Professional
 SLES_508.21 Project Zero
 SLES_538.25 Project Zero 3
 SLES_523.84 Project Zero II : Crimson Butterfly
@@ -7795,6 +7822,7 @@ SLPM_667.57 Que : Ancient Leaf no Yousei
 SLPM_667.56 Que : Ancient Leaf no Yousei (Shokai Genteiban)
 SLES_537.48 Quest for Sleeping Beauty
 SLES_504.96 Qui Veut Gagner des Millions : Seconde Edition
+SLPM_667.35 Quilt : Anata to Tsumugu Yume to Koi no Dress
 SLPM_667.34 Quilt : Anata to Tsumugu Yume to Koi no Dress (Shokai Genteiban)
 SLPM_624.24 Quiz & Variety : Suku Suku Inufuku
 SLPM_626.30 Quiz & Variety : Suku Suku Inufuku
@@ -7811,7 +7839,6 @@ SLES_523.09 R :Racing
 SLUS_207.21 R :Racing Evolution
 SLPM_602.16 R :Racing Evolution (Taikenban)
 SLPS_253.00 R :Racing Evolution : Life in the Fast Lane
-SLPS_252.64 RAhXEPhON : Soukyuu Gensoukyoku
 SLES_500.77 RC Revenge Pro
 SLPM_620.44 RC Revenge Pro
 SLUS_201.53 RC Revenge Pro
@@ -7864,6 +7891,7 @@ SLES_512.35 Raging Blades
 SCPS_510.11 Raging Bless : Gouma Mokushiroku
 SLPS_201.98 Raging Bless : Gouma Mokushiroku
 SLPM_645.21 Raging Bless : Hangma Muksirok
+SLPS_252.64 Rahxephon : Soukyuu Gensoukyoku
 SLES_538.29 Raiden III
 SLPM_626.90 Raiden III
 SLUS_214.65 Raiden III
@@ -8425,6 +8453,7 @@ SLPM_742.09 Samurai-dou 2 : Kettouban
 SLPM_653.80 Samurai-dou 2 : Way of the Samurai 2
 SLPM_651.62 San Guo Zhi Zhan Ji
 SLPM_552.89 Sangoku Rensenki : Otome no Heihou^!
+SLPM_550.49 Sangokushi 11
 SLPM_665.49 Sangokushi 11
 SLPM_551.12 Sangokushi 11 with Power-Up Kit
 SLPM_667.01 Sangokushi 11 with Power-Up Kit
@@ -8637,6 +8666,7 @@ SLAJ_250.93 Sengoku Musou
 SLPM_655.17 Sengoku Musou
 SLPM_742.12 Sengoku Musou
 SLPM_742.35 Sengoku Musou
+SLPM_627.16 Sengoku Musou & Sengoku Musou : Moushouden Saikyou Data
 SLAJ_250.77 Sengoku Musou 2
 SLPM_663.07 Sengoku Musou 2
 SLPM_627.68 Sengoku Musou 2 & Sengoku Musou 2 : Empires Saikyou Data
@@ -8871,6 +8901,7 @@ SLPM_627.51 Shin Sangoku Musou Series Collection Gekan Saikyou Data
 SLPM_627.15 Shin Sangoku Musou Series Collection Joukan Saikyou Data
 SLPS_252.99 Shin Seiki Evangelion 2 : Evangelions
 SLPM_653.34 Shin Seiki Evangelion : Ayanami Ikusei Keikaku with Asuka Hokan Keikaku (Shokai Genteiban)
+SLPM_660.97 Shin Seiki Evangelion : Ayanami Ikusei Keikaku with Asuka Hokan Keikaku (Shokai Genteiban)
 SLPM_667.63 Shin Seiki Evangelion : Battle Orchestra
 SLPM_669.57 Shin Seiki Evangelion : Battle Orchestra
 SLPM_658.67 Shin Seiki Evangelion : Koutetsu no Girlfriend 2nd
@@ -8916,6 +8947,7 @@ SLPM_658.23 Shinsengumi Gunrouden
 SLPM_611.01 Shinsengumi Gunrouden (Taikenban)
 SLPM_655.72 Shinten Makai : Generation of Chaos IV
 SLPM_660.25 Shinten Makai : Generation of Chaos IV
+SLPM_655.71 Shinten Makai : Generation of Chaos IV (Genteiban)
 SLPM_660.55 Shinten Makai : Generation of Chaos V
 SLPM_664.93 Shinten Makai : Generation of Chaos V
 SLPM_660.54 Shinten Makai : Generation of Chaos V (Genteiban)
@@ -8942,6 +8974,7 @@ SLPM_666.33 Shoujo Mahou Gaku Littlewitch Romanesque : Aria to Kaya to Kuro no T
 SLPM_653.64 Shoujo Yoshitsune-den
 SLPM_660.41 Shoujo Yoshitsune-den
 SLPM_653.63 Shoujo Yoshitsune-den (Tokubetsu-ban)
+SLPM_659.89 Shoujo Yoshitsune-den Ni : Toki o Koeru Chigiri
 SLPM_659.88 Shoujo Yoshitsune-den Ni : Toki o Koeru Chigiri (Tokubetsu-ban)
 SLPM_626.19 Shoujo Yoshitsune-jong : Benkei no Naki Dokoro
 SLPM_668.72 Shoukan Shoujo : Elemental Girl Calling
@@ -9056,6 +9089,8 @@ SLPM_620.93 Simple 2000 Series Ultimate Vol. 1 : Love * Smash^!
 SLPM_625.42 Simple 2000 Series Ultimate Vol. 20 : Love * Mahjong^! 2
 SLPM_625.58 Simple 2000 Series Ultimate Vol. 21 : Kenka Joutou^! Yankee Banchou : Shouwa 99-nen no Densetsu
 SLPM_625.71 Simple 2000 Series Ultimate Vol. 22 : Stylish Mahjong : Usagi : Yasei no Touhai & Usagi : Yasei no Touhai : The Arcade Double Pack
+SLPM_653.44 Simple 2000 Series Ultimate Vol. 23 : Project Minerva Professional
+SLPM_658.73 Simple 2000 Series Ultimate Vol. 23 : Project Minerva Professional
 SLPM_626.16 Simple 2000 Series Ultimate Vol. 25 : Chou Saisoku^! Zokusha King Bore Up no Bore Up : Butchigiri Densetsu 2 Kai
 SLPM_626.35 Simple 2000 Series Ultimate Vol. 26 : Love * Smash^! 5.1 : Tennis Robo no Hanran
 SLPM_655.79 Simple 2000 Series Ultimate Vol. 27 : Houkago no Love Beat
@@ -9108,6 +9143,7 @@ SLPM_622.34 Simple 2000 Series Vol. 13 : Onna no Ko no Tame no : The Ren'ai Adve
 SLPM_622.51 Simple 2000 Series Vol. 14 : The Billiard
 SLPM_622.32 Simple 2000 Series Vol. 15 : The Rugby
 SLPM_622.53 Simple 2000 Series Vol. 16 : The Sniper 2 : Akumu no Juudan
+SLPM_626.65 Simple 2000 Series Vol. 16 : The Sniper 2 : Akumu no Juudan
 SLPM_622.52 Simple 2000 Series Vol. 17 : The Suiri : Arata naru 20 no Jikenbo
 SLPM_622.72 Simple 2000 Series Vol. 18 : The Party Sugoroku
 SLPM_622.70 Simple 2000 Series Vol. 19 : The Ren'ai Simulation : Watashi ni Oma-Cafe
@@ -9123,6 +9159,7 @@ SLPM_623.09 Simple 2000 Series Vol. 25 : The Menkyo Shutoku Simulation
 SLPM_623.07 Simple 2000 Series Vol. 26 : The Pinball x3
 SLPM_623.28 Simple 2000 Series Vol. 27 : The Pro Yakyuu : 2003 Pennant Race
 SLPM_623.35 Simple 2000 Series Vol. 28 : The Bushidou : Tsujigiri Ichidai
+SLPM_626.64 Simple 2000 Series Vol. 28 : The Bushidou : Tsujigiri Ichidai
 SLPM_623.34 Simple 2000 Series Vol. 29 : The Ren'ai Board Game : Seishun 18 Radio
 SLPM_620.94 Simple 2000 Series Vol. 2 : The Party Game
 SLPM_623.37 Simple 2000 Series Vol. 30 : The Street Basketball : 3 on 3
@@ -9361,7 +9398,7 @@ SCES_538.98 SingStar Rocks^!
 SCUS_975.71 SingStar Rocks^!
 SCES_538.93 SingStar Rocks^! TMF
 SCES_540.25 SingStar Rocks^! with RTE 2fm
-SCES_552.41 SingStar Russian Hit
+SCES_552.41 SingStar Russkij Xit
 SCES_551.79 SingStar Schlager
 SCES_552.55 SingStar Singalong with Disney
 SCES_553.60 SingStar Singalong with Disney
@@ -9497,6 +9534,7 @@ SLUS_212.31 Sniper Elite
 SLES_541.57 SnoCross 2 featuring Blair Morgan
 SLUS_211.30 SnoCross 2 featuring Blair Morgan
 SLUS_213.80 Snoopy vs. the Red Baron
+SLPS_253.42 Snow
 SLPS_253.32 Snow (Shokai Genteiban)
 SLES_539.36 Snow Rider
 SLES_546.20 Snow White & the 7 Clever Boys
@@ -9926,6 +9964,7 @@ SLPM_620.16 Super Puzzle Bobble
 SLPM_645.12 Super Puzzle Bobble
 SLPM_601.15 Super Puzzle Bobble (Taikenban)
 SCCS_400.10 Super Puzzle Bobble 2
+SCPS_510.15 Super Puzzle Bobble 2
 SLPM_622.29 Super Puzzle Bobble 2
 SLPM_645.50 Super Puzzle Bobble 2
 SLKA_150.43 Super Puzzle Bobble Collection (Disc 1)
@@ -10320,6 +10359,7 @@ SLPM_656.78 Tennis no Oujisama : Smash Hit^! 2
 SLPM_660.11 Tennis no Oujisama : Smash Hit^! 2
 SLPM_654.51 Tennis no Oujisama : Smash Hit^! 2 (Genteiban)
 SLPM_654.52 Tennis no Oujisama : Smash Hit^! 2 (Genteiban)
+SLPM_654.53 Tennis no Oujisama : Smash Hit^! 2 (Genteiban)
 SLPM_624.34 Tennis no Oujisama : Smash Hit^! 2 : Original Anime Game
 SLPM_624.35 Tennis no Oujisama : Smash Hit^! 2 : Original Anime Game
 SLPM_624.36 Tennis no Oujisama : Smash Hit^! 2 : Original Anime Game
@@ -10389,6 +10429,8 @@ SLPS_257.34 The Battle of Yuu Yuu Hakusho : Shitou^! Ankoku Bujutsukai : 120% (F
 SLES_540.23 The Bible Game
 SLUS_211.75 The Bible Game
 SCES_545.56 The Big^! Mega Quiz
+SCES_548.57 The Big^! Movie Quiz
+SCES_550.99 The Big^! Pop Quiz
 SCES_545.26 The Big^! Sports Quiz
 SLUS_216.23 The Bigs
 SLUS_218.60 The Bigs 2
@@ -10589,6 +10631,7 @@ SLUS_291.38 The Punisher (Demo)
 SLES_541.24 The Quest for Aladdin's Treasure
 SLES_545.81 The Red Star
 SLUS_208.85 The Red Star
+SLPS_253.24 The Rhapsody of Zephyr (Shokai Genteiban)
 SLPM_659.19 The Rumble Fish
 SLES_509.87 The Scorpion King : Rise of the Akkadian
 SLUS_204.24 The Scorpion King : Rise of the Akkadian
@@ -10654,7 +10697,7 @@ SLES_535.28 The Suffering : Ties That Bind
 SLES_536.26 The Suffering : Ties That Bind
 SLUS_211.89 The Suffering : Ties That Bind
 SLED_536.27 The Suffering : Ties that Bind (Demo)
-SLES_511.80 The Sum of All Fears
+SLES_511.80 La Somme de toutes les peurs
 SLES_537.68 The Sword of Etheria
 SLUS_218.52 The Tale of Despereaux
 SLES_509.22 The Terminator : Dawn of Fate
@@ -10662,6 +10705,7 @@ SLUS_203.91 The Terminator : Dawn of Fate
 SLES_509.75 The Thing
 SLES_509.76 The Thing
 SLUS_203.71 The Thing
+SCED_509.43 The Third Plac3 : Demo 2002 (Demo)
 SLES_522.94 The Toys Room
 SLPM_625.66 The Typing of the Dead : Zombie Panic
 SLPM_602.58 The Typing of the Dead : Zombie Panic (Taikenban)
@@ -10801,6 +10845,7 @@ SLPS_254.13 ToHeart 2 (Shokai Genteiban)
 SLPM_668.56 Togainu no Chi : True Blood
 SLPM_651.18 Tokimeki Memorial 2 : Music Video Clips : Circus de Aimashou
 SLPM_650.80 Tokimeki Memorial 3 : Yakusoku no Ano Basho de
+SLPM_656.93 Tokimeki Memorial 3 : Yakusoku no Ano Basho de
 SLPM_651.45 Tokimeki Memorial : Girl's Side
 SLPM_653.65 Tokimeki Memorial : Girl's Side
 SLPM_657.45 Tokimeki Memorial : Girl's Side
@@ -10924,6 +10969,7 @@ SLES_546.35 Top Trumps Adventures Vol. 2 : Dogs & Dinosaurs
 SLES_551.25 Top Trumps : Doctor Who
 SLPS_254.47 Top o Nerae^! GunBuster
 SLPM_653.01 ToraCap^! Daash^!^!
+SLPM_653.02 ToraCap^! Daash^!^!
 SLPS_258.12 Tori no Hoshi : Aerial Planet
 SLPS_256.68 Torikago no Mukougawa
 SLES_539.01 Torino 2006
@@ -11067,6 +11113,7 @@ SLPS_201.74 Typing Ren'ai Hakusho : Boys Be...
 SLPS_201.75 Typing Ren'ai Hakusho : Boys Be...
 SLPS_201.63 Typing Shinken Shoubu : Musashi no Ken
 SLES_525.94 U-Move Super Sports
+SCKA_900.01 U : Underwater Unit
 SCPS_560.11 U : Underwater Unit
 SLPS_201.94 U : Underwater Unit
 SLPM_601.76 U : Underwater Unit (Taikenban)
@@ -11075,6 +11122,7 @@ SLES_529.09 UEFA Champions League 2004-2005
 SLES_529.10 UEFA Champions League 2004-2005
 SLES_529.11 UEFA Champions League 2004-2005
 SLES_529.12 UEFA Champions League 2004-2005
+SLED_530.85 UEFA Champions League 2004-2005 (Demo)
 SLES_545.11 UEFA Champions League 2006-2007
 SLES_545.12 UEFA Champions League 2006-2007
 SLES_545.13 UEFA Champions League 2006-2007
@@ -11297,6 +11345,7 @@ SCED_513.05 WRC II Extreme : Special Demo (Demo) (Press Kit)
 SCES_536.80 WRC avec Sébastien Loeb Édition 2005
 SCES_532.47 WRC : Rally Evolved
 SCES_501.39 WRC : World Rally Championship
+SLPM_744.06 WRC : World Rally Championship
 SLPS_250.99 WRC : World Rally Championship
 SLUS_204.19 WRC : World Rally Championship
 SCED_505.20 WRC : World Rally Championship (Demo)
@@ -11413,6 +11462,7 @@ SLPM_645.27 Way of the Samurai
 SLUS_204.07 Way of the Samurai
 SLES_522.75 Way of the Samurai 2
 SLUS_208.93 Way of the Samurai 2
+SLPM_664.49 We Are*
 SLPM_664.48 We Are* (Genteiban)
 SLES_538.28 We Love Katamari
 SLUS_212.30 We Love Katamari
@@ -11427,6 +11477,7 @@ SLUS_290.80 Whiplash (Demo)
 SLES_511.26 Whirl Tour
 SLUS_204.89 Whirl Tour
 SLPM_666.07 White Breath : Kizuna
+SLPM_666.06 White Breath : Kizuna (Genteiban)
 SLPM_662.14 White Clarity : And, the Tears Became You (Shokai Genteiban)
 SLPM_660.78 White Princess the Second : Yappari Ichizu ni Ittemo Soujanakutemo OK na Gotsugou Shugi Gakuen Ren'ai Adventure^!^!
 SLPM_665.88 White Princess the Second : Yappari Ichizu ni Ittemo Soujanakutemo OK na Gotsugou Shugi Gakuen Ren'ai Adventure^!^!
@@ -11444,6 +11495,7 @@ SLUS_216.15 Wild Arms 5
 SCPS_150.23 Wild Arms : Advanced 3rd
 SCPS_150.24 Wild Arms : Advanced 3rd
 SCPS_192.05 Wild Arms : Advanced 3rd
+SCPS_193.23 Wild Arms : Advanced 3rd
 SCPS_550.06 Wild Arms : Advanced 3rd
 SCPS_170.02 Wild Arms : Alter Code : F
 SCPS_192.51 Wild Arms : Alter Code : F
@@ -11489,6 +11541,7 @@ SLPM_653.85 Winning Post 6
 SLPM_661.73 Winning Post 6
 SLPM_665.59 Winning Post 6
 SLPM_655.82 Winning Post 6 Maximum 2004
+SLPM_658.93 Winning Post 6 : 2005-nendoban
 SLPM_658.94 Winning Post 6 : 2005-nendoban
 SLPM_660.87 Winning Post 7
 SLPM_662.28 Winning Post 7
@@ -11509,10 +11562,10 @@ SLES_500.35 Winter X Games Snowboarding
 SLES_506.70 Winter X Games Snowboarding 2
 SLUS_203.21 Winter X Games Snowboarding 2002
 SLES_532.19 Winx Club
-SCES_500.05 WipEout Fusion
-SLUS_204.62 WipEout Fusion
-SCED_507.68 WipEout Fusion (Demo)
-SCES_547.48 WipEout Pulse
+SCES_500.05 Wipeout Fusion
+SLUS_204.62 Wipeout Fusion
+SCED_507.68 Wipeout Fusion (Demo)
+SCES_547.48 Wipeout Pulse
 SLES_537.16 Without Warning
 SLUS_211.56 Without Warning
 SLPM_624.09 Wizardry Empire III : Haou no Keifu
@@ -11741,6 +11794,7 @@ SLPS_203.15 Yamasa Digi World SP : Neo Magic Pulsar XX
 SLPS_202.27 Yamasa Digi World SP : Neo Planett XX
 SLPS_203.55 Yamasa Digi World SP : Neo Planett XX
 SLPS_202.89 Yamasa Digi World SP : Umi Ichiban R
+SLPS_203.57 Yamasa Digi World SP : Umi Ichiban R
 SLPM_662.96 Yamiyo ni Sasayaku : Tantei Sagara Kyouichirou
 SLPM_662.95 Yamiyo ni Sasayaku : Tantei Sagara Kyouichirou (Genteiban)
 SLUS_202.78 Yanya Caballista : City Skater
@@ -11811,7 +11865,7 @@ SLPS_254.99 Yuu Yuu Hakusho Forever
 SLPM_622.45 Yuusei kara no Buttai X : Episode II
 SLPM_624.19 Yuusei kara no Buttai X : Episode II
 SLES_509.74 Zapper
-SLUS_205.28 Zapper : One Wicked Cricket
+SLUS_205.28 Zapper
 SLUS_212.54 Zatch Bell^! Mamodo Battles
 SLUS_213.63 Zatch Bell^! Mamodo Fury
 SLES_536.96 Zathura
@@ -11892,8 +11946,6 @@ SLES_509.33 eJay Clubworld : The Music Making Experience
 SLUS_205.25 eJay Clubworld : The Music Making Experience
 SLPM_552.41 ef : A Fairy Tale of the Two.
 SLPM_552.40 ef : A Fairy Tale of the Two. (Shokai Gentei)
-SCES_521.24 kill.switch
-SLUS_207.06 kill.switch
 SLPM_654.84 wordimagesoundplay
 SLPS_258.03 xxxHOLiC : Watanuki no Izayoi Souwa
 SLES_546.04 ¡Qué Pasa Neng^! El Videojuego

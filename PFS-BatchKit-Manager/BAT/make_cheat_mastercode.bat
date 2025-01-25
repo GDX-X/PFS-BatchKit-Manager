@@ -14,7 +14,8 @@ if !errorlevel!==1 (
 echo Example: E:\
 set /p "HDDPATH=Enter the path where yours CD DVD folder located:"
 if "!HDDPATH!"=="" set "HDDPATH="
-) else (set HDDPATH=%rootpath%)
+)
+if not defined HDDPATH set HDDPATH=%rootpath%
 
 set filepath="!HDDPATH!\DVD\*.iso" "!HDDPATH!\DVD\*.cue" "!HDDPATH!\CD\*.iso" "!HDDPATH!\CD\*.cue"
 

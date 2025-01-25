@@ -1,6 +1,6 @@
 @echo off
 if not defined UpdateAPPS cls
-title PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
 
 set GithubUPDATE=no
 mkdir "%rootpath%\TMP" >nul 2>&1
@@ -695,7 +695,7 @@ echo\
   if !USEOPL!==STABLE "%rootpath%\BAT\7-Zip\7z" x -bso0 "%rootpath%\BAT\APPS.zip" -o"%rootpath%\TMP" "APPS\Open PS2 Loader Stable" -r -y & move "%rootpath%\TMP\APPS\Open PS2 Loader Stable\*.ELF" "%rootpath%\TMP\OPNPS2LD.ELF" >nul 2>&1
   endlocal
 
-title PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
 REM HDD-OSD, PSBBN, XMB
 IF !@APPHDDOSD!==Yes (
 echo\

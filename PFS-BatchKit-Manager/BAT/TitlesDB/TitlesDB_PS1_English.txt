@@ -1,4 +1,4 @@
-TITLES = https://github.com/GDX-X/Title-Database-Scrapper (type: PS1 English version: 20241010191435)
+TITLES = https://github.com/GDX-X/Title-Database-Scrapper (type: PS1 English version: 20250124105231)
 SLPM_802.38 '98 Koushien (Taikenban)
 SLPS_012.04 '98 Koushien: Koukou Yakyuu Simulation
 SLPS_021.10 '99 Koushien
@@ -59,6 +59,7 @@ SCUS_946.01 3D Lemmings
 SIPS_600.02 3D Lemmings
 SLPS_004.61 3D Mission Shooting: Finalist
 SLPS_006.54 3D Shooting Tkool
+PCPX_960.70 3D-Kaleidoscope: Baby Universe
 SCPS_180.06 3D-Kaleidoscope: Baby Universe
 SCUS_942.31 3Xtreme
 SCUS_943.65 3Xtreme (Demo)
@@ -366,8 +367,8 @@ SLPM_865.95 Angelique: Tenkuu no Requiem
 SLES_040.71 Animal Football
 SLES_040.36 Animal Snap: Rescue Them 2 by 2
 SLUS_007.84 Animaniacs: Ten Pin Alley
-SLPS_018.30 Animetic Story Game 1: Card Captor Sakura (Disc 1)
-SLPS_018.31 Animetic Story Game 1: Card Captor Sakura (Disc 2)
+SLPS_018.30 Animetic Story Game 1: Cardcaptor Sakura (Disc 1)
+SLPS_018.31 Animetic Story Game 1: Cardcaptor Sakura (Disc 2)
 SLUS_010.10 Animorphs: Shattered Reality
 SLPS_010.68 Ankh: Tutankhamen no Nazo (Disc 1)
 SLPS_010.69 Ankh: Tutankhamen no Nazo (Disc 2)
@@ -1171,10 +1172,10 @@ SLPM_867.67 Captain Love
 SLPS_003.10 Captain Tsubasa J: Get in the Tomorrow
 SLPM_870.60 Captain Tsubasa: Arata naru Densetsu Joshou
 SLUS_004.94 Car and Driver Presents: Grand Tour Racing '98
-SLPS_025.61 Card Captor Sakura: Clowcard Magic
-SLPS_025.60 Card Captor Sakura: Clowcard Magic (Genteiban)
 SLUS_013.79 Card Games
 SLES_032.06 Card Shark
+SLPS_025.61 Cardcaptor Sakura: Clow Card Magic
+SLPS_025.60 Cardcaptor Sakura: Clow Card Magic (Genteiban)
 SCES_010.43 Cardinal Syn
 SCES_010.77 Cardinal Syn
 SCES_012.05 Cardinal Syn
@@ -1904,7 +1905,6 @@ PBPX_950.07 Demo One (Version 6)
 PBPX_950.08 Demo One (Version 7)
 PCPX_960.03 DemoDemo PlayStation Soukan-gou Vol. 1
 PCPX_960.15 DemoDemo PlayStation Special
-PCPX_960.14 DemoDemo PlayStation Vol. 10
 PCPX_960.16 DemoDemo PlayStation Vol. 11
 PCPX_960.18 DemoDemo PlayStation Vol. 12
 PCPX_960.19 DemoDemo PlayStation Vol. 13
@@ -2077,6 +2077,7 @@ SLES_027.47 Die Hard Trilogy 2: Viva Las Vegas
 SLES_027.48 Die Hard Trilogy 2: Viva Las Vegas
 SLES_027.49 Die Hard Trilogy 2: Viva Las Vegas
 SLUS_010.15 Die Hard Trilogy 2: Viva Las Vegas
+SLPS_007.80 Die Katze von Schrödinger
 SLES_035.88 Die Millionen Show
 SLES_005.74 Die Stadt der verlorenen Kinder
 SLPS_005.49 DigiCro: Digital Number Crossword
@@ -5422,7 +5423,6 @@ SLPS_001.28 Makeruna^! Makendou 2
 SLES_029.79 Manager de Liga 2001
 SLES_036.07 Manager de Liga 2002
 SLUS_014.71 Marble Master
-SLPS_017.38 Marby Baby Story
 SLES_038.68 Marcel Desailly Pro Football
 SLUS_005.26 March Madness '98
 SLPS_022.40 Maria 2: Jutai Kokuchi no Nazo (Disc 1)
@@ -5622,6 +5622,7 @@ SLES_035.22 Men in Black: The Series: Crashdown
 SLES_035.23 Men in Black: The Series: Crashdown
 SLUS_013.87 Men in Black: The Series: Crashdown
 SLPS_026.85 Menkyo o Torou
+SLPM_805.49 Menkyo o Torou (Taikenban)
 SLPM_805.66 Menkyo o Torou (Taikenban)
 SCED_022.56 Mental Wealth: ECTS '99 Demo Disc
 SLPS_016.64 Meremanoid
@@ -5760,11 +5761,28 @@ SLES_040.57 Miracle Space Race
 SLUS_015.56 Miracle Space Race
 SLPS_001.10 Miracle World: Fushigi no Kuni no IQ Meiro
 SLPS_021.43 Mirano no Arbeit Collection
+PCPX_960.43 MiruMiru PlayStation Vol. 2 (Disc 1)
+PCPX_960.44 MiruMiru PlayStation Vol. 2 (Disc 2)
+PCPX_961.17 MiruMiru PlayStation Vol. 23
+PCPX_961.20 MiruMiru PlayStation Vol. 24
+PCPX_961.23 MiruMiru PlayStation Vol. 25
+PCPX_961.24 MiruMiru PlayStation Vol. 26
+PCPX_961.31 MiruMiru PlayStation Vol. 27
 PCPX_961.32 MiruMiru PlayStation Vol. 28
 PCPX_961.39 MiruMiru PlayStation Vol. 29
+PCPX_960.45 MiruMiru PlayStation Vol. 3 (Disc 1)
+PCPX_960.46 MiruMiru PlayStation Vol. 3 (Disc 2)
+PCPX_961.41 MiruMiru PlayStation Vol. 30
 PCPX_961.44 MiruMiru PlayStation Vol. 31
+PCPX_961.51 MiruMiru PlayStation Vol. 33
 PCPX_961.55 MiruMiru PlayStation Vol. 34
+PCPX_961.58 MiruMiru PlayStation Vol. 35
+PCPX_961.62 MiruMiru PlayStation Vol. 36
+PCPX_961.69 MiruMiru PlayStation Vol. 37
+PCPX_961.72 MiruMiru PlayStation Vol. 38
+PCPX_961.75 MiruMiru PlayStation Vol. 39
 PCPX_960.53 MiruMiru PlayStation Vol. 4 (Disc 3)
+PCPX_961.81 MiruMiru PlayStation Vol. 40
 PCPX_961.92 MiruMiru PlayStation Vol. 42
 PCPX_961.96 MiruMiru PlayStation Vol. 43
 SLPS_012.76 Misa no Mahou Monogatari (Disc 1)
@@ -5951,7 +5969,6 @@ SCES_030.85 Ms. Pac-Man Maze Madness
 SLPS_030.00 Ms. Pac-Man Maze Madness
 SLUS_010.18 Ms. Pac-Man Maze Madness
 SLUS_900.80 Ms. Pac-Man Maze Madness (Demo)
-SLES_038.70 Mundial 2002 Challenge
 SCES_024.03 Muppet Monster Adventure
 SCES_030.90 Muppet Monster Adventure
 SCES_030.91 Muppet Monster Adventure
@@ -6773,7 +6790,6 @@ SLPM_804.43 Paca Paca Passion (Taikenban)
 SLPS_027.20 Paca Paca Passion 2
 SLPS_034.20 Paca Paca Passion Special
 SLPS_002.88 Pachi Pachi Saga
-SLPS_027.82 Pachi Slot Teiou W: Arabesque R, Hot Rod Queen
 SLPS_018.48 Pachi Slot Teiou: Big Wave, Pika Gorou, BB Junky 7
 SLPS_019.68 Pachi-Slot Aruze Oukoku
 SLPS_024.16 Pachi-Slot Aruze Oukoku 2
@@ -7309,6 +7325,7 @@ SLUS_001.26 Primal Rage
 SLES_027.02 Primera División Stars
 SLES_000.17 Prince Naseem Boxing
 SLPM_865.90 Princess Maker: Go^! Go^! Princess
+SLPS_015.05 Princess Maker: Go^! Go^! Princess
 SLPM_865.91 Princess Maker: Pocket Daisakusen
 SLPS_014.77 Princess Maker: Pocket Daisakusen
 SCPS_100.32 Princess Maker: Yumemiru Yousei
@@ -7954,7 +7971,6 @@ SLES_036.28 Sabrina l'Apprentie Sorcière et l'Horloge Cosmique
 SLES_035.61 Sabrina the Teenage Witch: A Twitch in Time^!
 SLUS_012.08 Sabrina the Teenage Witch: A Twitch in Time^!
 SLPS_026.11 Saibara Rieko no Mahjong Toriatama Kikou
-SLPS_034.82 Saikyou Ginsei Chess
 SLPS_034.61 Saikyou Ginsei Mahjong
 SLPS_033.26 Saikyou Ginsei Shougi
 SLPS_034.81 Saikyou Ginsei Shougi 2
@@ -8039,12 +8055,12 @@ SLPS_027.63 Saraba Uchuu Senkan Yamato: Ai no Senshi-tachi (Disc 3)
 SCPS_100.91 Saru^! Get You^!
 SCPS_911.96 Saru^! Get You^!
 PAPX_900.79 Saru^! Get You^! (Taikenban)
+PCPX_961.66 Saru^! Get You^! (Taikenban)
 SCPS_100.84 Saru^! Get You^! (Taikenban)
 SCPS_453.96 Saru^! Get You^! (Taikenban)
 SLPS_012.03 SatelliTV
 SLPS_006.13 Satomi no Nazo
 SLES_041.77 Schnappi: Das kleine Krokodil: 3 Fun-Games
-SLPS_007.80 Schrödinger no Neko: Die Katze von Schrödinger
 LSP99016.101 Science Is Elementary 1
 LSP99016.201 Science Is Elementary 2
 LSP99016.301 Science Is Elementary 3
@@ -8815,14 +8831,12 @@ SLES_011.11 Star Wars: Masters of Teräs Käsi
 SLPS_014.64 Star Wars: Masters of Teräs Käsi
 SLUS_005.62 Star Wars: Masters of Teräs Käsi
 SLES_005.84 Star Wars: Rebel Assault II: The Hidden Empire (Disc 1)
-SLES_006.43 Star Wars: Rebel Assault II: The Hidden Empire (Disc 1)
 SLES_006.44 Star Wars: Rebel Assault II: The Hidden Empire (Disc 1)
 SLES_006.54 Star Wars: Rebel Assault II: The Hidden Empire (Disc 1)
 SLES_006.56 Star Wars: Rebel Assault II: The Hidden Empire (Disc 1)
 SLPS_006.38 Star Wars: Rebel Assault II: The Hidden Empire (Disc 1)
 SLUS_003.81 Star Wars: Rebel Assault II: The Hidden Empire (Disc 1)
 SLES_105.84 Star Wars: Rebel Assault II: The Hidden Empire (Disc 2)
-SLES_106.43 Star Wars: Rebel Assault II: The Hidden Empire (Disc 2)
 SLES_106.44 Star Wars: Rebel Assault II: The Hidden Empire (Disc 2)
 SLES_106.54 Star Wars: Rebel Assault II: The Hidden Empire (Disc 2)
 SLES_106.56 Star Wars: Rebel Assault II: The Hidden Empire (Disc 2)
@@ -9046,6 +9060,7 @@ SLPS_019.24 Super Robot Taisen F: Kanketsu-hen
 SLPS_912.17 Super Robot Taisen F: Kanketsu-hen
 SLPS_020.70 Super Robot Taisen: Complete Box (Disc 1) (Super Robot Wars Complete Box)
 SLPS_020.71 Super Robot Taisen: Complete Box (Disc 2) (History of Super Robot Wars)
+SCKA_010.01 Super Shot Soccer
 SLUS_014.64 Super Shot Soccer
 SLES_039.61 Super Slammin' Dodgeball
 SLPS_028.63 Super Tokusatsu Taisen 2001
@@ -9416,7 +9431,6 @@ SLED_014.67 Tenchu: Stealth Assassins (Demo)
 SLPS_007.12 Tenga Seiha
 SLPS_016.78 Tenka Touitsu
 SLPS_010.15 Tenkuu no Escaflowne
-SLPS_010.14 Tenkuu no Escaflowne (Genteiban)
 SLPM_865.84 Tenkuu no Restaurant
 SLPS_914.52 Tenkuu no Restaurant
 SLPM_867.34 Tenkuu no Restaurant: Hello^! Project Ver.
@@ -9458,7 +9472,7 @@ SLPS_017.20 Tetris Plus
 SLUS_003.38 Tetris Plus
 SLPS_003.21 Tetris X
 SLPS_910.36 Tetris X
-SLPS_028.86 Tetris with Card Captor Sakura: Eternal Heart
+SLPS_028.86 Tetris with Cardcaptor Sakura: Eternal Heart
 SLPS_001.64 Tetsudou-ou '96: Iku ze Okuman Chouja^!^!
 SLPS_010.12 Tetsudou-ou 2: Sekai Seifuku no Yabou^!^!
 SLPS_006.75 Tetsuya Komuro: Gaball Screen
@@ -9645,8 +9659,6 @@ SLPS_020.72 The Mystic Dragoons
 SLPS_021.03 The Mystic Dragoons
 SLPS_028.45 The Mystic Dragoons
 SLES_019.87 The Next Tetris
-SLPS_017.74 The Next Tetris
-SLPS_027.01 The Next Tetris
 SLUS_008.62 The Next Tetris
 SLPM_803.68 The Next Tetris (Taikenban)
 SLPS_025.07 The Next Tetris DLX
@@ -9726,6 +9738,7 @@ SLES_035.51 The Weakest Link
 SLUS_014.13 The Weakest Link
 SLUS_011.28 The Wild Thornberrys: Animal Adventures
 SLPS_008.72 The Witch of Salzburg
+SCPM_850.03 The World of Philosoma
 SCES_015.65 The X-Files (Disc 1)
 SCES_015.66 The X-Files (Disc 1)
 SCES_015.67 The X-Files (Disc 1)
@@ -10671,15 +10684,15 @@ SCED_014.41 Winter Releases '98
 SCED_009.86 Winter Releases: '97 Demo 01
 SCES_019.09 Wip3out
 SCED_021.97 Wip3out (Demo)
-SCES_000.10 WipEout
-SCUS_943.01 WipEout
-SIPS_600.03 WipEout
-SLES_003.27 WipEout 2097
-SLED_004.98 WipEout 2097 (Demo)
-SCPS_100.98 WipEout 3
-SLUS_008.65 WipEout 3
-SLUS_900.63 WipEout 3 (Demo)
-SCES_028.45 WipEout 3: Special Edition
+SCES_000.10 Wipeout
+SCUS_943.01 Wipeout
+SIPS_600.03 Wipeout
+SLES_003.27 Wipeout 2097
+SLED_004.98 Wipeout 2097 (Demo)
+SCPS_100.98 Wipeout 3
+SLUS_008.65 Wipeout 3
+SLUS_900.63 Wipeout 3 (Demo)
+SCES_028.45 Wipeout 3: Special Edition
 SCPS_450.78 Wipeout XL
 SCUS_943.51 Wipeout XL
 SIPS_600.10 Wipeout XL
@@ -10998,7 +11011,7 @@ SLPM_804.66 Zipangu: Unmei wa Saikoro ga Kimeru^!? (Taikenban)
 SLUS_014.01 Zoboomafoo: Leapin' Lemurs^!
 SLPS_033.89 Zoids 2: Heric Kyouwakoku vs. Guylos Teikoku
 SLPS_032.55 Zoids: Battle Card Game: Seihou Tairiku Senki
-SLPS_029.82 Zoids: Teikoku vs Kyouwakoku: Meka Seitai no Idenshi
+SLPS_029.82 Zoids: Teikoku vs. Kyouwakoku: Meka Seitai no Idenshi
 SLPS_004.88 Zoku Gussun Oyoyo
 SLPS_013.26 Zoku Hatsukoi Monogatari: Shuugaku Ryokou (Disc 1)
 SLPS_013.27 Zoku Hatsukoi Monogatari: Shuugaku Ryokou (Disc 2)

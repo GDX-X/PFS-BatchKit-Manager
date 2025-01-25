@@ -184,7 +184,7 @@ echo ---------------------------------------------------
 if !@TotalPS2HDD! gtr 1 (
    "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" | "%~dp0BAT\busybox" sed "s/hdd//g; s/://g" > "%~dp0TMP\hdl-hdd.txt" 
    
-   wmic diskdrive get name,model | "%~dp0BAT\busybox" sed "s/[[:space:]]*$//" > "%~dp0TMP\hdd-type.txt"
+   powershell -Command "Get-WmiObject -Query \"SELECT Model, Name FROM Win32_DiskDrive\" | Format-Table Model, Name, Status -AutoSize" | "%~dp0BAT\busybox" sed "s/[[:space:]]*$//" > "%~dp0TMP\hdd-type.txt"
    for /f "usebackq tokens=*" %%f in ("%~dp0TMP\hdl-hdd.txt") do "%~dp0BAT\busybox" grep "PHYSICALDRIVE%%f" "%~dp0TMP\hdd-type.txt" >> "%~dp0TMP\hdd-typetmp.txt"
    type "%~dp0TMP\hdd-typetmp.txt"
 
@@ -237,8 +237,8 @@ if !@TotalPS2HDD! gtr 1 (
 	REM GET HDD Informations
 	echo !@hdl_path!| "%~dp0BAT\busybox" sed "s/hdd//g; s/://g" > "%~dp0TMP\NumberPS2HDD.txt" & set /P @NumberPS2HDD=<"%~dp0TMP\NumberPS2HDD.txt"
 	set @pfsshell_path=\\.\PhysicalDrive!@NumberPS2HDD!
-    wmic diskdrive where "Index=!@NumberPS2HDD!" get Model | "%~dp0BAT\busybox" sed "s/USB Device//g; s/Disk Device//g; s/[[:space:]]*$//g; 1d" > "%~dp0TMP\ModelePS2HDD.txt" & set /P @ModelePS2HDD=<"%~dp0TMP\ModelePS2HDD.txt"
-	wmic diskdrive where "Index=!@NumberPS2HDD!" get Status | "%~dp0BAT\busybox" sed "s/[[:space:]]*$//g; 1d" > "%~dp0TMP\StatusPS2HDD.txt" & set /P @StatusPS2HDD=<"%~dp0TMP\StatusPS2HDD.txt" & if not defined @StatusPS2HDD set @StatusPS2HDD=UNKNOWN
+	powershell -Command "Get-WmiObject -Query \"SELECT Model FROM Win32_DiskDrive WHERE DeviceID='\\\\.\\PHYSICALDRIVE!@NumberPS2HDD!'\" | Select-Object -ExpandProperty Model" | "%~dp0BAT\busybox" sed "s/USB Device//g; s/Disk Device//g; s/[[:space:]]*$//g" > "%~dp0TMP\ModelePS2HDD.txt" & set /P @ModelePS2HDD=<"%~dp0TMP\ModelePS2HDD.txt"
+	powershell -Command "Get-WmiObject -Query \"SELECT Status FROM Win32_DiskDrive WHERE DeviceID='\\\\.\\PHYSICALDRIVE!@NumberPS2HDD!'\" | Select-Object -ExpandProperty Status" > "%~dp0TMP\StatusPS2HDD.txt" & set /P @StatusPS2HDD=<"%~dp0TMP\StatusPS2HDD.txt" & if not defined @StatusPS2HDD set @StatusPS2HDD=UNKNOWN
 	
 	"%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "!@hdl_path!" > "%~dp0TMP\TotalHDD_Size.txt"
 	for /f "usebackq tokens=2" %%s in ("%~dp0TMP\TotalHDD_Size.txt") do set TotalHDD_Size=%%s
@@ -263,8 +263,8 @@ cd /d "%~dp0" & IF EXIST "%~dp0TMP" rmdir /Q/S "%~dp0TMP" >nul 2>&1
 IF NOT EXIST "%~dp0TMP" MD "%~dp0TMP"
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -333,8 +333,8 @@ if "!choice!"=="20" (start https://github.com/GDX-X/PFS-BatchKit-Manager)
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 endlocal
 endlocal
 echo.------------------------------------------
@@ -389,8 +389,8 @@ endlocal
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 endlocal
 endlocal
 setlocal EnableDelayedExpansion
@@ -422,8 +422,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -473,8 +473,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -518,8 +518,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -573,8 +573,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -628,8 +628,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -708,8 +708,8 @@ for %%F in ( "APPDB.xml" ) do if %%~zF==0 (del "%%F" ) else (move "APPDB.xml" "%
 rmdir /Q/S "%~dp0TMP" >nul 2>&1
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -765,8 +765,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -809,8 +809,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -856,8 +856,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -912,8 +912,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -953,8 +953,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -996,8 +996,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -1054,8 +1054,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -1112,8 +1112,8 @@ if "!choice!"=="12" exit
 cd /d "%~dp0"
 cls
 IF NOT EXIST "%~dp0TMP" MD "%~dp0TMP" 
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -1168,8 +1168,8 @@ if "!choice!"=="12" exit
 "%~dp0BAT\Diagbox" gd 0f
 cd /d "%~dp0"
 cls
-title PFS BatchKit Manager v1.1.9 By GDX
-echo.PFS BatchKit Manager v1.1.9 By GDX
+title PFS BatchKit Manager v1.2.0 By GDX
+echo.PFS BatchKit Manager v1.2.0 By GDX
 echo.-------------------------------------------------------------------------------------------------------------
 endlocal
 endlocal
@@ -1722,6 +1722,7 @@ set /a gamecount+=1
 			if "!filename!"=="!fname!.zso" del "!fname!.iso" >nul 2>&1
 			if "!DelExtracted!"=="yes" del "!fname!.cue" >nul 2>&1 & del "!fname!.bin" >nul 2>&1 & del "!fname!.iso" >nul 2>&1 & del "!fname!.zso" >nul 2>&1 & del "!fname! (Track *).bin" >nul 2>&1 & del "!fname!.cue" >nul 2>&1
 			for %%o in (*.ico *.sys boot.kelf) do del "%%o" >nul 2>&1
+			echo !gameid!>> "%~dp0TMP\cfg.id"
 			"%~dp0BAT\Diagbox" gd 07
 			echo ---------------------------------------------------
 		)
@@ -1729,17 +1730,19 @@ set /a gamecount+=1
 endlocal
 )
 
-	 echo\
-	 cd /d "%~dp0CFG"
+	 cd /d "%~dp0CFG" & echo\
 	 echo device !@pfsshell_path! > "%~dp0TMP\pfs-OPLconfig.txt"
      echo mount !OPLPART! >> "%~dp0TMP\pfs-OPLconfig.txt"
 	 if defined CUSTOM_OPLPART echo mkdir OPL >> "%~dp0TMP\pfs-OPLconfig.txt"
      if defined CUSTOM_OPLPART echo cd OPL >> "%~dp0TMP\pfs-OPLconfig.txt"
 	 echo mkdir CFG >> "%~dp0TMP\pfs-OPLconfig.txt"
      echo cd CFG >> "%~dp0TMP\pfs-OPLconfig.txt"
-	 for %%f in (*.cfg) do (echo put %%f) >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 for /f "usebackq tokens=*" %%f in ("%~dp0TMP\cfg.id") do (
+	 echo rm %%f >> "%~dp0TMP\pfs-OPLconfig.txt"	  
+	 echo put %%f >> "%~dp0TMP\pfs-OPLconfig.txt"
+	 )
 	 echo cd .. >> "%~dp0TMP\pfs-OPLconfig.txt"
-	 echo rm games.bin >> "%~dp0TMP\pfs-OPLconfig.txt"	  
+	 echo rm games.bin >> "%~dp0TMP\pfs-OPLconfig.txt"
 	 echo umount >> "%~dp0TMP\pfs-OPLconfig.txt"
      echo exit >> "%~dp0TMP\pfs-OPLconfig.txt"
      type "%~dp0TMP\pfs-OPLconfig.txt" | "%~dp0BAT\pfsshell" >nul 2>&1
@@ -1792,7 +1795,7 @@ echo ---------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
 
 	"%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "Playstation 2 HDD" 2>&1 | "%~dp0BAT\busybox" sed "/!hdlhdd!/d" | "%~dp0BAT\busybox" grep -o "hdd[0-9]:\|hdd[0-9][0-9]:" | "%~dp0BAT\busybox" sed "s/hdd//g; s/://g" > "%~dp0TMP\hdl-hdd.txt"
-    wmic diskdrive get name,model | "%~dp0BAT\busybox" sed "s/[[:space:]]*$//" > "%~dp0TMP\hdd-type.txt"
+	powershell -Command "Get-WmiObject Win32_DiskDrive | Select-Object Model,DeviceID" > "%~dp0TMP\hdd-type.txt"
 	for /f "usebackq tokens=*" %%f in ("%~dp0TMP\hdl-hdd.txt") do "%~dp0BAT\busybox" grep "PHYSICALDRIVE%%f" "%~dp0TMP\hdd-type.txt" >> "%~dp0TMP\hdd-typetmp.txt"
 	
 	if exist "%~dp0TMP\hdd-typetmp.txt" type "%~dp0TMP\hdd-typetmp.txt"
@@ -1842,7 +1845,7 @@ echo ---------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
 "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "!hdlhdd!"
 "%~dp0BAT\Diagbox" gd 0f
-wmic diskdrive get name,model | findstr "Model !PhysicDrive1!"
+powershell -Command "Get-WmiObject Win32_DiskDrive | Select-Object Model,DeviceID" | findstr "Model !PhysicDrive1!" > "%~dp0TMP\__PhysicDrive1.txt" & type "%~dp0TMP\__PhysicDrive1.txt"
 "%~dp0BAT\Diagbox" gd 0e
 echo ---------------------------------------------------
 echo\
@@ -1852,7 +1855,7 @@ echo ---------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
 "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "!hdlhdd2!"
 "%~dp0BAT\Diagbox" gd 0f
-wmic diskdrive get name,model | findstr "Model !PhysicDrive2!"
+powershell -Command "Get-WmiObject Win32_DiskDrive | Select-Object Model,DeviceID" | findstr "Model !PhysicDrive2!" > "%~dp0TMP\__PhysicDrive2.txt" & type "%~dp0TMP\__PhysicDrive2.txt"
 "%~dp0BAT\Diagbox" gd 0e
 echo ---------------------------------------------------
 echo\
@@ -1970,7 +1973,7 @@ echo ---------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
 "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "!hdlhdd!"
 "%~dp0BAT\Diagbox" gd 0f
-wmic diskdrive get name,model | findstr "Model !PhysicDrive1!"
+type "%~dp0TMP\__PhysicDrive1.txt"
 "%~dp0BAT\Diagbox" gd 0e
 echo ---------------------------------------------------
 echo\
@@ -1980,7 +1983,7 @@ echo ---------------------------------------------------
 "%~dp0BAT\Diagbox" gd 03
 "%~dp0BAT\hdl_dump" query | "%~dp0BAT\busybox" grep "!hdlhdd2!"
 "%~dp0BAT\Diagbox" gd 0f
-wmic diskdrive get name,model | findstr "Model !PhysicDrive2!"
+type "%~dp0TMP\__PhysicDrive2.txt"
 "%~dp0BAT\Diagbox" gd 0e
 echo ---------------------------------------------------
 
@@ -4359,7 +4362,7 @@ echo\
 echo Scanning HDDs:
 echo ---------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-	wmic diskdrive get index,name,model | "%~dp0BAT\busybox" sort | "%~dp0BAT\busybox" sed "s/[[:space:]]*$//g" | "%~dp0BAT\busybox" sed "1d; $d" | "%~dp0BAT\busybox" cut -c8-500 | "%~dp0BAT\busybox" sed "/\\\\.\\\PHYSICALDRIVE0/d"
+	powershell -Command "Get-WmiObject Win32_DiskDrive | Select-Object Model,DeviceID" | "%~dp0BAT\busybox" sed "/\\\\.\\\PHYSICALDRIVE0/d" | "%~dp0BAT\busybox" grep "PHYSICALDRIVE"
 	"%~dp0BAT\Diagbox" gd 07
     echo ---------------------------------------------------
 	"%~dp0BAT\Diagbox" gd 0c
@@ -4421,7 +4424,7 @@ echo ---------------------------------------------------
 
 	echo\
 	"%~dp0BAT\busybox" sed -e "s/\\\\.\\\PhysicalDrive/PHYSICALDRIVE/g; s/://g" "%~dp0TMP\hdl-hdd.txt" > "%~dp0TMP\hdl-hddinfo.txt" & set /P @hdl_pathinfo=<"%~dp0TMP\hdl-hddinfo.txt"
-    wmic diskdrive get name,model,status > "%~dp0TMP\hdl-hddinfolog.txt"
+	powershell -Command "Get-WmiObject -Query \"SELECT Model, Name, Status FROM Win32_DiskDrive\" | Format-Table Model, Name, Status -AutoSize" > "%~dp0TMP\hdl-hddinfolog.txt"
     type "%~dp0TMP\hdl-hddinfolog.txt" | findstr "Model %@hdl_pathinfo%" | "%~dp0BAT\busybox" sed -e "3,100d" > "%~dp0TMP\hdl-hddinfotmp.txt" & type "%~dp0TMP\hdl-hddinfotmp.txt"
 	
 "%~dp0BAT\Diagbox" gd 0c
@@ -4517,7 +4520,7 @@ echo\
 echo Scanning HDDs:
 echo ---------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-	wmic diskdrive get index,name,model | "%~dp0BAT\busybox" sort | "%~dp0BAT\busybox" sed "s/[[:space:]]*$//g" | "%~dp0BAT\busybox" sed "1d; $d" | "%~dp0BAT\busybox" cut -c8-500 | "%~dp0BAT\busybox" sed "/\\\\.\\\PHYSICALDRIVE0/d"
+	powershell -Command "Get-WmiObject Win32_DiskDrive | Select-Object Model,DeviceID" | "%~dp0BAT\busybox" sed "/\\\\.\\\PHYSICALDRIVE0/d" | "%~dp0BAT\busybox" grep "PHYSICALDRIVE"
 	"%~dp0BAT\Diagbox" gd 07
     echo ---------------------------------------------------
 	"%~dp0BAT\Diagbox" gd 0c
@@ -4578,7 +4581,7 @@ echo ---------------------------------------------------
 
 	echo\
 	"%~dp0BAT\busybox" sed -e "s/\\\\.\\\PhysicalDrive/PHYSICALDRIVE/g; s/://g" "%~dp0TMP\hdl-hdd.txt" > "%~dp0TMP\hdl-hddinfo.txt" & set /P @hdl_pathinfo=<"%~dp0TMP\hdl-hddinfo.txt"
-    wmic diskdrive get name,model,status > "%~dp0TMP\hdl-hddinfolog.txt"
+    powershell -Command "Get-WmiObject -Query \"SELECT Model, Name, Status FROM Win32_DiskDrive\" | Format-Table Model, Name, Status -AutoSize" > "%~dp0TMP\hdl-hddinfolog.txt"
     type "%~dp0TMP\hdl-hddinfolog.txt" | findstr "Model %@hdl_pathinfo%" | "%~dp0BAT\busybox" sed -e "3,100d" > "%~dp0TMP\hdl-hddinfotmp.txt" & type "%~dp0TMP\hdl-hddinfotmp.txt"
 
     rmdir /Q/S "%~dp0\^!COPY_TO_USB_ROOT" >nul 2>&1
@@ -6527,12 +6530,9 @@ echo\
 echo Scanning Optical Drives:
 echo ---------------------------------------------------
     "%~dp0BAT\Diagbox" gd 03
-    wmic cdrom list brief
+    powershell -NoProfile -Command "Get-CimInstance -ClassName Win32_CDROMDrive | Select-Object Name, Drive, VolumeName"
     "%~dp0BAT\Diagbox" gd 07
-    echo.
     echo ---------------------------------------------------
-
-    echo\
     "%~dp0BAT\Diagbox" gd 06
 	echo Prepare your DISC for DUMP
 	echo\
@@ -6592,7 +6592,7 @@ echo ---------------------------------------------------
 	IF "!readspeed!"=="" set "readspeed=" & (goto DumpCDDVD)
 	)
 
-wmic cdrom list brief | "%~dp0BAT\busybox" sed "/Caption/d" | "%~dp0BAT\busybox" grep -o [A-Z]: > "%~dp0TMP\DriveSelected.txt" & set /P @DriveSelected=<"%~dp0TMP\DriveSelected.txt"
+powershell -NoProfile -Command "Get-CimInstance -ClassName Win32_CDROMDrive | Select-Object Name, Drive, VolumeName" | "%~dp0BAT\busybox" sed "/Caption/d" | "%~dp0BAT\busybox" grep -o [A-Z]: > "%~dp0TMP\DriveSelected.txt" & set /P @DriveSelected=<"%~dp0TMP\DriveSelected.txt"
 
 "%~dp0BAT\DiscImageCreator\cdrdao.exe" scanbus 2> "%~dp0TMP\DriveIDTMP.txt"
 "%~dp0BAT\busybox" cat "%~dp0TMP\DriveIDTMP.txt" | "%~dp0BAT\busybox" sed -e "1,2d" > "%~dp0TMP\DriveIDTMP2.txt"
@@ -11018,17 +11018,17 @@ echo       [!@hdl_path! !@TotalHDD_Size! - !@ModelePS2HDD!]
    
    if !mount!==IMG echo If after a minute nothing appears, close batch and check that you have not made an error in the paths
    REM Assign Drive Letter
-   wmic logicaldisk get caption | "%~dp0BAT\busybox" grep -o "[A-Z]:" | "%~dp0BAT\busybox" grep -o "[A-Z]" > "%~dp0TMP\LTR.txt"
-   "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /l a >nul 2>&1 | "%~dp0BAT\busybox" grep -o "DosDevices\\[A-Z]:" | "%~dp0BAT\busybox" cut -c12-12 >> "%~dp0TMP\LTR.txt"
+   powershell -Command "Get-Volume | Select-Object -ExpandProperty DriveLetter" | "%~dp0BAT\busybox" grep -o "[A-Z]" > "%~dp0TMP\LTR.txt"
+   "C:\Program Files\Dokan\!DokanFolder!\dokanctl.exe" /l a >nul 2>&1 | "%~dp0BAT\busybox" grep -o "DosDevices\\[A-Z]" | "%~dp0BAT\busybox" cut -c12-12 >> "%~dp0TMP\LTR.txt"
    
    echo ABCDEFGHIJKLMNOPQRSTUVWXYZ> "%~dp0TMP\LTRFree.txt"
    for /f "usebackq tokens=*" %%a in ("%~dp0TMP\LTR.txt") do "%~dp0BAT\busybox" sed -i "s/%%a//g; s/A//g; s/B//g" "%~dp0TMP\LTRFree.txt"
    "%~dp0BAT\busybox" cut -c0-1 "%~dp0TMP\LTRFree.txt" > "%~dp0TMP\LTRSelected.txt" & set /P DeviceLTR=<"%~dp0TMP\LTRSelected.txt"
    
    START /MIN CMD.EXE /C ""%~dp0BAT\pfsfuse" "--partition=!PartName!" !@pfsshell_path! !DeviceLTR! -o "volname=!PartName!""
-
+   
    :loopdrive
-   wmic logicaldisk get deviceid^,drivetype | "%~dp0BAT\busybox" grep -o "!DeviceLTR!:"> "%~dp0TMP\WINDOWLTR.TXT" & set /P WINDOWLTR=<"%~dp0TMP\WINDOWLTR.txt"
+   powershell -Command "Get-WmiObject -Class Win32_LogicalDisk | Where-Object { $_.DeviceID } | ForEach-Object { $_.DeviceID }" | "%~dp0BAT\busybox" grep -o "!DeviceLTR!:"> "%~dp0TMP\WINDOWLTR.TXT" & set /P WINDOWLTR=<"%~dp0TMP\WINDOWLTR.txt"
    if "!WINDOWLTR!"=="!DeviceLTR!:" start !DeviceLTR!:\ & goto exitloopdrive
    goto loopdrive
    :exitloopdrive
@@ -11133,7 +11133,7 @@ if defined UninstallDokanDriver (
    
    echo\
    echo Uninstall...
-   wmic product get name,IdentifyingNumber | "%~dp0BAT\busybox" grep "Dokan Library" | "%~dp0BAT\busybox" grep -o "[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]-[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]-[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]-[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]-[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]" > "%~dp0TMP\DokanProgUID.txt"
+   powershell -Command "Get-WmiObject -Class Win32_Product | Select-Object Name, IdentifyingNumber" | "%~dp0BAT\busybox" grep "Dokan Library" | "%~dp0BAT\busybox" grep -o "[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]-[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]-[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]-[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]-[A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9][A-Z0-9]" > "%~dp0TMP\DokanProgUID.txt"
    set /p DokanProgUID=<"%~dp0TMP\DokanProgUID.txt"
    msiexec.exe /x {!DokanProgUID!} /QN /norestart
    
